@@ -1,0 +1,31 @@
+local constants = require "light_and_shadows.constants"
+
+go.property("color", vmath.vector4(0.75, 0.75, 0.5, 0))
+go.property("shadow", vmath.vector4(0.25, 0.25, 0.2, 0))
+
+local function set(self)
+    constants.sun_color.x = self.color.x
+    constants.sun_color.y = self.color.y
+    constants.sun_color.z = self.color.z
+    constants.shadow_color.x = self.shadow.x
+    constants.shadow_color.y = self.shadow.y
+    constants.shadow_color.z = self.shadow.z
+
+    local pos = go.get_world_position()
+    constants.sun_position.x = pos.x
+    constants.sun_position.y = pos.y
+    constants.sun_position.z = pos.z
+end
+
+function init(self)
+    set(self)
+end
+
+-- Remove 'update' if the sun is static object
+function update(self, dt)
+    set(self)
+end
+
+function final(self)
+
+end

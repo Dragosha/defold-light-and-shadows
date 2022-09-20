@@ -1,0 +1,55 @@
+name: "particle"
+tags: "tile"
+vertex_program: "/light_and_shadows/materials/fog_particle/particlefx.vp"
+fragment_program: "/light_and_shadows/materials/fog_particle/particlefx.fp"
+vertex_space: VERTEX_SPACE_WORLD
+vertex_constants {
+  name: "view_proj"
+  type: CONSTANT_TYPE_VIEWPROJ
+  value {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 0.0
+  }
+}
+vertex_constants {
+  name: "mtx_view"
+  type: CONSTANT_TYPE_VIEW
+  value {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 0.0
+  }
+}
+fragment_constants {
+  name: "tint"
+  type: CONSTANT_TYPE_USER
+  value {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+}
+fragment_constants {
+  name: "fog_color"
+  type: CONSTANT_TYPE_USER
+  value {
+    x: 0.9
+    y: 0.9
+    z: 0.9
+    w: 1.0
+  }
+}
+fragment_constants {
+  name: "fog"
+  type: CONSTANT_TYPE_USER
+  value {
+    x: 10.0
+    y: 1000.0
+    z: 0.0
+    w: 0.0
+  }
+}

@@ -1,0 +1,20 @@
+// positions are in world space
+attribute highp vec4 position;
+attribute mediump vec2 texcoord0;
+
+uniform highp mat4 view_proj;
+uniform highp mat4 mtx_view;
+
+varying mediump vec2 var_texcoord0;
+varying highp vec4 var_position;
+varying highp vec4 var_view_position;
+
+void main()
+{
+    
+    gl_Position = view_proj * vec4(position.xyz, 1.0);
+    var_texcoord0 = texcoord0;
+
+    var_position = vec4(position.xyz, 1.0);
+    var_view_position = mtx_view * position;
+}

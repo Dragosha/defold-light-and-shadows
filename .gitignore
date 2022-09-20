@@ -1,0 +1,17 @@
+/.internal
+/build
+.externalToolBuilders
+.DS_Store
+Thumbs.db
+.lock-wscript
+*.pyc
+.project
+.cproject
+builtins
+manifest.private.der
+manifest.public.der
+*.blend1
+*.blend
+*.afphoto
+*.psd
+*.mdp

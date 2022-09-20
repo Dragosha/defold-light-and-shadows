@@ -1,0 +1,5 @@
+script: "/rendercam/rendercam.render_script"
+materials {
+  name: "shadow"
+  material: "/light_and_shadows/materials/shadow/shadow.material"
+}

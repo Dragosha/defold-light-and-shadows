@@ -1,0 +1,200 @@
+
+-- The camera script is fairly light (so far, anyway).
+
+-- 1. It holds the properties so the user can set them in the editor.
+-- 2. It updates the camera's position and rotation with the rendercam module.
+
+local rendercam = require "rendercam.rendercam"
+
+go.property("active", true)
+go.property("orthographic", true)
+go.property("nearZ", -1)
+go.property("farZ", 1)
+go.property("viewDistance", 0)
+go.property("fov", -1)
+go.property("orthoScale", 1)
+
+go.property("fixedAspectRatio", false)
+-- Using a vector property to set aspectRatio so it can be more accurate.
+-- This way you don't end up with 800 x 599.9994812093 px view areas.
+go.property("aspectRatio", vmath.vector3(16, 9, 0)) -- only used with a fixed aspect ratio
+
+go.property("useViewArea", false)
+go.property("viewArea", vmath.vector3(800, 600, 0))
+
+go.property("expandView", false)
+go.property("fixedArea", true)
+go.property("fixedWidth", false)
+go.property("fixedHeight", false)
+
+local TWO_PI = math.pi * 2
+local FORWARDVEC = vmath.vector3(0, 0, -1)
+local UPVEC = vmath.vector3(0, 1, 0)
+local RIGHTVEC = vmath.vector3(1, 0, 0)
+
+
+function init(self)
+    -- Get initial scale mode
+    for i, v in ipairs({ "expandView", "fixedArea", "fixedWidth", "fixedHeight" }) do
+        self[v] = self[v] and hash(v)
+    end
+    self.scaleMode = self.expandView or self.fixedArea or self.fixedWidth or self.fixedHeight -- get first checked
+    if not self.scaleMode then self.scaleMode = hash("fixedArea") end
+
+    -- Make sure nearZ and farZ are valid values (if a perspective camera)
+    if not self.orthographic then
+        if self.nearZ <= 0 then self.nearZ = 0.1 end
+        if self.farZ < 0 then self.farZ = 0.1 end
+    end
+
+    -- Turn aspect ratio from x, y into a single number
+    self.aspectRatio = self.aspectRatio.x / self.aspectRatio.y
+
+    -- Modify viewArea based on aspect ratio, etc.
+    if self.fixedAspectRatio then
+        if self.useViewArea then
+            -- aspectRatio overrides proportion of viewArea (uses viewArea.x)
+            self.viewArea.y = self.viewArea.x / self.aspectRatio
+        else
+            -- or get fixed aspect viewArea inside current window
+            local scale = math.min(rendercam.window.x / self.aspectRatio, rendercam.window.y / 1)
+            self.viewArea.x = scale * self.aspectRatio;  self.viewArea.y = scale
+        end
+    elseif not self.useViewArea then -- not using viewArea and non-fixed aspect ratio
+        -- Set viewArea to current window size
+        self.viewArea.x = rendercam.window.x;  self.viewArea.y = rendercam.window.y
+    end
+
+    -- Get initial vectors & stuff
+    self.lpos = go.get_position()
+    self.wpos = go.get_world_position()
+    self.wrot = go.get_world_rotation()
+    self.wforwardVec = vmath.rotate(self.wrot, FORWARDVEC)
+    self.wupVec = vmath.rotate(self.wrot, UPVEC)
+    self.lrot = go.get_rotation()
+    self.lforwardVec = vmath.rotate(self.lrot, FORWARDVEC)
+    self.lupVec = vmath.rotate(self.lrot, UPVEC)
+    self.lrightVec = vmath.rotate(self.lrot, RIGHTVEC)
+    self.id = go.get_id()
+    self.shake = vmath.vector3()
+    self.followPos = vmath.vector3()
+
+    self.viewArea.z = self.viewDistance
+    -- viewArea.z only used (with viewArea.y) in rendercam.update_window to get the FOV
+
+    -- Fixed FOV -- just have to set initial viewArea to match the FOV
+    -- to -maintain- a fixed FOV, must use "Fixed Height" mode, or a fixed aspect ratio and any "Fixed" scale mode.
+    if self.fov > 0 then
+        self.fov = math.rad(self.fov) -- FOV is set in degrees
+        if not self.orthographic and not self.useViewArea then -- don't use FOV if using view area
+            if self.viewArea.z == 0 then self.viewArea.z = 1 end -- view distance doesn't matter for fixed FOV, it just can't be zero.
+            self.viewArea.y = (self.viewArea.z * math.tan(self.fov * 0.5)) * 2
+            if self.fixedAspectRatio then
+                self.viewArea.x = self.viewArea.y * self.aspectRatio
+            end
+        end
+    end
+
+    -- Put all camera data into a table for rendercam module and init camera.
+    self.data = {
+        active = self.active,
+        id = self.id,
+        nearZ = self.nearZ,
+        farZ = self.farZ,
+        abs_nearZ = self.nearZ,
+        abs_farZ = self.farZ,
+        worldZ = self.wpos.z - self.viewDistance, -- worldZ only used for screen_to_world_2d
+        orthographic = self.orthographic,
+        fov = self.fov,
+        fixedAspectRatio = self.fixedAspectRatio,
+        orthoScale = self.orthoScale,
+        aspectRatio = self.aspectRatio,
+        scaleMode = self.scaleMode,
+        useViewArea = self.useViewArea,
+        viewArea = self.viewArea,
+        halfViewArea = vmath.vector3(self.viewArea) * 0.5,
+        wpos = self.wpos,
+        wforwardVec = self.wforwardVec, -- for calculating view matrix
+        wupVec = self.wupVec, -- for calculating view matrix
+        lpos = self.lpos,
+        lforwardVec = self.lforwardVec, -- for zooming
+        lupVec = self.lupVec, -- or panning
+        lrightVec = self.lrightVec, -- for panning
+        shakes = {},
+        recoils = {},
+        follows = {},
+        following = false
+    }
+    rendercam.camera_init(self.id, self.data)
+end
+
+function final(self)
+    rendercam.camera_final(self.id)
+end
+
+function update(self, dt)
+    self.dt = dt -- faster to store than to send in message
+    msg.post("#", "post-update")
+end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("post-update") then
+        -- have to update pos after update or it jitters like crazy
+
+        -- Update transform stuff
+        self.data.lpos = go.get_position()
+        self.lrot = go.get_rotation()
+        self.data.lforwardVec = vmath.rotate(self.lrot, FORWARDVEC)
+        self.data.lupVec = vmath.rotate(self.lrot, UPVEC)
+        self.data.lrightVec = vmath.rotate(self.lrot, RIGHTVEC)
+
+        -- Camera Shake
+        self.data.lpos = self.data.lpos - self.shake -- subtract last frame's shake
+        self.shake.x = 0;  self.shake.y = 0;  self.shake.z = 0
+        for i=#self.data.shakes, 1, -1 do -- iterate backwards so I can remove arbitrary elements without problems
+            local v = self.data.shakes[i]
+            local d = math.random() * v.dist * v.t / v.dur -- linear falloff
+            local angle = math.random() * TWO_PI
+            self.shake = self.shake + self.data.lrightVec * math.sin(angle) * d
+            self.shake = self.shake + self.data.lupVec * math.cos(angle) * d
+            v.t = v.t - self.dt
+            if v.t <= 0 then table.remove(self.data.shakes, i) end
+        end
+
+        -- Camera Recoil
+        for i=#self.data.recoils, 1, -1 do
+            local v = self.data.recoils[i]
+            local d = math.sin(math.pi* v.t / v.dur)
+            d = d*d -- square falloff
+            self.shake = self.shake + vmath.rotate(self.lrot, v.vec * d) -- rotate recoil vec so it's relative to the camera
+            v.t = v.t - self.dt
+            if v.t <= 0 then table.remove(self.data.recoils, i) end
+        end
+
+        -- Camera Follow
+        if self.data.following then
+            self.followPos.x = 0;  self.followPos.y = 0;
+            for i, v in ipairs(self.data.follows) do
+                self.followPos = self.followPos + go.get_world_position(v)
+            end
+            self.followPos = self.followPos * (1/#self.data.follows)
+            self.followPos = rendercam.follow_lerp_func(self.data.lpos, self.followPos, self.dt)
+            self.data.lpos.x = self.followPos.x;  self.data.lpos.y = self.followPos.y
+        end
+
+        if #self.data.recoils + #self.data.shakes + #self.data.follows > 0 then
+            self.data.lpos = self.data.lpos + self.shake
+            go.set_position(self.data.lpos)
+        end
+
+        -- Save world transform data for calculating view matrix
+        self.data.wpos = go.get_world_position()
+        self.wrot = go.get_world_rotation()
+        self.data.wforwardVec = vmath.rotate(self.wrot, FORWARDVEC)
+        self.data.wupVec = vmath.rotate(self.wrot, UPVEC)
+        -- Absolute/world near and far positions for screen-to-world transform
+        self.data.abs_nearZ = self.data.wpos.z - self.data.nearZ
+        self.data.abs_farZ = self.data.wpos.z - self.data.farZ
+    end
+end
+

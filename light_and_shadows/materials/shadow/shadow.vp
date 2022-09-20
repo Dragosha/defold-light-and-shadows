@@ -1,0 +1,11 @@
+attribute highp vec4 position;
+attribute highp vec2 texcoord0;
+attribute highp vec3 normal;
+uniform highp mat4   mtx_viewproj;
+varying highp vec2 	 var_texcoord0;
+void main()
+{
+    gl_Position = mtx_viewproj * vec4(position.xyz, 1.0);
+    var_texcoord0        = texcoord0;
+}
+

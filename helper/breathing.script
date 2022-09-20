@@ -1,0 +1,7 @@
+function init(self)
+    self.scale = go.get_scale()
+    local time = 1 + math.random()
+    go.animate(".", "scale.y", go.PLAYBACK_LOOP_PINGPONG, self.scale.y*1.1, go.EASING_INOUTSINE, time)
+    --go.animate(".", "scale.x", go.PLAYBACK_LOOP_PINGPONG, self.scale.x*1.025, go.EASING_INEXPO, time)
+end
+

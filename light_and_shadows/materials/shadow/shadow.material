@@ -1,0 +1,23 @@
+name: "shadow"
+tags: "shadow"
+vertex_program: "/light_and_shadows/materials/shadow/shadow.vp"
+fragment_program: "/light_and_shadows/materials/shadow/shadow.fp"
+vertex_space: VERTEX_SPACE_WORLD
+vertex_constants {
+  name: "mtx_viewproj"
+  type: CONSTANT_TYPE_VIEWPROJ
+  value {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 0.0
+  }
+}
+samplers {
+  name: "tex0"
+  wrap_u: WRAP_MODE_REPEAT
+  wrap_v: WRAP_MODE_REPEAT
+  filter_min: FILTER_MODE_MIN_NEAREST
+  filter_mag: FILTER_MODE_MAG_NEAREST
+  max_anisotropy: 1.0
+}

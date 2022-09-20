@@ -1,0 +1,64 @@
+local light = require 'light_and_shadows.light'
+
+go.property("color", vmath.vector4(1, 1, 1, 1))
+go.property("power", 100)
+go.property("light_on", true)
+go.property("static", true)
+
+go.property("fxurl", msg.url())
+go.property("startfx", false)
+go.property("rotate", false)
+
+go.property("num", -1)
+
+-- The script adds a new point light source to the list of all light sources.
+-- 'Color' of the light source. Red Green Blue. 
+-- You may use a negative values as well as values > 1.0 for override final color of pixel when all light sources are blending. 
+-- 'Power' of the light source where 100 is normal 100 Watt bulb (just for reference).
+-- Also you may auto start particle FX attached to this game object and referenced in fxurl.
+-- 'Rotate' set it to true is this object need to follow the camera rotating (works as Bilboard).
+
+-- The light source can moving around the game world. Position of the source are calculating in the lights manager script. 
+-- So, in this script we don't need to call update() method. Just set 'static' value to false. 
+-- Otherwise leave static value as 'true' for performance reason.
+
+-- Num. Is bulb has a positive number then this light source does not participate in sort by distance from the screen center.
+-- It always is visible. Ofcourse if amount of all bulbs is less than MAX light sources values (16 in this demo).
+-- Default value is -1. This bulbs have sorted in the light manager script and you may add bulb as much as you need.
+-- But only first 16 (this value you may change) are going to the shader. 
+
+function init(self)
+    
+    if self.light_on then
+        if self.power == 0 then self.power = 1 end
+        local wp = go.get_world_position()
+        self.obj = {
+            value = vmath.vector4(self.color.x, self.color.y, self.color.z, 1/self.power),
+            current_value = vmath.vector4(self.color.x, self.color.y, self.color.z, 1/self.power),
+            position = vmath.vector4(wp.x, wp.y, wp.z, 0), -- we need vector4 to forward to the shader
+            static = self.static,
+            id = go.get_id(),
+            num = self.num,
+            timer = 0,
+            rotate = self.rotate,
+            y_offset = 0,
+        }
+        -- ^^^ you may generate this table in your code when you need to add a new bulb.
+        -- then add to light.list[id] and remove from it when bulb time is over.
+        
+        -- Add to the list of all light sources
+        light.list[self.obj.id] = self.obj
+    end
+
+    -- start particle effect
+    if self.fxurl and self.startfx then 
+        particlefx.play(self.fxurl) 
+    end
+
+end
+
+function final(self)
+    if self.light_on then
+        light.list[self.obj.id] = nil
+    end
+end

@@ -1,0 +1,54 @@
+local light = require 'light_and_shadows.light'
+local constants = require "light_and_shadows.constants"
+
+go.property("clear_color", vmath.vector4(0.8, 0.8, 0.9, 0))
+go.property("fog_color",vmath.vector4(0.8, 0.8, 0.9, 0))
+go.property("fog_density", 0.7)
+go.property("fog_min_max", vmath.vector4(10, 200, 1, 1))
+go.property("ambient", vmath.vector4(1, 1, 1, 0))
+go.property("color_max", 1.3)
+go.property("time", 100)
+go.property("on", true)
+
+-- 
+go.property("base_clear_color", vmath.vector4())
+go.property("base_fog_color", vmath.vector4())
+go.property("base_fog_min_max", vmath.vector4())
+go.property("base_ambient", vmath.vector4())
+
+-- It just an example of changing light values. You may write your own script. And change values as you want.
+-- Only you need to do this is setup four vector4 in constants array.
+-- 1. Clear color or backgroun color.
+-- 2. Fog color. Usually the same as the clear color. 4th component (.w) is the fog density (0 - 1.0)
+-- 3. Fog minimum and maximum. Z - coord in camera view space where the fog is started.
+-- 4. Ambient color. 4th component is the maximum value of final color component each pixel. 
+-- If the color_max value > 1.0, the places where light sources overlap each other may have an excessive value.
+
+local function animate(self)
+    self.base_clear_color = constants.clear_color
+    self.base_fog_color = constants.fog_color
+    self.base_fog_min_max = constants.fog
+    self.base_ambient = constants.ambient
+
+    go.animate("#", "base_clear_color", go.PLAYBACK_LOOP_PINGPONG, self.clear_color, go.EASING_LINEAR, self.time)
+    go.animate("#", "base_fog_color", go.PLAYBACK_LOOP_PINGPONG, self.fog_color, go.EASING_LINEAR, self.time)
+    go.animate("#", "base_fog_min_max", go.PLAYBACK_LOOP_PINGPONG, self.fog_min_max, go.EASING_LINEAR, self.time)
+    go.animate("#", "base_ambient", go.PLAYBACK_LOOP_PINGPONG, self.ambient, go.EASING_LINEAR, self.time)
+
+end
+
+function init(self)
+    self.fog_color.w = self.fog_density
+    self.ambient.w = self.color_max
+    if self.on then 
+        timer.delay(0, false, animate) -- skip first frame
+    end
+end
+
+function update(self, dt)
+    if self.on then 
+        light.set_color(self.base_fog_color, self.base_fog_min_max, self.base_ambient, self.base_clear_color)
+    end
+end
+
+
