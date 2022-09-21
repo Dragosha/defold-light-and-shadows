@@ -1,0 +1,7 @@
+local broadcast = require 'ludobits.m.broadcast'
+function init(self)
+    -- Since we don't grant that the others scripts are activated: skip 1 frame. 
+    timer.delay(0, false, function()
+        broadcast.send("coin_register", {id = go.get_id()} ) 
+    end)
+end

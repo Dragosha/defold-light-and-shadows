@@ -133,7 +133,7 @@ function light_and_shadows.render_shadows(self)
     render.clear({[render.BUFFER_COLOR_BIT] = vmath.vector4(0,0,0,1), [render.BUFFER_DEPTH_BIT] = 1})
     render.enable_material("shadow")
     --  All objects in render list taged as "shadow" will change their material to "shadow.material"
-    --  to cast shadows in shadow map texture. This texture will be enabled to all object at the next render pass.
+    --  to cast shadows into shadow map texture. This texture will be enabled to all objects at the next render pass.
     render.draw(self.shadow_pred)
     render.disable_material()
     render.set_render_target(render.RENDER_TARGET_DEFAULT)

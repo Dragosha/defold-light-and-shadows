@@ -1,0 +1,49 @@
+local broadcast = require 'ludobits.m.broadcast'
+local total_coins = 0
+local found_coins = 0
+
+local function update_counter(self)
+    gui.set_text(gui.get_node("coins"), found_coins .. "/"  .. total_coins)
+end
+
+function init(self)
+    self.coin   = gui.get_node("coin")
+    self.box    = gui.get_node("box")
+    self.box_scale = gui.get_scale(self.box)
+    broadcast.register("coin_register", function(message, sender)
+		total_coins = total_coins + 1
+        update_counter(self)
+	end)
+    broadcast.register("coin_found", function(message, sender)
+        gui.set_visible(self.coin, true)
+        gui.set_screen_position(self.coin, vmath.vector3(message.x, message.y, 0))
+
+        gui.animate(self.coin, "position", gui.get_position(self.box), gui.EASING_INOUTCUBIC, .7, 0, function() 
+            gui.set_scale(self.box, self.box_scale)
+            gui.animate(self.box, "scale", self.box_scale.x * 1.1, gui.EASING_INOUTCUBIC, 0.25, 0, nil, gui.PLAYBACK_ONCE_PINGPONG)
+            found_coins = found_coins + 1
+            update_counter(self)
+            gui.set_visible(self.coin, false)
+        end)
+		
+	end)
+end
+
+function final(self)
+    broadcast.unregister("coin_register")
+end
+
+function update(self, dt)
+end
+
+function on_message(self, message_id, message, sender)
+    if broadcast.on_message(message_id, message, sender) then
+        -- message was handled
+        return
+    end
+end
+
+function on_input(self, action_id, action)
+end
+
+

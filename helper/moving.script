@@ -2,8 +2,9 @@ go.property("value", 1)
 go.property("time", 2)
 go.property("delay", 0)
 go.property("prop", hash("euler.z"))
+go.property("playback", 6) -- go.PLAYBACK_LOOP_PINGPONG
 
 function init(self)
-    go.animate(".", self.prop, go.PLAYBACK_LOOP_PINGPONG, self.value, go.EASING_INOUTSINE, self.time, self.delay)
+    go.animate(".", self.prop, self.playback, self.value, go.EASING_INOUTSINE, self.time, self.delay)
 end
 

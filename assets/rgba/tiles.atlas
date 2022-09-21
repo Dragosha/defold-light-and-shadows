@@ -119,10 +119,6 @@ images {
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
-  image: "/assets/images/tiles/halo.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-}
-images {
   image: "/assets/images/tiles/r1.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
@@ -204,6 +200,14 @@ images {
 }
 images {
   image: "/assets/images/tiles/h5.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
+images {
+  image: "/assets/images/Icon-coin.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
+images {
+  image: "/assets/images/Arrow-up.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 animations {
