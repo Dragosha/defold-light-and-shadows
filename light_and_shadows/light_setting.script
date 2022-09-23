@@ -13,7 +13,7 @@ go.property("on", true)
 -- This script sets constants into constants.lua module. You may do it in your own way.
 
 -- Only you need to do this is setup four vector4 in constants array.
--- 1. Clear color or backgroun color.
+-- 1. Clear color or background color.
 -- 2. Fog color. Usually the same as the clear color. 4th component (.w) is the fog density (0 - 1.0). Where 0 is a very high density.
 -- 3. Fog minimum and maximum. Z-coord in camera view space where the fog is started.
 -- 4. Ambient color. 4th component (ambient.w) used as the maximum value of final color component at each pixels.
