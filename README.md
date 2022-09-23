@@ -20,6 +20,7 @@ The main difference from previous examples (see on the Defold forum) is the proj
 The demo project is fully configured, if you want to configure your project from scratch see this section.
 
 Set the render file in `bootstrap` section of the game.project.
+
 ![bootstrap](assets/docs/bootstrap.png)
 
 Of course, you can use your own render script. Just add some elements to it.
@@ -138,6 +139,7 @@ Since this is a pure 3D scene, we prefer to use a scale 1 meter to 1 unit (pixel
 ## Bulb
 
 To add a new light source to the scene you need to place bulb.script into the game object. Or use ready to go prop "bulb.go" from light_and_shadows/props folder.
+
 ![bulb](assets/docs/bulb.png)
 
 * `Color` of the light source. Red, Green, Blue. 
