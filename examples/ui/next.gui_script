@@ -1,0 +1,31 @@
+local si        = require 'helper.simple_input'
+local monarch   = require "monarch.monarch"
+
+local current_example = 1
+local totals = 2
+
+
+function init(self)
+    -- Simple input. Registre the 'next' button hundler.
+    si.acquire()
+    si.register("next_example", 
+    function()
+        current_example = current_example + 1
+        if current_example > totals then current_example = 1 end
+        monarch.show(hash(current_example), {clear = true, sequential = true}) 
+    end)
+end
+
+function final(self)
+    si.unregister()
+    si.release()
+end
+
+function on_input(self, action_id, action)
+    if si.on_input(self, action_id, action) then
+        -- input message was handled
+        return true
+    end
+end
+
+

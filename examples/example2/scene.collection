@@ -1,0 +1,6584 @@
+name: "example2"
+instances {
+  id: "camera"
+  prototype: "/rendercam/camera.go"
+  children: "camicon"
+  position {
+    x: 0.0
+    y: 66.0
+    z: 120.0
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  component_properties {
+    id: "script"
+    properties {
+      id: "orthographic"
+      value: "false"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "nearZ"
+      value: "10.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "farZ"
+      value: "600.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "viewDistance"
+      value: "1200.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "orthoScale"
+      value: "0.06"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "fixedAspectRatio"
+      value: "false"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "useViewArea"
+      value: "true"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "viewArea"
+      value: "1600.0, 900.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "f"
+  prototype: "/assets/props/tiles/grig10x10.go"
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+instances {
+  id: "f1"
+  prototype: "/assets/props/tiles/grig10x10.go"
+  position {
+    x: -250.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+instances {
+  id: "f2"
+  prototype: "/assets/props/tiles/grig10x10.go"
+  position {
+    x: 250.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+instances {
+  id: "f6"
+  prototype: "/assets/props/tiles/grig10x10.go"
+  position {
+    x: 0.0
+    y: 0.0
+    z: -250.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+instances {
+  id: "f7"
+  prototype: "/assets/props/tiles/grig10x10.go"
+  position {
+    x: -250.0
+    y: 0.0
+    z: -250.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+instances {
+  id: "f8"
+  prototype: "/assets/props/tiles/grig10x10.go"
+  position {
+    x: 250.0
+    y: 0.0
+    z: -250.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+instances {
+  id: "sun"
+  prototype: "/light_and_shadows/props/sun.go"
+  position {
+    x: -7.0
+    y: 10.0
+    z: 5.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "sun"
+    properties {
+      id: "color"
+      value: "0.2, 0.2, 0.2, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "shadow"
+      value: "0.5, 0.5, 0.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "coin"
+  prototype: "/assets/props/coin.go"
+  position {
+    x: 46.119
+    y: 6.654
+    z: -10.319
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "coin1"
+  prototype: "/assets/props/coin.go"
+  position {
+    x: 63.948
+    y: 2.009
+    z: -48.573
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "coin2"
+  prototype: "/assets/props/coin.go"
+  position {
+    x: 97.547
+    y: 2.009
+    z: 5.492
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "coin3"
+  prototype: "/assets/props/coin.go"
+  position {
+    x: 136.162
+    y: 2.009
+    z: -1.395
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "coin4"
+  prototype: "/assets/props/coin.go"
+  position {
+    x: -30.832
+    y: 3.066
+    z: -4.334
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "coin5"
+  prototype: "/assets/props/coin.go"
+  position {
+    x: 28.379
+    y: 3.066
+    z: -50.365
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+scale_along_z: 1
+embedded_instances {
+  id: "cam"
+  children: "camera"
+  data: "components {\n"
+  "  id: \"test\"\n"
+  "  component: \"/helper/print_url.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  property_decls {\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 51.726
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "camicon"
+  data: "embedded_components {\n"
+  "  id: \"model\"\n"
+  "  type: \"model\"\n"
+  "  data: \"mesh: \\\"/light_and_shadows/props/cam.dae\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/hidden_model/white.material\\\"\\n"
+  "skeleton: \\\"\\\"\\n"
+  "animations: \\\"\\\"\\n"
+  "default_animation: \\\"\\\"\\n"
+  "name: \\\"unnamed\\\"\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "root"
+  data: "components {\n"
+  "  id: \"lightsetting\"\n"
+  "  component: \"/light_and_shadows/light_setting.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"clear_color\"\n"
+  "    value: \"0.8, 0.8, 0.8, 0.0\"\n"
+  "    type: PROPERTY_TYPE_VECTOR4\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"fog_color\"\n"
+  "    value: \"0.8, 0.8, 0.8, 0.0\"\n"
+  "    type: PROPERTY_TYPE_VECTOR4\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"fog_density\"\n"
+  "    value: \"0.7\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"fog_min_max\"\n"
+  "    value: \"10.0, 180.0, 1.0, 1.0\"\n"
+  "    type: PROPERTY_TYPE_VECTOR4\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"ambient\"\n"
+  "    value: \"0.8, 0.8, 0.8, 0.0\"\n"
+  "    type: PROPERTY_TYPE_VECTOR4\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"color_max\"\n"
+  "    value: \"1.1\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"on\"\n"
+  "    value: \"true\"\n"
+  "    type: PROPERTY_TYPE_BOOLEAN\n"
+  "  }\n"
+  "  property_decls {\n"
+  "  }\n"
+  "}\n"
+  "components {\n"
+  "  id: \"controller\"\n"
+  "  component: \"/examples/example1/scene_controller.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"cam\"\n"
+  "    value: \"sun\"\n"
+  "    type: PROPERTY_TYPE_URL\n"
+  "  }\n"
+  "  property_decls {\n"
+  "  }\n"
+  "}\n"
+  "components {\n"
+  "  id: \"manager\"\n"
+  "  component: \"/examples/example1/manager.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  property_decls {\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "ground"
+  children: "f"
+  children: "f1"
+  children: "f2"
+  children: "f6"
+  children: "f7"
+  children: "f8"
+  children: "go114"
+  children: "go119"
+  children: "go120"
+  children: "go121"
+  children: "go123"
+  children: "go124"
+  children: "go125"
+  children: "go126"
+  children: "go127"
+  children: "go144"
+  children: "go75"
+  data: ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "lights"
+  children: "sun"
+  data: ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "props"
+  children: "go"
+  children: "go1"
+  children: "go10"
+  children: "go100"
+  children: "go101"
+  children: "go102"
+  children: "go103"
+  children: "go104"
+  children: "go105"
+  children: "go106"
+  children: "go107"
+  children: "go108"
+  children: "go109"
+  children: "go11"
+  children: "go110"
+  children: "go111"
+  children: "go112"
+  children: "go113"
+  children: "go115"
+  children: "go116"
+  children: "go117"
+  children: "go12"
+  children: "go128"
+  children: "go129"
+  children: "go13"
+  children: "go130"
+  children: "go131"
+  children: "go14"
+  children: "go15"
+  children: "go16"
+  children: "go17"
+  children: "go18"
+  children: "go19"
+  children: "go2"
+  children: "go20"
+  children: "go21"
+  children: "go22"
+  children: "go23"
+  children: "go24"
+  children: "go25"
+  children: "go26"
+  children: "go27"
+  children: "go28"
+  children: "go29"
+  children: "go3"
+  children: "go30"
+  children: "go31"
+  children: "go32"
+  children: "go33"
+  children: "go34"
+  children: "go35"
+  children: "go36"
+  children: "go37"
+  children: "go38"
+  children: "go39"
+  children: "go4"
+  children: "go40"
+  children: "go41"
+  children: "go42"
+  children: "go43"
+  children: "go44"
+  children: "go45"
+  children: "go46"
+  children: "go47"
+  children: "go48"
+  children: "go49"
+  children: "go5"
+  children: "go50"
+  children: "go51"
+  children: "go52"
+  children: "go53"
+  children: "go54"
+  children: "go55"
+  children: "go56"
+  children: "go57"
+  children: "go58"
+  children: "go59"
+  children: "go6"
+  children: "go60"
+  children: "go61"
+  children: "go62"
+  children: "go63"
+  children: "go64"
+  children: "go65"
+  children: "go66"
+  children: "go67"
+  children: "go68"
+  children: "go69"
+  children: "go7"
+  children: "go70"
+  children: "go73"
+  children: "go74"
+  children: "go76"
+  children: "go77"
+  children: "go78"
+  children: "go79"
+  children: "go8"
+  children: "go80"
+  children: "go81"
+  children: "go82"
+  children: "go83"
+  children: "go84"
+  children: "go85"
+  children: "go86"
+  children: "go87"
+  children: "go88"
+  children: "go89"
+  children: "go9"
+  children: "go90"
+  children: "go91"
+  children: "go92"
+  children: "go93"
+  children: "go94"
+  children: "go95"
+  children: "go96"
+  children: "go97"
+  children: "go98"
+  children: "go99"
+  data: ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "go18"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"h4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 154.711\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 52.908
+    y: 0.267
+    z: -23.696
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.066
+    y: 0.066
+    z: 0.066
+  }
+}
+embedded_instances {
+  id: "go22"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 142.215\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite1\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr1\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 391.332\n"
+  "    z: 21.443\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 36.503
+    y: -0.333
+    z: -37.022
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.066
+    y: 0.066
+    z: 0.066
+  }
+}
+embedded_instances {
+  id: "go20"
+  data: "embedded_components {\n"
+  "  id: \"sprite1\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"h5\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 400.399\n"
+  "    z: 23.471\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"windowlight\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/fog_sprite/fog_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ADD\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 307.336\n"
+  "    z: 31.521\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 0.462\n"
+  "    y: 0.462\n"
+  "    z: 0.462\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 57.482
+    y: -0.333
+    z: -24.928
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.066
+    y: 0.066
+    z: 0.066
+  }
+}
+embedded_instances {
+  id: "go8"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 22.99\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 39.315
+    y: 0.0
+    z: 17.945
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.074
+    y: 0.074
+    z: 0.074
+  }
+}
+embedded_instances {
+  id: "go26"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 22.99\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 28.547
+    y: 0.0
+    z: -33.706
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.074
+    y: 0.074
+    z: 0.074
+  }
+}
+embedded_instances {
+  id: "go2"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 22.99\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 42.284
+    y: 0.0
+    z: 15.349
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.074
+    y: 0.074
+    z: 0.074
+  }
+}
+embedded_instances {
+  id: "go13"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tip\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 118.134\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 37.885
+    y: 0.0
+    z: 16.349
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.046
+    y: 0.046
+    z: 0.046
+  }
+}
+embedded_instances {
+  id: "go14"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 22.99\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -32.474
+    y: 0.0
+    z: -13.95
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.074
+    y: 0.074
+    z: 0.074
+  }
+}
+embedded_instances {
+  id: "go19"
+  data: "embedded_components {\n"
+  "  id: \"sprite1\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"h2\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 400.399\n"
+  "    z: 23.471\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 47.537
+    y: -0.333
+    z: -24.928
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.066
+    y: 0.066
+    z: 0.066
+  }
+}
+embedded_instances {
+  id: "go23"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr6\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 142.215\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite1\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr1\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 20.097\n"
+  "    y: 391.332\n"
+  "    z: 21.443\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 1.22\n"
+  "    y: 1.22\n"
+  "    z: 1.22\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite2\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr3\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 102.883\n"
+  "    y: 388.395\n"
+  "    z: 27.308\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 1.22\n"
+  "    y: 1.22\n"
+  "    z: 1.22\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 19.242
+    y: -0.333
+    z: -32.813
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.066
+    y: 0.066
+    z: 0.066
+  }
+}
+embedded_instances {
+  id: "go1"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"h3\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 199.632\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite1\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"windowlight\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/fog_sprite/fog_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ADD\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: -54.714\n"
+  "    y: 126.134\n"
+  "    z: 15.407\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 0.462\n"
+  "    y: 0.462\n"
+  "    z: 0.462\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 1.216
+    y: -0.333
+    z: -23.962
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.066
+    y: 0.066
+    z: 0.066
+  }
+}
+embedded_instances {
+  id: "go24"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 142.215\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite1\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr2\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 20.097\n"
+  "    y: 391.332\n"
+  "    z: 21.443\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 1.22\n"
+  "    y: 1.22\n"
+  "    z: 1.22\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -27.353
+    y: -0.333
+    z: -15.167
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.066
+    y: 0.066
+    z: 0.066
+  }
+}
+embedded_instances {
+  id: "go21"
+  data: "embedded_components {\n"
+  "  id: \"sprite1\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"h2\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 587.551\n"
+  "    z: 23.471\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 57.482
+    y: -0.333
+    z: -24.191
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.066
+    y: 0.066
+    z: 0.066
+  }
+}
+embedded_instances {
+  id: "go"
+  data: "components {\n"
+  "  id: \"breathing\"\n"
+  "  component: \"/helper/breathing.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  property_decls {\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"noname\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 159.476\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 49.039
+    y: -0.376
+    z: -5.278
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.04
+    y: 0.04
+    z: 0.04
+  }
+}
+embedded_instances {
+  id: "go25"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 22.99\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 16.366
+    y: 0.0
+    z: -30.182
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.074
+    y: 0.074
+    z: 0.074
+  }
+}
+embedded_instances {
+  id: "go3"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e3\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 17.268\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -27.474
+    y: 0.0
+    z: -13.95
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.074
+    y: 0.074
+    z: 0.074
+  }
+}
+embedded_instances {
+  id: "go4"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e1\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 27.256\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -15.898
+    y: 0.0
+    z: -26.359
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.074
+    y: 0.074
+    z: 0.074
+  }
+}
+embedded_instances {
+  id: "go5"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e3\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 17.268\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 1.726
+    y: 0.0
+    z: -14.947
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.074
+    y: 0.074
+    z: 0.074
+  }
+}
+embedded_instances {
+  id: "go6"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr6\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 142.215\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite1\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr1\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 20.097\n"
+  "    y: 391.332\n"
+  "    z: 21.443\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 1.22\n"
+  "    y: 1.22\n"
+  "    z: 1.22\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite2\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr3\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 87.731\n"
+  "    y: 55.751\n"
+  "    z: 27.706\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 1.22\n"
+  "    y: 1.22\n"
+  "    z: 1.22\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 94.242
+    y: -0.333
+    z: 14.187
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.066
+    y: 0.066
+    z: 0.066
+  }
+}
+embedded_instances {
+  id: "go7"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e3\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 17.268\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 76.011
+    y: 0.0
+    z: 22.273
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.074
+    y: 0.074
+    z: 0.074
+  }
+}
+embedded_instances {
+  id: "go9"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"h1\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 178.599\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 72.216
+    y: -0.333
+    z: -75.962
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.066
+    y: 0.066
+    z: 0.066
+  }
+}
+embedded_instances {
+  id: "go10"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w2\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 41.1\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 43.271
+    y: 0.0
+    z: -21.273
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go12"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w1\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 43.848\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 16.325
+    y: 0.0
+    z: -25.492
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go15"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 81.086
+    y: 0.0
+    z: -69.538
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go16"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w1\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 43.848\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 66.429
+    y: 0.0
+    z: -25.492
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go17"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 81.086
+    y: 0.0
+    z: -68.064
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go27"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 81.086
+    y: 0.0
+    z: -66.08
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go28"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 81.086
+    y: 0.0
+    z: -63.859
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go29"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 81.086
+    y: 0.0
+    z: -61.491
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go30"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 83.732
+    y: 0.0
+    z: -61.491
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go31"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 86.514
+    y: -1.267
+    z: -61.491
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go32"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 89.289
+    y: 0.0
+    z: -61.491
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go33"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w1\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 43.848\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 41.237
+    y: 0.0
+    z: -18.672
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go34"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -35.867
+    y: 0.0
+    z: -4.623
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go35"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -35.867
+    y: 0.0
+    z: -3.149
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go36"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -35.471
+    y: 0.0
+    z: -1.165
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go37"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -35.867
+    y: 0.0
+    z: 1.056
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go38"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -35.867
+    y: 0.0
+    z: 3.424
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go39"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -33.221
+    y: 0.0
+    z: 3.424
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go40"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -30.439
+    y: -1.267
+    z: 3.424
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go41"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -27.664
+    y: 0.0
+    z: 3.424
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go42"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -35.867
+    y: 0.0
+    z: 5.998
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go43"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -35.867
+    y: 0.0
+    z: -6.995
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go44"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -35.867
+    y: 0.0
+    z: -10.879
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go45"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -36.164
+    y: 0.0
+    z: -13.281
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go46"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 22.99\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -29.788
+    y: 0.0
+    z: 4.924
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.074
+    y: 0.074
+    z: 0.074
+  }
+}
+embedded_instances {
+  id: "go47"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e5\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 11.52\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -41.755
+    y: 0.0
+    z: 4.924
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.101
+    y: 0.101
+    z: 0.101
+  }
+}
+embedded_instances {
+  id: "go48"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e5\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 11.52\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -16.511
+    y: 0.0
+    z: -25.001
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.101
+    y: 0.101
+    z: 0.101
+  }
+}
+embedded_instances {
+  id: "go49"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e5\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 11.52\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 42.115
+    y: 0.0
+    z: -17.219
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.101
+    y: 0.101
+    z: 0.101
+  }
+}
+embedded_instances {
+  id: "go50"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr5\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 34.944\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -39.769
+    y: 0.0
+    z: 21.784
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.084
+    y: 0.084
+    z: 0.084
+  }
+}
+embedded_instances {
+  id: "go51"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 46.797\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 69.154
+    y: 0.0
+    z: 14.053
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.096
+    y: 0.096
+    z: 0.096
+  }
+}
+embedded_instances {
+  id: "go52"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr3\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 50.46\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -26.732
+    y: 0.0
+    z: -2.038
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.08
+    y: 0.08
+    z: 0.08
+  }
+}
+embedded_instances {
+  id: "go53"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 19.071\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 11.726
+    y: 0.0
+    z: -22.125
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.082
+    y: 0.082
+    z: 0.082
+  }
+}
+embedded_instances {
+  id: "go54"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e8\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 10.933\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 70.424
+    y: 0.0
+    z: 21.796
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.068
+    y: 0.068
+    z: 0.068
+  }
+}
+embedded_instances {
+  id: "go55"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e9\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 171.367\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -5.011
+    y: 0.0
+    z: -80.284
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.078
+    y: 0.078
+    z: 0.078
+  }
+}
+embedded_instances {
+  id: "go56"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr5\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 34.944\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 76.762
+    y: 0.0
+    z: 6.649
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.084
+    y: 0.084
+    z: 0.084
+  }
+}
+embedded_instances {
+  id: "go57"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr5\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 34.944\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 31.212
+    y: 0.0
+    z: -46.72
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.084
+    y: 0.084
+    z: 0.084
+  }
+}
+embedded_instances {
+  id: "go58"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 46.797\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 61.154
+    y: 0.0
+    z: -82.947
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.096
+    y: 0.096
+    z: 0.096
+  }
+}
+embedded_instances {
+  id: "go59"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr5\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 34.944\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 88.762
+    y: 0.0
+    z: -70.351
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.084
+    y: 0.084
+    z: 0.084
+  }
+}
+embedded_instances {
+  id: "go60"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr5\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 34.944\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 99.762
+    y: 0.0
+    z: -90.351
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.084
+    y: 0.084
+    z: 0.084
+  }
+}
+embedded_instances {
+  id: "go61"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr5\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 34.944\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 103.762
+    y: 0.0
+    z: -12.351
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.084
+    y: 0.084
+    z: 0.084
+  }
+}
+embedded_instances {
+  id: "go62"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 46.797\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 95.154
+    y: 0.0
+    z: -66.947
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.096
+    y: 0.096
+    z: 0.096
+  }
+}
+embedded_instances {
+  id: "go63"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 46.797\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 100.154
+    y: 0.0
+    z: -6.947
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.096
+    y: 0.096
+    z: 0.096
+  }
+}
+embedded_instances {
+  id: "go64"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e8\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 10.933\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 101.424
+    y: 0.0
+    z: -64.204
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.068
+    y: 0.068
+    z: 0.068
+  }
+}
+embedded_instances {
+  id: "go65"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e8\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 10.933\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 39.424
+    y: 0.0
+    z: -35.204
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.068
+    y: 0.068
+    z: 0.068
+  }
+}
+embedded_instances {
+  id: "go66"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 22.99\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 77.212
+    y: 0.0
+    z: 23.924
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.074
+    y: 0.074
+    z: 0.074
+  }
+}
+embedded_instances {
+  id: "go67"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 22.99\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 103.212
+    y: 0.0
+    z: -5.076
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.074
+    y: 0.074
+    z: 0.074
+  }
+}
+embedded_instances {
+  id: "go68"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 22.99\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 110.212
+    y: 0.0
+    z: 44.924
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.074
+    y: 0.074
+    z: 0.074
+  }
+}
+embedded_instances {
+  id: "go69"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 22.99\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 47.212
+    y: 0.0
+    z: 13.924
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.074
+    y: 0.074
+    z: 0.074
+  }
+}
+embedded_instances {
+  id: "go70"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 22.99\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 50.212
+    y: 0.0
+    z: -22.076
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.074
+    y: 0.074
+    z: 0.074
+  }
+}
+embedded_instances {
+  id: "go76"
+  data: "components {\n"
+  "  id: \"moving\"\n"
+  "  component: \"/helper/moving.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"value\"\n"
+  "    value: \"-170.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"time\"\n"
+  "    value: \"100.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"prop\"\n"
+  "    value: \"position.x\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "  property_decls {\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"c1\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 286.435\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 168.989
+    y: 0.0
+    z: 21.716
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.152
+    y: 0.152
+    z: 0.152
+  }
+}
+embedded_instances {
+  id: "go77"
+  data: "components {\n"
+  "  id: \"moving\"\n"
+  "  component: \"/helper/moving.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"value\"\n"
+  "    value: \"170.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"time\"\n"
+  "    value: \"100.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"prop\"\n"
+  "    value: \"position.x\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "  property_decls {\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"c2\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 286.435\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -94.011
+    y: 0.0
+    z: -58.284
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.152
+    y: 0.152
+    z: 0.152
+  }
+}
+embedded_instances {
+  id: "go78"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"AttentionIcon\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/fog_sprite/fog_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 123.06\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 37.729
+    y: 0.0
+    z: 16.8
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.058
+    y: 0.058
+    z: 0.123
+  }
+}
+embedded_instances {
+  id: "go79"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 142.215\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite1\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr2\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 20.097\n"
+  "    y: 391.332\n"
+  "    z: 21.443\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 1.22\n"
+  "    y: 1.22\n"
+  "    z: 1.22\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -22.657
+    y: -0.333
+    z: -72.782
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.066
+    y: 0.066
+    z: 0.066
+  }
+}
+embedded_instances {
+  id: "go73"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr3\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 50.46\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -93.732
+    y: 0.0
+    z: -14.038
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.08
+    y: 0.08
+    z: 0.08
+  }
+}
+embedded_instances {
+  id: "go74"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr3\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 50.46\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -70.732
+    y: 0.0
+    z: -7.038
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.08
+    y: 0.08
+    z: 0.08
+  }
+}
+embedded_instances {
+  id: "go80"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"h4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 154.711\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 116.811
+    y: -0.333
+    z: -23.395
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.066
+    y: 0.066
+    z: 0.066
+  }
+}
+embedded_instances {
+  id: "go81"
+  data: "embedded_components {\n"
+  "  id: \"sprite1\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"h2\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 400.399\n"
+  "    z: 23.471\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 112.099
+    y: -0.333
+    z: -24.928
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.066
+    y: 0.066
+    z: 0.066
+  }
+}
+embedded_instances {
+  id: "go82"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e5\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 11.52\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 114.5
+    y: 0.0
+    z: -20.913
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.101
+    y: 0.101
+    z: 0.101
+  }
+}
+embedded_instances {
+  id: "go83"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"h3\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 194.084\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 134.446
+    y: -0.333
+    z: -31.853
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.066
+    y: 0.066
+    z: 0.066
+  }
+}
+embedded_instances {
+  id: "go84"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr5\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 34.944\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 133.288
+    y: 0.0
+    z: -19.209
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.084
+    y: 0.084
+    z: 0.084
+  }
+}
+embedded_instances {
+  id: "go85"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 46.797\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 139.68
+    y: 0.0
+    z: -15.805
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.096
+    y: 0.096
+    z: 0.096
+  }
+}
+embedded_instances {
+  id: "go86"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 142.215\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite1\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr1\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 391.332\n"
+  "    z: 21.443\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 150.715
+    y: -0.333
+    z: 9.109
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.066
+    y: 0.066
+    z: 0.066
+  }
+}
+embedded_instances {
+  id: "go87"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e3\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 17.268\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 39.591
+    y: 0.0
+    z: -13.452
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.074
+    y: 0.074
+    z: 0.074
+  }
+}
+embedded_instances {
+  id: "go88"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 22.99\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 55.413
+    y: 0.0
+    z: -12.859
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.074
+    y: 0.074
+    z: 0.074
+  }
+}
+embedded_instances {
+  id: "go89"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 22.99\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -28.658
+    y: 0.0
+    z: 13.078
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.074
+    y: 0.074
+    z: 0.074
+  }
+}
+embedded_instances {
+  id: "go90"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr5\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 34.944\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"collisionobject\"\n"
+  "  type: \"collisionobject\"\n"
+  "  data: \"collision_shape: \\\"\\\"\\n"
+  "type: COLLISION_OBJECT_TYPE_STATIC\\n"
+  "mass: 0.0\\n"
+  "friction: 0.1\\n"
+  "restitution: 0.5\\n"
+  "group: \\\"default\\\"\\n"
+  "mask: \\\"default\\\"\\n"
+  "embedded_collision_shape {\\n"
+  "  shapes {\\n"
+  "    shape_type: TYPE_BOX\\n"
+  "    position {\\n"
+  "      x: -1.204\\n"
+  "      y: 29.246\\n"
+  "      z: 0.0\\n"
+  "    }\\n"
+  "    rotation {\\n"
+  "      x: 0.0\\n"
+  "      y: 0.0\\n"
+  "      z: 0.0\\n"
+  "      w: 1.0\\n"
+  "    }\\n"
+  "    index: 0\\n"
+  "    count: 3\\n"
+  "  }\\n"
+  "  data: 45.6565\\n"
+  "  data: 32.769\\n"
+  "  data: 14.3195\\n"
+  "}\\n"
+  "linear_damping: 0.0\\n"
+  "angular_damping: 0.0\\n"
+  "locked_rotation: false\\n"
+  "bullet: false\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 36.353
+    y: 0.0
+    z: -25.115
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.084
+    y: 0.084
+    z: 0.084
+  }
+}
+embedded_instances {
+  id: "go91"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr5\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 34.944\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"collisionobject\"\n"
+  "  type: \"collisionobject\"\n"
+  "  data: \"collision_shape: \\\"\\\"\\n"
+  "type: COLLISION_OBJECT_TYPE_STATIC\\n"
+  "mass: 0.0\\n"
+  "friction: 0.1\\n"
+  "restitution: 0.5\\n"
+  "group: \\\"default\\\"\\n"
+  "mask: \\\"default\\\"\\n"
+  "embedded_collision_shape {\\n"
+  "  shapes {\\n"
+  "    shape_type: TYPE_BOX\\n"
+  "    position {\\n"
+  "      x: -1.204\\n"
+  "      y: 29.246\\n"
+  "      z: 0.0\\n"
+  "    }\\n"
+  "    rotation {\\n"
+  "      x: 0.0\\n"
+  "      y: 0.0\\n"
+  "      z: 0.0\\n"
+  "      w: 1.0\\n"
+  "    }\\n"
+  "    index: 0\\n"
+  "    count: 3\\n"
+  "  }\\n"
+  "  data: 45.6565\\n"
+  "  data: 32.769\\n"
+  "  data: 14.3195\\n"
+  "}\\n"
+  "linear_damping: 0.0\\n"
+  "angular_damping: 0.0\\n"
+  "locked_rotation: false\\n"
+  "bullet: false\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 64.708
+    y: 0.0
+    z: -33.859
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.084
+    y: 0.084
+    z: 0.084
+  }
+}
+embedded_instances {
+  id: "go92"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 69.448
+    y: 0.0
+    z: -35.633
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go93"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 72.094
+    y: 0.0
+    z: -35.633
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go94"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 74.876
+    y: -1.267
+    z: -35.633
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go95"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 77.651
+    y: 0.0
+    z: -35.633
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go96"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 80.614
+    y: 0.0
+    z: -35.633
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go97"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 83.26
+    y: 0.0
+    z: -35.633
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go98"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 86.042
+    y: -1.267
+    z: -35.633
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go99"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"w7\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 39.726\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 88.817
+    y: 0.0
+    z: -35.633
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.06
+    y: 0.06
+    z: 0.06
+  }
+}
+embedded_instances {
+  id: "go100"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e8\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 10.933\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 120.262
+    y: 0.0
+    z: -18.335
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.068
+    y: 0.068
+    z: 0.068
+  }
+}
+embedded_instances {
+  id: "go102"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tip\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 118.134\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 129.818
+    y: 0.0
+    z: 29.069
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.046
+    y: 0.046
+    z: 0.046
+  }
+}
+embedded_instances {
+  id: "go103"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 22.99\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 130.437
+    y: 0.0
+    z: 30.816
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.074
+    y: 0.074
+    z: 0.074
+  }
+}
+embedded_instances {
+  id: "go104"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 22.99\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 148.054
+    y: 0.0
+    z: 11.646
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.074
+    y: 0.074
+    z: 0.074
+  }
+}
+embedded_instances {
+  id: "go105"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 22.99\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 155.728
+    y: 0.0
+    z: 10.249
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.074
+    y: 0.074
+    z: 0.074
+  }
+}
+embedded_instances {
+  id: "go106"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"h4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 154.711\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 98.002
+    y: -0.333
+    z: -99.986
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.066
+    y: 0.066
+    z: 0.066
+  }
+}
+embedded_instances {
+  id: "go107"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr6\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 142.215\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite1\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr1\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 20.097\n"
+  "    y: 391.332\n"
+  "    z: 21.443\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 1.22\n"
+  "    y: 1.22\n"
+  "    z: 1.22\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 82.899
+    y: -0.333
+    z: -106.138
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.066
+    y: 0.066
+    z: 0.066
+  }
+}
+embedded_instances {
+  id: "go108"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr3\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 50.46\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 140.156
+    y: 0.0
+    z: -93.758
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.08
+    y: 0.08
+    z: 0.08
+  }
+}
+embedded_instances {
+  id: "go109"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"h1\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 173.331\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 131.239
+    y: -0.333
+    z: -100.463
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.066
+    y: 0.066
+    z: 0.066
+  }
+}
+embedded_instances {
+  id: "go110"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"r1\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 173.331\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 117.723
+    y: 4.945
+    z: -102.865
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.066
+    y: 0.066
+    z: 0.066
+  }
+}
+embedded_instances {
+  id: "go111"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"r2\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 369.887\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 134.588
+    y: -0.333
+    z: -100.174
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.066
+    y: 0.066
+    z: 0.066
+  }
+}
+embedded_instances {
+  id: "go112"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr6\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 142.215\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 120.783
+    y: -0.333
+    z: -100.594
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.066
+    y: 0.066
+    z: 0.066
+  }
+}
+embedded_instances {
+  id: "go115"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"b1\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 69.51\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"collisionobject\"\n"
+  "  type: \"collisionobject\"\n"
+  "  data: \"collision_shape: \\\"\\\"\\n"
+  "type: COLLISION_OBJECT_TYPE_STATIC\\n"
+  "mass: 0.0\\n"
+  "friction: 0.1\\n"
+  "restitution: 0.5\\n"
+  "group: \\\"default\\\"\\n"
+  "mask: \\\"default\\\"\\n"
+  "embedded_collision_shape {\\n"
+  "  shapes {\\n"
+  "    shape_type: TYPE_BOX\\n"
+  "    position {\\n"
+  "      x: -9.646\\n"
+  "      y: 60.041\\n"
+  "      z: 0.0\\n"
+  "    }\\n"
+  "    rotation {\\n"
+  "      x: 0.0\\n"
+  "      y: 0.0\\n"
+  "      z: 0.0\\n"
+  "      w: 1.0\\n"
+  "    }\\n"
+  "    index: 0\\n"
+  "    count: 3\\n"
+  "  }\\n"
+  "  data: 44.529\\n"
+  "  data: 60.5075\\n"
+  "  data: 14.3195\\n"
+  "}\\n"
+  "linear_damping: 0.0\\n"
+  "angular_damping: 0.0\\n"
+  "locked_rotation: false\\n"
+  "bullet: false\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -19.12
+    y: 0.0
+    z: 12.791
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.067
+    y: 0.067
+    z: 0.067
+  }
+}
+embedded_instances {
+  id: "go116"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"b2\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 60.496\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 140.019
+    y: 0.0
+    z: 3.213
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.079
+    y: 0.079
+    z: 0.079
+  }
+}
+embedded_instances {
+  id: "go119"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"t5\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 4.255
+    y: 0.0
+    z: -19.039
+  }
+  rotation {
+    x: -0.70710677
+    y: 0.0
+    z: 0.0
+    w: 0.70710677
+  }
+  scale3 {
+    x: 0.046
+    y: 0.046
+    z: 0.046
+  }
+}
+embedded_instances {
+  id: "go120"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"t8\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 5.96
+    y: 0.0
+    z: -9.224
+  }
+  rotation {
+    x: -0.69186443
+    y: 0.14602587
+    z: 0.14602587
+    w: 0.69186443
+  }
+  scale3 {
+    x: 0.056
+    y: 0.056
+    z: 0.056
+  }
+}
+embedded_instances {
+  id: "go121"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"t5\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 56.323
+    y: 0.0
+    z: -19.319
+  }
+  rotation {
+    x: -0.51030356
+    y: 0.48947957
+    z: 0.48947957
+    w: 0.51030356
+  }
+  scale3 {
+    x: 0.046
+    y: 0.046
+    z: 0.046
+  }
+}
+embedded_instances {
+  id: "go123"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"t8\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 121.102
+    y: 0.0
+    z: -12.098
+  }
+  rotation {
+    x: -0.51030356
+    y: 0.48947957
+    z: 0.48947957
+    w: 0.51030356
+  }
+  scale3 {
+    x: 0.067
+    y: 0.067
+    z: 0.067
+  }
+}
+embedded_instances {
+  id: "go75"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"t8\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 18.755
+    y: 0.0
+    z: 19.715
+  }
+  rotation {
+    x: -0.51030356
+    y: 0.48947957
+    z: 0.48947957
+    w: 0.51030356
+  }
+  scale3 {
+    x: 0.067
+    y: 0.067
+    z: 0.067
+  }
+}
+embedded_instances {
+  id: "go101"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e5\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 11.52\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 22.133
+    y: 0.0
+    z: 27.769
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.101
+    y: 0.101
+    z: 0.101
+  }
+}
+embedded_instances {
+  id: "go114"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"t8\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 9.952
+    y: 0.0
+    z: 0.723
+  }
+  rotation {
+    x: -0.69186443
+    y: 0.14602587
+    z: 0.14602587
+    w: 0.69186443
+  }
+  scale3 {
+    x: 0.056
+    y: 0.056
+    z: 0.056
+  }
+}
+embedded_instances {
+  id: "go124"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"t8\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 53.638
+    y: 0.0
+    z: -5.985
+  }
+  rotation {
+    x: -0.6933229
+    y: -0.13893643
+    z: -0.13893643
+    w: 0.6933229
+  }
+  scale3 {
+    x: 0.056
+    y: 0.056
+    z: 0.056
+  }
+}
+embedded_instances {
+  id: "go125"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"t8\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 112.181
+    y: 0.0
+    z: -92.919
+  }
+  rotation {
+    x: -0.51030356
+    y: 0.48947957
+    z: 0.48947957
+    w: 0.51030356
+  }
+  scale3 {
+    x: 0.067
+    y: 0.067
+    z: 0.067
+  }
+}
+embedded_instances {
+  id: "go126"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"t8\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 125.112
+    y: 0.0
+    z: -92.919
+  }
+  rotation {
+    x: -0.70710677
+    y: 0.0
+    z: 0.0
+    w: 0.70710677
+  }
+  scale3 {
+    x: 0.067
+    y: 0.067
+    z: 0.067
+  }
+}
+embedded_instances {
+  id: "go127"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"t8\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 53.577
+    y: 0.0
+    z: 11.308
+  }
+  rotation {
+    x: -0.51030356
+    y: 0.48947957
+    z: 0.48947957
+    w: 0.51030356
+  }
+  scale3 {
+    x: 0.067
+    y: 0.067
+    z: 0.067
+  }
+}
+embedded_instances {
+  id: "go128"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 22.99\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 54.369
+    y: 0.0
+    z: 18.435
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.074
+    y: 0.074
+    z: 0.074
+  }
+}
+embedded_instances {
+  id: "go129"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"e4\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 22.99\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 67.105
+    y: 0.0
+    z: -23.679
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.074
+    y: 0.074
+    z: 0.074
+  }
+}
+embedded_instances {
+  id: "go130"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"h1\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 173.331\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -63.21
+    y: -0.333
+    z: -75.962
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.066
+    y: 0.066
+    z: 0.066
+  }
+}
+embedded_instances {
+  id: "go131"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr6\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 142.215\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite1\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"tr1\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 20.097\n"
+  "    y: 391.332\n"
+  "    z: 21.443\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  scale {\n"
+  "    x: 1.22\n"
+  "    y: 1.22\n"
+  "    z: 1.22\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -80.758
+    y: -0.333
+    z: -69.846
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.066
+    y: 0.066
+    z: 0.066
+  }
+}
+embedded_instances {
+  id: "sounds"
+  data: "embedded_components {\n"
+  "  id: \"button\"\n"
+  "  type: \"sound\"\n"
+  "  data: \"sound: \\\"/assets/ogg/navigate_36.ogg\\\"\\n"
+  "looping: 0\\n"
+  "group: \\\"master\\\"\\n"
+  "gain: 0.4\\n"
+  "pan: 0.0\\n"
+  "speed: 1.0\\n"
+  "loopcount: 0\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "go113"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"b1\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 69.51\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 108.715
+    y: 0.0
+    z: -105.381
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.067
+    y: 0.067
+    z: 0.067
+  }
+}
+embedded_instances {
+  id: "go117"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"b2\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 60.496\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 61.842
+    y: 0.0
+    z: -43.352
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.079
+    y: 0.079
+    z: 0.079
+  }
+}
+embedded_instances {
+  id: "coins"
+  children: "coin"
+  children: "coin1"
+  children: "coin2"
+  children: "coin3"
+  children: "coin4"
+  children: "coin5"
+  data: ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "ui"
+  data: "components {\n"
+  "  id: \"ui\"\n"
+  "  component: \"/examples/example1/ui.gui\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  property_decls {\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "go144"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"Arrow-up\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite1\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"Arrow-up\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: -139.631\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 1.0\n"
+  "    w: 6.123234E-17\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite2\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"Arrow-up\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: -82.781\n"
+  "    y: -69.426\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.70710677\n"
+  "    w: 0.70710677\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite3\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"Arrow-up\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 88.15\n"
+  "    y: -70.082\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: -0.70710677\n"
+  "    w: 0.70710677\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 51.365
+    y: 0.0
+    z: 49.174
+  }
+  rotation {
+    x: -0.70710677
+    y: 0.0
+    z: 0.0
+    w: 0.70710677
+  }
+  scale3 {
+    x: 0.046
+    y: 0.046
+    z: 0.046
+  }
+}
+embedded_instances {
+  id: "go11"
+  data: "components {\n"
+  "  id: \"breathing\"\n"
+  "  component: \"/helper/breathing.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  property_decls {\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "default_animation: \\\"noname\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 159.476\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.99999964\n"
+  "    z: 0.0\n"
+  "    w: 8.726645E-4\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 59.165
+    y: -0.376
+    z: -7.509
+  }
+  rotation {
+    x: -0.23004974
+    y: 0.0
+    z: 0.0
+    w: 0.97317886
+  }
+  scale3 {
+    x: 0.04
+    y: 0.04
+    z: 0.04
+  }
+}

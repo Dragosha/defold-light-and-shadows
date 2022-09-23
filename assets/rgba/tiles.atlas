@@ -210,6 +210,10 @@ images {
   image: "/assets/images/Arrow-up.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
+images {
+  image: "/assets/images/Arrow-right.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
 animations {
   id: "firea"
   images {

@@ -1,0 +1,9 @@
+local monarch = require "monarch.monarch"
+
+function init(self)
+    msg.post("#", "show_first_screen")
+end
+
+function on_message(self, message_id, message, sender)
+    monarch.show(hash("1"))
+end

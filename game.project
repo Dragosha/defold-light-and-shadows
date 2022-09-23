@@ -1,5 +1,5 @@
 [bootstrap]
-main_collection = /examples/example1/scene.collectionc
+main_collection = /examples/main.collectionc
 render = /rendercam/rendercam.renderc
 
 [script]
@@ -16,7 +16,7 @@ package = com.dragosha.ls
 
 [project]
 title = Light and Shadows
-version = 0.2
+version = 0.3
 developer = Igor Suntsev
 dependencies#0 = https://github.com/britzl/ludobits/archive/6.8.0.zip
 dependencies#1 = https://github.com/britzl/defold-input/archive/master.zip

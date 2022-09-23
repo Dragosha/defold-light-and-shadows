@@ -11,9 +11,9 @@ function init(self)
     self.box    = gui.get_node("box")
     self.box_scale = gui.get_scale(self.box)
     broadcast.register("coin_register", function(message, sender)
-		total_coins = total_coins + 1
+        total_coins = total_coins + 1
         update_counter(self)
-	end)
+    end)
     broadcast.register("coin_found", function(message, sender)
         gui.set_visible(self.coin, true)
         gui.set_screen_position(self.coin, vmath.vector3(message.x, message.y, 0))
@@ -25,12 +25,13 @@ function init(self)
             update_counter(self)
             gui.set_visible(self.coin, false)
         end)
-		
-	end)
+        
+    end)
 end
 
 function final(self)
     broadcast.unregister("coin_register")
+    broadcast.unregister("coin_found")
 end
 
 function update(self, dt)
