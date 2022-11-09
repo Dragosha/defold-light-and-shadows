@@ -77,10 +77,7 @@ function light_and_shadows.update_light(self)
     -- 16 simultaneously calculation light sources.
     -- If you need to change this amount of light sources you should to change it in fragment shader as well.
     -- In fragment shaders (.fp) change arrays size here:
-    -- uniform highp vec4 lights[16];
-    -- uniform highp vec4 colors[16];
-    --                           ^^
-    -- for (int i = 0; i < 16; ++i) {
+    -- #define LIGHT_COUNT 16
     --                     ^^ 
     -- ...
     for i = 1, 16 do

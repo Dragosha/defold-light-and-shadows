@@ -18,8 +18,9 @@ uniform lowp vec4 color0;
 uniform highp vec4 light;
 uniform highp vec4 shadow_color;
 
-uniform highp vec4 lights[16];
-uniform highp vec4 colors[16];
+#define LIGHT_COUNT 16
+uniform highp vec4 lights[LIGHT_COUNT];
+uniform highp vec4 colors[LIGHT_COUNT];
 
 
 vec2 rand(vec2 co)
@@ -167,7 +168,7 @@ void main()
     vec3 view_dir = normalize((cam_pos - var_position).xyz);
 
     vec3 diff_light = vec3(0.0);
-    for (int i = 0; i < 16; ++i) {
+    for (int i = 0; i < LIGHT_COUNT; ++i) {
         float power = colors[i].w;
         if (power > 0.0) {
             // vec3 light_color, float power, vec3 light_position, vec3 position, vec3 snormal, float specular, vec3 view_dir

@@ -18,8 +18,9 @@ uniform lowp vec4 color0;
 uniform highp vec4 light;
 uniform highp vec4 shadow_color;
 
-uniform highp vec4 lights[16];
-uniform highp vec4 colors[16];
+#define LIGHT_COUNT 16
+uniform highp vec4 lights[LIGHT_COUNT];
+uniform highp vec4 colors[LIGHT_COUNT];
 
 // Shadow
 float shadow_calculation_mobile(vec4 depth_data)
@@ -73,7 +74,7 @@ void main()
     
     // Diffuse light calculations
     vec3 diff_light = vec3(0.0);
-    for (int i = 0; i < 16; ++i) {
+    for (int i = 0; i < LIGHT_COUNT; ++i) {
         float power = colors[i].w;
         if (power > 0.0) {
             diff_light += point_light(colors[i].xyz, power, lights[i].xyz, var_position.xyz, var_normal);

@@ -157,17 +157,14 @@ This example uses 16 simultaneously calculated light sources in the scene. If yo
 In the fragment shaders (.fp) change the size of the arrays here:
 
 ---
-    uniform highp vec4 lights[16];
-    uniform highp vec4 colors[16];
-                              ^^
-    for (int i = 0; i < 16; ++i) {
+    #define LIGHT_COUNT 16
                         ^^
 
 
 If you don't want to use light sources at all and you have enough ambient light from the "sun" you can optimize the fragment shaders by excluding the calculation of light sources from them. Just delete the code:
 
 ---
-    for (int i = 0; i < 16; ++i) {
+    for (int i = 0; i < LIGHT_COUNT; ++i) {
         float power = colors[i].w;
         if (power > 0.0) {
             // vec3 light_color, float power, vec3 light_position, vec3 position, vec3 snormal, float specular, vec3 view_dir
