@@ -1,5 +1,5 @@
 name: "label"
-tags: "tile"
+tags: "btile"
 vertex_program: "/light_and_shadows/materials/fog_label/font.vp"
 fragment_program: "/light_and_shadows/materials/fog_label/font.fp"
 vertex_space: VERTEX_SPACE_WORLD
@@ -43,3 +43,4 @@ fragment_constants {
     w: 0.0
   }
 }
+max_page_count: 0

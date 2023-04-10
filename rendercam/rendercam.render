@@ -3,3 +3,27 @@ materials {
   name: "shadow"
   material: "/light_and_shadows/materials/shadow/shadow.material"
 }
+materials {
+  name: "model_low"
+  material: "/light_and_shadows/materials/model/model_low.material"
+}
+materials {
+  name: "sprite_low"
+  material: "/light_and_shadows/materials/sprite/light_sprite_low.material"
+}
+materials {
+  name: "sprite_back_low"
+  material: "/light_and_shadows/materials/sprite/light_sprite_back_low.material"
+}
+materials {
+  name: "model_extra_low"
+  material: "/light_and_shadows/materials/model/model_extra_low.material"
+}
+materials {
+  name: "sprite_extra_low"
+  material: "/light_and_shadows/materials/sprite/light_sprite_extra_low.material"
+}
+materials {
+  name: "sprite_back_extra_low"
+  material: "/light_and_shadows/materials/sprite/light_sprite_back_extra_low.material"
+}

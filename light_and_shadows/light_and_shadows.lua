@@ -6,6 +6,11 @@ local rendercam = require "rendercam.rendercam"
 local top = vmath.vector3(0, 1, 0)
 local v0 = vmath.vector4(0, 0, 0, 0) -- zero vector4
 
+-- 1 - max quality
+-- 2 - low
+-- 3 - extra low / no shadow cast
+light_and_shadows.shadow_quality = 1
+
 local BUFFER_RESOLUTION = 2048 -- Size of shadow map. Select value from: 1024/2048/4096. More is better quality.
 
 -- Projection resolution of shadow map to the game world. Smaller size is better shadow quality,
@@ -64,9 +69,7 @@ function light_and_shadows.update_light(self)
     sun.x = constants.sun_position.x
     sun.y = constants.sun_position.y
     sun.z = constants.sun_position.z
-    local pos_light = constants.cam_look_at_position + sun
-    self.light_transform = vmath.matrix4_look_at(pos_light, constants.cam_look_at_position, top)
-
+   
     -- Sun position, color and shadow intensity
     self.constants.light = constants.sun_position or v0
     self.constants.color0 = constants.sun_color or v0
@@ -97,9 +100,13 @@ function light_and_shadows.update_light(self)
     if constants.fog then self.constants.fog = constants.fog end
     if constants.tint then self.constants.tint = constants.tint end
 
-    local mtx_light = self.bias_matrix * self.light_projection * self.light_transform
-    self.constants.mtx_light = mtx_light
-
+    if light_and_shadows.shadow_quality <  3 then
+        local pos_light = constants.cam_look_at_position + sun
+        self.light_transform = vmath.matrix4_look_at(pos_light, constants.cam_look_at_position, top)
+        local mtx_light = self.bias_matrix * self.light_projection * self.light_transform
+        self.constants.mtx_light = mtx_light
+    end
+    
     if self.bias then self.constants.b = self.bias end
 
     -- Setup camera world position uniform constant (vector4)
@@ -138,7 +145,9 @@ end
 
 function light_and_shadows.update(self)
     light_and_shadows.update_light(self)
-    light_and_shadows.render_shadows(self)
+    if light_and_shadows.shadow_quality < 3 then
+        light_and_shadows.render_shadows(self)
+    end
 end
 
 return light_and_shadows

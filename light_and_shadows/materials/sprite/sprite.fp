@@ -119,6 +119,7 @@ void main()
     // Pre-multiply alpha since all runtime textures already are
     lowp vec4 tint_pm = vec4(tint.xyz * tint.w, tint.w);
     vec4 color = texture2D(tex0, var_texcoord0.xy)*tint_pm;
+    if(color.a < 0.1) discard;
     
     // shadow map
     vec4 depth_proj = var_texcoord0_shadow / var_texcoord0_shadow.w;

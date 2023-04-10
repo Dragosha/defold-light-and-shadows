@@ -16,6 +16,7 @@ end
 function init(self)
     self.tile_pred 	= render.predicate({"tile"})  -- sprites / paricles / spine models (their normal vector looks to the front)
     self.atile_pred = render.predicate({"atile"}) -- floor / ground sprites (normal looks to the up)
+    self.btile_pred = render.predicate({"btile"}) -- fog sprites / not shadowcaster
     self.gui_pred 	= render.predicate({"gui"})
     self.text_pred 	= render.predicate({"text"})
     self.model_pred = render.predicate({"model"})
@@ -49,7 +50,7 @@ function update(self)
 
     local view = rendercam.calculate_view()
     local proj = rendercam.calculate_proj()
-    local frustum = proj * view 
+    local frustum = {frustum = proj * view, constants = self.constants}
     render.set_view(view)
     render.set_projection(proj)
 
@@ -61,16 +62,32 @@ function update(self)
     render.enable_state(render.STATE_CULL_FACE)
     render.enable_state(render.STATE_DEPTH_TEST)
     render.set_depth_mask(true)
-    render.enable_texture(1, self.shadowmap_buffer, render.BUFFER_COLOR_BIT) -- created in light_and_shadows.init
-    render.draw(self.model_pred, {constants = self.constants}) 
+    if light_and_shadows.shadow_quality <  3 then
+        render.enable_texture(1, self.shadowmap_buffer, render.BUFFER_COLOR_BIT) -- created in light_and_shadows.init
+    end
+    if light_and_shadows.shadow_quality == 2 then render.enable_material("model_low")
+    elseif light_and_shadows.shadow_quality == 3 then render.enable_material("model_extra_low") end
+    render.draw(self.model_pred, frustum)
+    if light_and_shadows.shadow_quality > 1 then render.disable_material() end
     
     -- 2D
-    render.set_depth_mask(false)
+   
     render.disable_state(render.STATE_CULL_FACE)
     render.enable_state(render.STATE_DEPTH_TEST)
-    render.draw(self.atile_pred, {frustum = frustum, constants = self.constants}) -- floor / ground sprites
-    render.draw(self.tile_pred, {frustum = frustum, constants = self.constants}) -- common sprites
-    render.disable_texture(1)
+    if light_and_shadows.shadow_quality == 2 then render.enable_material("sprite_back_low")
+    elseif light_and_shadows.shadow_quality == 3 then render.enable_material("sprite_back_extra_low") end
+    render.draw(self.atile_pred, frustum) -- floor / ground sprites
+    if light_and_shadows.shadow_quality > 1 then render.disable_material() end
+    if light_and_shadows.shadow_quality == 2 then render.enable_material("sprite_low")
+    elseif light_and_shadows.shadow_quality == 3 then render.enable_material("sprite_extra_low") end
+    render.draw(self.tile_pred, frustum) -- common sprites
+    if light_and_shadows.shadow_quality > 1 then render.disable_material() end
+    if light_and_shadows.shadow_quality <  3 then
+        render.disable_texture(1)
+    end
+
+    render.set_depth_mask(false)
+    render.draw(self.btile_pred, frustum) 
     render.draw(self.particle_pred)
     
     render.set_blend_func(render.BLEND_SRC_ALPHA, render.BLEND_ONE_MINUS_SRC_ALPHA)
