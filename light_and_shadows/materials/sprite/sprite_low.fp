@@ -41,14 +41,18 @@ vec3 direct_light(vec3 light_color, vec3 light_position, vec3 position, vec3 vno
     return diffuse;
 }
 
+float rgba_to_float(vec4 rgba)
+{
+    return dot(rgba, vec4(1.0, 1.0/255.0, 1.0/65025.0, 1.0/16581375.0));
+}
 
 float shadow_calculation_mobile(vec4 depth_data)
 {
     float depth_bias = 0.0008;
     highp vec2 uv = depth_data.xy;
     vec4 rgba = texture2D(tex1, uv);
-    // float depth = rgba_to_float(rgba);
-    float depth = rgba.x;
+    float depth = rgba_to_float(rgba);
+    // float depth = rgba.x;
     float shadow = depth_data.z - depth_bias > depth ? 1.0 : 0.0;
 
     if (uv.x<0.0) shadow = 0.0;

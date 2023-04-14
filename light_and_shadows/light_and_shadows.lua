@@ -20,8 +20,8 @@ local PROJECTION_RESOLUTION = 400
 
 function light_and_shadows.create_depth_buffer(w,h)
     local color_params = {
-        -- format     = render.FORMAT_RGBA,
-        format     = render.FORMAT_R32F,
+        format     = render.FORMAT_RGBA,
+        -- format     = render.FORMAT_R32F,
         width      = w,
         height     = h,
         min_filter = render.FILTER_NEAREST,
