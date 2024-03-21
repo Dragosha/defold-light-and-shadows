@@ -39,6 +39,7 @@ embedded_components {
   "    }\n"
   "    index: 0\n"
   "    count: 1\n"
+  "    id: \"\"\n"
   "  }\n"
   "  data: 2.5\n"
   "}\n"
@@ -62,10 +63,17 @@ embedded_components {
 embedded_components {
   id: "sprite"
   type: "sprite"
-  data: "tile_set: \"/assets/rgba/tiles.atlas\"\n"
-  "default_animation: \"Icon-coin\"\n"
+  data: "default_animation: \"Icon-coin\"\n"
   "material: \"/light_and_shadows/materials/sprite/light_sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
+  "textures {\n"
+  "  sampler: \"tex0\"\n"
+  "  texture: \"/assets/rgba/tiles.atlas\"\n"
+  "}\n"
+  "textures {\n"
+  "  sampler: \"tex1\"\n"
+  "  texture: \"/assets/rgba/tiles.atlas\"\n"
+  "}\n"
   ""
   position {
     x: 0.0

@@ -46,7 +46,7 @@ embedded_components {
   "blend_mode: BLEND_MODE_ALPHA\n"
   "line_break: false\n"
   "text: \"Sun\"\n"
-  "font: \"/builtins/fonts/system_font.font\"\n"
+  "font: \"/builtins/fonts/default.font\"\n"
   "material: \"/light_and_shadows/materials/hidden_label.material\"\n"
   ""
   position {
@@ -70,11 +70,14 @@ embedded_components {
   id: "model"
   type: "model"
   data: "mesh: \"/light_and_shadows/props/lamp.dae\"\n"
-  "material: \"/light_and_shadows/materials/hidden_model/yellow.material\"\n"
   "skeleton: \"\"\n"
   "animations: \"\"\n"
   "default_animation: \"\"\n"
   "name: \"unnamed\"\n"
+  "materials {\n"
+  "  name: \"default\"\n"
+  "  material: \"/light_and_shadows/materials/hidden_model/yellow.material\"\n"
+  "}\n"
   ""
   position {
     x: 0.0

@@ -16,7 +16,7 @@ uniform lowp vec4 color0;
 uniform highp vec4 light;
 uniform highp vec4 shadow_color;
 
-#define LIGHT_COUNT 16
+#define LIGHT_COUNT 8
 uniform highp vec4 lights[LIGHT_COUNT];
 uniform highp vec4 colors[LIGHT_COUNT];
 

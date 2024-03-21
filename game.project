@@ -16,7 +16,7 @@ package = com.dragosha.ls
 
 [project]
 title = Light and Shadows
-version = 0.3
+version = 0.4
 developer = Igor Suntsev
 dependencies#0 = https://github.com/britzl/ludobits/archive/6.8.0.zip
 dependencies#1 = https://github.com/britzl/defold-input/archive/master.zip

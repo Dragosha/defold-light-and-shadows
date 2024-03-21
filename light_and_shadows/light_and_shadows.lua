@@ -43,7 +43,8 @@ end
 
 
 function light_and_shadows.init(self)
-    self.shadowmap_buffer = light_and_shadows.create_depth_buffer(BUFFER_RESOLUTION, BUFFER_RESOLUTION)
+    -- self.shadowmap_buffer = light_and_shadows.create_depth_buffer(BUFFER_RESOLUTION, BUFFER_RESOLUTION)
+    self.shadowmap_buffer = "shadowmap"
 
     -- Use this for directional lights
     local proj_w = PROJECTION_RESOLUTION
