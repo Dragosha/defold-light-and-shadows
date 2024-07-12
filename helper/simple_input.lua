@@ -9,10 +9,10 @@ local function ensure_node(node_or_node_id)
 end
 
 function M.set_alpha(node, alpha)
-    local node = ensure_node(node)
-    local color = gui.get_color(node)
+    local n = ensure_node(node)
+    local color = gui.get_color(n)
     color.w = alpha
-    gui.set_color(node, color)
+    gui.set_color(n, color)
 end
 
 --- Convenience function to acquire input focus
@@ -53,21 +53,21 @@ function M.unregister(node_or_string)
         end
     else
         local node = ensure_node(node_or_string)
-        registered_node[node] = nil
+        registered_nodes[node] = nil
         longtap[node] = nil
     end
 end
 
 local function shake(node, initial_scale)
-    local initial_scale = initial_scale or registered_nodes[node].scale
+    local initial_scale_ = initial_scale or registered_nodes[node].scale
     gui.cancel_animation(node, "scale.x")
     gui.cancel_animation(node, "scale.y")
-    gui.set_scale(node, initial_scale)
+    gui.set_scale(node, initial_scale_)
     local scale = gui.get_scale(node)
     gui.set_scale(node, scale * 1.2)
     gui.animate(node, "scale.x", scale.x, gui.EASING_OUTELASTIC, 0.8)
     gui.animate(node, "scale.y", scale.y, gui.EASING_OUTELASTIC, 0.8, 0.05, function()
-        gui.set_scale(node, initial_scale)
+        gui.set_scale(node, initial_scale_)
     end)
 end
 M.shake = shake

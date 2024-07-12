@@ -366,8 +366,8 @@ function M.screen_to_world_2d(x, y, delta, worldz, raw)
     local m = not delta and vmath.inv(M.proj * M.view) or vmath.inv(M.proj)
 
     -- Remap coordinates to range -1 to 1
-    x1 = (x - M.window.x * 0.5) / M.window.x * 2
-    y1 = (y - M.window.y * 0.5) / M.window.y * 2
+    local x1 = (x - M.window.x * 0.5) / M.window.x * 2
+    local y1 = (y - M.window.y * 0.5) / M.window.y * 2
 
     if delta then x1 = x1 + 1;  y1 = y1 + 1 end
 
