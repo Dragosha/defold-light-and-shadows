@@ -20,31 +20,36 @@ The main difference from previous examples (see on the Defold forum) is the proj
 The demo project is fully configured, if you want to configure your project from scratch see this section.
 
 Set the render file in `bootstrap` section of the game.project.
-
-![bootstrap](assets/docs/bootstrap.png)
-
 Of course, you can use your own render script. Just add some elements to it.
+Add `shadow` material to the list of materials available from render script, and shadowmap.render_target.
+See `light_and_shadows/render/default.render` as the reference.
 
-![render](assets/docs/render.png)
+![render](assets/docs/render2.png)
 
-Add `shadow` material in the list of materials available from render.
 
-See `rendercam/rendercam.render_script` as the reference.
-
-In render_script include next lines:
+Add to render_script a few special lines of code. Its marked as `-- L_S Injection` in the reference render script.
 
 ---
-    local light_and_shadows = require "light_and_shadows.light_and_shadows"
+    173 local light_and_shadows = require "light_and_shadows.light_and_shadows"
     ...
-    in init() method:
-    light_and_shadows.init(self)
+    init() method:
+    177 "shadow"
+    198 light_and_shadows.init(self)
     ..
-    in update() method:
-    light_and_shadows.update(self)
+    update() method:
+    212 light_and_shadows.update(self)
+    227 draw_options_world.constants = self.constants
+    236 render.enable_texture("tex1"...
+    255 render.disable_texture("tex1")
+    
+
+Add `shadow` to predicates list.
+See `light_and_shadows/render/default.render_script` as the reference.
 
 
 Tune shadow settings in the `light_and_shadows.lua` file.
 
+You may create the shadowmap render target as code or as resource file (See `/light_and_shadows/render/shadowmap.render_target`)
 Most important is:
 
 * `BUFFER_RESOLUTION` = 2048 - Size of the shadow map texture. Select value from: 1024/2048/4096. More is better quality. Shadow map texture is projected to the game world.
@@ -174,20 +179,31 @@ If you don't want to use light sources at all and you have enough ambient light 
 
 ## Shadow's quality.
 
-This bundle contains two variants the fragment shaders.
+This bundle contains three variants of shadow in the fragment shader program.
+You can choose one of them by uncomment #define in `/light_and_shadows/materials/fun.glsl` shader file and comment others variants.
 
-Standart quality:
-![standart](assets/docs/example_standart.png)
-Uses 9 reads (samplers) from the shadowmap texture + randomization UV. May be too slow for using on lowend mobile devices.
+---
+    #define USE_PCF_SHADOW
+    // #define USE_PCF_POISSON_SHADOW
+    // #define USE_FLAT_SHADOW
 
-Low quality:
-![low](assets/docs/example_low.png)
+### USE_PCF_SHADOW. Standart quality.
+
+Uses 3 reads (samplers) from the shadowmap texture + randomization UV.
+
+![bulb](assets/docs/USE_PCF_SHADOW.png)
+
+### USE_PCF_POISSON_SHADOW. Good quality.
+
+Uses 8 sampler reads and Poisson filter + randomization UV.
+
+![bulb](assets/docs/USE_PCF_POISSON_SHADOW.png)
+
+### USE_FLAT_SHADOW. Low quality.
+
 Uses 1 sampler. Very simple variant.
-This shader also uses a short version of diffuse light function. Without the specular calculation.
 
-
-To switch the quality you need to change fragment shader in used materials (model, light_sprite, light_sprite_back). 
-![material](assets/docs/low.png)
+![bulb](assets/docs/USE_FLAT_SHADOW.png)
 
 
 ## One more thing
@@ -201,6 +217,5 @@ If you're new to Defold, notice how the coin collection example works, how the s
 
 ## Credits
 
-* `RenderCam` camera implementation by Ross Grams
 * Textures by Dragosha (https://dragosha.com/free/adventure-tileset.html)
-* `ludobits`, `monarch`, `defold-input` dependencies by Björn Ritzl
+* `ludobits`, `monarch`, `defold-input` by Björn Ritzl

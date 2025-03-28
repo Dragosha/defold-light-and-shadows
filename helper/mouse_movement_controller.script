@@ -1,9 +1,7 @@
-local rendercam = require 'rendercam.rendercam'
+local common    = require 'helper.common'
 
 go.property("obj", msg.url())
-go.property("speed", 0.1)
-go.property("action_id", hash("mouse_button_right"))
-go.property("local_space", true)
+go.property("action_id", hash("touch"))
 
 
 function init(self)
@@ -14,24 +12,25 @@ end
 function final(self)
 end
 
-
+local root     = vmath.vector3(0, 0, 0)
+local up       = vmath.vector3(0, 1, 0)
 function on_input(self, action_id, action)
     if action_id == self.action_id then
         self.touch_down = true
 
+        if action.pressed then
+            self.start_p = common.screen_to_world_plane(action.x, action.y, self.camera_id, up, root)
+        end
+        
         if action.released then
             self.touch_down = false
         end
     end
 
     if self.touch_down and action_id == nil then
-        local view = self.local_space and vmath.quat(0, 0, 0, 1) or go.get_rotation("cam")
-        local dx, dy = rendercam.screen_to_viewport(action.dx, action.dy, true)
-        local v3 = vmath.vector3(dx, 0, -dy)
-        local position = go.get_position(self.obj)
-        local v2 = position - vmath.rotate(view, v3)*self.speed
-        v2.y = position.y
-        go.cancel_animations(self.obj, "position")
-        go.set_position(v2, self.obj)
+        local p = common.screen_to_world_plane(action.x, action.y, self.camera_id, up, root)
+        local position = go.get_position(self.obj) - (p - self.start_p)
+        go.set_position(position, self.obj)
     end
+
 end

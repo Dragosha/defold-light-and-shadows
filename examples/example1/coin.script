@@ -1,4 +1,4 @@
-local broadcast = require 'ludobits.m.broadcast'
+local broadcast = require 'helper.broadcast'
 function init(self)
     -- Since we don't grant that the others scripts are activated: skip 1 frame. 
     timer.delay(0, false, function()

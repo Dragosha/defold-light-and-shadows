@@ -1,0 +1,290 @@
+name: "example2"
+instances {
+  id: "f"
+  prototype: "/assets/props/tiles/grig10x10.go"
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+instances {
+  id: "f1"
+  prototype: "/assets/props/tiles/grig10x10.go"
+  position {
+    x: -250.0
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+instances {
+  id: "f2"
+  prototype: "/assets/props/tiles/grig10x10.go"
+  position {
+    x: 250.0
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+instances {
+  id: "f6"
+  prototype: "/assets/props/tiles/grig10x10.go"
+  position {
+    z: -250.0
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+instances {
+  id: "f7"
+  prototype: "/assets/props/tiles/grig10x10.go"
+  position {
+    x: -250.0
+    z: -250.0
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+instances {
+  id: "f8"
+  prototype: "/assets/props/tiles/grig10x10.go"
+  position {
+    x: 250.0
+    z: -250.0
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+instances {
+  id: "sun"
+  prototype: "/light_and_shadows/props/sun.go"
+  position {
+    x: -7.0
+    y: 10.0
+    z: 5.0
+  }
+  component_properties {
+    id: "sun"
+    properties {
+      id: "color"
+      value: "0.2, 0.2, 0.2, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "shadow"
+      value: "0.5, 0.5, 0.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+  }
+}
+instances {
+  id: "die"
+  prototype: "/examples/example3/die.go"
+  position {
+    y: 10.0
+    z: -3.0
+  }
+  scale3 {
+    x: 4.0
+    y: 4.0
+    z: 4.0
+  }
+}
+instances {
+  id: "die1"
+  prototype: "/examples/example3/die.go"
+  position {
+    x: 5.0
+    y: 25.0
+  }
+  scale3 {
+    x: 4.0
+    y: 4.0
+    z: 4.0
+  }
+}
+instances {
+  id: "die2"
+  prototype: "/examples/example3/die.go"
+  position {
+    x: -5.0
+    y: 30.0
+    z: 12.0
+  }
+  scale3 {
+    x: 4.0
+    y: 4.0
+    z: 4.0
+  }
+}
+instances {
+  id: "die3"
+  prototype: "/examples/example3/die.go"
+  position {
+    x: 5.0
+    y: 56.0
+    z: -2.0
+  }
+  scale3 {
+    x: 4.0
+    y: 4.0
+    z: 4.0
+  }
+}
+instances {
+  id: "die4"
+  prototype: "/examples/example3/die.go"
+  position {
+    x: 1.0
+    y: 68.0
+    z: 1.0
+  }
+  scale3 {
+    x: 4.0
+    y: 4.0
+    z: 4.0
+  }
+}
+instances {
+  id: "die5"
+  prototype: "/examples/example3/die.go"
+  position {
+    x: 4.0
+    y: 78.0
+    z: -3.0
+  }
+  scale3 {
+    x: 4.0
+    y: 4.0
+    z: 4.0
+  }
+}
+scale_along_z: 1
+embedded_instances {
+  id: "root"
+  data: "components {\n"
+  "  id: \"lightsetting\"\n"
+  "  component: \"/light_and_shadows/light_setting.script\"\n"
+  "  properties {\n"
+  "    id: \"clear_color\"\n"
+  "    value: \"0.8, 0.8, 0.8, 0.0\"\n"
+  "    type: PROPERTY_TYPE_VECTOR4\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"fog_color\"\n"
+  "    value: \"0.8, 0.8, 0.8, 0.0\"\n"
+  "    type: PROPERTY_TYPE_VECTOR4\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"fog_density\"\n"
+  "    value: \"0.7\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"fog_min_max\"\n"
+  "    value: \"10.0, 180.0, 1.0, 1.0\"\n"
+  "    type: PROPERTY_TYPE_VECTOR4\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"ambient\"\n"
+  "    value: \"0.8, 0.8, 0.8, 0.0\"\n"
+  "    type: PROPERTY_TYPE_VECTOR4\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"color_max\"\n"
+  "    value: \"1.1\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"on\"\n"
+  "    value: \"true\"\n"
+  "    type: PROPERTY_TYPE_BOOLEAN\n"
+  "  }\n"
+  "}\n"
+  "components {\n"
+  "  id: \"controller\"\n"
+  "  component: \"/examples/example3/scene_controller.script\"\n"
+  "}\n"
+  ""
+}
+embedded_instances {
+  id: "ground"
+  children: "f"
+  children: "f1"
+  children: "f2"
+  children: "f6"
+  children: "f7"
+  children: "f8"
+  data: ""
+}
+embedded_instances {
+  id: "lights"
+  children: "sun"
+  data: ""
+}
+embedded_instances {
+  id: "sounds"
+  data: "embedded_components {\n"
+  "  id: \"button\"\n"
+  "  type: \"sound\"\n"
+  "  data: \"sound: \\\"/assets/ogg/navigate_36.ogg\\\"\\n"
+  "gain: 0.4\\n"
+  "\"\n"
+  "}\n"
+  ""
+}
+embedded_instances {
+  id: "objects"
+  children: "die"
+  children: "die1"
+  children: "die2"
+  children: "die3"
+  children: "die4"
+  children: "die5"
+  data: ""
+}
+embedded_instances {
+  id: "cam_target"
+  children: "camera"
+  data: "components {\n"
+  "  id: \"test\"\n"
+  "  component: \"/helper/print_url.script\"\n"
+  "}\n"
+  ""
+  rotation {
+    x: -0.34202015
+    w: 0.9396926
+  }
+}
+embedded_instances {
+  id: "camera"
+  data: "embedded_components {\n"
+  "  id: \"camera\"\n"
+  "  type: \"camera\"\n"
+  "  data: \"aspect_ratio: 1.0\\n"
+  "fov: 0.7854\\n"
+  "near_z: 10.0\\n"
+  "far_z: 600.0\\n"
+  "auto_aspect_ratio: 1\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    z: 100.0
+  }
+}

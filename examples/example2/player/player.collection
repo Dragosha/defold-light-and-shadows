@@ -1,0 +1,6 @@
+name: "player"
+instances {
+  id: "player"
+  prototype: "/examples/example2/player/player.go"
+}
+scale_along_z: 0

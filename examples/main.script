@@ -1,9 +1,26 @@
-local monarch = require "monarch.monarch"
+local monarch     = require "monarch.monarch"
+local broadcast = require 'helper.broadcast'
 
+local function on_window(self, event, data)
+    if event == window.WINDOW_EVENT_RESIZED then
+        if data.width == 0 or data.height == 0 then
+            return
+        end
+        broadcast.send("WINDOW_RESIZED", data)
+    end
+
+end
+
+local SFS = hash("show_first_screen")
 function init(self)
-    msg.post("#", "show_first_screen")
+    msg.post("#", SFS)
+    if window then
+        window.set_listener(on_window)
+    end
 end
 
 function on_message(self, message_id, message, sender)
-    monarch.show(hash("1"))
+    if message_id == SFS then
+        monarch.show(hash("1"))
+    end
 end

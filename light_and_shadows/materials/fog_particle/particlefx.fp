@@ -6,6 +6,9 @@ uniform lowp vec4 tint;
 uniform lowp vec4 fog_color;
 uniform lowp vec4 fog;
 varying highp vec4 var_view_position;
+
+#include "/light_and_shadows/materials/fog_fun.glsl"
+
 void main()
 {
     // Pre-multiply alpha since all runtime textures already are
@@ -14,12 +17,8 @@ void main()
 
     vec3 frag_color  = color.rgb;
 
-    // Fog
-    float dist = abs(var_view_position.z);
-    float fog_max = fog.y;
-    float fog_min = fog.x;
-    float fog_factor = clamp((fog_max - dist) / (fog_max - fog_min) + fog_color.a, 0.0, 1.0 );
-    frag_color = mix(fog_color.rgb*color.a, frag_color, fog_factor);
+    // Add the fog
+    frag_color = add_fog(frag_color, var_view_position.z, fog.x, fog.y, fog_color.rgb*color.a, fog_color.a);
 
     gl_FragColor = vec4(frag_color, color.a);
 }

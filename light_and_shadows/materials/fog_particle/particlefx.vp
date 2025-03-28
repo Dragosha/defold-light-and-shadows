@@ -1,5 +1,4 @@
 uniform highp mat4 view_proj;
-uniform highp mat4 mtx_view;
 
 // positions are in world space
 attribute highp vec4 position;
@@ -15,5 +14,5 @@ void main()
     gl_Position = view_proj * vec4(position.xyz, 1.0);
     var_texcoord0 = texcoord0;
     var_color = vec4(color.rgb * color.a, color.a);
-    var_view_position = mtx_view * position;
+    var_view_position = vec4(position.xyz, 1.0);
 }

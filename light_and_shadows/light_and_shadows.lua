@@ -1,15 +1,13 @@
 local light_and_shadows = {}
 
 local constants = require "light_and_shadows.constants"
-local rendercam = require "rendercam.rendercam"
 
 local top = vmath.vector3(0, 1, 0)
 local v0 = vmath.vector4(0, 0, 0, 0) -- zero vector4
 
--- 1 - max quality
--- 2 - low
--- 3 - extra low / no shadow cast
-light_and_shadows.shadow_quality = 1
+-- 0 - on
+-- 1 - off / no shadow cast
+light_and_shadows.shadow_quality = 0
 
 local BUFFER_RESOLUTION = 2048 -- Size of shadow map. Select value from: 1024/2048/4096. More is better quality.
 
@@ -18,29 +16,31 @@ local BUFFER_RESOLUTION = 2048 -- Size of shadow map. Select value from: 1024/20
 -- This value also depends on camera zoom. Feel free to adjust it.
 local PROJECTION_RESOLUTION = 400 
 
-function light_and_shadows.create_depth_buffer(w,h)
-    local color_params = {
-        format     = render.FORMAT_RGBA,
-        -- format     = render.FORMAT_R32F,
-        width      = w,
-        height     = h,
-        min_filter = render.FILTER_NEAREST,
-        mag_filter = render.FILTER_NEAREST,
-        u_wrap     = render.WRAP_CLAMP_TO_EDGE,
-        v_wrap     = render.WRAP_CLAMP_TO_EDGE }
+-- function light_and_shadows.create_depth_buffer(w,h)
+--     local color_params = {
+--         format     = render.FORMAT_RGBA,
+--         -- format     = render.FORMAT_R32F,
+--         width      = w,
+--         height     = h,
+--         min_filter = render.FILTER_NEAREST,
+--         mag_filter = render.FILTER_NEAREST,
+--         u_wrap     = render.WRAP_CLAMP_TO_EDGE,
+--         v_wrap     = render.WRAP_CLAMP_TO_EDGE }
+-- 
+--         local depth_params = { 
+--             format        = render.FORMAT_DEPTH,
+--             width         = w,
+--             height        = h,
+--             min_filter    = render.FILTER_NEAREST,
+--             mag_filter    = render.FILTER_NEAREST,
+--             u_wrap        = render.WRAP_CLAMP_TO_EDGE,
+--             v_wrap        = render.WRAP_CLAMP_TO_EDGE }
+-- 
+--     return render.render_target("shadow_buffer", {[render.BUFFER_COLOR_BIT] = color_params, [render.BUFFER_DEPTH_BIT] = depth_params })
+-- end
 
-        local depth_params = { 
-            format        = render.FORMAT_DEPTH,
-            width         = w,
-            height        = h,
-            min_filter    = render.FILTER_NEAREST,
-            mag_filter    = render.FILTER_NEAREST,
-            u_wrap        = render.WRAP_CLAMP_TO_EDGE,
-            v_wrap        = render.WRAP_CLAMP_TO_EDGE }
-
-    return render.render_target("shadow_buffer", {[render.BUFFER_COLOR_BIT] = color_params, [render.BUFFER_DEPTH_BIT] = depth_params })
-end
-
+-- special vector4 for transfer our settings to the shader program
+local param = vmath.vector4(0, 0, 0, 0)
 
 function light_and_shadows.init(self)
     -- self.shadowmap_buffer = light_and_shadows.create_depth_buffer(BUFFER_RESOLUTION, BUFFER_RESOLUTION)
@@ -52,8 +52,10 @@ function light_and_shadows.init(self)
     self.light_projection = vmath.matrix4_orthographic(-proj_w/2, proj_w/2, -proj_h/2, proj_h/2, -500, 500)
     -- self.light_projection = vmath.matrix4_perspective(3.141592/2, 1, 1, 1000)
 
+    self.constants = render.constant_buffer()
     self.constants.lights = {}
     self.constants.colors = {}
+    self.constants.param = param
 
     self.bias_matrix    = vmath.matrix4()
     self.bias_matrix.c0 = vmath.vector4(0.5, 0.0, 0.0, 0.0)
@@ -101,7 +103,7 @@ function light_and_shadows.update_light(self)
     if constants.fog then self.constants.fog = constants.fog end
     if constants.tint then self.constants.tint = constants.tint end
 
-    if light_and_shadows.shadow_quality <  3 then
+    if light_and_shadows.shadow_quality <  1 then
         local pos_light = constants.cam_look_at_position + sun
         self.light_transform = vmath.matrix4_look_at(pos_light, constants.cam_look_at_position, top)
         local mtx_light = self.bias_matrix * self.light_projection * self.light_transform
@@ -112,13 +114,13 @@ function light_and_shadows.update_light(self)
 
     -- Setup camera world position uniform constant (vector4)
     -- It's used in shader to calculate speculars by phong model.
-    -- If you are switching to "low spec" fragment shaders you may remove code below.
-    -- Standart rendercam extension doesn't contain this method.
-    local p = rendercam.cur_cam_position()
-    temp.x = p.x
-    temp.y = p.y
-    temp.z = p.z
-    self.constants.cam_pos = temp
+    self.constants.cam_pos = constants.cam_position
+    -- set param.y as shader iformation do we need to cast shadow or not
+    -- > 0 - off
+    -- 0 - on (default value) 
+    param.y = light_and_shadows.shadow_quality
+    self.constants.param = param
+    -- print(self.constants.param, light_and_shadows.shadow_quality)
 
 end
 
@@ -139,14 +141,14 @@ function light_and_shadows.render_shadows(self)
     render.enable_material("shadow")
     --  All objects in render list taged as "shadow" will change their material to "shadow.material"
     --  to cast shadows into shadow map texture. This texture will be enabled to all objects at the next render pass.
-    render.draw(self.shadow_pred)
+    render.draw(self.predicates.shadow)
     render.disable_material()
     render.set_render_target(render.RENDER_TARGET_DEFAULT)
 end
 
 function light_and_shadows.update(self)
     light_and_shadows.update_light(self)
-    if light_and_shadows.shadow_quality < 3 then
+    if light_and_shadows.shadow_quality < 1 then
         light_and_shadows.render_shadows(self)
     end
 end

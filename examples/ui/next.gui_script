@@ -1,10 +1,15 @@
 local si        = require 'helper.simple_input'
 local monarch   = require "monarch.monarch"
 local light_and_shadows = require "light_and_shadows.light_and_shadows"
+local broadcast = require 'helper.broadcast'
+local virtual_stick = require 'helper.virtual_stick'
 
 local current_example = 1
-local totals = 2
+local totals = 3
 
+local function text_upd()
+    gui.set_text(gui.get_node("qlt"), light_and_shadows.shadow_quality == 0 and "On" or "Off")
+end
 
 function init(self)
     -- Simple input. Registre the 'next' button hundler.
@@ -17,20 +22,39 @@ function init(self)
     end)
 
     si.register("quality", function()
-        if light_and_shadows.shadow_quality == 1 then
-            light_and_shadows.shadow_quality = 2
-        elseif light_and_shadows.shadow_quality == 2 then
-            light_and_shadows.shadow_quality = 3
-        elseif light_and_shadows.shadow_quality == 3 then
+        if light_and_shadows.shadow_quality == 0 then
             light_and_shadows.shadow_quality = 1
+        elseif light_and_shadows.shadow_quality == 1 then
+            light_and_shadows.shadow_quality = 0
         end
-        gui.set_text(gui.get_node("qlt"), light_and_shadows.shadow_quality.."")
+        text_upd()
     end)
+    text_upd()
+
+    -- The UI scaling depends on the window resolution.
+    local function resize()
+        local x, y, zoom = virtual_stick.get_aspect_ratio()
+        local scale = vmath.vector3(zoom, zoom, 1)
+        -- print("next", scale)
+        gui.set_scale(gui.get_node("corner1"), scale)
+        gui.set_scale(gui.get_node("corner2"), scale)
+    end
+
+    broadcast.register("WINDOW_RESIZED", resize)
+    resize()
 end
 
 function final(self)
+    broadcast.unregister_all()
     si.unregister()
     si.release()
+end
+
+function on_message(self, message_id, message, sender)
+    if broadcast.on_message(message_id, message, sender) then
+        -- message was handled
+        return
+    end
 end
 
 function on_input(self, action_id, action)

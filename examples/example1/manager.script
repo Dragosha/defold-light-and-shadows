@@ -1,13 +1,12 @@
-local rendercam = require 'rendercam.rendercam'
 local common    = require 'helper.common'
-local broadcast = require 'ludobits.m.broadcast'
+local broadcast = require 'helper.broadcast'
 
 local coins = {}
 
 local function click(message, sender)
 
-    local from, to = rendercam.screen_to_world_ray(message.x, message.y, false)
-    local result = physics.raycast(from, to, {hash("default")}, {all = false})
+    local from, to = common.screen_to_world_ray(message.x, message.y, "camera#camera")
+    local result = physics.raycast(from, to, {hash("coin")}, {all = false})
     if result ~= nil then
         local r = result[1]
         print("click:", r.id )
@@ -34,8 +33,8 @@ end
 function init(self)
     broadcast.register("click", click)
     broadcast.register("coin_register", function(message, sender)
-		if message.id then coins[message.id] = message.id end
-	end)
+        if message.id then coins[message.id] = message.id end
+    end)
 end
 
 function final(self)

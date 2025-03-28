@@ -10,6 +10,8 @@ uniform lowp vec4 fog_color;
 uniform lowp vec4 fog;
 varying highp vec4 var_view_position;
 
+#include "/light_and_shadows/materials/fog_fun.glsl"
+
 void main()
 {
     lowp float is_single_layer = var_layer_mask.a;
@@ -30,12 +32,8 @@ void main()
 
     vec4 frag_color  = face_color + outline_color + shadow_color;
 
-    // Fog
-    float dist = abs(var_view_position.z);
-    float fog_max = fog.y;
-    float fog_min = fog.x;
-    float fog_factor = clamp((fog_max - dist) / (fog_max - fog_min) + fog_color.a, 0.0, 1.0 );
-    frag_color.rgb = mix(fog_color.rgb*frag_color.a, frag_color.rgb, fog_factor);
+    // Add the fog
+    frag_color.rgb = add_fog(frag_color.rgb, var_view_position.z, fog.x, fog.y, fog_color.rgb*frag_color.a, fog_color.a);
 
     gl_FragColor = frag_color;
 }

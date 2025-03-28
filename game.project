@@ -1,6 +1,6 @@
 [bootstrap]
 main_collection = /examples/main.collectionc
-render = /rendercam/rendercam.renderc
+render = /light_and_shadows/render/default.renderc
 
 [script]
 shared_state = 1
@@ -16,17 +16,17 @@ package = com.dragosha.ls
 
 [project]
 title = Light and Shadows
-version = 0.4
+version = 0.5
 developer = Igor Suntsev
-dependencies#0 = https://github.com/britzl/ludobits/archive/6.8.0.zip
-dependencies#1 = https://github.com/britzl/defold-input/archive/master.zip
-dependencies#2 = https://github.com/britzl/monarch/archive/refs/tags/3.4.6.zip
+dependencies#0 = https://github.com/britzl/defold-input/archive/master.zip
+dependencies#1 = https://github.com/britzl/monarch/archive/refs/tags/3.4.6.zip
 
 [physics]
 type = 3D
 gravity_y = -90.0
 max_collisions = 128
 max_contacts = 256
+use_fixed_timestep = 1
 
 [osx]
 bundle_identifier = com.dragosha.ls

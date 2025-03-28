@@ -1,265 +1,203 @@
 images {
   image: "/assets/images/light_a.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/windowlight.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/lightaura_red.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/lightaura_blue.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/shadow.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/noname.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  pivot_y: 1.0
 }
 images {
   image: "/assets/images/tip.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  pivot_y: 1.0
 }
 images {
   image: "/assets/images/tiles/AttentionIcon.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/b1.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  pivot_y: 1.0
 }
 images {
   image: "/assets/images/tiles/b2.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  pivot_y: 1.0
 }
 images {
   image: "/assets/images/tiles/c1.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/c2.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/Char1.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/Char3.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/Char5.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/d1.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/d2.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/e1.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/e2.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/e3.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/e4.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/e5.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/e6.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/e7.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/e8.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/e9.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/h1.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/h2.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/h3.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/h4.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/r1.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/r2.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/tr1.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/tr2.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/tr3.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/tr4.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/tr5.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/tr6.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/tr7.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/w1.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/w2.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/w3.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/w4.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/w5.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/w6.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/w7.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/candle.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/noname4.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/t5.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/t8.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/tiles/h5.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/Icon-coin.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/Arrow-up.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/assets/images/Arrow-right.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 animations {
   id: "firea"
   images {
     image: "/assets/images/fire/fire1.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
     image: "/assets/images/fire/fire2.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
     image: "/assets/images/fire/fire3.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
     image: "/assets/images/fire/fire4.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
     image: "/assets/images/fire/fire5.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
     image: "/assets/images/fire/fire6.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
     image: "/assets/images/fire/fire7.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
     image: "/assets/images/fire/fire8.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
     image: "/assets/images/fire/fire9.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
     image: "/assets/images/fire/fire10.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_LOOP_FORWARD
   fps: 10
-  flip_horizontal: 0
-  flip_vertical: 0
 }
 margin: 2
 extrude_borders: 2

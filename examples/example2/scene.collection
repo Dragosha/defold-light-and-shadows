@@ -1,82 +1,7 @@
 name: "example2"
 instances {
-  id: "camera"
-  prototype: "/rendercam/camera.go"
-  children: "camicon"
-  position {
-    x: 0.0
-    y: 66.0
-    z: 120.0
-  }
-  rotation {
-    x: -0.23004974
-    y: 0.0
-    z: 0.0
-    w: 0.97317886
-  }
-  component_properties {
-    id: "script"
-    properties {
-      id: "orthographic"
-      value: "false"
-      type: PROPERTY_TYPE_BOOLEAN
-    }
-    properties {
-      id: "nearZ"
-      value: "10.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "farZ"
-      value: "600.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "viewDistance"
-      value: "1200.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "orthoScale"
-      value: "0.06"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "fixedAspectRatio"
-      value: "false"
-      type: PROPERTY_TYPE_BOOLEAN
-    }
-    properties {
-      id: "useViewArea"
-      value: "true"
-      type: PROPERTY_TYPE_BOOLEAN
-    }
-    properties {
-      id: "viewArea"
-      value: "1600.0, 900.0, 0.0"
-      type: PROPERTY_TYPE_VECTOR3
-    }
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-instances {
   id: "f"
   prototype: "/assets/props/tiles/grig10x10.go"
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
   scale3 {
     x: 5.0
     y: 5.0
@@ -88,14 +13,6 @@ instances {
   prototype: "/assets/props/tiles/grig10x10.go"
   position {
     x: -250.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
   }
   scale3 {
     x: 5.0
@@ -108,14 +25,6 @@ instances {
   prototype: "/assets/props/tiles/grig10x10.go"
   position {
     x: 250.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
   }
   scale3 {
     x: 5.0
@@ -127,15 +36,7 @@ instances {
   id: "f6"
   prototype: "/assets/props/tiles/grig10x10.go"
   position {
-    x: 0.0
-    y: 0.0
     z: -250.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
   }
   scale3 {
     x: 5.0
@@ -148,14 +49,7 @@ instances {
   prototype: "/assets/props/tiles/grig10x10.go"
   position {
     x: -250.0
-    y: 0.0
     z: -250.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
   }
   scale3 {
     x: 5.0
@@ -168,14 +62,7 @@ instances {
   prototype: "/assets/props/tiles/grig10x10.go"
   position {
     x: 250.0
-    y: 0.0
     z: -250.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
   }
   scale3 {
     x: 5.0
@@ -191,12 +78,6 @@ instances {
     y: 10.0
     z: 5.0
   }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
   component_properties {
     id: "sun"
     properties {
@@ -210,30 +91,14 @@ instances {
       type: PROPERTY_TYPE_VECTOR4
     }
   }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
 }
 instances {
   id: "coin"
   prototype: "/assets/props/coin.go"
   position {
-    x: 46.119
-    y: 6.654
+    x: 54.119
+    y: 3.654
     z: -10.319
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
   }
 }
 instances {
@@ -244,17 +109,6 @@ instances {
     y: 2.009
     z: -48.573
   }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
 }
 instances {
   id: "coin2"
@@ -263,17 +117,6 @@ instances {
     x: 97.547
     y: 2.009
     z: 5.492
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
   }
 }
 instances {
@@ -284,17 +127,6 @@ instances {
     y: 2.009
     z: -1.395
   }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
 }
 instances {
   id: "coin4"
@@ -303,17 +135,6 @@ instances {
     x: -30.832
     y: 3.066
     z: -4.334
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
   }
 }
 instances {
@@ -324,118 +145,54 @@ instances {
     y: 3.066
     z: -50.365
   }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
+}
+instances {
+  id: "f3"
+  prototype: "/assets/props/tiles/f3.go"
+  position {
+    x: -76.0
+    y: 3.0
+    z: -35.0
   }
   scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
+    x: 5.0
+    y: 5.0
+    z: 5.0
   }
+}
+instances {
+  id: "f4"
+  prototype: "/assets/props/tiles/f3.go"
+  position {
+    x: -102.0
+    y: 6.0
+    z: -35.0
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+instances {
+  id: "coin6"
+  prototype: "/assets/props/coin.go"
+  position {
+    x: -98.832
+    y: 9.066
+    z: -33.334
+  }
+}
+collection_instances {
+  id: "player"
+  collection: "/examples/example2/player/player.collection"
 }
 scale_along_z: 1
-embedded_instances {
-  id: "cam"
-  children: "camera"
-  data: "components {\n"
-  "  id: \"test\"\n"
-  "  component: \"/helper/print_url.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "  property_decls {\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: 51.726
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-embedded_instances {
-  id: "camicon"
-  data: "embedded_components {\n"
-  "  id: \"model\"\n"
-  "  type: \"model\"\n"
-  "  data: \"mesh: \\\"/light_and_shadows/props/cam.dae\\\"\\n"
-  "skeleton: \\\"\\\"\\n"
-  "animations: \\\"\\\"\\n"
-  "default_animation: \\\"\\\"\\n"
-  "name: \\\"unnamed\\\"\\n"
-  "materials {\\n"
-  "  name: \\\"default\\\"\\n"
-  "  material: \\\"/light_and_shadows/materials/hidden_model/white.material\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
 embedded_instances {
   id: "root"
   data: "components {\n"
   "  id: \"lightsetting\"\n"
   "  component: \"/light_and_shadows/light_setting.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "  properties {\n"
   "    id: \"clear_color\"\n"
   "    value: \"0.8, 0.8, 0.8, 0.0\"\n"
@@ -471,71 +228,25 @@ embedded_instances {
   "    value: \"true\"\n"
   "    type: PROPERTY_TYPE_BOOLEAN\n"
   "  }\n"
-  "  property_decls {\n"
-  "  }\n"
   "}\n"
   "components {\n"
   "  id: \"controller\"\n"
-  "  component: \"/examples/example1/scene_controller.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
+  "  component: \"/examples/example2/scene_controller.script\"\n"
   "  properties {\n"
-  "    id: \"cam\"\n"
-  "    value: \"sun\"\n"
+  "    id: \"cam_follow\"\n"
+  "    value: \"player/player\"\n"
   "    type: PROPERTY_TYPE_URL\n"
-  "  }\n"
-  "  property_decls {\n"
-  "  }\n"
-  "}\n"
-  "components {\n"
-  "  id: \"manager\"\n"
-  "  component: \"/examples/example1/manager.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "  property_decls {\n"
   "  }\n"
   "}\n"
   ""
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
 }
 embedded_instances {
   id: "ground"
   children: "f"
   children: "f1"
   children: "f2"
+  children: "f3"
+  children: "f4"
   children: "f6"
   children: "f7"
   children: "f8"
@@ -551,43 +262,11 @@ embedded_instances {
   children: "go144"
   children: "go75"
   data: ""
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
 }
 embedded_instances {
   id: "lights"
   children: "sun"
   data: ""
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
 }
 embedded_instances {
   id: "props"
@@ -710,22 +389,6 @@ embedded_instances {
   children: "go98"
   children: "go99"
   data: ""
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
 }
 embedded_instances {
   id: "go18"
@@ -734,7 +397,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"h4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -745,15 +407,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 154.711\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
@@ -764,8 +418,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -781,7 +433,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -792,15 +443,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 142.215\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   "embedded_components {\n"
@@ -808,7 +451,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr1\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -819,15 +461,8 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 391.332\n"
   "    z: 21.443\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
@@ -838,8 +473,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -855,7 +488,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"h5\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -866,15 +498,8 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 400.399\n"
   "    z: 23.471\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   "embedded_components {\n"
@@ -889,15 +514,8 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 307.336\n"
   "    z: 31.521\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "  scale {\n"
   "    x: 0.462\n"
@@ -913,8 +531,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -930,7 +546,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -941,27 +556,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 22.99\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 39.315
-    y: 0.0
     z: 17.945
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -977,7 +581,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -988,27 +591,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 22.99\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 28.547
-    y: 0.0
     z: -33.706
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -1024,7 +616,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -1035,27 +626,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 22.99\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 42.284
-    y: 0.0
     z: 15.349
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -1071,7 +651,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tip\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -1081,28 +660,14 @@ embedded_instances {
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
   "}\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 118.134\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "}\n"
   ""
   position {
     x: 37.885
-    y: 0.0
     z: 16.349
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -1118,7 +683,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -1129,27 +693,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 22.99\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -32.474
-    y: 0.0
     z: -13.95
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -1165,7 +718,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"h2\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -1176,15 +728,8 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 400.399\n"
   "    z: 23.471\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
@@ -1195,8 +740,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -1212,7 +755,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr6\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -1223,15 +765,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 142.215\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   "embedded_components {\n"
@@ -1239,7 +773,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr1\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -1254,12 +787,6 @@ embedded_instances {
   "    y: 391.332\n"
   "    z: 21.443\n"
   "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "  scale {\n"
   "    x: 1.22\n"
   "    y: 1.22\n"
@@ -1271,7 +798,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr3\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -1285,12 +811,6 @@ embedded_instances {
   "    x: 102.883\n"
   "    y: 388.395\n"
   "    z: 27.308\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "  scale {\n"
   "    x: 1.22\n"
@@ -1306,8 +826,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -1323,7 +841,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"h3\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -1334,15 +851,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 199.632\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   "embedded_components {\n"
@@ -1361,12 +870,6 @@ embedded_instances {
   "    y: 126.134\n"
   "    z: 15.407\n"
   "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "  scale {\n"
   "    x: 0.462\n"
   "    y: 0.462\n"
@@ -1381,8 +884,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -1398,7 +899,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -1409,15 +909,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 142.215\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   "embedded_components {\n"
@@ -1425,7 +917,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr2\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -1439,12 +930,6 @@ embedded_instances {
   "    x: 20.097\n"
   "    y: 391.332\n"
   "    z: 21.443\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "  scale {\n"
   "    x: 1.22\n"
@@ -1460,8 +945,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -1477,7 +960,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"h2\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -1488,15 +970,8 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 587.551\n"
   "    z: 23.471\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
@@ -1507,8 +982,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -1522,26 +995,12 @@ embedded_instances {
   data: "components {\n"
   "  id: \"breathing\"\n"
   "  component: \"/helper/breathing.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "  property_decls {\n"
-  "  }\n"
   "}\n"
   "embedded_components {\n"
   "  id: \"sprite\"\n"
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"noname\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -1551,28 +1010,14 @@ embedded_instances {
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
   "}\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 159.476\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "}\n"
   ""
   position {
     x: 49.039
-    y: -0.376
     z: -5.278
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -1588,7 +1033,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -1599,27 +1043,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 22.99\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 16.366
-    y: 0.0
     z: -30.182
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -1635,7 +1068,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e3\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -1646,27 +1078,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 17.268\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -27.474
-    y: 0.0
     z: -13.95
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -1682,7 +1103,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e1\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -1693,27 +1113,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 27.256\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -15.898
-    y: 0.0
     z: -26.359
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -1729,7 +1138,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e3\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -1740,27 +1148,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 17.268\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 1.726
-    y: 0.0
     z: -14.947
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -1776,7 +1173,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr6\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -1787,15 +1183,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 142.215\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   "embedded_components {\n"
@@ -1803,7 +1191,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr1\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -1818,12 +1205,6 @@ embedded_instances {
   "    y: 391.332\n"
   "    z: 21.443\n"
   "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "  scale {\n"
   "    x: 1.22\n"
   "    y: 1.22\n"
@@ -1835,7 +1216,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr3\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -1849,12 +1229,6 @@ embedded_instances {
   "    x: 87.731\n"
   "    y: 55.751\n"
   "    z: 27.706\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "  scale {\n"
   "    x: 1.22\n"
@@ -1870,8 +1244,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -1887,7 +1259,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e3\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -1898,27 +1269,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 17.268\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 76.011
-    y: 0.0
     z: 22.273
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -1934,7 +1294,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"h1\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -1945,15 +1304,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 178.599\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
@@ -1964,8 +1315,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -1981,7 +1330,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w2\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -1992,27 +1340,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 41.1\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 43.271
-    y: 0.0
     z: -21.273
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -2028,7 +1365,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w1\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -2039,27 +1375,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 43.848\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 16.325
-    y: 0.0
     z: -25.492
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -2075,7 +1400,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -2086,27 +1410,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 81.086
-    y: 0.0
     z: -69.538
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -2122,7 +1435,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w1\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -2133,27 +1445,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 43.848\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 66.429
-    y: 0.0
     z: -25.492
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -2169,7 +1470,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -2180,27 +1480,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 81.086
-    y: 0.0
     z: -68.064
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -2216,7 +1505,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -2227,27 +1515,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 81.086
-    y: 0.0
     z: -66.08
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -2263,7 +1540,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -2274,27 +1550,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 81.086
-    y: 0.0
     z: -63.859
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -2310,7 +1575,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -2321,27 +1585,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 81.086
-    y: 0.0
     z: -61.491
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -2357,7 +1610,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -2368,27 +1620,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 83.732
-    y: 0.0
     z: -61.491
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -2404,7 +1645,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -2415,15 +1655,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
@@ -2434,8 +1666,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -2451,7 +1681,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -2462,27 +1691,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 89.289
-    y: 0.0
     z: -61.491
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -2498,7 +1716,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w1\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -2509,27 +1726,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 43.848\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 41.237
-    y: 0.0
     z: -18.672
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -2545,7 +1751,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -2556,27 +1761,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -35.867
-    y: 0.0
     z: -4.623
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -2592,7 +1786,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -2603,27 +1796,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -35.867
-    y: 0.0
     z: -3.149
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -2639,7 +1821,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -2650,27 +1831,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -35.471
-    y: 0.0
     z: -1.165
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -2686,7 +1856,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -2697,27 +1866,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -35.867
-    y: 0.0
     z: 1.056
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -2733,7 +1891,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -2744,27 +1901,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -35.867
-    y: 0.0
     z: 3.424
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -2780,7 +1926,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -2791,27 +1936,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -33.221
-    y: 0.0
     z: 3.424
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -2827,7 +1961,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -2838,15 +1971,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
@@ -2857,8 +1982,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -2874,7 +1997,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -2885,27 +2007,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -27.664
-    y: 0.0
     z: 3.424
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -2921,7 +2032,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -2932,27 +2042,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -35.867
-    y: 0.0
     z: 5.998
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -2968,7 +2067,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -2979,27 +2077,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -35.867
-    y: 0.0
     z: -6.995
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -3015,7 +2102,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -3026,27 +2112,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -35.867
-    y: 0.0
     z: -10.879
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -3062,7 +2137,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -3073,27 +2147,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -36.164
-    y: 0.0
     z: -13.281
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -3109,7 +2172,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -3120,27 +2182,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 22.99\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -29.788
-    y: 0.0
     z: 4.924
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -3156,7 +2207,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e5\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -3167,27 +2217,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 11.52\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -41.755
-    y: 0.0
     z: 4.924
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -3203,7 +2242,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e5\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -3214,27 +2252,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 11.52\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -16.511
-    y: 0.0
     z: -25.001
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -3250,7 +2277,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e5\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -3261,27 +2287,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 11.52\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 42.115
-    y: 0.0
     z: -17.219
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -3297,7 +2312,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr5\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -3308,27 +2322,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 34.944\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -39.769
-    y: 0.0
     z: 21.784
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -3344,7 +2347,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -3355,27 +2357,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 46.797\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 69.154
-    y: 0.0
     z: 14.053
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -3391,7 +2382,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr3\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -3402,27 +2392,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 50.46\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -26.732
-    y: 0.0
     z: -2.038
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -3438,7 +2417,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -3449,27 +2427,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 19.071\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 11.726
-    y: 0.0
     z: -22.125
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -3485,7 +2452,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e8\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -3496,27 +2462,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 10.933\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 70.424
-    y: 0.0
     z: 21.796
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -3532,7 +2487,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e9\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -3543,27 +2497,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 171.367\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -5.011
-    y: 0.0
     z: -80.284
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -3579,7 +2522,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr5\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -3590,27 +2532,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 34.944\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 76.762
-    y: 0.0
     z: 6.649
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -3626,7 +2557,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr5\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -3637,27 +2567,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 34.944\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 31.212
-    y: 0.0
     z: -46.72
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -3673,7 +2592,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -3684,27 +2602,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 46.797\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 61.154
-    y: 0.0
     z: -82.947
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -3720,7 +2627,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr5\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -3731,27 +2637,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 34.944\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 88.762
-    y: 0.0
     z: -70.351
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -3767,7 +2662,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr5\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -3778,27 +2672,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 34.944\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 99.762
-    y: 0.0
     z: -90.351
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -3814,7 +2697,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr5\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -3825,27 +2707,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 34.944\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 103.762
-    y: 0.0
     z: -12.351
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -3861,7 +2732,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -3872,27 +2742,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 46.797\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 95.154
-    y: 0.0
     z: -66.947
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -3908,7 +2767,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -3919,27 +2777,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 46.797\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 100.154
-    y: 0.0
     z: -6.947
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -3955,7 +2802,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e8\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -3966,27 +2812,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 10.933\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 101.424
-    y: 0.0
     z: -64.204
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -4002,7 +2837,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e8\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -4013,27 +2847,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 10.933\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 39.424
-    y: 0.0
     z: -35.204
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -4049,7 +2872,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -4060,27 +2882,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 22.99\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 77.212
-    y: 0.0
     z: 23.924
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -4096,7 +2907,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -4107,27 +2917,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 22.99\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 103.212
-    y: 0.0
     z: -5.076
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -4143,7 +2942,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -4154,27 +2952,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 22.99\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 110.212
-    y: 0.0
     z: 44.924
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -4190,7 +2977,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -4201,27 +2987,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 22.99\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 47.212
-    y: 0.0
     z: 13.924
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -4237,7 +3012,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -4248,27 +3022,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 22.99\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 50.212
-    y: 0.0
     z: -22.076
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -4282,17 +3045,6 @@ embedded_instances {
   data: "components {\n"
   "  id: \"moving\"\n"
   "  component: \"/helper/moving.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "  properties {\n"
   "    id: \"value\"\n"
   "    value: \"-170.0\"\n"
@@ -4308,15 +3060,12 @@ embedded_instances {
   "    value: \"position.x\"\n"
   "    type: PROPERTY_TYPE_HASH\n"
   "  }\n"
-  "  property_decls {\n"
-  "  }\n"
   "}\n"
   "embedded_components {\n"
   "  id: \"sprite\"\n"
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"c1\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -4327,27 +3076,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 286.435\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 168.989
-    y: 0.0
     z: 21.716
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -4361,17 +3099,6 @@ embedded_instances {
   data: "components {\n"
   "  id: \"moving\"\n"
   "  component: \"/helper/moving.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "  properties {\n"
   "    id: \"value\"\n"
   "    value: \"170.0\"\n"
@@ -4387,15 +3114,12 @@ embedded_instances {
   "    value: \"position.x\"\n"
   "    type: PROPERTY_TYPE_HASH\n"
   "  }\n"
-  "  property_decls {\n"
-  "  }\n"
   "}\n"
   "embedded_components {\n"
   "  id: \"sprite\"\n"
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"c2\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -4406,27 +3130,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 286.435\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -94.011
-    y: 0.0
     z: -58.284
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -4442,34 +3155,22 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"AttentionIcon\\\"\\n"
   "material: \\\"/light_and_shadows/materials/fog_sprite/fog_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"texture_sampler\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 123.06\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 37.729
-    y: 0.0
     z: 16.8
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -4485,7 +3186,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -4496,15 +3196,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 142.215\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   "embedded_components {\n"
@@ -4512,7 +3204,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr2\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -4526,12 +3217,6 @@ embedded_instances {
   "    x: 20.097\n"
   "    y: 391.332\n"
   "    z: 21.443\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "  scale {\n"
   "    x: 1.22\n"
@@ -4547,8 +3232,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -4564,7 +3247,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr3\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -4575,27 +3257,17 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 50.46\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -93.732
-    y: 0.0
-    z: -14.038
+    y: 6.0
+    z: -29.038
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -4611,7 +3283,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr3\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -4622,27 +3293,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 50.46\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -70.732
-    y: 0.0
     z: -7.038
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -4658,7 +3318,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"h4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -4669,15 +3328,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 154.711\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
@@ -4688,8 +3339,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -4705,7 +3354,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"h2\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -4716,15 +3364,8 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 400.399\n"
   "    z: 23.471\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
@@ -4735,8 +3376,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -4752,7 +3391,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e5\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -4763,27 +3401,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 11.52\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 114.5
-    y: 0.0
     z: -20.913
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -4799,7 +3426,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"h3\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -4810,15 +3436,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 194.084\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
@@ -4829,8 +3447,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -4846,7 +3462,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr5\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -4857,27 +3472,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 34.944\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 133.288
-    y: 0.0
     z: -19.209
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -4893,7 +3497,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -4904,27 +3507,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 46.797\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 139.68
-    y: 0.0
     z: -15.805
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -4940,7 +3532,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -4951,15 +3542,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 142.215\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   "embedded_components {\n"
@@ -4967,7 +3550,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr1\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -4978,15 +3560,8 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 391.332\n"
   "    z: 21.443\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
@@ -4997,8 +3572,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -5014,7 +3587,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e3\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -5025,27 +3597,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 17.268\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 39.591
-    y: 0.0
     z: -13.452
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -5061,7 +3622,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -5072,27 +3632,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 22.99\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 55.413
-    y: 0.0
     z: -12.859
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -5108,7 +3657,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -5119,27 +3667,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 22.99\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: -28.658
-    y: 0.0
     z: 13.078
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -5155,7 +3692,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr5\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -5166,22 +3702,13 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 34.944\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   "embedded_components {\n"
   "  id: \"collisionobject\"\n"
   "  type: \"collisionobject\"\n"
-  "  data: \"collision_shape: \\\"\\\"\\n"
-  "type: COLLISION_OBJECT_TYPE_STATIC\\n"
+  "  data: \"type: COLLISION_OBJECT_TYPE_STATIC\\n"
   "mass: 0.0\\n"
   "friction: 0.1\\n"
   "restitution: 0.5\\n"
@@ -5193,49 +3720,25 @@ embedded_instances {
   "    position {\\n"
   "      x: -1.204\\n"
   "      y: 29.246\\n"
-  "      z: 0.0\\n"
   "    }\\n"
   "    rotation {\\n"
-  "      x: 0.0\\n"
-  "      y: 0.0\\n"
-  "      z: 0.0\\n"
-  "      w: 1.0\\n"
   "    }\\n"
   "    index: 0\\n"
   "    count: 3\\n"
-  "    id: \\\"\\\"\\n"
   "  }\\n"
   "  data: 45.6565\\n"
   "  data: 32.769\\n"
   "  data: 14.3195\\n"
   "}\\n"
-  "linear_damping: 0.0\\n"
-  "angular_damping: 0.0\\n"
-  "locked_rotation: false\\n"
-  "bullet: false\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "}\n"
   ""
   position {
     x: 36.353
-    y: 0.0
     z: -25.115
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -5251,7 +3754,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr5\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -5262,22 +3764,13 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 34.944\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   "embedded_components {\n"
   "  id: \"collisionobject\"\n"
   "  type: \"collisionobject\"\n"
-  "  data: \"collision_shape: \\\"\\\"\\n"
-  "type: COLLISION_OBJECT_TYPE_STATIC\\n"
+  "  data: \"type: COLLISION_OBJECT_TYPE_STATIC\\n"
   "mass: 0.0\\n"
   "friction: 0.1\\n"
   "restitution: 0.5\\n"
@@ -5289,49 +3782,25 @@ embedded_instances {
   "    position {\\n"
   "      x: -1.204\\n"
   "      y: 29.246\\n"
-  "      z: 0.0\\n"
   "    }\\n"
   "    rotation {\\n"
-  "      x: 0.0\\n"
-  "      y: 0.0\\n"
-  "      z: 0.0\\n"
-  "      w: 1.0\\n"
   "    }\\n"
   "    index: 0\\n"
   "    count: 3\\n"
-  "    id: \\\"\\\"\\n"
   "  }\\n"
   "  data: 45.6565\\n"
   "  data: 32.769\\n"
   "  data: 14.3195\\n"
   "}\\n"
-  "linear_damping: 0.0\\n"
-  "angular_damping: 0.0\\n"
-  "locked_rotation: false\\n"
-  "bullet: false\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "}\n"
   ""
   position {
     x: 64.708
-    y: 0.0
     z: -33.859
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -5347,7 +3816,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -5358,27 +3826,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 69.448
-    y: 0.0
     z: -35.633
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -5394,7 +3851,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -5405,27 +3861,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 72.094
-    y: 0.0
     z: -35.633
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -5441,7 +3886,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -5452,15 +3896,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
@@ -5471,8 +3907,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -5488,7 +3922,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -5499,27 +3932,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 77.651
-    y: 0.0
     z: -35.633
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -5535,7 +3957,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -5546,27 +3967,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 80.614
-    y: 0.0
     z: -35.633
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -5582,7 +3992,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -5593,27 +4002,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 83.26
-    y: 0.0
     z: -35.633
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -5629,7 +4027,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -5640,15 +4037,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
@@ -5659,8 +4048,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -5676,7 +4063,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"w7\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -5687,27 +4073,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 39.726\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 88.817
-    y: 0.0
     z: -35.633
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -5723,7 +4098,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e8\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -5734,27 +4108,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 10.933\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 120.262
-    y: 0.0
     z: -18.335
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -5770,7 +4133,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tip\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -5780,28 +4142,14 @@ embedded_instances {
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
   "}\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 118.134\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "}\n"
   ""
   position {
     x: 129.818
-    y: 0.0
     z: 29.069
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -5817,7 +4165,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -5828,27 +4175,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 22.99\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 130.437
-    y: 0.0
     z: 30.816
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -5864,7 +4200,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -5875,27 +4210,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 22.99\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 148.054
-    y: 0.0
     z: 11.646
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -5911,7 +4235,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -5922,27 +4245,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 22.99\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 155.728
-    y: 0.0
     z: 10.249
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -5958,7 +4270,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"h4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -5969,15 +4280,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 154.711\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
@@ -5988,8 +4291,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -6005,7 +4306,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr6\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -6016,15 +4316,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 142.215\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   "embedded_components {\n"
@@ -6032,7 +4324,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr1\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -6046,12 +4337,6 @@ embedded_instances {
   "    x: 20.097\n"
   "    y: 391.332\n"
   "    z: 21.443\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "  scale {\n"
   "    x: 1.22\n"
@@ -6067,8 +4352,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -6084,7 +4367,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr3\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -6095,27 +4377,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 50.46\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 140.156
-    y: 0.0
     z: -93.758
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -6131,7 +4402,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"h1\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -6142,15 +4412,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 173.331\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
@@ -6161,8 +4423,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -6178,7 +4438,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"r1\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -6189,15 +4448,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 173.331\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
@@ -6208,8 +4459,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -6225,7 +4474,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"r2\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -6236,15 +4484,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 369.887\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
@@ -6255,8 +4495,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -6272,7 +4510,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr6\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -6283,15 +4520,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 142.215\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
@@ -6302,8 +4531,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -6319,7 +4546,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"b1\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -6329,77 +4555,14 @@ embedded_instances {
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
   "}\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 69.51\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"collisionobject\"\n"
-  "  type: \"collisionobject\"\n"
-  "  data: \"collision_shape: \\\"\\\"\\n"
-  "type: COLLISION_OBJECT_TYPE_STATIC\\n"
-  "mass: 0.0\\n"
-  "friction: 0.1\\n"
-  "restitution: 0.5\\n"
-  "group: \\\"default\\\"\\n"
-  "mask: \\\"default\\\"\\n"
-  "embedded_collision_shape {\\n"
-  "  shapes {\\n"
-  "    shape_type: TYPE_BOX\\n"
-  "    position {\\n"
-  "      x: -9.646\\n"
-  "      y: 60.041\\n"
-  "      z: 0.0\\n"
-  "    }\\n"
-  "    rotation {\\n"
-  "      x: 0.0\\n"
-  "      y: 0.0\\n"
-  "      z: 0.0\\n"
-  "      w: 1.0\\n"
-  "    }\\n"
-  "    index: 0\\n"
-  "    count: 3\\n"
-  "    id: \\\"\\\"\\n"
-  "  }\\n"
-  "  data: 44.529\\n"
-  "  data: 60.5075\\n"
-  "  data: 14.3195\\n"
-  "}\\n"
-  "linear_damping: 0.0\\n"
-  "angular_damping: 0.0\\n"
-  "locked_rotation: false\\n"
-  "bullet: false\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "}\n"
   ""
   position {
     x: -19.12
-    y: 0.0
     z: 12.791
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -6415,7 +4578,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"b2\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -6425,28 +4587,14 @@ embedded_instances {
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
   "}\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 60.496\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "}\n"
   ""
   position {
     x: 140.019
-    y: 0.0
     z: 3.213
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -6462,7 +4610,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"t5\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -6472,28 +4619,14 @@ embedded_instances {
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
   "}\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "}\n"
   ""
   position {
     x: 4.255
-    y: 0.0
     z: -19.039
   }
   rotation {
     x: -0.70710677
-    y: 0.0
-    z: 0.0
     w: 0.70710677
   }
   scale3 {
@@ -6509,7 +4642,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"t8\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -6519,22 +4651,10 @@ embedded_instances {
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
   "}\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "}\n"
   ""
   position {
     x: 5.96
-    y: 0.0
     z: -9.224
   }
   rotation {
@@ -6556,7 +4676,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"t5\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -6566,22 +4685,10 @@ embedded_instances {
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
   "}\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "}\n"
   ""
   position {
     x: 56.323
-    y: 0.0
     z: -19.319
   }
   rotation {
@@ -6603,7 +4710,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"t8\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -6613,22 +4719,10 @@ embedded_instances {
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
   "}\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "}\n"
   ""
   position {
     x: 121.102
-    y: 0.0
     z: -12.098
   }
   rotation {
@@ -6650,7 +4744,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"t8\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -6660,22 +4753,10 @@ embedded_instances {
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
   "}\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "}\n"
   ""
   position {
     x: 18.755
-    y: 0.0
     z: 19.715
   }
   rotation {
@@ -6697,7 +4778,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e5\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -6708,27 +4788,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 11.52\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 22.133
-    y: 0.0
     z: 27.769
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -6744,7 +4813,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"t8\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -6754,22 +4822,10 @@ embedded_instances {
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
   "}\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "}\n"
   ""
   position {
     x: 9.952
-    y: 0.0
     z: 0.723
   }
   rotation {
@@ -6791,7 +4847,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"t8\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -6801,22 +4856,10 @@ embedded_instances {
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
   "}\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "}\n"
   ""
   position {
     x: 53.638
-    y: 0.0
     z: -5.985
   }
   rotation {
@@ -6838,7 +4881,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"t8\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -6848,22 +4890,10 @@ embedded_instances {
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
   "}\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "}\n"
   ""
   position {
     x: 112.181
-    y: 0.0
     z: -92.919
   }
   rotation {
@@ -6885,7 +4915,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"t8\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -6895,28 +4924,14 @@ embedded_instances {
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
   "}\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "}\n"
   ""
   position {
     x: 125.112
-    y: 0.0
     z: -92.919
   }
   rotation {
     x: -0.70710677
-    y: 0.0
-    z: 0.0
     w: 0.70710677
   }
   scale3 {
@@ -6932,7 +4947,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"t8\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -6942,22 +4956,10 @@ embedded_instances {
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
   "}\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "}\n"
   ""
   position {
     x: 53.577
-    y: 0.0
     z: 11.308
   }
   rotation {
@@ -6979,7 +4981,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -6990,27 +4991,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 22.99\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 54.369
-    y: 0.0
     z: 18.435
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -7026,7 +5016,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"e4\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -7037,27 +5026,16 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 22.99\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 67.105
-    y: 0.0
     z: -23.679
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -7073,7 +5051,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"h1\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -7084,15 +5061,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 173.331\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   ""
@@ -7103,8 +5072,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -7120,7 +5087,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr6\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -7131,15 +5097,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: 142.215\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "}\n"
   "embedded_components {\n"
@@ -7147,7 +5105,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tr1\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -7161,12 +5118,6 @@ embedded_instances {
   "    x: 20.097\n"
   "    y: 391.332\n"
   "    z: 21.443\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "  scale {\n"
   "    x: 1.22\n"
@@ -7182,8 +5133,6 @@ embedded_instances {
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -7198,42 +5147,10 @@ embedded_instances {
   "  id: \"button\"\n"
   "  type: \"sound\"\n"
   "  data: \"sound: \\\"/assets/ogg/navigate_36.ogg\\\"\\n"
-  "looping: 0\\n"
-  "group: \\\"master\\\"\\n"
   "gain: 0.4\\n"
-  "pan: 0.0\\n"
-  "speed: 1.0\\n"
-  "loopcount: 0\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "}\n"
   ""
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
 }
 embedded_instances {
   id: "go113"
@@ -7242,7 +5159,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"b1\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -7252,28 +5168,14 @@ embedded_instances {
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
   "}\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 69.51\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "}\n"
   ""
   position {
     x: 108.715
-    y: 0.0
     z: -105.381
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -7289,7 +5191,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"b2\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -7299,28 +5200,14 @@ embedded_instances {
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
   "}\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 60.496\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "}\n"
   ""
   position {
     x: 61.842
-    y: 0.0
     z: -43.352
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
@@ -7337,60 +5224,16 @@ embedded_instances {
   children: "coin3"
   children: "coin4"
   children: "coin5"
+  children: "coin6"
   data: ""
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
 }
 embedded_instances {
   id: "ui"
   data: "components {\n"
   "  id: \"ui\"\n"
-  "  component: \"/examples/example1/ui.gui\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "  property_decls {\n"
-  "  }\n"
+  "  component: \"/examples/example2/ui.gui\"\n"
   "}\n"
   ""
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
 }
 embedded_instances {
   id: "go144"
@@ -7399,7 +5242,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"Arrow-up\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -7409,24 +5251,12 @@ embedded_instances {
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
   "}\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "}\n"
   "embedded_components {\n"
   "  id: \"sprite1\"\n"
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"Arrow-up\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -7437,13 +5267,9 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
   "    y: -139.631\n"
-  "    z: 0.0\n"
   "  }\n"
   "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
   "    z: 1.0\n"
   "    w: 6.123234E-17\n"
   "  }\n"
@@ -7453,7 +5279,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"Arrow-up\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -7466,11 +5291,8 @@ embedded_instances {
   "  position {\n"
   "    x: -82.781\n"
   "    y: -69.426\n"
-  "    z: 0.0\n"
   "  }\n"
   "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
   "    z: 0.70710677\n"
   "    w: 0.70710677\n"
   "  }\n"
@@ -7480,7 +5302,6 @@ embedded_instances {
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"Arrow-up\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -7493,11 +5314,8 @@ embedded_instances {
   "  position {\n"
   "    x: 88.15\n"
   "    y: -70.082\n"
-  "    z: 0.0\n"
   "  }\n"
   "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
   "    z: -0.70710677\n"
   "    w: 0.70710677\n"
   "  }\n"
@@ -7505,13 +5323,10 @@ embedded_instances {
   ""
   position {
     x: 51.365
-    y: 0.0
     z: 49.174
   }
   rotation {
     x: -0.70710677
-    y: 0.0
-    z: 0.0
     w: 0.70710677
   }
   scale3 {
@@ -7525,26 +5340,12 @@ embedded_instances {
   data: "components {\n"
   "  id: \"breathing\"\n"
   "  component: \"/helper/breathing.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "  property_decls {\n"
-  "  }\n"
   "}\n"
   "embedded_components {\n"
   "  id: \"sprite\"\n"
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"noname\\\"\\n"
   "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -7554,33 +5355,53 @@ embedded_instances {
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
   "}\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 159.476\n"
-  "    z: 0.0\n"
-  "  }\n"
   "  rotation {\n"
-  "    x: 0.0\n"
   "    y: 0.99999964\n"
-  "    z: 0.0\n"
   "    w: 8.726645E-4\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 59.165
-    y: -0.376
     z: -7.509
   }
   rotation {
     x: -0.23004974
-    y: 0.0
-    z: 0.0
     w: 0.97317886
   }
   scale3 {
     x: 0.04
     y: 0.04
     z: 0.04
+  }
+}
+embedded_instances {
+  id: "cam_target"
+  children: "camera"
+  data: "components {\n"
+  "  id: \"test\"\n"
+  "  component: \"/helper/print_url.script\"\n"
+  "}\n"
+  ""
+  rotation {
+    x: -0.23004974
+    w: 0.97317886
+  }
+}
+embedded_instances {
+  id: "camera"
+  data: "embedded_components {\n"
+  "  id: \"camera\"\n"
+  "  type: \"camera\"\n"
+  "  data: \"aspect_ratio: 1.0\\n"
+  "fov: 0.7854\\n"
+  "near_z: 10.0\\n"
+  "far_z: 600.0\\n"
+  "auto_aspect_ratio: 1\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    z: 100.0
   }
 }

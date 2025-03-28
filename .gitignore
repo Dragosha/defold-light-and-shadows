@@ -15,3 +15,4 @@ manifest.public.der
 *.afphoto
 *.psd
 *.mdp
+/.editor_settings

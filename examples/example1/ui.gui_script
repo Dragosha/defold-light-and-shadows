@@ -1,4 +1,5 @@
-local broadcast = require 'ludobits.m.broadcast'
+local broadcast = require 'helper.broadcast'
+local virtual_stick = require 'helper.virtual_stick'
 local total_coins = 0
 local found_coins = 0
 
@@ -16,10 +17,11 @@ function init(self)
     end)
     broadcast.register("coin_found", function(message, sender)
         gui.set_visible(self.coin, true)
-        gui.set_screen_position(self.coin, vmath.vector3(message.x, message.y, 0))
+        gui.set_screen_position(self.coin, vmath.vector3(message.sx, message.sy, 0))
 
         found_coins = found_coins + 1
-        gui.animate(self.coin, "position", gui.get_position(self.box), gui.EASING_INOUTCUBIC, .7, 0, function() 
+        local to =  gui.get_position(gui.get_node("corner")) + gui.get_position(self.box)
+        gui.animate(self.coin, "position", to, gui.EASING_INOUTCUBIC, .7, 0, function() 
             gui.set_scale(self.box, self.box_scale)
             gui.animate(self.box, "scale", self.box_scale.x * 1.1, gui.EASING_INOUTCUBIC, 0.25, 0, nil, gui.PLAYBACK_ONCE_PINGPONG)
             update_counter(self)
@@ -27,11 +29,21 @@ function init(self)
         end)
         
     end)
+
+    local function resize(self)
+        local x, y, zoom = virtual_stick.get_aspect_ratio()
+        local scale = vmath.vector3(zoom, zoom, 1)
+        -- print(scale)
+        gui.set_scale(gui.get_node("corner"), scale)
+        gui.set_scale(gui.get_node("coin"), scale)
+    end
+
+    broadcast.register("WINDOW_RESIZED", resize)
+    resize()
 end
 
 function final(self)
-    broadcast.unregister("coin_register")
-    broadcast.unregister("coin_found")
+    broadcast.unregister_all()
 end
 
 function update(self, dt)

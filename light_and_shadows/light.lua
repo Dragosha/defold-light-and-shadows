@@ -8,7 +8,8 @@ local constants = require "light_and_shadows.constants"
 local light = {}
 
 light.list = {}
-light.cam_pos = vmath.vector3()
+light.cam_look_at = vmath.vector3()
+light.cam_position = vmath.vector3()
 light.cam_view = vmath.quat()
 
 local fog_default = vmath.vector4(0.1, 0.2, 0.5, 0.43)
@@ -50,8 +51,8 @@ function light.update(self, dt)
             obj.position.z = wp.z
         end
 
-        local dx = light.cam_pos.x - obj.position.x
-        local dy = light.cam_pos.z - obj.position.z
+        local dx = light.cam_look_at.x - obj.position.x
+        local dy = light.cam_look_at.z - obj.position.z
         local distance = dx * dx + dy * dy
 
         local n = #lights + 1
@@ -84,9 +85,13 @@ function light.update(self, dt)
     end
 
     --
-    constants.cam_look_at_position.x = light.cam_pos.x
-    constants.cam_look_at_position.y = light.cam_pos.y
-    constants.cam_look_at_position.z = light.cam_pos.z
+    constants.cam_look_at_position.x = light.cam_look_at.x
+    constants.cam_look_at_position.y = light.cam_look_at.y
+    constants.cam_look_at_position.z = light.cam_look_at.z
+
+    constants.cam_position.x = light.cam_position.x
+    constants.cam_position.y = light.cam_position.y
+    constants.cam_position.z = light.cam_position.z
 
 end
 
