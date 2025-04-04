@@ -7,3 +7,11 @@ render_resources {
   name: "shadowmap"
   path: "/light_and_shadows/render/shadowmap.render_target"
 }
+render_resources {
+  name: "shadow_local"
+  path: "/light_and_shadows/materials/shadow/shadow_local.material"
+}
+render_resources {
+  name: "shadow_instanced"
+  path: "/light_and_shadows/materials/shadow/shadow_instanced.material"
+}

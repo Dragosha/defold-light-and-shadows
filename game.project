@@ -10,16 +10,13 @@ width = 1600
 height = 900
 high_dpi = 1
 
-[android]
-input_method = HiddenInputField
-package = com.dragosha.ls
-
 [project]
 title = Light and Shadows
-version = 0.5
+version = 0.6
 developer = Igor Suntsev
 dependencies#0 = https://github.com/britzl/defold-input/archive/master.zip
 dependencies#1 = https://github.com/britzl/monarch/archive/refs/tags/3.4.6.zip
+dependencies#2 = https://github.com/defold/extension-spine/archive/refs/tags/3.6.5.zip
 
 [physics]
 type = 3D
@@ -27,12 +24,6 @@ gravity_y = -90.0
 max_collisions = 128
 max_contacts = 256
 use_fixed_timestep = 1
-
-[osx]
-bundle_identifier = com.dragosha.ls
-
-[ios]
-bundle_identifier = com.dragosha.ls
 
 [html5]
 show_fullscreen_button = 0
@@ -50,6 +41,6 @@ game_binding = /builtins/input/all.input_bindingc
 [sprite]
 max_count = 512
 
-[yagames]
-sdk_init_options = { orientation: { value: "landscape", lock: true } }
+[library]
+include_dirs = light_and_shadows
 

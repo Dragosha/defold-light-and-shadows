@@ -1,0 +1,16 @@
+name: "shadow_local"
+tags: "shadow_local"
+vertex_program: "/light_and_shadows/materials/shadow/shadow.vp"
+fragment_program: "/light_and_shadows/materials/shadow/shadow.fp"
+vertex_space: VERTEX_SPACE_LOCAL
+vertex_constants {
+  name: "mtx_viewproj"
+  type: CONSTANT_TYPE_WORLDVIEWPROJ
+}
+samplers {
+  name: "tex0"
+  wrap_u: WRAP_MODE_REPEAT
+  wrap_v: WRAP_MODE_REPEAT
+  filter_min: FILTER_MODE_MIN_NEAREST
+  filter_mag: FILTER_MODE_MAG_NEAREST
+}

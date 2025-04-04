@@ -11,6 +11,8 @@ light.list = {}
 light.cam_look_at = vmath.vector3()
 light.cam_position = vmath.vector3()
 light.cam_view = vmath.quat()
+local top_v     = vmath.vector3(0, 1, 0)
+light.top_v = top_v
 
 local fog_default = vmath.vector4(0.1, 0.2, 0.5, 0.43)
 local fog = vmath.vector4(10, 100, 1, 0.4)
@@ -49,6 +51,12 @@ function light.update(self, dt)
             obj.position.x = wp.x
             obj.position.y = wp.y + (obj.y_offset or 0)
             obj.position.z = wp.z
+            if obj.direction.w > 0 and not obj.static_spot then
+                local temp = vmath.rotate(go.get_world_rotation(), light.top_v)
+                obj.direction.x = temp.x
+                obj.direction.y = temp.y
+                obj.direction.z = temp.z
+            end
         end
 
         local dx = light.cam_look_at.x - obj.position.x
@@ -67,7 +75,7 @@ function light.update(self, dt)
                 end
             end
         end
-        table.insert(lights, n, {position = obj.position, color = obj.current_value, distance = distance, power = obj.value.w})
+        table.insert(lights, n, {position = obj.position, color = obj.current_value, direction = obj.direction, distance = distance, power = obj.value.w})
 
         -- rotate the light source (particle fx) to look to front of camera view if needed
         if obj.rotate then go.set_rotation(light.cam_view, id) end

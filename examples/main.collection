@@ -1,4 +1,8 @@
 name: "main"
+instances {
+  id: "render_target_quad"
+  prototype: "/light_and_shadows/props/render_target_quad.go"
+}
 scale_along_z: 0
 embedded_instances {
   id: "go"
@@ -68,4 +72,28 @@ embedded_instances {
   "\"\n"
   "}\n"
   ""
+}
+embedded_instances {
+  id: "example4"
+  data: "components {\n"
+  "  id: \"screen_proxy\"\n"
+  "  component: \"/monarch/screen_proxy.script\"\n"
+  "  properties {\n"
+  "    id: \"screen_id\"\n"
+  "    value: \"4\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"collectionproxy\"\n"
+  "  type: \"collectionproxy\"\n"
+  "  data: \"collection: \\\"/examples/example4/scene.collection\\\"\\n"
+  "\"\n"
+  "}\n"
+  ""
+}
+embedded_instances {
+  id: "rt"
+  children: "render_target_quad"
+  data: ""
 }

@@ -75,6 +75,9 @@ end
 local DISPLAY_WIDTH = sys.get_config_int("display.width")
 local DISPLAY_HEIGHT = sys.get_config_int("display.height")
 
+-- screen zoom coef if used render upscale. Need to correct screen coordinates.
+-- common.zoom = 1
+
 -- function to convert screen (mouse/touch) coordinates to
 -- world coordinates given a camera component
 -- this function will use the camera view and projection to
@@ -107,8 +110,12 @@ function common.screen_to_world_ray(x, y, camera_id)
     local projection = camera.get_projection(camera_id)
     local view = camera.get_view(camera_id)
     local w, h = window.get_size()
-    w = w / (w / DISPLAY_WIDTH)
-    h = h / (h / DISPLAY_HEIGHT)
+    local wc, hc = w / DISPLAY_WIDTH, h / DISPLAY_HEIGHT
+    w = w / (wc)
+    h = h / (hc)
+   
+    -- x = x / common.zoom / (wc)
+    -- y = y / common.zoom / (hc)
     
     local m = vmath.inv(projection * view)
 
@@ -141,6 +148,8 @@ function common.world_to_screen(pos, camera_id)
     local projection = camera.get_projection(camera_id)
     local view = camera.get_view(camera_id)
     local w, h = window.get_size()
+    -- w = w * common.zoom
+    -- h = h * common.zoom
     -- w = w / (w / DISPLAY_WIDTH)
     -- h = h / (h / DISPLAY_HEIGHT)
 

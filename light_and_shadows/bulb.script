@@ -4,6 +4,10 @@ go.property("color", vmath.vector4(1, 1, 1, 1))
 go.property("power", 100)
 go.property("light_on", true)
 go.property("static", true)
+go.property("direct", false)
+go.property("angle", 25)
+go.property("smoothness", .3)
+go.property("static_spot", true)
 
 go.property("fxurl", msg.url())
 go.property("startfx", false)
@@ -22,29 +26,42 @@ go.property("num", -1)
 -- So, in this script we don't need to call update() method. Just set 'static' value to false. 
 -- Otherwise leave static value as 'true' for performance reason.
 
+-- 'Direct' is spotlight. On | off.
+-- 'Angle' is cone size for the shader calculations. In degrees.
+-- 'Smoothness' - how softly you want to blur the edges of the cone. From 0.0 to 1.0
+-- 'Static_spot' - do you need to change spotlight direction in runtime? If 'true' the direction being calculation once
+-- for performance reason.
+
 -- Num. Is bulb has a positive number then this light source does not participate in sort by distance from the screen center.
--- It always is visible. Ofcourse if amount of all bulbs is less than MAX light sources values (16 in this demo).
+-- It always is visible. Ofcourse if amount of all bulbs is less than MAX light sources values (X in this demo).
 -- Default value is -1. This bulbs have sorted in the light manager script and you may add bulb as much as you need.
--- But only first 16 (this value you may change) are going to the shader. 
+-- But only first N are going to the shader. 
+
+-- To efficiently use uniforms to pass parameters to the shader, some values are packed into free vector4 spaces:
+-- position.w used to pass the 'smoothness' param to the shader
+-- direction.w used to enable (angle > 0) spotlight calculation in the shader
 
 function init(self)
     
     if self.light_on then
         if self.power == 0 then self.power = 1 end
         local wp = go.get_world_position()
+        local dir = vmath.rotate(go.get_world_rotation(), light.top_v)
         self.obj = {
             value = vmath.vector4(self.color.x, self.color.y, self.color.z, 1/self.power),
             current_value = vmath.vector4(self.color.x, self.color.y, self.color.z, 1/self.power),
-            position = vmath.vector4(wp.x, wp.y, wp.z, 0), -- we need vector4 to forward to the shader
+            position = vmath.vector4(wp.x, wp.y, wp.z, self.smoothness), -- we need vector4 to forward to the shader
             static = self.static,
             id = go.get_id(),
             num = self.num,
             timer = 0,
             rotate = self.rotate,
             y_offset = 0,
+            direction = vmath.vector4(dir.x, dir.y, dir.z, self.direct and math.rad(self.angle) or -1 ),
+            static_spot = self.static_spot
         }
         -- ^^^ you may generate this table in your code when you need to add a new bulb.
-        -- then add to light.list[id] and remove from it when bulb time is over.
+        -- then add to light.list[id] and remove from this array when bulb time is over.
         
         -- Add to the list of all light sources
         light.list[self.obj.id] = self.obj

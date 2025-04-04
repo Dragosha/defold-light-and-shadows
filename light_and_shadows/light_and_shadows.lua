@@ -5,9 +5,14 @@ local constants = require "light_and_shadows.constants"
 local top = vmath.vector3(0, 1, 0)
 local v0 = vmath.vector4(0, 0, 0, 0) -- zero vector4
 
--- 0 - on
--- 1 - off / no shadow cast
-light_and_shadows.shadow_quality = 0
+-- true - on
+-- false - off / no shadow cast
+light_and_shadows.shadow = true
+
+-- Turns On | Off upscale render target. 
+-- If ‘on’ all the objects are first rendered to a render target with a size no larger 
+-- than specified in the project settings, then this entire render target is placed on the screen with linear scaling. 
+light_and_shadows.upscale = false
 
 local BUFFER_RESOLUTION = 2048 -- Size of shadow map. Select value from: 1024/2048/4096. More is better quality.
 
@@ -16,28 +21,46 @@ local BUFFER_RESOLUTION = 2048 -- Size of shadow map. Select value from: 1024/20
 -- This value also depends on camera zoom. Feel free to adjust it.
 local PROJECTION_RESOLUTION = 400 
 
--- function light_and_shadows.create_depth_buffer(w,h)
---     local color_params = {
---         format     = render.FORMAT_RGBA,
---         -- format     = render.FORMAT_R32F,
---         width      = w,
---         height     = h,
---         min_filter = render.FILTER_NEAREST,
---         mag_filter = render.FILTER_NEAREST,
---         u_wrap     = render.WRAP_CLAMP_TO_EDGE,
---         v_wrap     = render.WRAP_CLAMP_TO_EDGE }
--- 
---         local depth_params = { 
---             format        = render.FORMAT_DEPTH,
---             width         = w,
---             height        = h,
---             min_filter    = render.FILTER_NEAREST,
---             mag_filter    = render.FILTER_NEAREST,
---             u_wrap        = render.WRAP_CLAMP_TO_EDGE,
---             v_wrap        = render.WRAP_CLAMP_TO_EDGE }
--- 
---     return render.render_target("shadow_buffer", {[render.BUFFER_COLOR_BIT] = color_params, [render.BUFFER_DEPTH_BIT] = depth_params })
--- end
+local rt_list = {}
+light_and_shadows.rt_list = rt_list
+
+function light_and_shadows.render_target(name, w, h)
+    local already_rt = rt_list[name]
+    if already_rt and already_rt.w == w and already_rt.h == h then
+        -- nothing changed
+        return already_rt
+    elseif already_rt then
+        -- rt is already created, but size is changing. Fix bit.
+        already_rt.w = w
+        already_rt.h = h
+        render.set_render_target_size(already_rt.rt, w, h)
+        -- pprint(already_rt)
+        return already_rt
+    end
+
+    --otherwise create a new RT 
+
+    local color_params = {
+        format     = graphics.TEXTURE_FORMAT_RGBA,
+        width      = w,
+        height     = h,
+        min_filter = graphics.TEXTURE_FILTER_LINEAR,
+        mag_filter = graphics.TEXTURE_FILTER_LINEAR,
+        u_wrap     = graphics.TEXTURE_WRAP_CLAMP_TO_EDGE,
+        v_wrap     = graphics.TEXTURE_WRAP_CLAMP_TO_EDGE }
+
+        local depth_params = { 
+            format        = graphics.TEXTURE_FORMAT_DEPTH,
+            width         = w,
+            height        = h,
+            u_wrap        = graphics.TEXTURE_WRAP_CLAMP_TO_EDGE,
+            v_wrap        = graphics.TEXTURE_WRAP_CLAMP_TO_EDGE }
+
+    local rt = render.render_target(name, {[graphics.BUFFER_TYPE_COLOR0_BIT] = color_params, [graphics.BUFFER_TYPE_DEPTH_BIT] = depth_params })
+    local new_rt = {rt = rt, w = w, h = h}
+    rt_list[name] = new_rt
+    return new_rt
+end
 
 -- special vector4 for transfer our settings to the shader program
 local param = vmath.vector4(0, 0, 0, 0)
@@ -55,6 +78,7 @@ function light_and_shadows.init(self)
     self.constants = render.constant_buffer()
     self.constants.lights = {}
     self.constants.colors = {}
+    self.constants.directions = {}
     self.constants.param = param
 
     self.bias_matrix    = vmath.matrix4()
@@ -62,6 +86,8 @@ function light_and_shadows.init(self)
     self.bias_matrix.c1 = vmath.vector4(0.0, 0.5, 0.0, 0.0)
     self.bias_matrix.c2 = vmath.vector4(0.0, 0.0, 0.5, 0.0)
     self.bias_matrix.c3 = vmath.vector4(0.5, 0.5, 0.5, 1.0)
+
+    -- self.upscale_rt = {rt = "upscale"}
 end
 
 local sun = vmath.vector3()
@@ -82,18 +108,20 @@ function light_and_shadows.update_light(self)
     -- Fills light position and color arrays.
     -- 16 simultaneously calculation light sources.
     -- If you need to change this amount of light sources you should to change it in fragment shader as well.
-    -- In fragment shaders (.fp) change arrays size here:
+    -- In fragment shader include (fun.glsl) change arrays size here:
     -- #define LIGHT_COUNT 16
     --                     ^^ 
     -- ...
-    for i = 1, 16 do
+    for i = 1, 8 do
         local l = constants.lights[i]
         if l then
             self.constants.lights[i] = constants.lights[i].position or v0
             self.constants.colors[i] = constants.lights[i].color or v0
+            self.constants.directions[i] = constants.lights[i].direction or v0
         else
             self.constants.lights[i] = v0
             self.constants.colors[i] = v0
+            self.constants.directions[i] = v0
         end
     end
 
@@ -103,7 +131,7 @@ function light_and_shadows.update_light(self)
     if constants.fog then self.constants.fog = constants.fog end
     if constants.tint then self.constants.tint = constants.tint end
 
-    if light_and_shadows.shadow_quality <  1 then
+    if light_and_shadows.shadow then
         local pos_light = constants.cam_look_at_position + sun
         self.light_transform = vmath.matrix4_look_at(pos_light, constants.cam_look_at_position, top)
         local mtx_light = self.bias_matrix * self.light_projection * self.light_transform
@@ -118,14 +146,16 @@ function light_and_shadows.update_light(self)
     -- set param.y as shader iformation do we need to cast shadow or not
     -- > 0 - off
     -- 0 - on (default value) 
-    param.y = light_and_shadows.shadow_quality
+    param.y = light_and_shadows.shadow and 0 or 1
     self.constants.param = param
-    -- print(self.constants.param, light_and_shadows.shadow_quality)
+    -- print(self.constants.param, light_and_shadows.shadow)
 
 end
 
+local clear_buffers = {[render.BUFFER_COLOR_BIT] = vmath.vector4(1, 1, 1, 1), [render.BUFFER_DEPTH_BIT] = 1}
 function light_and_shadows.render_shadows(self)
 
+    -- Setup our 'shadow' camera view and projection.
     render.set_projection(self.light_projection)
     render.set_view(self.light_transform)
     render.set_viewport(0, 0, BUFFER_RESOLUTION, BUFFER_RESOLUTION)
@@ -136,21 +166,69 @@ function light_and_shadows.render_shadows(self)
     render.disable_state(render.STATE_BLEND)
     render.disable_state(render.STATE_CULL_FACE)
 
+    -- Set render target to shadowmap
     render.set_render_target(self.shadowmap_buffer, { transient = {render.BUFFER_DEPTH_BIT} })
-    render.clear({[render.BUFFER_COLOR_BIT] = vmath.vector4(0,0,0,1), [render.BUFFER_DEPTH_BIT] = 1})
-    render.enable_material("shadow")
+    render.clear(clear_buffers)
+    -- Calculate frustum matrix to cut invisible objects from shadow cast
+    local frustum = self.light_projection * self.light_transform
+    
     --  All objects in render list taged as "shadow" will change their material to "shadow.material"
     --  to cast shadows into shadow map texture. This texture will be enabled to all objects at the next render pass.
-    render.draw(self.predicates.shadow)
-    render.disable_material()
+    render.enable_material("shadow", {frustum = frustum, frustum_planes = render.FRUSTUM_PLANES_ALL})
+        render.draw(self.predicates.shadow)
+        render.disable_material()
+    -- Separate a world and a local material objects to different render pass.
+    render.enable_material("shadow_local", {frustum = frustum, frustum_planes = render.FRUSTUM_PLANES_ALL})
+        render.draw(self.predicates.shadow_local)
+        render.disable_material()
+    render.enable_material("shadow_instanced", {frustum = frustum, frustum_planes = render.FRUSTUM_PLANES_ALL})
+        render.draw(self.predicates.shadow_instanced)
+        render.disable_material()    
+    -- Reset render target
     render.set_render_target(render.RENDER_TARGET_DEFAULT)
 end
 
+-- 
+-- local common    = require 'helper.common'
+light_and_shadows.zoom = 1
 function light_and_shadows.update(self)
     light_and_shadows.update_light(self)
-    if light_and_shadows.shadow_quality < 1 then
+    if light_and_shadows.shadow then
         light_and_shadows.render_shadows(self)
     end
+    
+    if light_and_shadows.upscale then
+        local window_width = render.get_window_width()
+        local window_height = render.get_window_height()
+        local zoom = math.max(window_width / render.get_width(), window_height / render.get_height())
+        -- common.zoom = zoom
+        light_and_shadows.zoom = zoom
+        local w = window_width / zoom
+        local h = window_height / zoom
+        self.upscale_rt = light_and_shadows.render_target('upscale_rt', w, h)
+        -- print(zoom, w, h)
+    else
+        -- common.zoom = 1
+        light_and_shadows.zoom = 1
+    end
+    
+end
+
+local IDENTITY = vmath.matrix4()
+-- Draw our RT to Default render surface
+function light_and_shadows.draw_upscaled(self)
+    local window_width = render.get_window_width()
+    local window_height = render.get_window_height()
+
+    -- draw!
+    -- render.disable_state(graphics.STATE_BLEND)
+    render.set_viewport(0, 0, window_width, window_height)
+    render.set_view(IDENTITY)
+    render.set_projection(IDENTITY)
+    render.enable_texture("tex0", self.upscale_rt.rt)
+    render.draw(self.predicates.upscale)
+    render.disable_texture("tex0")
+    -- render.enable_state(graphics.STATE_BLEND)
 end
 
 return light_and_shadows

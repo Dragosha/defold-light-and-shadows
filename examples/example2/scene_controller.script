@@ -36,7 +36,7 @@ function update(self, dt)
         local smooth_time = 0.3
         local max_speed = nil
         camera_pos.x, cur_velocity.x = common.smooth_damp(camera_pos.x, obj_position.x, cur_velocity.x, smooth_time, max_speed, dt)
-        camera_pos.y, cur_velocity.y = common.smooth_damp(camera_pos.y, obj_position.y, cur_velocity.y, smooth_time, max_speed, dt)
+        -- camera_pos.y, cur_velocity.y = common.smooth_damp(camera_pos.y, obj_position.y, cur_velocity.y, smooth_time, max_speed, dt)
         camera_pos.z, cur_velocity.z = common.smooth_damp(camera_pos.z, obj_position.z, cur_velocity.z, smooth_time, max_speed, dt)
         go.set(self.cam_look_at, "position", camera_pos)
     end

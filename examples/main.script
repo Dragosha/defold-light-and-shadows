@@ -1,5 +1,6 @@
 local monarch     = require "monarch.monarch"
 local broadcast = require 'helper.broadcast'
+go.property("first", hash("4"))
 
 local function on_window(self, event, data)
     if event == window.WINDOW_EVENT_RESIZED then
@@ -21,6 +22,6 @@ end
 
 function on_message(self, message_id, message, sender)
     if message_id == SFS then
-        monarch.show(hash("1"))
+        monarch.show(self.first)
     end
 end

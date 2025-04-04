@@ -9,8 +9,8 @@ textures {
 }
 nodes {
   position {
-    x: 1540.0
-    y: 833.836
+    x: 1600.0
+    y: 846.0
   }
   size {
     x: 300.0
@@ -24,6 +24,9 @@ nodes {
   visible: false
 }
 nodes {
+  position {
+    x: -62.0
+  }
   size {
     x: 300.0
     y: 120.0
@@ -85,8 +88,8 @@ nodes {
 }
 nodes {
   position {
-    x: 1540.0
-    y: 97.836
+    x: 1600.0
+    y: 90.836
   }
   size {
     x: 300.0
@@ -101,6 +104,9 @@ nodes {
   visible: false
 }
 nodes {
+  position {
+    x: 1.0
+  }
   size {
     x: 300.0
     y: 120.0
@@ -116,7 +122,7 @@ nodes {
 }
 nodes {
   position {
-    x: -36.0
+    x: -93.0
   }
   size {
     x: 200.0
@@ -141,7 +147,7 @@ nodes {
 }
 nodes {
   position {
-    x: -26.0
+    x: -83.0
   }
   size {
     x: 200.0
@@ -167,6 +173,157 @@ nodes {
     z: 1.0
   }
   parent: "quality"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 1.0
+    y: 92.0
+  }
+  size {
+    x: 300.0
+    y: 120.0
+  }
+  type: TYPE_BOX
+  id: "upscale"
+  xanchor: XANCHOR_RIGHT
+  yanchor: YANCHOR_BOTTOM
+  pivot: PIVOT_E
+  parent: "corner2"
+  inherit_alpha: true
+  visible: false
+}
+nodes {
+  position {
+    x: -93.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "Upscale:"
+  font: "cardfont"
+  id: "next2"
+  pivot: PIVOT_E
+  outline {
+    x: 0.2
+    z: 0.2
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "upscale"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: -83.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  color {
+    x: 0.8
+    y: 0.6
+    z: 0.2
+  }
+  type: TYPE_TEXT
+  text: "On"
+  font: "cardfont"
+  id: "up"
+  pivot: PIVOT_W
+  outline {
+    x: 0.2
+    z: 0.2
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "upscale"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 800.0
+    y: 846.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_BOX
+  id: "corner0"
+  yanchor: YANCHOR_TOP
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+  visible: false
+}
+nodes {
+  scale {
+    x: 1.58
+    y: 1.58
+    z: 1.58
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  color {
+    x: 0.8
+    y: 0.6
+    z: 0.2
+  }
+  type: TYPE_TEXT
+  text: "0"
+  font: "cardfont"
+  id: "fps"
+  pivot: PIVOT_W
+  outline {
+    x: 0.2
+    z: 0.2
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "corner0"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: -3.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  color {
+    x: 0.8
+    y: 0.8
+    z: 0.8
+  }
+  type: TYPE_TEXT
+  text: "fps:"
+  font: "cardfont"
+  id: "fps1"
+  pivot: PIVOT_E
+  outline {
+    x: 0.2
+    z: 0.2
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "corner0"
   inherit_alpha: true
 }
 material: "/builtins/materials/gui.material"

@@ -1,0 +1,96 @@
+local triggers  = require "in.triggers"
+local light     = require 'light_and_shadows.light'
+local common    = require 'helper.common'
+local broadcast = require 'helper.broadcast'
+
+go.property("camera_go_id", msg.url("camera"))
+go.property("camera_id", msg.url("camera#camera"))
+go.property("cam_look_at", msg.url("cam_target"))
+go.property("cam_follow", msg.url(""))
+go.property("acquire_delay", 0)
+go.property("zoom_speed", 1)
+
+function init(self)
+    timer.delay(self.acquire_delay, false, function()
+        msg.post(".", "acquire_input_focus")
+    end)
+    self.touch_down = false
+    self.swipe_start_time = 0
+    self.camera_velocity = vmath.vector3()
+
+    local function resize()
+        local x, y = window.get_size()
+        -- camera.set_aspect_ratio( self.camera_id, x/y) -- Auto aspect ratio is enabled, see the camera properties
+        -- Correct the camera Fov for mobile portrait mode
+        local fov = 0.6854 / common.clamp(x/y, .8, 1)
+        camera.set_fov(self.camera_id, fov)
+    end
+    broadcast.register("WINDOW_RESIZED", resize)
+    resize()
+end
+
+function final(self)
+    broadcast.unregister_all()
+    msg.post(".", "release_input_focus")
+end
+
+function update(self, dt)
+
+    if self.cam_follow ~= msg.url("") then
+        local obj_position = go.get(self.cam_follow, "position")
+        local camera_pos = go.get(self.cam_look_at, "position")
+        local cur_velocity = self.camera_velocity -- The type is `vmath.vector3(0)`. Store this variable somewhere, for example in `self`.
+        local smooth_time = 0.2
+        local max_speed = nil
+        camera_pos.x, cur_velocity.x = common.smooth_damp(camera_pos.x, obj_position.x, cur_velocity.x, smooth_time, max_speed, dt)
+        -- camera_pos.y, cur_velocity.y = common.smooth_damp(camera_pos.y, obj_position.y, cur_velocity.y, smooth_time, max_speed, dt)
+        camera_pos.z, cur_velocity.z = common.smooth_damp(camera_pos.z, obj_position.z, cur_velocity.z, smooth_time, max_speed, dt)
+        go.set(self.cam_look_at, "position", camera_pos)
+    end
+    
+    local view = go.get_rotation(self.cam_look_at)
+    light.cam_view = view
+    local pos = go.get_position(self.cam_look_at)
+    light.cam_look_at = pos
+    common.cam_pos = pos
+    light.cam_position  = go.get_world_position(self.camera_go_id)
+end
+
+function on_message(self, message_id, message, sender)
+    if broadcast.on_message(message_id, message, sender) then
+        -- message was handled
+        return
+    end
+end
+
+local function keyboard_map(self, action_id, action)
+
+    if action_id == triggers.KEY_I and action.released then
+        msg.post('@system:', 'toggle_profile')
+    elseif action_id == triggers.KEY_O and action.released then 
+        msg.post('@system:', 'toggle_physics_debug')
+    end
+
+end
+
+local function zoom(self, action_id, action)
+     if action_id == hash("mouse_wheel_up") then
+        local z = go.get_position(self.camera_go_id).z - self.zoom_speed
+        go.set(self.camera_go_id, "position.z", z)
+    elseif action_id == hash("mouse_wheel_down") then
+        local z = go.get_position(self.camera_go_id).z + self.zoom_speed
+        go.set(self.camera_go_id, "position.z", z)
+
+    end
+end
+
+local left     = hash("touch")
+local root     = vmath.vector3(0, 0, 0)
+local up       = vmath.vector3(0, 1, 0)
+function on_input(self, action_id, action)
+
+    keyboard_map(self, action_id, action)
+    zoom(self, action_id, action)
+       
+end
+

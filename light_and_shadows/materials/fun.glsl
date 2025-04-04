@@ -7,6 +7,18 @@
 #ifndef LS_FUN
 #define LS_FUN
 
+#define LIGHT_COUNT 8
+uniform highp vec4 lights[LIGHT_COUNT];
+uniform highp vec4 colors[LIGHT_COUNT];
+uniform highp vec4 directions[LIGHT_COUNT];
+
+
+#define USE_PCF_SHADOW
+// #define USE_PCF_POISSON_SHADOW
+// #define USE_FLAT_SHADOW
+
+#define USE_DIFFUSE_LIGHT
+
 vec2 rand(vec2 co)
 {
     return vec2(fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453),
@@ -17,10 +29,6 @@ float rgba_to_float(vec4 rgba)
 {
     return dot(rgba, vec4(1.0, 1.0/255.0, 1.0/65025.0, 1.0/16581375.0));
 }
-
-#define USE_PCF_SHADOW
-// #define USE_PCF_POISSON_SHADOW
-// #define USE_FLAT_SHADOW
 
 #ifdef USE_PCF_SHADOW
 //
@@ -142,13 +150,42 @@ vec3 point_light(vec3 light_color, float power, vec3 light_position, vec3 positi
     vec3 dist = light_position - position;
     vec3 direction = vec3(normalize(dist));
     float d = length(dist);
-    vec3 diffuse = light_color * max(dot(vnormal, direction), 0.05) * (1.0/(1.0 + d*power + 2.0*d*d*power*power));
+    // vec3 diffuse = light_color * max(dot(vnormal, direction), 0.05) * (1.0/(1.0 + d*power + 2.0*d*d*power*power + 2.0*d*d*d*power*power));
+    vec3 diffuse = light_color * max(dot(vnormal, direction), 0.05) * (1.0/(1.0 + d*power + 14.0*d*d*power*power));
+    return diffuse;
+}
+
+vec3 spot_light(vec3 light_color, float power, vec3 light_position, vec3 position, vec3 vnormal, vec3 spot_direction, float spot_angle, float light_smoothness)
+{
+    vec3 dist = light_position - position;
+    vec3 direction = vec3(normalize(dist));
+    float d = length(dist);
+    if (spot_angle > 0.) {
+
+        float spot_theta = dot(direction, normalize(spot_direction));
+        // float light_smoothness = 0.013;
+
+        if (spot_theta <= spot_angle) {
+            return vec3(0.0);
+        }
+
+        if (light_smoothness > 0.0) {
+            float spot_angle_inner = (spot_angle + 1.0) * (1.0 - light_smoothness) - 1.0;
+            float spot_epsilon = spot_angle_inner - spot_angle;            
+            float spot_intensity = clamp((spot_angle - spot_theta) / spot_epsilon, 0.0, 1.0);
+
+            light_color = light_color * spot_intensity;
+        }
+
+    }
+    float n = max(dot(vnormal, direction), .1);
+    vec3 diffuse = light_color * n * (1.0/(1.0 + d*power + 14.0*d*d*power*power));
     return diffuse;
 }
 
 const float phong_shininess = 8.0;
 // const vec3 specular_color = vec3(1.0);
-vec3 point_light2(vec3 light_color, float power, vec3 light_position, vec3 position, vec3 vnormal, float specular, vec3 view_dir)
+vec3 phong_light(vec3 light_color, float power, vec3 light_position, vec3 position, vec3 vnormal, float specular, vec3 view_dir)
 {
 
     vec3 dist = light_position - position;
@@ -176,6 +213,32 @@ vec3 direct_light(vec3 light_color, vec3 light_position, vec3 position, vec3 vno
     float n = max(dot(vnormal, direction), 0.0);
     vec3 diffuse = (light_color - shadow_color) * n;
     return diffuse;
+}
+
+
+// Diffuse light calculations
+vec3 diffuse_light(vec3 ambient)
+{
+    vec3 diff_light = vec3(ambient.xyz);
+#ifdef USE_DIFFUSE_LIGHT
+    // vec3 view_dir = normalize((cam_pos - var_position).xyz);
+    for (int i = 0; i < LIGHT_COUNT; ++i) {
+        float power = colors[i].w;
+        if (power > 0.0) {
+
+            // simple point light
+            // diff_light += point_light(colors[i].xyz, power, lights[i].xyz, var_position.xyz, var_normal);
+
+            // spot direct light
+            diff_light += spot_light(colors[i].xyz, power, lights[i].xyz, var_position.xyz, var_normal, directions[i].xyz, directions[i].w, lights[i].w);
+
+            // phong light
+            // vec3 light_color, float power, vec3 light_position, vec3 position, vec3 snormal, float specular, vec3 view_dir
+            // diff_light += phong_light(colors[i].xyz, power, lights[i].xyz, var_position.xyz, var_normal, 0.2, view_dir);
+        }
+    }
+#endif
+    return diff_light;
 }
 
 #endif // LS_FUN

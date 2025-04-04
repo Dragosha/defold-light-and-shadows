@@ -1,27 +1,14 @@
 name: "label"
-tags: "btile"
+tags: "tile"
 vertex_program: "/light_and_shadows/materials/fog_label/font.vp"
 fragment_program: "/light_and_shadows/materials/fog_label/font.fp"
-vertex_space: VERTEX_SPACE_WORLD
 vertex_constants {
   name: "view_proj"
   type: CONSTANT_TYPE_VIEWPROJ
-  value {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 0.0
-  }
 }
 vertex_constants {
   name: "mtx_view"
   type: CONSTANT_TYPE_VIEW
-  value {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 0.0
-  }
 }
 fragment_constants {
   name: "fog_color"
@@ -37,10 +24,5 @@ fragment_constants {
   name: "fog"
   type: CONSTANT_TYPE_USER
   value {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 0.0
   }
 }
-max_page_count: 0

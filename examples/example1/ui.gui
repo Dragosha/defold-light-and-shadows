@@ -9,8 +9,26 @@ textures {
 }
 nodes {
   position {
-    x: 63.476
-    y: 833.836
+    x: -98.161
+    y: 826.229
+  }
+  scale {
+    x: 0.443
+    y: 0.443
+    z: 0.443
+  }
+  type: TYPE_BOX
+  texture: "tiles/Icon-coin"
+  id: "coin"
+  xanchor: XANCHOR_LEFT
+  yanchor: YANCHOR_TOP
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+  visible: false
+}
+nodes {
+  position {
+    y: 846.0
   }
   type: TYPE_BOX
   id: "corner"
@@ -21,6 +39,9 @@ nodes {
   visible: false
 }
 nodes {
+  position {
+    x: 77.0
+  }
   scale {
     x: 0.443
     y: 0.443
@@ -63,25 +84,6 @@ nodes {
   }
   parent: "box"
   inherit_alpha: true
-}
-nodes {
-  position {
-    x: -98.161
-    y: 826.229
-  }
-  scale {
-    x: 0.443
-    y: 0.443
-    z: 0.443
-  }
-  type: TYPE_BOX
-  texture: "tiles/Icon-coin"
-  id: "coin"
-  xanchor: XANCHOR_LEFT
-  yanchor: YANCHOR_TOP
-  inherit_alpha: true
-  size_mode: SIZE_MODE_AUTO
-  visible: false
 }
 material: "/builtins/materials/gui.material"
 adjust_reference: ADJUST_REFERENCE_PARENT

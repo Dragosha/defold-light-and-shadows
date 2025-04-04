@@ -24,8 +24,7 @@ nodes {
 }
 nodes {
   position {
-    x: 63.476
-    y: 833.836
+    y: 846.0
   }
   type: TYPE_BOX
   id: "corner"
@@ -36,6 +35,9 @@ nodes {
   visible: false
 }
 nodes {
+  position {
+    x: 77.0
+  }
   scale {
     x: 0.443
     y: 0.443
@@ -150,7 +152,6 @@ nodes {
 }
 nodes {
   position {
-    x: 107.476
     y: 110.836
   }
   type: TYPE_BOX
@@ -162,6 +163,9 @@ nodes {
   visible: false
 }
 nodes {
+  position {
+    x: 117.0
+  }
   size {
     x: 120.0
     y: 120.0

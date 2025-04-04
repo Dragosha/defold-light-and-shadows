@@ -6,6 +6,7 @@ uniform highp mat4 view_proj;
 uniform highp mat4 mtx_view;
 uniform highp vec4 normal;
 uniform highp mat4 mtx_light;
+uniform mediump vec4 param;
 
 varying mediump vec2 var_texcoord0;
 varying highp vec4 var_position;
@@ -19,7 +20,10 @@ void main()
     gl_Position = view_proj * vec4(position.xyz, 1.0);
     var_texcoord0 = texcoord0;
 
-    var_texcoord0_shadow = mtx_light * position;
+    if(param.y < 1.) {
+        var_texcoord0_shadow = mtx_light * position;
+    }
+
     var_position = vec4(position.xyz, 1.0);
     var_view_position = mtx_view * position;
     var_normal = normalize(normal.xyz);

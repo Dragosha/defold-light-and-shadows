@@ -33,14 +33,16 @@ Add to render_script a few special lines of code. Its marked as `-- L_S Injectio
     173 local light_and_shadows = require "light_and_shadows.light_and_shadows"
     ...
     init() method:
-    177 "shadow"
-    198 light_and_shadows.init(self)
+    178 add example and shadow predicates
+    198 add light_and_shadows.init(self)
     ..
     update() method:
-    212 light_and_shadows.update(self)
+    213 add light_and_shadows.update(self)
     227 draw_options_world.constants = self.constants
-    236 render.enable_texture("tex1"...
-    255 render.disable_texture("tex1")
+    231 upscale injection
+    242 render.enable_texture("tex1"...
+    267 render.disable_texture("tex1")
+    277 upscale ...
     
 
 Add `shadow` to predicates list.
@@ -59,16 +61,22 @@ Most important is:
 
 ### Materials
 
-* Model - material to install on the 3D models. Note, the material is set up to work in world coordinates. If you use 3D models with this material and the same texture, such objects will be assembled in batching.
+* Model - material to setup the 3D models.
+
+ `model_world` uses world vertex space. If you use 3D models with this material and the same texture, such objects will be assembled in batching. But this required more CPU time. Also this material can used for animated models.
+
+ `model_local` uses local vertex space. Less CPU load, but each individual model will require its own drawcall.
+
+ `model_instanced` uses local vertex space and 'mtx_world' and 'mtx_normal' are specified as attributes. This type is best suited for identical models duplicated in large numbers on a scene. Such as trees, walls, grass, etc. The geometry of such a model will be passed to the GPU once.
 
 * Mesh - material to install on the mesh component. Very similar to the material for models, but also uses the vertex color value in calculating the pixel totals.
 
 * Sprite
 
-** `light_sprite` - material to install on the sprite component. Since the sprite has no normals, we set the normal in the material as an user vector4 constant.
+ `light_sprite` - material to install on the sprite component. Since the sprite has no normals, we set the normal in the material as an user vector4 constant.
 Note, the direction of the normal can and should be changed depending on what angle you set the sprites in your scene. In the example all sprites are tilted at the same X angle as the camera (-26.6), this is done to minimize distortion when drawing a scene with perspective, so that the sprites "look" exactly at the camera.
 
-** `light_sprite_back` - uses the same shaders as light_sprite, but the normal in the material looks "up". Used for decals on the ground, for the floor, etc. Also drawn in its predicate, before the other sprites.
+ `light_sprite_back` - uses the same shaders as light_sprite, but the normal in the material looks "up". Used for decals on the ground, for the floor, etc. Also drawn in its predicate, before the other sprites.
 
 * Spine - material to install on the spine component. Uses the same shaders as light_sprite, differs from sprite only by using a different view matrix.
 
@@ -150,32 +158,26 @@ To add a new light source to the scene you need to place bulb.script into the ga
 * `Color` of the light source. Red, Green, Blue. 
 You may use a negative values as well as values more than 1.0 for override final color of pixel when all light sources are blending. 
 * `Power` of the light source where 100 is normal 100 Watt bulb (just for reference, it's not exact).
+* `Static`. The light source can move around the game world. The position of the source is calculated in the lights manager script. To make a lamp dynamic, just set `static` to false. Otherwise leave `static` set to 'true' for better performance.
+* `Light on`. Turn on|off this bulb.
+* `Direct` for spotlight. On | off. The direction of rotation of the bulb game object is used as the direction where this light source will shine.
+* `Angle` is cone size for the shader calculations. In degrees.
+* `Smoothness` - how softly you want to blur the edges of the cone. From 0.0 (soft) to 1.0 (hard).
+* `Static_spot` - do you need to change spotlight direction in runtime? If 'true' the direction being calculation once for performance reason.
+* `Num`. If the bulb has a positive number, this light source does not participate in sorting by distance from the center of the screen. It is always visible. Of course, if the number of all bulbs is less than the MAX values of the light sources (16 in this demonstration). The default value is -1. These bulbs are sorted in the light manager script and you can add as many bulbs as you want. But only the first 16 (this is the value you can change) will get into the shader.
 * Also you may auto start particle FX attached to this game object and referenced in 'fxurl'.
 * `Rotate` set to true is this object need to follow the camera rotating (works as Bilboard).
 
-* The light source can move around the game world. The position of the source is calculated in the lights manager script. To make a lamp dynamic, just set `static` to false. Otherwise leave `static` set to 'true' for better performance.
-
-* `Num`. If the bulb has a positive number, this light source does not participate in sorting by distance from the center of the screen. It is always visible. Of course, if the number of all bulbs is less than the MAX values of the light sources (16 in this demonstration). The default value is -1. These bulbs are sorted in the light manager script and you can add as many bulbs as you want. But only the first 16 (this is the value you can change) will get into the shader.
-
-
-This example uses 16 simultaneously calculated light sources in the scene. If you need to change this number of light sources, you must change it in 'light_and_shadows.lua' and in the fragment shaders.
-In the fragment shaders (.fp) change the size of the arrays here:
+This example uses 8 simultaneously calculated light sources in the scene. If you need to change this number of light sources, you must change it in 'light_and_shadows.lua' and in the `/light_and_shadows/materials/fun.glsl` file.
+Change the size of the arrays here:
 
 ---
-    #define LIGHT_COUNT 16
+    #define LIGHT_COUNT 8
                         ^^
 
+If you don't want to use light sources at all and you have enough ambient light from the "sun" you can optimize the fragment shaders by excluding the calculation of light sources from them. Just comment the line ` #define USE_DIFFUSE_LIGHT` in `/light_and_shadows/materials/fun.glsl` file.
 
-If you don't want to use light sources at all and you have enough ambient light from the "sun" you can optimize the fragment shaders by excluding the calculation of light sources from them. Just delete the code:
-
----
-    for (int i = 0; i < LIGHT_COUNT; ++i) {
-        float power = colors[i].w;
-        if (power > 0.0) {
-            // vec3 light_color, float power, vec3 light_position, vec3 position, vec3 snormal, float specular, vec3 view_dir
-            diff_light += point_light2(colors[i].xyz, power, lights[i].xyz, var_position.xyz, normal_sum, 0.2, view_dir);
-        }
-    }
+![fun.glsl](assets/docs/fun.png)
 
 ## Shadow's quality.
 
@@ -204,6 +206,20 @@ Uses 8 sampler reads and Poisson filter + randomization UV.
 Uses 1 sampler. Very simple variant.
 
 ![bulb](assets/docs/USE_FLAT_SHADOW.png)
+
+## Shadow casting on | off
+
+To enable shadow casting set `light_and_shadows.shadow` as `true` in `/light_and_shadows/light_and_shadows.lua` file. Default value is true.
+
+## Upscaling
+
+In some cases a useful rendering technique where your scene is rendered at a low resolution and then stretched to the screen. Can help to get acceptable FPS on slow devices with large physical screen resolution. 
+To enable set `light_and_shadows.upscale` as `true` in `/light_and_shadows/light_and_shadows.lua` file. If ‘on’ all the objects are first rendered to a render target with a size no larger than specified in the project settings, then this entire render target is placed on the screen with `linear` scaling.
+Also to use this method you should add `/light_and_shadows/props/render_target_quad.go` game object to the main scene.
+
+The final rendered target will be copied to the screen with a simple `copy` material, you can replace it with your own or, for example, use some post-processing effects.
+
+Default value is false.
 
 
 ## One more thing

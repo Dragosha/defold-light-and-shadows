@@ -1,0 +1,81 @@
+local broadcast = require 'helper.broadcast'
+local virtual_stick = require 'helper.virtual_stick'
+local total_coins = 0
+local found_coins = 0
+
+local function update_counter(self)
+    gui.set_text(gui.get_node("coins"), found_coins .. "/"  .. total_coins)
+end
+
+function init(self)
+    msg.post(".", "acquire_input_focus")
+    self.coin   = gui.get_node("coin")
+    self.box    = gui.get_node("box")
+    self.box_scale = gui.get_scale(self.box)
+    broadcast.register("coin_register", function(message, sender)
+        total_coins = total_coins + 1
+        update_counter(self)
+    end)
+    broadcast.register("coin_found", function(message, sender)
+        gui.set_visible(self.coin, true)
+        gui.set_screen_position(self.coin, vmath.vector3(message.sx, message.sy, 0))
+
+        found_coins = found_coins + 1
+        local to =  gui.get_position(gui.get_node("corner")) + gui.get_position(self.box)
+        gui.animate(self.coin, "position", to, gui.EASING_INOUTCUBIC, .7, 0, function() 
+            gui.set_scale(self.box, self.box_scale)
+            gui.animate(self.box, "scale", self.box_scale.x * 1.1, gui.EASING_INOUTCUBIC, 0.25, 0, nil, gui.PLAYBACK_ONCE_PINGPONG)
+            update_counter(self)
+            gui.set_visible(self.coin, false)
+        end)
+        
+    end)
+
+    local function resize(self)
+        local x, y, zoom = virtual_stick.get_aspect_ratio()
+        local scale = vmath.vector3(zoom, zoom, 1)
+        -- print(scale)
+        gui.set_scale(gui.get_node("corner"), scale)
+        gui.set_scale(gui.get_node("corner2"), scale)
+        gui.set_scale(gui.get_node("coin"), scale)
+        gui.set_scale(gui.get_node("pad"), scale)
+    end
+
+    broadcast.register("WINDOW_RESIZED", resize)
+    resize()
+
+    broadcast.register("REGISTER", function(message, sender)
+        self.listener = sender
+    end)
+    broadcast.register("UNREGISTER", function(message, sender)
+        self.listener = nil
+    end)
+    ----
+    virtual_stick.init(self)
+    virtual_stick.register_stick(self, 1, "zone", "stick", "pad", 0.2, .5)
+    virtual_stick.register_button(self, "jump", hash("jump"))
+end
+
+function final(self)
+    broadcast.unregister_all()
+    msg.post(".", "release_input_focus")
+end
+
+function update(self, dt)
+end
+
+function on_message(self, message_id, message, sender)
+    if broadcast.on_message(message_id, message, sender) then
+        -- message was handled
+        return
+    end
+end
+
+
+local touch = hash("touch")
+function on_input(self, action_id, action)
+    if virtual_stick.on_input(self, action_id, action, touch) then
+    end
+end
+
+

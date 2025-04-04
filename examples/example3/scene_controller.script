@@ -20,9 +20,20 @@ function init(self)
     self.touch_down = false
     self.swipe_start_time = 0
     self.camera_velocity = vmath.vector3()
+
+    local function resize()
+        local x, y = window.get_size()
+        -- camera.set_aspect_ratio( self.camera_id, x/y) -- Auto aspect ratio is enabled, see the camera properties
+        -- Correct the camera Fov for mobile portrait mode
+        local fov = 0.7854 / common.clamp(x/y, .8, 1)
+        camera.set_fov(self.camera_id, fov)
+    end
+    broadcast.register("WINDOW_RESIZED", resize)
+    resize()
 end
 
 function final(self)
+    broadcast.unregister_all()
     msg.post(".", "release_input_focus")
 end
 
@@ -35,6 +46,12 @@ function update(self, dt)
     light.cam_position  = go.get_world_position(self.camera_go_id)
 end
 
+function on_message(self, message_id, message, sender)
+    if broadcast.on_message(message_id, message, sender) then
+        -- message was handled
+        return
+    end
+end
 
 local function keyboard_map(self, action_id, action)
 
