@@ -1,11 +1,15 @@
-varying mediump vec2 var_texcoord0;
-uniform lowp sampler2D tex0;
+#version 140
+
+in mediump vec2 var_texcoord0;
+uniform mediump sampler2D tex0;
+
+out vec4 out_fragColor;
 
 void main()
 {
-    vec3 color = texture2D(tex0, var_texcoord0).rgb;
+    vec3 color = texture(tex0, var_texcoord0).rgb;
     // color = floor(color * 3.) / 3.; // zx spectrum
-    gl_FragColor = vec4(color, 1.);
+    out_fragColor = vec4(color, 1.);
 
 }
 

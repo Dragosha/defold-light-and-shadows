@@ -1,36 +1,38 @@
+#version 140
 
 // Positions can be world or local space, since world and normal
 // matrices are identity for world vertex space materials.
 // If world vertex space is selected, you can remove the
 // normal matrix multiplication for optimal performance.
 
-attribute highp vec4 position;
-attribute mediump vec2 texcoord0;
-attribute highp vec3 normal;
+in highp vec4 position;
+in mediump vec2 texcoord0;
+in highp vec3 normal;
 
 // When 'mtx_world' and 'mtx_normal' is specified as attributes,
 // instanced rendering is automatically triggered.
-attribute highp mat4 mtx_world;
-attribute highp mat4 mtx_normal;
+in highp mat4 mtx_world;
+in highp mat4 mtx_normal;
 
+uniform vs_uniforms
+{
+    highp mat4 mtx_view;
+    highp mat4 mtx_proj;
+    highp mat4 mtx_light;
+    mediump vec4 param;
+};
 
-uniform highp mat4 mtx_view;
-uniform highp mat4 mtx_proj;
-uniform highp mat4 mtx_light;
-uniform mediump vec4 param;
-
-varying highp vec4 var_view_pos;
-varying highp vec4 var_position;
-varying highp vec3 var_normal;
-varying mediump vec2 var_texcoord0;
-varying highp vec4 var_texcoord0_shadow;
+out highp vec4 var_view_position;
+out highp vec4 var_position;
+out highp vec3 var_normal;
+out mediump vec2 var_texcoord0;
+out highp vec4 var_texcoord0_shadow;
 
 void main()
 {
-
     vec4 pw = mtx_world * vec4(position.xyz, 1.0);
     vec4 p = mtx_view * pw;
-    var_view_pos = p;
+    var_view_position = p;
     var_position = pw;
     var_texcoord0 = texcoord0;
     if(param.y < 1.) {

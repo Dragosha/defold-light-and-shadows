@@ -226,6 +226,7 @@ function update(self)
     local draw_options_world = set_camera_world(state)
     -- L_S Injection
     draw_options_world.constants = self.constants -- add our constants to the default camera options
+    draw_options_world.frustum_planes = render.FRUSTUM_PLANES_ALL
     --
     -- L_S Injection
     if light_and_shadows.upscale then

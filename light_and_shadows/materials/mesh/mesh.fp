@@ -1,24 +1,16 @@
-varying mediump vec4 var_color0;
-varying highp vec4 var_position;
-varying highp vec3 var_normal;
-varying highp vec4 var_view_pos;
-varying mediump vec2 var_texcoord0;
-varying highp vec4 var_texcoord0_shadow;
+#version 140
 
-uniform lowp sampler2D tex0;
-uniform lowp sampler2D tex1;
+in mediump vec4 var_color0;
+in highp vec4 var_position;
+in highp vec3 var_normal;
+in highp vec4 var_view_position;
+in mediump vec2 var_texcoord0;
+in highp vec4 var_texcoord0_shadow;
 
-uniform lowp vec4 tint;
-uniform lowp vec4 ambient;
-uniform lowp vec4 fog_color;
-uniform lowp vec4 fog;
-uniform highp vec4 cam_pos;
-uniform mediump vec4 param;
+out vec4 out_fragColor;
 
-uniform lowp vec4 color0;
-uniform highp vec4 light;
-uniform highp vec4 shadow_color;
-
+uniform mediump sampler2D tex0;
+uniform mediump sampler2D tex1;
 
 #include "/light_and_shadows/materials/fun.glsl"
 #include "/light_and_shadows/materials/fog_fun.glsl"
@@ -27,7 +19,7 @@ void main()
 {
     // Pre-multiply alpha since all runtime textures already are
     vec4 tint_pm = vec4(tint.xyz * tint.w, tint.w);
-    vec4 color = texture2D(tex0, var_texcoord0.xy) * tint_pm;
+    vec4 color = texture(tex0, var_texcoord0.xy) * tint_pm;
     if(color.a < 0.2) discard;
 
     // Diffuse light calculations
@@ -44,9 +36,9 @@ void main()
     vec3 frag_color  = var_color0.rgb * color.rgb * diff_light ;
 
     // Add the fog
-    frag_color = add_fog(frag_color, var_view_pos.z, fog.x, fog.y, fog_color.rgb*color.a, fog_color.a);
+    frag_color = add_fog(frag_color, var_view_position.z, fog.x, fog.y, fog_color.rgb*color.a, fog_color.a);
 
-    gl_FragColor = vec4(frag_color, color.a);
+    out_fragColor = vec4(frag_color, color.a);
 }
 
   

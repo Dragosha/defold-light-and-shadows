@@ -1,6 +1,9 @@
 # Light and Shadows. Pack of shaders and scene setup examples.
 
-Required 1.3.6 Defold version.
+Required Defold 1.10.0 version.
+Also, to run with other versions of the editor, you must update the Spine extension dependency to the correct version.
+`https://github.com/defold/extension-spine/archive/refs/tags/3.7.0.zip`
+Spine is used in examples only, and can be excluded from the library without any effect.
 
 ## What is this?
 A pack of materials and shaders to make a game with realtime shadow from one source (the sun) and a lot of point light sources.

@@ -8,9 +8,24 @@
 #define LS_FUN
 
 #define LIGHT_COUNT 8
-uniform highp vec4 lights[LIGHT_COUNT];
-uniform highp vec4 colors[LIGHT_COUNT];
-uniform highp vec4 directions[LIGHT_COUNT];
+uniform fs_uniforms
+{
+    mediump vec4 tint;
+    mediump vec4 ambient;
+    mediump vec4 fog_color;
+    mediump vec4 fog;
+    highp vec4 cam_pos;
+    mediump vec4 param;
+    // sun:
+    mediump vec4 color0;
+    highp vec4 light;
+    highp vec4 shadow_color;
+    // bulbs:
+    highp vec4 lights[LIGHT_COUNT];
+    highp vec4 colors[LIGHT_COUNT];
+    highp vec4 directions[LIGHT_COUNT];
+};
+
 
 
 #define USE_PCF_SHADOW
@@ -43,7 +58,7 @@ float shadow_calculation(vec4 depth_data, vec4 param)
     for (int x = -1; x <= 1; ++x)
     {
         vec2 uv = depth_data.xy + vec2(x,y) * texel_size;
-        vec4 rgba = texture2D(tex1, uv + rand(uv));
+        vec4 rgba = texture(tex1, uv + rand(uv));
         float depth = rgba_to_float(rgba);
         shadow += depth_data.z - depth_bias > depth ? 1.0 : 0.0;
     }
@@ -108,7 +123,7 @@ float shadow_calculation(vec4 depth_data, vec4 param)
         int index = int(16.0*random(gl_FragCoord.xyy, x))%16;
 
         vec2 uv = depth_data.xy + poissonDisk16[x]/700.0;
-        vec4 rgba = texture2D(tex1, uv);
+        vec4 rgba = texture(tex1, uv);
         float depth = rgba_to_float(rgba);
         shadow += depth_data.z - depth_bias > depth ? 1.0 : 0.0;
     }
@@ -131,8 +146,8 @@ float shadow_calculation(vec4 depth_data, vec4 param)
     
     float depth_bias = 0.0008;
     highp vec2 uv = depth_data.xy;
-    // vec4 rgba = texture2D(tex1, uv + rand(uv));
-    vec4 rgba = texture2D(tex1, uv);
+    // vec4 rgba = texture(tex1, uv + rand(uv));
+    vec4 rgba = texture(tex1, uv);
     float depth = rgba_to_float(rgba);
     float shadow = depth_data.z - depth_bias > depth ? 1.0 : 0.0;
 

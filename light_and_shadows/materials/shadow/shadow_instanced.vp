@@ -1,7 +1,12 @@
-attribute highp vec4 position;
-attribute highp mat4 mtx_world;
+#version 140
 
-uniform highp mat4   mtx_viewproj;
+in highp vec4 position;
+in highp mat4 mtx_world;
+
+uniform vs_uniforms
+{
+    highp mat4 mtx_viewproj;
+};
 
 void main()
 {

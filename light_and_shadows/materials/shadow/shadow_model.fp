@@ -1,3 +1,7 @@
+#version 140
+
+out vec4 out_fragColor;
+
 vec4 float_to_rgba( float v )
 {
     vec4 enc = vec4(1.0, 255.0, 65025.0, 16581375.0) * v;
@@ -8,5 +12,5 @@ vec4 float_to_rgba( float v )
 // For model shadow casting we are don't use a texture sampler.
 void main()
 {
-    gl_FragColor = float_to_rgba(gl_FragCoord.z);
+    out_fragColor = float_to_rgba(gl_FragCoord.z);
 }

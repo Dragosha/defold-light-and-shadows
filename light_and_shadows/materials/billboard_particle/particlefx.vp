@@ -1,20 +1,24 @@
-uniform highp mat4 view_proj;
-uniform highp mat4 proj;
+#version 140
+
+uniform vs_uniforms
+{
+    highp mat4 view_proj;
+    highp mat4 proj;
+};
 
 // positions are in world space
-attribute highp vec3 local_position;
-attribute highp vec4 position;
-attribute mediump vec2 texcoord0;
-attribute lowp vec4 color;
+in highp vec3 local_position;
+in highp vec4 position;
+in mediump vec2 texcoord0;
+in mediump vec4 color;
 
-varying mediump vec2 var_texcoord0;
-varying lowp vec4 var_color;
-varying highp vec4 var_view_position;
+out mediump vec2 var_texcoord0;
+out mediump vec4 var_color;
+out highp vec4 var_view_position;
 
 void main()
 {
     gl_Position = (view_proj * vec4(position.xyz - local_position.xyz, 1.0)) + (proj * vec4(local_position.xy, 0.0, 0.0));
-
     var_texcoord0 = texcoord0;
     var_color = vec4(color.rgb * color.a, color.a);
     var_view_position = vec4(position.xyz, 1.0);
