@@ -4,8 +4,8 @@ local light_and_shadows = require "light_and_shadows.light_and_shadows"
 local broadcast = require 'helper.broadcast'
 local virtual_stick = require 'helper.virtual_stick'
 
-local current_example = 4
-local totals = 4
+local current_example = 3
+local total = 4
 
 local function text_upd()
     gui.set_text(gui.get_node("qlt"), light_and_shadows.shadow and "On" or "Off")
@@ -13,12 +13,13 @@ local function text_upd()
 end
 
 function init(self)
+
     -- Simple input. Registre the 'next' button hundler.
     si.acquire()
     si.register("next_example", 
     function()
         current_example = current_example + 1
-        if current_example > totals then current_example = 1 end
+        if current_example > total then current_example = 1 end
         monarch.show(hash(current_example), {clear = true, sequential = true}) 
     end)
 
@@ -44,6 +45,12 @@ function init(self)
 
     broadcast.register("WINDOW_RESIZED", resize)
     resize()
+
+    broadcast.register("SHOW", function(message)
+        current_example = message.first
+        total = message.total
+        monarch.show(hash(current_example))
+    end)
 end
 
 function final(self)

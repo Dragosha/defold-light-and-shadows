@@ -1,0 +1,23 @@
+#version 140
+
+in highp vec4 position;
+in mediump vec4 bone_weights;
+in mediump vec4 bone_indices;
+in mediump vec4 animation_data;
+in highp vec2 texcoord0;
+
+uniform vs_uniforms
+{
+    highp mat4 mtx_worldviewproj;
+};
+out highp vec2 	 var_texcoord0;
+
+#include "/builtins/materials/skinning.glsl"
+
+void main()
+{
+    vec4 skinned_position = get_skinned_position(position);
+    gl_Position = mtx_worldviewproj * vec4(skinned_position.xyz, 1.0);
+    var_texcoord0 = texcoord0;
+}
+

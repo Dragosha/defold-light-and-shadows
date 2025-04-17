@@ -15,3 +15,11 @@ render_resources {
   name: "shadow_instanced"
   path: "/light_and_shadows/materials/shadow/shadow_instanced.material"
 }
+render_resources {
+  name: "shadow_skinned_instanced"
+  path: "/light_and_shadows/materials/shadow/skinned/shadow_skinned_instanced.material"
+}
+render_resources {
+  name: "shadow_skinned"
+  path: "/light_and_shadows/materials/shadow/skinned/shadow_skinned.material"
+}

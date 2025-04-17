@@ -8,18 +8,18 @@
 in highp vec4 position;
 in mediump vec2 texcoord0;
 in highp vec3 normal;
-
-// When 'mtx_world' and 'mtx_normal' is specified as attributes,
-// instanced rendering is automatically triggered.
-in highp mat4 mtx_world;
-in highp mat4 mtx_normal;
+in mediump vec4 bone_weights;
+in mediump vec4 bone_indices;
 
 uniform vs_uniforms
 {
+    highp mat4 mtx_world;
+    highp mat4 mtx_normal;
     highp mat4 mtx_view;
     highp mat4 mtx_proj;
     highp mat4 mtx_light;
     mediump vec4 param;
+    mediump vec4 animation_data;
 };
 
 out highp vec4 var_view_position;
@@ -28,9 +28,12 @@ out highp vec3 var_normal;
 out mediump vec2 var_texcoord0;
 out highp vec4 var_texcoord0_shadow;
 
+#include "/builtins/materials/skinning.glsl"
+
 void main()
 {
-    vec4 pw = mtx_world * vec4(position.xyz, 1.0);
+    vec4 skinned_position = get_skinned_position(position);
+    vec4 pw = mtx_world * vec4(skinned_position.xyz, 1.0);
     vec4 p = mtx_view * pw;
     var_view_position = p;
     var_position = pw;
@@ -40,6 +43,6 @@ void main()
     }
     var_normal = normalize((mtx_world * vec4(normal, 0.0)).xyz);
     gl_Position = mtx_proj * p;
-  
+ 
 }
 

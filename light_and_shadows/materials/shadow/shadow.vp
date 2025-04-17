@@ -1,6 +1,6 @@
 #version 140
 
-// positions are in world space
+// positions are in world/local space depends material settings
 in highp vec4 position;
 in highp vec2 texcoord0;
 

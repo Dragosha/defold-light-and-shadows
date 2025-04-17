@@ -1,6 +1,7 @@
 local monarch     = require "monarch.monarch"
 local broadcast = require 'helper.broadcast'
-go.property("first", hash("4"))
+go.property("first", 5)
+go.property("total", 5)
 
 local function on_window(self, event, data)
     if event == window.WINDOW_EVENT_RESIZED then
@@ -11,7 +12,6 @@ local function on_window(self, event, data)
     end
 
 end
-
 local SFS = hash("show_first_screen")
 function init(self)
     msg.post("#", SFS)
@@ -22,6 +22,6 @@ end
 
 function on_message(self, message_id, message, sender)
     if message_id == SFS then
-        monarch.show(self.first)
+        broadcast.send("SHOW", {first = self.first, total = self.total}) -- send to /examples/ui/next.gui_script
     end
 end

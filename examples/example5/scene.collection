@@ -1,0 +1,493 @@
+name: "example2"
+instances {
+  id: "f"
+  prototype: "/assets/props/tiles/grig10x10.go"
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+instances {
+  id: "sun"
+  prototype: "/light_and_shadows/props/sun.go"
+  position {
+    x: -7.0
+    y: 10.0
+    z: 5.0
+  }
+  component_properties {
+    id: "sun"
+    properties {
+      id: "shadow"
+      value: "0.5, 0.5, 0.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+  }
+}
+scale_along_z: 1
+embedded_instances {
+  id: "root"
+  data: "components {\n"
+  "  id: \"lightsetting\"\n"
+  "  component: \"/light_and_shadows/light_setting.script\"\n"
+  "  properties {\n"
+  "    id: \"clear_color\"\n"
+  "    value: \"0.8, 0.8, 0.8, 0.0\"\n"
+  "    type: PROPERTY_TYPE_VECTOR4\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"fog_color\"\n"
+  "    value: \"0.8, 0.8, 0.8, 0.0\"\n"
+  "    type: PROPERTY_TYPE_VECTOR4\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"fog_density\"\n"
+  "    value: \"0.7\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"fog_min_max\"\n"
+  "    value: \"10.0, 180.0, 1.0, 1.0\"\n"
+  "    type: PROPERTY_TYPE_VECTOR4\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"color_max\"\n"
+  "    value: \"1.1\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"on\"\n"
+  "    value: \"true\"\n"
+  "    type: PROPERTY_TYPE_BOOLEAN\n"
+  "  }\n"
+  "}\n"
+  "components {\n"
+  "  id: \"controller\"\n"
+  "  component: \"/examples/example5/scene_controller.script\"\n"
+  "}\n"
+  ""
+}
+embedded_instances {
+  id: "ground"
+  children: "f"
+  data: ""
+}
+embedded_instances {
+  id: "lights"
+  children: "sun"
+  data: ""
+}
+embedded_instances {
+  id: "sounds"
+  data: "embedded_components {\n"
+  "  id: \"button\"\n"
+  "  type: \"sound\"\n"
+  "  data: \"sound: \\\"/assets/ogg/navigate_36.ogg\\\"\\n"
+  "gain: 0.4\\n"
+  "\"\n"
+  "}\n"
+  ""
+}
+embedded_instances {
+  id: "cam_target"
+  children: "camera"
+  data: "components {\n"
+  "  id: \"test\"\n"
+  "  component: \"/helper/print_url.script\"\n"
+  "}\n"
+  ""
+  rotation {
+    x: -0.34202015
+    w: 0.9396926
+  }
+}
+embedded_instances {
+  id: "camera"
+  data: "embedded_components {\n"
+  "  id: \"camera\"\n"
+  "  type: \"camera\"\n"
+  "  data: \"aspect_ratio: 1.0\\n"
+  "fov: 0.7854\\n"
+  "near_z: 10.0\\n"
+  "far_z: 600.0\\n"
+  "auto_aspect_ratio: 1\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    z: 100.0
+  }
+}
+embedded_instances {
+  id: "boy"
+  children: "go3"
+  data: "embedded_components {\n"
+  "  id: \"model\"\n"
+  "  type: \"model\"\n"
+  "  data: \"mesh: \\\"/assets/models/boy.glb\\\"\\n"
+  "skeleton: \\\"/assets/models/boy.glb\\\"\\n"
+  "animations: \\\"/assets/models/boy.glb\\\"\\n"
+  "default_animation: \\\"Root.001|Root|Run\\\"\\n"
+  "name: \\\"{{NAME}}\\\"\\n"
+  "materials {\\n"
+  "  name: \\\"Material\\\"\\n"
+  "  material: \\\"/light_and_shadows/materials/model/skinned/model_skinned.material\\\"\\n"
+  "  textures {\\n"
+  "    sampler: \\\"tex0\\\"\\n"
+  "    texture: \\\"/assets/models/skaterMaleA.png\\\"\\n"
+  "  }\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: 12.70117
+    z: -2.262616
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+embedded_instances {
+  id: "boy2"
+  children: "go2"
+  data: "embedded_components {\n"
+  "  id: \"model\"\n"
+  "  type: \"model\"\n"
+  "  data: \"mesh: \\\"/assets/models/boy.glb\\\"\\n"
+  "skeleton: \\\"/assets/models/boy.glb\\\"\\n"
+  "animations: \\\"/assets/models/boy.glb\\\"\\n"
+  "default_animation: \\\"Root.001|Root|Run\\\"\\n"
+  "name: \\\"{{NAME}}\\\"\\n"
+  "materials {\\n"
+  "  name: \\\"Material\\\"\\n"
+  "  material: \\\"/light_and_shadows/materials/model/model_world.material\\\"\\n"
+  "  textures {\\n"
+  "    sampler: \\\"tex0\\\"\\n"
+  "    texture: \\\"/assets/models/skaterMaleA.png\\\"\\n"
+  "  }\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: -18.223797
+    z: -2.710586
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+embedded_instances {
+  id: "boy5"
+  children: "go5"
+  data: "embedded_components {\n"
+  "  id: \"model\"\n"
+  "  type: \"model\"\n"
+  "  data: \"mesh: \\\"/assets/models/boy.glb\\\"\\n"
+  "skeleton: \\\"/assets/models/boy.glb\\\"\\n"
+  "animations: \\\"/assets/models/boy.glb\\\"\\n"
+  "default_animation: \\\"Root.001|Root|Idle\\\"\\n"
+  "name: \\\"{{NAME}}\\\"\\n"
+  "materials {\\n"
+  "  name: \\\"Material\\\"\\n"
+  "  material: \\\"/light_and_shadows/materials/model/skinned/model_skinned_instanced.material\\\"\\n"
+  "  textures {\\n"
+  "    sampler: \\\"tex0\\\"\\n"
+  "    texture: \\\"/assets/models/skaterMaleA.png\\\"\\n"
+  "  }\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: -44.50185
+    z: -35.23483
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+embedded_instances {
+  id: "boy6"
+  children: "go1"
+  data: "embedded_components {\n"
+  "  id: \"model\"\n"
+  "  type: \"model\"\n"
+  "  data: \"mesh: \\\"/assets/models/boy.glb\\\"\\n"
+  "skeleton: \\\"/assets/models/boy.glb\\\"\\n"
+  "animations: \\\"/assets/models/boy.glb\\\"\\n"
+  "default_animation: \\\"Root.001|Root|Run\\\"\\n"
+  "name: \\\"{{NAME}}\\\"\\n"
+  "materials {\\n"
+  "  name: \\\"Material\\\"\\n"
+  "  material: \\\"/light_and_shadows/materials/model/skinned/model_skinned_instanced.material\\\"\\n"
+  "  textures {\\n"
+  "    sampler: \\\"tex0\\\"\\n"
+  "    texture: \\\"/assets/models/skaterMaleA.png\\\"\\n"
+  "  }\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: -47.46671
+    z: -3.628689
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+embedded_instances {
+  id: "go1"
+  data: "embedded_components {\n"
+  "  id: \"label\"\n"
+  "  type: \"label\"\n"
+  "  data: \"size {\\n"
+  "  x: 300.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "color {\\n"
+  "  x: 0.6\\n"
+  "  y: 0.8\\n"
+  "  z: 0.6\\n"
+  "}\\n"
+  "line_break: true\\n"
+  "text: \\\"model skinned instanced\\\"\\n"
+  "font: \\\"/assets/fnt/cardfont.font\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/fog_label/fog_label.material\\\"\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    y: 4.963061
+  }
+  scale3 {
+    x: 0.015322
+    y: 0.015322
+    z: 0.038251
+  }
+}
+embedded_instances {
+  id: "go2"
+  data: "embedded_components {\n"
+  "  id: \"label\"\n"
+  "  type: \"label\"\n"
+  "  data: \"size {\\n"
+  "  x: 300.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "color {\\n"
+  "  x: 0.6\\n"
+  "  y: 0.8\\n"
+  "  z: 0.6\\n"
+  "}\\n"
+  "line_break: true\\n"
+  "text: \\\"model world\\\"\\n"
+  "font: \\\"/assets/fnt/cardfont.font\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/fog_label/fog_label.material\\\"\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    y: 4.419954
+  }
+  scale3 {
+    x: 0.015322
+    y: 0.015322
+    z: 0.038251
+  }
+}
+embedded_instances {
+  id: "go3"
+  data: "embedded_components {\n"
+  "  id: \"label\"\n"
+  "  type: \"label\"\n"
+  "  data: \"size {\\n"
+  "  x: 300.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "color {\\n"
+  "  x: 0.6\\n"
+  "  y: 0.8\\n"
+  "  z: 0.6\\n"
+  "}\\n"
+  "line_break: true\\n"
+  "text: \\\"model skinned\\\"\\n"
+  "font: \\\"/assets/fnt/cardfont.font\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/fog_label/fog_label.material\\\"\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    y: 4.238918
+  }
+  scale3 {
+    x: 0.015322
+    y: 0.015322
+    z: 0.038251
+  }
+}
+embedded_instances {
+  id: "boy1"
+  children: "go4"
+  data: "embedded_components {\n"
+  "  id: \"model\"\n"
+  "  type: \"model\"\n"
+  "  data: \"mesh: \\\"/assets/models/boy.glb\\\"\\n"
+  "skeleton: \\\"/assets/models/boy.glb\\\"\\n"
+  "animations: \\\"/assets/models/boy.glb\\\"\\n"
+  "default_animation: \\\"Root.001|Root|Idle\\\"\\n"
+  "name: \\\"{{NAME}}\\\"\\n"
+  "materials {\\n"
+  "  name: \\\"Material\\\"\\n"
+  "  material: \\\"/light_and_shadows/materials/model/model_world.material\\\"\\n"
+  "  textures {\\n"
+  "    sampler: \\\"tex0\\\"\\n"
+  "    texture: \\\"/assets/models/skaterMaleA.png\\\"\\n"
+  "  }\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: -18.223797
+    z: -33.70941
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+embedded_instances {
+  id: "boy3"
+  children: "go"
+  data: "embedded_components {\n"
+  "  id: \"model\"\n"
+  "  type: \"model\"\n"
+  "  data: \"mesh: \\\"/assets/models/boy.glb\\\"\\n"
+  "skeleton: \\\"/assets/models/boy.glb\\\"\\n"
+  "animations: \\\"/assets/models/boy.glb\\\"\\n"
+  "default_animation: \\\"Root.001|Root|Idle\\\"\\n"
+  "name: \\\"{{NAME}}\\\"\\n"
+  "materials {\\n"
+  "  name: \\\"Material\\\"\\n"
+  "  material: \\\"/light_and_shadows/materials/model/skinned/model_skinned.material\\\"\\n"
+  "  textures {\\n"
+  "    sampler: \\\"tex0\\\"\\n"
+  "    texture: \\\"/assets/models/skaterMaleA.png\\\"\\n"
+  "  }\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: 12.70117
+    z: -30.891994
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+embedded_instances {
+  id: "go"
+  data: "embedded_components {\n"
+  "  id: \"label\"\n"
+  "  type: \"label\"\n"
+  "  data: \"size {\\n"
+  "  x: 300.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "color {\\n"
+  "  x: 0.6\\n"
+  "  y: 0.8\\n"
+  "  z: 0.6\\n"
+  "}\\n"
+  "line_break: true\\n"
+  "text: \\\"model skinned\\\"\\n"
+  "font: \\\"/assets/fnt/cardfont.font\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/fog_label/fog_label.material\\\"\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    y: 4.238918
+  }
+  scale3 {
+    x: 0.015322
+    y: 0.015322
+    z: 0.038251
+  }
+}
+embedded_instances {
+  id: "go4"
+  data: "embedded_components {\n"
+  "  id: \"label\"\n"
+  "  type: \"label\"\n"
+  "  data: \"size {\\n"
+  "  x: 300.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "color {\\n"
+  "  x: 0.6\\n"
+  "  y: 0.8\\n"
+  "  z: 0.6\\n"
+  "}\\n"
+  "line_break: true\\n"
+  "text: \\\"model world\\\"\\n"
+  "font: \\\"/assets/fnt/cardfont.font\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/fog_label/fog_label.material\\\"\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    y: 4.419954
+  }
+  scale3 {
+    x: 0.015322
+    y: 0.015322
+    z: 0.038251
+  }
+}
+embedded_instances {
+  id: "go5"
+  data: "embedded_components {\n"
+  "  id: \"label\"\n"
+  "  type: \"label\"\n"
+  "  data: \"size {\\n"
+  "  x: 300.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "color {\\n"
+  "  x: 0.6\\n"
+  "  y: 0.8\\n"
+  "  z: 0.6\\n"
+  "}\\n"
+  "line_break: true\\n"
+  "text: \\\"model skinned instanced\\\"\\n"
+  "font: \\\"/assets/fnt/cardfont.font\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/fog_label/fog_label.material\\\"\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    y: 4.963061
+  }
+  scale3 {
+    x: 0.015322
+    y: 0.015322
+    z: 0.038251
+  }
+}

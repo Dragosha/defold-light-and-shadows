@@ -175,7 +175,7 @@ local light_and_shadows = require "light_and_shadows.light_and_shadows"
 
 function init(self)
     self.predicates = create_predicates("tile", "gui", "particle", "model", "debug_text",
-    "atile", "shadow", "upscale", "shadow_local", "shadow_instanced") -- L_S Injection
+    "atile", "shadow", "upscale", "shadow_local", "shadow_instanced", "shadow_skinned_instanced", "shadow_skinned") -- L_S Injection
 
     -- default is stretch projection. copy from builtins and change for different projection
     -- or send a message to the render script to change projection:
