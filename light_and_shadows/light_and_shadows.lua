@@ -102,7 +102,11 @@ function light_and_shadows.update_light(self)
     -- Sun position, color and shadow intensity
     self.constants.light = constants.sun_position or v0
     self.constants.color0 = constants.sun_color or v0
-    self.constants.shadow_color = constants.shadow_color or v0
+    --
+    constants.shadow_color = constants.shadow_color or v0
+    --  Cast shadow or not cast? 1 - yes, 0 - no
+    constants.shadow_color.w = light_and_shadows.shadow and 1 or 0
+    self.constants.shadow_color = constants.shadow_color
 
     -- Point lights uniform constants.
     -- Fills light position and color arrays.
@@ -143,13 +147,6 @@ function light_and_shadows.update_light(self)
     -- Setup camera world position uniform constant (vector4)
     -- It's used in shader to calculate speculars by phong model.
     self.constants.cam_pos = constants.cam_position
-    -- set param.y as shader iformation do we need to cast shadow or not
-    -- > 0 - off
-    -- 0 - on (default value) 
-    param.y = light_and_shadows.shadow and 0 or 1
-    self.constants.param = param
-    -- print(self.constants.param, light_and_shadows.shadow)
-
 end
 
 local clear_buffers = {[render.BUFFER_COLOR_BIT] = vmath.vector4(1, 1, 1, 1), [render.BUFFER_DEPTH_BIT] = 1}

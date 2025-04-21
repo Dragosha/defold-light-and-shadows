@@ -15,7 +15,6 @@ uniform vs_uniforms
     highp mat4 mtx_view;
     highp mat4 mtx_proj;
     highp mat4 mtx_light;
-    mediump vec4 param;
 };
 
 out highp vec4 var_view_position;
@@ -31,9 +30,7 @@ void main()
     var_view_position = p;
     var_position = pw;
     var_texcoord0 = texcoord0;
-    if(param.y < 1.) {
-        var_texcoord0_shadow = mtx_light * pw;
-    }
+    var_texcoord0_shadow = mtx_light * pw;
     // If world vertex space is selected, you can remove the
     // normal matrix multiplication for optimal performance.
     var_normal = normalize(normal);

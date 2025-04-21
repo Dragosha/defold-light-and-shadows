@@ -15,7 +15,6 @@ uniform fs_uniforms
     mediump vec4 fog_color;
     mediump vec4 fog;
     highp vec4 cam_pos;
-    mediump vec4 param;
     // sun:
     mediump vec4 color0;
     highp vec4 light;
@@ -47,10 +46,8 @@ float rgba_to_float(vec4 rgba)
 
 #ifdef USE_PCF_SHADOW
 //
-float shadow_calculation(vec4 depth_data, vec4 param)
+float shadow_calculation(vec4 depth_data)
 {
-    if(param.y > 0.) return 0.0; // do not calculate shadow if cast parameter set to disabled.
-
     float depth_bias = 0.0008;
     float shadow = 0.0;
     float texel_size = 1.0 / 2048.0; //textureSize(tex1, 0);
@@ -110,11 +107,8 @@ float random(vec3 seed, int i)
     return fract(sin(dot_product) * 43758.5453);
 }
 
-float shadow_calculation(vec4 depth_data, vec4 param)
+float shadow_calculation(vec4 depth_data)
 {
-
-    if(param.y > 0.) return 0.0;
-
     float depth_bias = 0.0025;
     float shadow = 0.0;
     int y = 0;
@@ -140,10 +134,8 @@ float shadow_calculation(vec4 depth_data, vec4 param)
 #endif
 
 #ifdef USE_FLAT_SHADOW
-float shadow_calculation(vec4 depth_data, vec4 param)
+float shadow_calculation(vec4 depth_data)
 {
-    if(param.y > 0.) return 0.0;
-    
     float depth_bias = 0.0008;
     highp vec2 uv = depth_data.xy;
     // vec4 rgba = texture(tex1, uv + rand(uv));
@@ -221,12 +213,12 @@ vec3 phong_light(vec3 light_color, float power, vec3 light_position, vec3 positi
 }
 
 // SUN! DIRECT LIGHT
-vec3 direct_light(vec3 light_color, vec3 light_position, vec3 position, vec3 vnormal, vec3 shadow_color)
+vec3 direct_light(vec3 light_color, vec3 light_position, vec3 position, vec3 vnormal, vec3 minus_color)
 {
     vec3 dist = light_position;
     vec3 direction = normalize(dist);
     float n = max(dot(vnormal, direction), 0.0);
-    vec3 diffuse = (light_color - shadow_color) * n;
+    vec3 diffuse = (light_color - minus_color) * n;
     return diffuse;
 }
 

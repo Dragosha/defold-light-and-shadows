@@ -25,12 +25,16 @@ void main()
     vec3 diff_light = diffuse_light(ambient.xyz);
 
     // Shadow map
-    vec4 depth_proj = var_texcoord0_shadow / var_texcoord0_shadow.w;
-    float shadow = shadow_calculation(depth_proj.xyzw, param);
-    vec3 shadow_color = shadow_color.xyz * shadow;
+    vec3 minus_color = vec3(0.);
+    if(shadow_color.w > 0.) // on
+    {
+        vec4 depth_proj = var_texcoord0_shadow / var_texcoord0_shadow.w;
+        float shadow = shadow_calculation(depth_proj.xyzw);
+        minus_color = shadow_color.xyz * shadow;
+    };
 
     // Direct light minus shadow
-    diff_light += direct_light(color0.xyz, light.xyz, var_position.xyz, var_normal, shadow_color);
+    diff_light += direct_light(color0.xyz, light.xyz, var_position.xyz, var_normal, minus_color);
     diff_light = clamp(diff_light, 0.0, ambient.w);
     vec3 frag_color  = color.rgb * diff_light ;
 

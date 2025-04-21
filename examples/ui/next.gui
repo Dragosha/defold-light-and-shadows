@@ -191,6 +191,7 @@ nodes {
   pivot: PIVOT_E
   parent: "corner2"
   inherit_alpha: true
+  enabled: false
   visible: false
 }
 nodes {
