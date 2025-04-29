@@ -1,0 +1,23 @@
+name: "model"
+tags: "model_alpha_blend"
+vertex_program: "/light_and_shadows/materials/hidden_model/model.vp"
+fragment_program: "/light_and_shadows/materials/hidden_model/model.fp"
+vertex_space: VERTEX_SPACE_LOCAL
+vertex_constants {
+  name: "mtx_worldview"
+  type: CONSTANT_TYPE_WORLDVIEW
+}
+vertex_constants {
+  name: "mtx_proj"
+  type: CONSTANT_TYPE_PROJECTION
+}
+fragment_constants {
+  name: "tint"
+  type: CONSTANT_TYPE_USER
+  value {
+    x: 1.0
+    y: 1.0
+    z: 0.1
+    w: 0.8
+  }
+}
