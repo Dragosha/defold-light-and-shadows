@@ -59,7 +59,7 @@ Most important is:
 
 * `BUFFER_RESOLUTION` = 2048 - Size of the shadow map texture. Select value from: 1024/2048/4096. More is better quality. Shadow map texture is projected to the game world.
 
-* `PROJECTION_RESOLUTION` = 400 - This constant indicates the size of the area on which the shadow is projected around the screen center. Smaller size is better shadow quality. This value also depends on camera zoom / world scale. Feel free to adjust it.
+* `PROJECTION_RESOLUTION` = 400 - This constant indicates the size of the area on which the shadow is projected around the screen center. Smaller size is better shadow quality. This value also depends on camera zoom / world scale. Feel free to adjust it. You can set it in the sun.script.
 
 
 ### Materials
@@ -145,6 +145,22 @@ Only one light source casts shadows and this part is about him. There is a speci
 * `Color` of the light source. R, G, B (0 - 1.0). 
 
 * `Shadow` - Inverted shadow color. Essentially these values are subtracted when the shader mixes the light from different sources. If you want to make the shadow more bluish, as artists do in daylight, make the B component slightly smaller than the others.
+
+* `Near` - position of the near clipping plane to cast shadow (distance from the sun along relative z)
+
+* `Far` - position of the far clipping plane to cast shadow (distance from the sun along relative z)
+
+* `Projection Resolution` - This constant indicates the size of the area on which the shadow is projected around the screen center. Smaller size is better shadow quality. This value also depends on camera zoom / world scale. Feel free to adjust it. Note: only relevant for orthographic projection (default).
+
+* `Perspective` - Enable perspective projection for shadow casting. Experimental function, gliches in shadow casting may occur. The direction of shadow casting is determined by the direction (rotation) of the sun object. Keep in mind that this mode is not an analogue of shadows from a point light source, as it directs its rays only in one direction (plane), not in six, as is necessary for a full-fledged point light source. However, with the help of scene adjustment it is quite possible to achieve an acceptable result, for example, to fill one room with light and shadow.
+
+* `Fov` - field of view of the lens, measured as the angle in radians between the right and left edge. (Optimal value must be < 3.14)
+
+* `Static` - The object is static and does not update its properties every frame.
+
+To set the optimal Fov, Near and Far values for perspective projection, you can add a standard camera component to the scene in a `sun' object and adjust these values there, visually contrasting the area where shadows will be cast, then remove the camera from the scene.
+
+![sun](assets/docs/sun2.png)
 
 Note that color mixing from different light sources takes into account the normal to the surface of the object, be it a sprite or a 3D model.
 

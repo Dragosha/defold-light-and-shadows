@@ -65,15 +65,24 @@ end
 -- special vector4 for transfer our settings to the shader program
 local param = vmath.vector4(0, 0, 0, 0)
 
+local light_projection
+local is_ortho_proj = true
+
+function light_and_shadows.set_orthographic_projection(proj_w, proj_h, near_z, far_z)
+    light_projection = vmath.matrix4_orthographic(-proj_w/2, proj_w/2, -proj_h/2, proj_h/2, near_z or -500, far_z or 500)
+    is_ortho_proj = true
+end
+function light_and_shadows.set_perspective_projection(fov, aspect, near_z, far_z)
+    light_projection = vmath.matrix4_perspective(fov or (3.14/1.5), aspect or 1, near_z or 50, far_z or 500)
+    is_ortho_proj = false
+end
+
 function light_and_shadows.init(self)
     -- self.shadowmap_buffer = light_and_shadows.create_depth_buffer(BUFFER_RESOLUTION, BUFFER_RESOLUTION)
     self.shadowmap_buffer = "shadowmap"
 
     -- Use this for directional lights
-    local proj_w = PROJECTION_RESOLUTION
-    local proj_h = PROJECTION_RESOLUTION
-    self.light_projection = vmath.matrix4_orthographic(-proj_w/2, proj_w/2, -proj_h/2, proj_h/2, -500, 500)
-    -- self.light_projection = vmath.matrix4_perspective(3.141592/2, 1, 1, 1000)
+    light_and_shadows.set_orthographic_projection(PROJECTION_RESOLUTION, PROJECTION_RESOLUTION, -500, 500)
 
     self.constants = render.constant_buffer()
     self.constants.lights = {}
@@ -100,7 +109,15 @@ function light_and_shadows.update_light(self)
     sun.z = constants.sun_position.z
    
     -- Sun position, color and shadow intensity
-    self.constants.light = constants.sun_position or v0
+    if is_ortho_proj then
+        self.constants.light = constants.sun_position or v0
+    else
+        temp.x = constants.sun_position.x - constants.cam_look_at_position.x
+        temp.y = constants.sun_position.y - constants.cam_look_at_position.y
+        temp.z = constants.sun_position.z - constants.cam_look_at_position.z
+        self.constants.light = temp
+    end
+    -- self.constants.light = constants.sun_position or v0
     self.constants.color0 = constants.sun_color or v0
     --
     constants.shadow_color = constants.shadow_color or v0
@@ -136,9 +153,14 @@ function light_and_shadows.update_light(self)
     if constants.tint then self.constants.tint = constants.tint end
 
     if light_and_shadows.shadow then
-        local pos_light = constants.cam_look_at_position + sun
-        self.light_transform = vmath.matrix4_look_at(pos_light, constants.cam_look_at_position, top)
-        local mtx_light = self.bias_matrix * self.light_projection * self.light_transform
+        if is_ortho_proj then
+            local pos_light = constants.cam_look_at_position + sun
+            self.light_transform = vmath.matrix4_look_at(pos_light, constants.cam_look_at_position, top)
+        else
+            self.light_transform = vmath.matrix4_look_at(sun, sun + constants.sun_dir, top)
+        end
+        self.frustum = light_projection * self.light_transform
+        local mtx_light = self.bias_matrix * self.frustum
         self.constants.mtx_light = mtx_light
     end
     
@@ -153,7 +175,7 @@ local clear_buffers = {[render.BUFFER_COLOR_BIT] = vmath.vector4(1, 1, 1, 1), [r
 function light_and_shadows.render_shadows(self)
 
     -- Setup our 'shadow' camera view and projection.
-    render.set_projection(self.light_projection)
+    render.set_projection(light_projection)
     render.set_view(self.light_transform)
     render.set_viewport(0, 0, BUFFER_RESOLUTION, BUFFER_RESOLUTION)
 
@@ -167,7 +189,7 @@ function light_and_shadows.render_shadows(self)
     render.set_render_target(self.shadowmap_buffer, { transient = {render.BUFFER_DEPTH_BIT} })
     render.clear(clear_buffers)
     -- Calculate frustum matrix to cut invisible objects from shadow cast
-    local frustum = self.light_projection * self.light_transform
+    local frustum = self.frustum or (light_projection * self.light_transform)
     
     --  All objects in render list taged as "shadow" will change their material to "shadow.material"
     --  to cast shadows into shadow map texture. This texture will be enabled to all objects at the next render pass.

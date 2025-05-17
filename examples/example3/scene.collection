@@ -74,9 +74,7 @@ instances {
   id: "sun"
   prototype: "/light_and_shadows/props/sun.go"
   position {
-    x: -7.0
-    y: 10.0
-    z: 5.0
+    y: 115.0
   }
   component_properties {
     id: "sun"
@@ -89,6 +87,26 @@ instances {
       id: "shadow"
       value: "0.5, 0.5, 0.0, 0.0"
       type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "near"
+      value: "10.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "far"
+      value: "1000.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "perspective"
+      value: "true"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "fov"
+      value: "2.4"
+      type: PROPERTY_TYPE_NUMBER
     }
   }
 }

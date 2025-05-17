@@ -12,9 +12,7 @@ instances {
   id: "sun"
   prototype: "/light_and_shadows/props/sun.go"
   position {
-    x: -7.0
-    y: 10.0
-    z: 5.0
+    y: 129.0
   }
   component_properties {
     id: "sun"
@@ -27,6 +25,31 @@ instances {
       id: "shadow"
       value: "0.5, 0.5, 0.2, 0.0"
       type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "near"
+      value: "50.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "far"
+      value: "1000.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "perspective"
+      value: "true"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "fov"
+      value: "2.5"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "static"
+      value: "false"
+      type: PROPERTY_TYPE_BOOLEAN
     }
   }
 }
@@ -90,7 +113,6 @@ embedded_instances {
 }
 embedded_instances {
   id: "lights"
-  children: "sun"
   data: ""
 }
 embedded_instances {
@@ -106,7 +128,8 @@ embedded_instances {
 }
 embedded_instances {
   id: "cam_target"
-  children: "camera"
+  children: "go1"
+  children: "sun"
   data: "components {\n"
   "  id: \"test\"\n"
   "  component: \"/helper/print_url.script\"\n"
@@ -114,27 +137,6 @@ embedded_instances {
   ""
   position {
     x: -26.0
-  }
-  rotation {
-    x: -0.34202015
-    w: 0.9396926
-  }
-}
-embedded_instances {
-  id: "camera"
-  data: "embedded_components {\n"
-  "  id: \"camera\"\n"
-  "  type: \"camera\"\n"
-  "  data: \"aspect_ratio: 1.0\\n"
-  "fov: 0.5\\n"
-  "near_z: 10.0\\n"
-  "far_z: 600.0\\n"
-  "auto_aspect_ratio: 1\\n"
-  "\"\n"
-  "}\n"
-  ""
-  position {
-    z: 300.0
   }
 }
 embedded_instances {
@@ -159,8 +161,8 @@ embedded_instances {
   "}\n"
   ""
   position {
-    x: 0.70117
-    z: -2.262616
+    x: 57.70117
+    z: 31.737385
   }
   scale3 {
     x: 5.0
@@ -190,8 +192,8 @@ embedded_instances {
   "}\n"
   ""
   position {
-    x: -23.50185
-    z: -39.23483
+    x: -53.50185
+    z: -72.23483
   }
   scale3 {
     x: 5.0
@@ -326,7 +328,7 @@ embedded_instances {
   "}\n"
   ""
   position {
-    x: -80.50185
+    x: 47.498154
     z: -82.23483
   }
   scale3 {
@@ -388,5 +390,31 @@ embedded_instances {
     x: 5.0
     y: 5.0
     z: 5.0
+  }
+}
+embedded_instances {
+  id: "go1"
+  children: "camera"
+  data: ""
+  rotation {
+    x: -0.34202015
+    w: 0.9396926
+  }
+}
+embedded_instances {
+  id: "camera"
+  data: "embedded_components {\n"
+  "  id: \"camera\"\n"
+  "  type: \"camera\"\n"
+  "  data: \"aspect_ratio: 1.0\\n"
+  "fov: 0.5\\n"
+  "near_z: 10.0\\n"
+  "far_z: 600.0\\n"
+  "auto_aspect_ratio: 1\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    z: 300.0
   }
 }

@@ -1,7 +1,17 @@
 local constants = require "light_and_shadows.constants"
+local ls = require "light_and_shadows.light_and_shadows"
 
 go.property("color", vmath.vector4(0.75, 0.75, 0.5, 0))
 go.property("shadow", vmath.vector4(0.25, 0.25, 0.2, 0))
+
+go.property("near", -500)
+go.property("far", 500)
+go.property("PROJECTION_RESOLUTION", 400)
+go.property("perspective", false)
+go.property("fov", 2)
+go.property("static", true)
+
+local dir     = vmath.vector3(0.1, -10, 0.1)
 
 local function set(self)
     constants.sun_color.x = self.color.x
@@ -15,15 +25,25 @@ local function set(self)
     constants.sun_position.x = pos.x
     constants.sun_position.y = pos.y
     constants.sun_position.z = pos.z
+
+    constants.sun_dir = vmath.rotate(go.get_world_rotation(), dir)
+
 end
 
 function init(self)
     set(self)
+    if self.perspective then
+        ls.set_perspective_projection(self.fov, 1.0, self.near, self.far)
+    else
+        ls.set_orthographic_projection(self.PROJECTION_RESOLUTION, self.PROJECTION_RESOLUTION, self.near, self.far)
+    end
 end
 
 -- Remove 'update' if the sun is static object
 function update(self, dt)
-    set(self)
+    if not self.static then
+        set(self)
+    end
 end
 
 function final(self)
