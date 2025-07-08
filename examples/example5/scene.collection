@@ -418,3 +418,48 @@ embedded_instances {
     z: 300.0
   }
 }
+embedded_instances {
+  id: "ui"
+  data: "components {\n"
+  "  id: \"blur\"\n"
+  "  component: \"/examples/example5/ui/blur.gui\"\n"
+  "}\n"
+  ""
+}
+embedded_instances {
+  id: "repeat_sprite"
+  data: "components {\n"
+  "  id: \"sprite_repeat\"\n"
+  "  component: \"/light_and_shadows/materials/sprite/repeat/sprite_repeat.script\"\n"
+  "  properties {\n"
+  "    id: \"repeat_x\"\n"
+  "    value: \"8.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"repeat_y\"\n"
+  "    value: \"8.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"t5\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "  rotation {\n"
+  "    x: -0.70710677\n"
+  "    w: 0.70710677\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 11.0
+    z: 163.0
+  }
+}

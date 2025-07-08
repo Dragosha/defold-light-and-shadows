@@ -1,9 +1,7 @@
 # Light and Shadows. Pack of shaders and scene setup examples.
 
-Required Defold 1.10.0 version.
+Required Defold 1.10.3 version.
 Also, to run with other versions of the editor, you must update the Spine extension dependency to the correct version.
-`https://github.com/defold/extension-spine/archive/refs/tags/3.7.0.zip`
-Spine is used in examples only, and can be excluded from the library without any effect.
 
 ## What is this?
 A pack of materials and shaders to make a game with realtime shadow from one source (the sun) and a lot of point light sources.
@@ -18,6 +16,13 @@ The main difference from previous examples (see on the Defold forum) is the proj
 - Works on mobile as well.
 
 ## Setup
+
+> [!NOTE]
+> Make sure that you updated the 'Spine extension' dependence to [actual version](https://github.com/defold/extension-spine/releases) before open the project in Defold editor. To make this: open `game.project` file in any text editor and change the path `dependencies#.. = https://github.com/defold/extension-spine/archive/refs/tags/3.9.5.zip` depending on the version of your Defold editor.
+> Also you may remove this dependence from your project at all. It's is not a part of the `light and shadows` and can be excluded from the project without any effect. Spine animation is using in a collection `examples\example4`.
+
+> [!TIP]
+> You can link this library as a dependency in your project and replace the renderer in your project settings. Or you can add the whole folder to your project. For something more than “just trying it out” I would recommend copying the library to your project, though, because you're likely to want to add your own customizations to shaders, new materials, etc.
 
 ### Render
 The demo project is fully configured, if you want to configure your project from scratch see this section.
@@ -80,6 +85,21 @@ Most important is:
 Note, the direction of the normal can and should be changed depending on what angle you set the sprites in your scene. In the example all sprites are tilted at the same X angle as the camera (-26.6), this is done to minimize distortion when drawing a scene with perspective, so that the sprites "look" exactly at the camera.
 
  `light_sprite_back` - uses the same shaders as light_sprite, but the normal in the material looks "up". Used for decals on the ground, for the floor, etc. Also drawn in its predicate, before the other sprites.
+
+ `billboard_light_sprite` - The billboard sprite always faces the camera. If the scale of your sprite is not 1, you can set its scale manually in the sprite properties panel. Or use a special script `billboard.script`. Just add it to the game object with the sprite. 
+
+> [!IMPORTANT]
+> billboarding will only work correctly if the default sprite rotation is zero. See `_uncommon_objects` in /examples/example2/scene.collection as an example of how to use this feature.
+
+ `bg_parallax_sprite` - Special sprite type. You can use it for background images by setting the coefficient with which this sprite will follow the camera. Values from 0 to 1 are set in the sprite properties panel for XYZ. 0.0 - the sprite is completely stationary in this dimension, i.e. it behaves like a normal sprite without adding camera coordinates. 1.0 - the sprite follows the camera.See `_uncommon_objects` in /examples/example2/scene.collection as an example of how to use this feature.
+
+ > [!NOTE]
+ > Parallax sprites do not apply dynamic lighting to themselves and do not cast shadows. They do, however, take into account ambient values and sunlight intensity. As well as fog. With such sprites you can fix a distant landscape on the background by moving the main game scene in front of it. The position of such a sprite is considered directly in the shader.
+
+ `repeat_sprite_nocast` - A sprite with a repeating (tiled) texture. It is used for repeating the texture on a large area, for example, for filling the surface with grass, water surface (can be animated). In the rendering is drawn before the rest of the sprite to be under the feet of the character in any case. The normal in the material looks "up".
+ More info: [Texture repeat shader](https://github.com/Dragosha/defold-sprite-repeat)
+
+ ![Tiling](assets/docs/repeat.png)
 
 * Spine - material to install on the spine component. Uses the same shaders as light_sprite, differs from sprite only by using a different view matrix.
 
@@ -240,6 +260,14 @@ The final rendered target will be copied to the screen with a simple `copy` mate
 
 Default value is false.
 
+## Blur
+
+You can enable blurring of the game scene canvas and draw an unblurred GUI on top of it. To do this, set the `light_and_shadows.blur` variable to **true**.
+You can adjust the blur power by changing the `light_and_shadows.blur_power` value in the range from 1 to 10 (actually any, say 3.5 gives quite nice blur result as on the picture below).
+Enabled blur automatically enables *Upscaling* as it uses the same Render Target.
+
+![blur](/assets/docs/blur.png)
+
 
 ## One more thing
 
@@ -252,5 +280,5 @@ If you're new to Defold, notice how the coin collection example works, how the s
 
 ## Credits
 
-* Textures by Dragosha (https://dragosha.com/free/adventure-tileset.html)
+* Textures by Dragosha (https://dragosha.com/adventure-tileset/)
 * `ludobits`, `monarch`, `defold-input` by Björn Ritzl

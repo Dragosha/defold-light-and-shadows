@@ -1,0 +1,84 @@
+local si        = require 'helper.simple_input'
+local monarch   = require "monarch.monarch"
+local light_and_shadows = require "light_and_shadows.light_and_shadows"
+local broadcast = require 'helper.broadcast'
+local virtual_stick = require 'helper.virtual_stick'
+local common = require 'helper.common'
+
+local min_power = 1
+local max_power = 10
+
+local function text_upd()
+    gui.set_text(gui.get_node("blur"), light_and_shadows.blur and "On" or "Off")
+    gui.set_text(gui.get_node("up"), light_and_shadows.upscale and "On" or "Off")
+    gui.set_text(gui.get_node("power"), tostring(light_and_shadows.blur_power))
+    gui.set_alpha(gui.get_node("left"), light_and_shadows.blur_power <= min_power and .25 or 1)
+    gui.set_alpha(gui.get_node("right"), light_and_shadows.blur_power >= max_power and .25 or 1)
+end
+
+local function show_or_hide_ui()
+    gui.animate(gui.get_node("corner"), "position.y", light_and_shadows.blur and 400 or -240, gui.EASING_OUTBACK, .2)
+end
+
+function init(self)
+
+    -- Simple input. Registre the 'next' button hundler.
+    si.acquire()
+
+    si.register("wow", function()
+        light_and_shadows.blur = not light_and_shadows.blur
+        text_upd()
+
+        show_or_hide_ui()
+    end)
+    local step = 0.25
+    si.register("right", function()
+        light_and_shadows.blur_power = common.clamp(light_and_shadows.blur_power + step, min_power, max_power)
+        text_upd()
+    end)
+    si.register("left", function()
+        light_and_shadows.blur_power =  common.clamp(light_and_shadows.blur_power - step, min_power, max_power)
+        text_upd()
+    end)
+    text_upd()
+    show_or_hide_ui()
+
+    -- The UI scaling depends on the window resolution.
+    local function resize()
+        local x, y, zoom = virtual_stick.get_aspect_ratio()
+        local scale = vmath.vector3(zoom, zoom, 1)
+        -- print("next", scale)
+        gui.set_scale(gui.get_node("corner"), scale)
+        gui.set_scale(gui.get_node("corner2"), scale)
+    end
+
+    broadcast.register("WINDOW_RESIZED", resize)
+    resize()
+
+end
+
+function final(self)
+    -- light_and_shadows.blur = false
+    broadcast.unregister_all()
+    si.unregister()
+    si.release()
+end
+
+function update(self, dt)
+end
+
+function on_message(self, message_id, message, sender)
+    if broadcast.on_message(message_id, message, sender) then
+        -- message was handled
+        return
+    end
+end
+
+function on_input(self, action_id, action)
+    if si.on_input(self, action_id, action) then
+        -- input message was handled
+        return true
+    end
+end
+
+

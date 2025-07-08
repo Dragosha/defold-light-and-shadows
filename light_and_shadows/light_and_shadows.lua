@@ -14,6 +14,9 @@ light_and_shadows.shadow = true
 -- than specified in the project settings, then this entire render target is placed on the screen with linear scaling. 
 light_and_shadows.upscale = false
 
+light_and_shadows.blur = false
+light_and_shadows.blur_power = 1
+
 local BUFFER_RESOLUTION = 2048 -- Size of shadow map. Select value from: 1024/2048/4096. More is better quality.
 
 -- Projection resolution of shadow map to the game world. Smaller size is better shadow quality,
@@ -24,13 +27,13 @@ local PROJECTION_RESOLUTION = 400
 local rt_list = {}
 light_and_shadows.rt_list = rt_list
 
-function light_and_shadows.render_target(name, w, h)
+function light_and_shadows.render_target(name, w, h, no_depth)
     local already_rt = rt_list[name]
     if already_rt and already_rt.w == w and already_rt.h == h then
         -- nothing changed
         return already_rt
     elseif already_rt then
-        -- rt is already created, but size is changing. Fix bit.
+        -- rt is already created, but size is changing. Fix it.
         already_rt.w = w
         already_rt.h = h
         render.set_render_target_size(already_rt.rt, w, h)
@@ -56,7 +59,7 @@ function light_and_shadows.render_target(name, w, h)
             u_wrap        = graphics.TEXTURE_WRAP_CLAMP_TO_EDGE,
             v_wrap        = graphics.TEXTURE_WRAP_CLAMP_TO_EDGE }
 
-    local rt = render.render_target(name, {[graphics.BUFFER_TYPE_COLOR0_BIT] = color_params, [graphics.BUFFER_TYPE_DEPTH_BIT] = depth_params })
+    local rt = render.render_target(name, {[graphics.BUFFER_TYPE_COLOR0_BIT] = color_params, [graphics.BUFFER_TYPE_DEPTH_BIT] = not no_depth and depth_params or nil })
     local new_rt = {rt = rt, w = w, h = h}
     rt_list[name] = new_rt
     return new_rt
@@ -101,6 +104,8 @@ end
 
 local sun = vmath.vector3()
 local temp = vmath.vector4()
+local v4 = vmath.vector4()
+local cam_look_at_position = vmath.vector4()
 
 function light_and_shadows.update_light(self)
     -- Direct light
@@ -169,6 +174,19 @@ function light_and_shadows.update_light(self)
     -- Setup camera world position uniform constant (vector4)
     -- It's used in shader to calculate speculars by phong model.
     self.constants.cam_pos = constants.cam_position
+    
+    self.dt = (self.dt or 0) + 1/60 -- dt
+    v4.x = math.sin(self.dt)
+    v4.y = math.cos(self.dt)
+    v4.z = 0
+    v4.w = 0
+    self.constants.v4 = v4
+
+    -- Camera focus point. Look at this point.
+    cam_look_at_position.x = constants.cam_look_at_position.x
+    cam_look_at_position.y = constants.cam_look_at_position.y
+    cam_look_at_position.z = constants.cam_look_at_position.z
+    self.constants.cam_look_at_position = cam_look_at_position
 end
 
 local clear_buffers = {[render.BUFFER_COLOR_BIT] = vmath.vector4(1, 1, 1, 1), [render.BUFFER_DEPTH_BIT] = 1}
@@ -216,13 +234,14 @@ end
 -- 
 -- local common    = require 'helper.common'
 light_and_shadows.zoom = 1
+local resolution = vmath.vector4()
 function light_and_shadows.update(self)
     light_and_shadows.update_light(self)
     if light_and_shadows.shadow then
         light_and_shadows.render_shadows(self)
     end
     
-    if light_and_shadows.upscale then
+    if light_and_shadows.upscale or light_and_shadows.blur then
         local window_width = render.get_window_width()
         local window_height = render.get_window_height()
         local zoom = math.max(window_width / render.get_width(), window_height / render.get_height())
@@ -231,7 +250,15 @@ function light_and_shadows.update(self)
         local w = window_width / zoom
         local h = window_height / zoom
         self.upscale_rt = light_and_shadows.render_target('upscale_rt', w, h)
+        resolution.x = w
+        resolution.y = h
+        resolution.w = light_and_shadows.blur_power
+        self.constants.resolution = resolution
         -- print(zoom, w, h)
+
+        if light_and_shadows.blur then
+            self.blur_rt = light_and_shadows.render_target("blur_rt", w, h, true)
+        end
     else
         -- common.zoom = 1
         light_and_shadows.zoom = 1
@@ -245,15 +272,42 @@ function light_and_shadows.draw_upscaled(self)
     local window_width = render.get_window_width()
     local window_height = render.get_window_height()
 
-    -- draw!
+    if  light_and_shadows.blur then
+        -- Blur the render target in 2 passes
+        render.disable_state(render.STATE_BLEND)
+        render.disable_state(render.STATE_DEPTH_TEST)
+        render.set_depth_mask(false)
+        render.set_view(IDENTITY)
+        render.set_projection(IDENTITY)
+        render.set_viewport(0, 0, self.blur_rt.w, self.blur_rt.h)
+        -- PASS 1 upscale_rt -> blur_rt
+        render.set_render_target(self.blur_rt.rt)
+        render.enable_material("blur_horizontal")
+        render.enable_texture(0, self.upscale_rt.rt, render.BUFFER_COLOR_BIT)
+        render.draw(self.predicates.upscale, {constants = self.constants})
+        render.disable_texture(0)
+        render.disable_material()
+        -- PASS 2 blur_rt -> upscale_rt
+        render.set_render_target(self.upscale_rt.rt)
+        render.enable_material("blur_vertical")
+        render.enable_texture(0, self.blur_rt.rt, render.BUFFER_COLOR_BIT)
+        render.draw(self.predicates.upscale, {constants = self.constants})
+        render.disable_texture(0)
+        render.disable_material()
+        render.set_render_target(render.RENDER_TARGET_DEFAULT)
+    end
+    
+    -- draw `upscale_rt` to default RT
     -- render.disable_state(graphics.STATE_BLEND)
     render.set_viewport(0, 0, window_width, window_height)
     render.set_view(IDENTITY)
     render.set_projection(IDENTITY)
+    render.enable_material("copy")
     render.enable_texture("tex0", self.upscale_rt.rt)
     render.draw(self.predicates.upscale)
     render.disable_texture("tex0")
-    -- render.enable_state(graphics.STATE_BLEND)
+    render.disable_material()
+    render.enable_state(graphics.STATE_BLEND)
 end
 
 return light_and_shadows

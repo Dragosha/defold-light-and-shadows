@@ -1,0 +1,33 @@
+#version 140
+
+// positions are in world space
+in highp vec4 position;
+in mediump vec2 texcoord0;
+in highp vec3 local_position;
+in highp vec3 sprite_scale;
+
+uniform vs_uniforms
+{
+    highp mat4 view_proj;
+    highp mat4 proj;
+    highp mat4 mtx_view;
+    highp mat4 mtx_light;
+    highp vec4 cam_pos;
+};
+
+out mediump vec2 var_texcoord0;
+out highp vec4 var_position;
+out highp vec4 var_view_position;
+out highp vec3 var_normal;
+out highp vec4 var_texcoord0_shadow;
+
+void main()
+{
+    gl_Position = (view_proj * vec4(position.xyz - local_position.xyz * sprite_scale, 1.0)) + (proj * vec4(local_position.xy * sprite_scale.xy, 0.0, 0.0));
+    var_texcoord0 = texcoord0;
+    var_texcoord0_shadow = mtx_light * position;
+    var_position = vec4(position.xyz, 1.0);
+    var_view_position = mtx_view * position;
+    var_normal = normalize((cam_pos - position).xyz);
+
+}

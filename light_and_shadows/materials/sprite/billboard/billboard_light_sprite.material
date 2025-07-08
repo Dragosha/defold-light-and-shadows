@@ -1,22 +1,19 @@
-name: "sprite"
+name: "billboard_sprite"
 tags: "tile"
 tags: "shadow"
-vertex_program: "/light_and_shadows/materials/spine/spine.vp"
+vertex_program: "/light_and_shadows/materials/sprite/billboard/billboard_sprite.vp"
 fragment_program: "/light_and_shadows/materials/sprite/sprite.fp"
+vertex_constants {
+  name: "view_proj"
+  type: CONSTANT_TYPE_VIEWPROJ
+}
 vertex_constants {
   name: "mtx_view"
   type: CONSTANT_TYPE_VIEW
 }
 vertex_constants {
-  name: "normal"
-  type: CONSTANT_TYPE_USER
-  value {
-    z: 1.0
-  }
-}
-vertex_constants {
-  name: "world_view_proj"
-  type: CONSTANT_TYPE_WORLDVIEWPROJ
+  name: "proj"
+  type: CONSTANT_TYPE_PROJECTION
 }
 fragment_constants {
   name: "tint"
@@ -71,4 +68,18 @@ samplers {
   filter_min: FILTER_MODE_MIN_NEAREST
   filter_mag: FILTER_MODE_MAG_NEAREST
   max_anisotropy: 0.0
+}
+attributes {
+  name: "local_position"
+  semantic_type: SEMANTIC_TYPE_POSITION
+  vector_type: VECTOR_TYPE_VEC3
+}
+attributes {
+  name: "sprite_scale"
+  double_values {
+    v: 1.0
+    v: 1.0
+    v: 1.0
+  }
+  vector_type: VECTOR_TYPE_VEC3
 }

@@ -4434,11 +4434,15 @@ embedded_instances {
 }
 embedded_instances {
   id: "go102"
-  data: "embedded_components {\n"
+  data: "components {\n"
+  "  id: \"billboard\"\n"
+  "  component: \"/light_and_shadows/materials/sprite/billboard/billboard.script\"\n"
+  "}\n"
+  "embedded_components {\n"
   "  id: \"sprite\"\n"
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"tip\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/sprite/billboard/billboard_light_sprite.material\\\"\\n"
   "textures {\\n"
   "  sampler: \\\"tex0\\\"\\n"
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
@@ -4448,21 +4452,11 @@ embedded_instances {
   "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
   "}\\n"
   "\"\n"
-  "  rotation {\n"
-  "    x: -7.8256766E-5\n"
-  "    y: 0.005956396\n"
-  "    z: -0.014521199\n"
-  "    w: 0.9998768\n"
-  "  }\n"
   "}\n"
   ""
   position {
     x: 129.818
     z: 29.069
-  }
-  rotation {
-    x: -0.23004974
-    w: 0.97317886
   }
   scale3 {
     x: 0.046

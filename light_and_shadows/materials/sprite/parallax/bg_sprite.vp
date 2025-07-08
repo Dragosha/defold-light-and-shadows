@@ -1,0 +1,28 @@
+#version 140
+
+// positions are in world space
+in highp vec4 position;
+in highp vec3 parallax;
+in mediump vec2 texcoord0;
+
+uniform vs_uniforms
+{
+    highp mat4 view_proj;
+    highp mat4 mtx_view;
+    highp vec4 cam_look_at_position;
+};
+
+out mediump vec2 var_texcoord0;
+out highp vec4 var_position;
+out highp vec4 var_view_position;
+
+void main()
+{
+    
+    vec3 offset = vec3(cam_look_at_position.xyz * parallax);
+    gl_Position = view_proj * vec4(position.xyz + offset, 1.0);
+    var_texcoord0 = texcoord0;
+
+    var_position = vec4(position.xyz, 1.0);
+    var_view_position = mtx_view * vec4(position.xyz + offset, 1.0);
+}

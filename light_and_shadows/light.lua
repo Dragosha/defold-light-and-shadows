@@ -52,7 +52,7 @@ function light.update(self, dt)
             obj.position.y = wp.y + (obj.y_offset or 0)
             obj.position.z = wp.z
             if obj.direction.w > 0 and not obj.static_spot then
-                local temp = vmath.rotate(go.get_world_rotation(), light.top_v)
+                local temp = vmath.rotate(go.get_world_rotation(id), light.top_v)
                 obj.direction.x = temp.x
                 obj.direction.y = temp.y
                 obj.direction.z = temp.z

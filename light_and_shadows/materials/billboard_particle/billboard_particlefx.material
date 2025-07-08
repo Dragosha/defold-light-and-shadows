@@ -1,6 +1,6 @@
 name: "particle"
 tags: "tile"
-vertex_program: "/light_and_shadows/materials/billboard_particle/particlefx.vp"
+vertex_program: "/light_and_shadows/materials/billboard_particle/billboard_particlefx.vp"
 fragment_program: "/light_and_shadows/materials/fog_particle/particlefx.fp"
 vertex_constants {
   name: "view_proj"

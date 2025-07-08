@@ -23,3 +23,15 @@ render_resources {
   name: "shadow_skinned"
   path: "/light_and_shadows/materials/shadow/skinned/shadow_skinned.material"
 }
+render_resources {
+  name: "blur_horizontal"
+  path: "/light_and_shadows/materials/post/blur_horizontal/blur_horizontal.material"
+}
+render_resources {
+  name: "blur_vertical"
+  path: "/light_and_shadows/materials/post/blur_horizontal/blur_vertical.material"
+}
+render_resources {
+  name: "copy"
+  path: "/light_and_shadows/materials/copy/copy.material"
+}

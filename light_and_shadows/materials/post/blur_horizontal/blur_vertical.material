@@ -1,0 +1,32 @@
+name: "blur_vertical"
+tags: "lowrez"
+vertex_program: "/light_and_shadows/materials/post/blur_horizontal/blur_horizontal.vp"
+fragment_program: "/light_and_shadows/materials/post/blur_horizontal/blur_horizontal.fp"
+vertex_space: VERTEX_SPACE_LOCAL
+vertex_constants {
+  name: "mtx_viewproj"
+  type: CONSTANT_TYPE_WORLDVIEWPROJ
+}
+fragment_constants {
+  name: "resolution"
+  type: CONSTANT_TYPE_USER
+  value {
+    x: 1280.0
+    y: 720.0
+    w: 1.0
+  }
+}
+fragment_constants {
+  name: "direct"
+  type: CONSTANT_TYPE_USER
+  value {
+    y: 1.0
+  }
+}
+samplers {
+  name: "DIFFUSE_TEXTURE"
+  wrap_u: WRAP_MODE_CLAMP_TO_EDGE
+  wrap_v: WRAP_MODE_CLAMP_TO_EDGE
+  filter_min: FILTER_MODE_MIN_LINEAR
+  filter_mag: FILTER_MODE_MAG_LINEAR
+}

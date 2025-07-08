@@ -1,8 +1,23 @@
 name: "sprite"
-tags: "tile"
-tags: "shadow"
-vertex_program: "/light_and_shadows/materials/spine/spine.vp"
-fragment_program: "/light_and_shadows/materials/sprite/sprite.fp"
+tags: "bgtile"
+vertex_program: "/light_and_shadows/materials/sprite/repeat/repeat_sprite.vp"
+fragment_program: "/light_and_shadows/materials/sprite/repeat/repeat_sprite_nocast.fp"
+vertex_constants {
+  name: "view_proj"
+  type: CONSTANT_TYPE_VIEWPROJ
+}
+vertex_constants {
+  name: "uv_coord"
+  type: CONSTANT_TYPE_USER
+  value {
+  }
+}
+vertex_constants {
+  name: "uv_repeat"
+  type: CONSTANT_TYPE_USER
+  value {
+  }
+}
 vertex_constants {
   name: "mtx_view"
   type: CONSTANT_TYPE_VIEW
@@ -11,12 +26,8 @@ vertex_constants {
   name: "normal"
   type: CONSTANT_TYPE_USER
   value {
-    z: 1.0
+    y: 1.0
   }
-}
-vertex_constants {
-  name: "world_view_proj"
-  type: CONSTANT_TYPE_WORLDVIEWPROJ
 }
 fragment_constants {
   name: "tint"
@@ -45,7 +56,7 @@ fragment_constants {
     x: 0.5
     y: 0.5
     z: 0.5
-    w: 1.0
+    w: 0.1
   }
 }
 fragment_constants {
@@ -71,4 +82,9 @@ samplers {
   filter_min: FILTER_MODE_MIN_NEAREST
   filter_mag: FILTER_MODE_MAG_NEAREST
   max_anisotropy: 0.0
+}
+attributes {
+  name: "lp"
+  semantic_type: SEMANTIC_TYPE_POSITION
+  vector_type: VECTOR_TYPE_VEC3
 }

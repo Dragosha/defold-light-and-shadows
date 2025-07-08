@@ -1,0 +1,27 @@
+--  More info: https://github.com/Dragosha/defold-sprite-repeat
+
+go.property("url", msg.url("#sprite"))
+go.property("repeat_x", 2)
+go.property("repeat_y", 2)
+go.property("auto_tiling", false)
+
+go.property("repeat_material", resource.material("/light_and_shadows/materials/sprite/repeat/repeat_sprite_nocast.material"))
+
+local sprite_repeat = require('light_and_shadows.materials.sprite.repeat.sprite_repeat')
+
+function init(self)
+	if self.auto_tiling then
+		local scale = go.get(self.url, "scale")
+		self.repeat_x = scale.x
+		self.repeat_y = scale.y
+	end
+
+	go.set(self.url, "material", self.repeat_material)
+
+	local sr = sprite_repeat.create(self.url)
+	sr.animate(self.repeat_x, self.repeat_y)
+
+end
+
+function final(self)
+end

@@ -1,0 +1,8 @@
+go.property("sprite_url", msg.url("#sprite"))
+function init(self)
+	-- Setup local attribute 'sprite_scale' in the vertex shader
+	-- It needs to correct calcule billboarding
+	-- you may use this small script or set this value manually in the sprite properties panel.
+	local scale = vmath.mul_per_elem(go.get(self.sprite_url, "scale"), go.get_scale())
+	go.set(self.sprite_url, "sprite_scale", scale)
+end

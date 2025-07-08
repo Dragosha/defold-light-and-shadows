@@ -175,7 +175,7 @@ local light_and_shadows = require "light_and_shadows.light_and_shadows"
 
 function init(self)
     self.predicates = create_predicates("tile", "gui", "particle", "model", "debug_text",
-    "model_alpha_blend",
+    "model_alpha_blend", "bgtile",
     "atile", "shadow", "upscale", "shadow_local", "shadow_instanced", "shadow_skinned_instanced", "shadow_skinned") -- L_S Injection
 
     -- default is stretch projection. copy from builtins and change for different projection
@@ -230,7 +230,7 @@ function update(self)
     draw_options_world.frustum_planes = render.FRUSTUM_PLANES_ALL
     --
     -- L_S Injection
-    if light_and_shadows.upscale then
+    if light_and_shadows.upscale or light_and_shadows.blur then
         render.set_viewport(0, 0, state.window_width / light_and_shadows.zoom, state.window_height / light_and_shadows.zoom)
     else
         render.set_viewport(0, 0, state.window_width, state.window_height)
@@ -242,7 +242,7 @@ function update(self)
     render.enable_state(graphics.STATE_DEPTH_TEST)
 
     -- L_S Injection
-    if light_and_shadows.upscale then
+    if light_and_shadows.upscale or light_and_shadows.blur then
         render.set_render_target(self.upscale_rt.rt)
         render.clear(state.clear_buffers)
     end
@@ -265,6 +265,7 @@ function update(self)
     -- render the other components: sprites, tilemaps, particles etc
     --
     render.enable_state(graphics.STATE_BLEND)
+    render.draw(predicates.bgtile, draw_options_world)
     render.draw(predicates.atile, draw_options_world)
     render.draw(predicates.tile, draw_options_world)
     render.draw(predicates.particle, draw_options_world)
@@ -281,7 +282,7 @@ function update(self)
     reset_camera_world(state)
 
     -- L_S Injection
-    if light_and_shadows.upscale then 
+    if light_and_shadows.upscale or light_and_shadows.blur then 
         render.set_render_target(render.RENDER_TARGET_DEFAULT)
         light_and_shadows.draw_upscaled(self)
     end

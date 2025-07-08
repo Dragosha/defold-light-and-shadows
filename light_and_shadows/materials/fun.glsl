@@ -116,7 +116,7 @@ float shadow_calculation(vec4 depth_data)
     {
         int index = int(16.0*random(gl_FragCoord.xyy, x))%16;
 
-        vec2 uv = depth_data.xy + poissonDisk16[x]/700.0;
+        vec2 uv = depth_data.xy + poissonDisk16[index]/700.0;
         vec4 rgba = texture(tex1, uv);
         float depth = rgba_to_float(rgba);
         shadow += depth_data.z - depth_bias > depth ? 1.0 : 0.0;
