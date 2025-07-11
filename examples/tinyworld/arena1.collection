@@ -1,0 +1,3516 @@
+name: "example1"
+instances {
+  id: "b"
+  prototype: "/examples/tinyworld/3D/b2.go"
+  position {
+    x: 24.0
+    z: -40.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b2"
+  prototype: "/examples/tinyworld/3D/b3.go"
+  position {
+    x: 9.0
+    z: -8.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b3"
+  prototype: "/examples/tinyworld/3D/b3.go"
+  position {
+    x: -37.0
+    z: 8.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b19"
+  prototype: "/examples/tinyworld/3D/b4.go"
+  position {
+    x: 24.0
+    y: 32.0
+    z: -40.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b20"
+  prototype: "/examples/tinyworld/3D/b4.go"
+  position {
+    x: 40.0
+    y: 16.0
+    z: -40.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b21"
+  prototype: "/examples/tinyworld/3D/b2.go"
+  position {
+    x: 40.0
+    z: -40.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b4"
+  prototype: "/examples/tinyworld/3D/b3.go"
+  position {
+    x: -8.0
+    z: -40.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b5"
+  prototype: "/examples/tinyworld/3D/b1.go"
+  position {
+    x: -25.0
+    z: -56.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b6"
+  prototype: "/examples/tinyworld/3D/b4.go"
+  position {
+    x: -25.0
+    y: 16.0
+    z: -56.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b7"
+  prototype: "/examples/tinyworld/3D/b1.go"
+  position {
+    x: -40.0
+    z: -40.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b8"
+  prototype: "/examples/tinyworld/3D/b1_.go"
+  position {
+    x: -40.0
+    y: 16.0
+    z: -40.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b9"
+  prototype: "/examples/tinyworld/3D/tree1.go"
+  position {
+    x: 71.0
+    z: -13.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b10"
+  prototype: "/examples/tinyworld/3D/tree1.go"
+  position {
+    x: 77.0
+    z: -7.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b11"
+  prototype: "/examples/tinyworld/3D/tree1.go"
+  position {
+    x: 80.0
+    z: -17.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b12"
+  prototype: "/examples/tinyworld/3D/tree1.go"
+  position {
+    x: 86.0
+    z: 5.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 21.44
+    y: 21.44
+    z: 21.44
+  }
+}
+instances {
+  id: "b13"
+  prototype: "/examples/tinyworld/3D/tree1.go"
+  position {
+    x: -26.0
+    z: -29.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b14"
+  prototype: "/examples/tinyworld/3D/b1_.go"
+  position {
+    x: 24.0
+    y: 16.0
+    z: -40.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b15"
+  prototype: "/examples/tinyworld/3D/tree1.go"
+  position {
+    x: 3.0
+    z: 36.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b16"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 70.0
+    z: 57.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b22"
+  prototype: "/examples/tinyworld/3D/b5.go"
+  position {
+    x: 72.0
+    z: 24.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b23"
+  prototype: "/examples/tinyworld/3D/b5.go"
+  position {
+    x: -40.0
+    z: 24.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b24"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -61.0
+    z: 41.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 21.44
+    y: 21.44
+    z: 21.44
+  }
+}
+instances {
+  id: "b25"
+  prototype: "/examples/tinyworld/3D/b5.go"
+  position {
+    x: -40.0
+    z: 40.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b26"
+  prototype: "/examples/tinyworld/3D/b5.go"
+  position {
+    x: -40.0
+    y: 32.0
+    z: -40.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b27"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -66.0
+    z: -51.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 21.44
+    y: 21.44
+    z: 21.44
+  }
+}
+instances {
+  id: "b1"
+  prototype: "/examples/tinyworld/3D/tower.go"
+  position {
+    x: 104.0
+    z: 24.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b17"
+  prototype: "/examples/tinyworld/3D/tower.go"
+  position {
+    x: 56.0
+    z: 88.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b18"
+  prototype: "/examples/tinyworld/3D/tower2.go"
+  position {
+    x: 8.0
+    z: 88.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b28"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: 24.0
+    z: 88.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b29"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: 40.0
+    z: 88.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b30"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: -24.0
+    z: 88.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b31"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: -8.0
+    z: 88.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b32"
+  prototype: "/examples/tinyworld/3D/tower.go"
+  position {
+    x: -72.0
+    z: 88.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b33"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: 72.0
+    z: 88.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b34"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: 88.0
+    z: 88.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b35"
+  prototype: "/examples/tinyworld/3D/tower.go"
+  position {
+    x: 104.0
+    z: 88.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b36"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: 104.0
+    z: 40.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b37"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: 104.0
+    z: 56.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b38"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: 104.0
+    z: 72.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b39"
+  prototype: "/examples/tinyworld/3D/tower2.go"
+  position {
+    x: -72.0
+    z: 56.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b40"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: -56.0
+    z: 88.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b41"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: -40.0
+    z: 88.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b42"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: -72.0
+    z: 72.0
+  }
+  rotation {
+    y: -0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b43"
+  prototype: "/examples/tinyworld/3D/tower2.go"
+  position {
+    x: -89.0
+    z: -22.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b44"
+  prototype: "/examples/tinyworld/3D/tree1.go"
+  position {
+    x: -79.0
+    z: -10.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b45"
+  prototype: "/examples/tinyworld/3D/tree1.go"
+  position {
+    x: -75.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b46"
+  prototype: "/examples/tinyworld/3D/tree1.go"
+  position {
+    x: -69.0
+    z: -17.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b47"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 56.0
+    z: -107.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b48"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 38.0
+    z: -104.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b49"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 85.0
+    z: -69.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b50"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 88.0
+    z: -87.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 19.2
+    y: 19.2
+    z: 19.2
+  }
+}
+instances {
+  id: "b51"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 104.0
+    z: -103.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 19.2
+    y: 19.2
+    z: 19.2
+  }
+}
+instances {
+  id: "b52"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 105.0
+    z: -72.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 19.2
+    y: 19.2
+    z: 19.2
+  }
+}
+instances {
+  id: "b53"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 73.0
+    z: -55.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 19.2
+    y: 19.2
+    z: 19.2
+  }
+}
+instances {
+  id: "b54"
+  prototype: "/examples/tinyworld/3D/tree1.go"
+  position {
+    x: 48.0
+    z: -22.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 21.44
+    y: 21.44
+    z: 21.44
+  }
+}
+instances {
+  id: "b55"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 15.0
+    z: -89.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b56"
+  prototype: "/examples/tinyworld/3D/tower2.go"
+  position {
+    x: 72.0
+    z: -168.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b57"
+  prototype: "/examples/tinyworld/3D/tower2.go"
+  position {
+    x: 72.0
+    z: -200.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b58"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: 72.0
+    z: -184.0
+  }
+  rotation {
+    y: -0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b59"
+  prototype: "/examples/tinyworld/3D/tower.go"
+  position {
+    x: 104.0
+    z: -168.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b60"
+  prototype: "/examples/tinyworld/3D/tower.go"
+  position {
+    x: 104.0
+    z: -200.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b61"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: 104.0
+    z: -184.0
+  }
+  rotation {
+    y: -0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b62"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: 88.0
+    z: -167.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b63"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: 88.0
+    z: -200.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b64"
+  prototype: "/examples/tinyworld/3D/tree1.go"
+  position {
+    x: 94.0
+    z: -189.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b65"
+  prototype: "/examples/tinyworld/3D/b6.go"
+  position {
+    x: 104.0
+    z: -40.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b66"
+  prototype: "/examples/tinyworld/3D/b6.go"
+  position {
+    x: 15.0
+    z: -105.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b67"
+  prototype: "/examples/tinyworld/3D/b6.go"
+  position {
+    x: -104.0
+    z: 39.0
+  }
+  rotation {
+    y: -0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b68"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -104.0
+    z: 62.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 19.2
+    y: 19.2
+    z: 19.2
+  }
+}
+instances {
+  id: "b69"
+  prototype: "/examples/tinyworld/3D/tower_bridge.go"
+  position {
+    x: -120.0
+    z: -56.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b70"
+  prototype: "/examples/tinyworld/3D/tower_bridge_.go"
+  position {
+    x: 72.0
+    y: -16.0
+    z: -152.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b71"
+  prototype: "/examples/tinyworld/3D/tower_bridge_.go"
+  position {
+    x: 72.0
+    y: -16.0
+    z: -136.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b72"
+  prototype: "/examples/tinyworld/3D/tower.go"
+  position {
+    x: -89.0
+    z: -56.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b73"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: -105.0
+    z: -56.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b74"
+  prototype: "/examples/tinyworld/3D/lamp.go"
+  position {
+    x: 22.0
+    z: 22.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b75"
+  prototype: "/examples/tinyworld/3D/lamp.go"
+  position {
+    x: 78.0
+    z: -127.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b76"
+  prototype: "/examples/tinyworld/3D/lamp.go"
+  position {
+    x: 67.0
+    z: -127.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b77"
+  prototype: "/examples/tinyworld/3D/lamp.go"
+  position {
+    x: -114.0
+    z: -47.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b78"
+  prototype: "/examples/tinyworld/3D/lamp.go"
+  position {
+    x: 3.0
+    y: 17.0
+    z: 84.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b79"
+  prototype: "/examples/tinyworld/3D/lamp.go"
+  position {
+    x: 12.0
+    y: 17.0
+    z: 84.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "bulb"
+  prototype: "/light_and_shadows/props/bulb.go"
+  position {
+    x: 22.0
+    y: 10.0
+    z: 22.0
+  }
+  component_properties {
+    id: "bulb"
+    properties {
+      id: "color"
+      value: "0.9, 0.7, 0.2, 1.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "num"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+}
+instances {
+  id: "b81"
+  prototype: "/examples/tinyworld/3D/decor1.go"
+  position {
+    x: -15.0
+    z: 91.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b82"
+  prototype: "/examples/tinyworld/3D/decor1.go"
+  position {
+    x: -71.0
+    z: 97.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b83"
+  prototype: "/examples/tinyworld/3D/decor1.go"
+  position {
+    x: -36.0
+    z: 49.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b84"
+  prototype: "/examples/tinyworld/3D/decor1.go"
+  position {
+    x: -43.0
+    z: -31.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b85"
+  prototype: "/examples/tinyworld/3D/decor1.go"
+  position {
+    x: 20.0
+    z: 27.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b86"
+  prototype: "/examples/tinyworld/3D/decor1.go"
+  position {
+    x: 33.0
+    z: -29.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b87"
+  prototype: "/examples/tinyworld/3D/decor1.go"
+  position {
+    x: 98.0
+    z: -30.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b88"
+  prototype: "/examples/tinyworld/3D/decor1.go"
+  position {
+    x: -75.0
+    z: -95.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b89"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -73.0
+    z: -104.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 19.2
+    y: 19.2
+    z: 19.2
+  }
+}
+instances {
+  id: "b80"
+  prototype: "/examples/tinyworld/3D/tower2.go"
+  position {
+    x: -103.0
+    z: 217.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b90"
+  prototype: "/examples/tinyworld/3D/tower2.go"
+  position {
+    x: -103.0
+    z: 185.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b91"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: -103.0
+    z: 201.0
+  }
+  rotation {
+    y: -0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b92"
+  prototype: "/examples/tinyworld/3D/tower.go"
+  position {
+    x: -71.0
+    z: 217.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b93"
+  prototype: "/examples/tinyworld/3D/tower.go"
+  position {
+    x: -71.0
+    z: 185.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b94"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: -71.0
+    z: 201.0
+  }
+  rotation {
+    y: -0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b95"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: -87.0
+    z: 218.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b96"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: -87.0
+    z: 185.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b97"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -152.0
+    z: 167.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 19.2
+    y: 19.2
+    z: 19.2
+  }
+}
+instances {
+  id: "b98"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -152.0
+    z: 184.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b99"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -137.0
+    z: 184.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b100"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -137.0
+    z: 199.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b101"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -137.0
+    z: 214.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b102"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -152.0
+    z: 214.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b103"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -167.0
+    z: 214.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b104"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -167.0
+    z: 231.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b105"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -151.0
+    z: 231.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b106"
+  prototype: "/examples/tinyworld/3D/tower_bridge.go"
+  position {
+    x: -22.0
+    z: 184.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b107"
+  prototype: "/examples/tinyworld/3D/b5.go"
+  position {
+    x: -184.0
+    z: 200.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b108"
+  prototype: "/examples/tinyworld/3D/b6.go"
+  position {
+    x: -21.0
+    z: 217.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b109"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -134.0
+    z: 251.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b110"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -149.0
+    z: 251.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b111"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -149.0
+    z: 268.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b112"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -133.0
+    z: 268.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b113"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -24.0
+    z: 236.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b114"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -39.0
+    z: 236.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b115"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -39.0
+    z: 253.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b116"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -23.0
+    z: 253.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b117"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -8.0
+    z: 135.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b118"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -23.0
+    z: 135.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b119"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -23.0
+    z: 152.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b120"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -7.0
+    z: 152.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b121"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -41.0
+    z: 117.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b122"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -56.0
+    z: 117.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b123"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -56.0
+    z: 134.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b124"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: -40.0
+    z: 134.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b125"
+  prototype: "/examples/tinyworld/3D/tower.go"
+  position {
+    x: 104.0
+    z: 152.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b126"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: 104.0
+    z: 104.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b127"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: 104.0
+    z: 120.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b128"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: 104.0
+    z: 136.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b129"
+  prototype: "/examples/tinyworld/3D/tower_bridge.go"
+  position {
+    x: 105.0
+    z: 184.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b130"
+  prototype: "/examples/tinyworld/3D/tower_wall.go"
+  position {
+    x: 104.0
+    z: 168.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b131"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 83.0
+    z: 133.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b132"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 68.0
+    z: 133.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b133"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 68.0
+    z: 150.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b134"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 84.0
+    z: 150.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b135"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 136.0
+    z: 133.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b136"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 121.0
+    z: 133.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b137"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 121.0
+    z: 150.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b138"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 137.0
+    z: 150.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b139"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 167.0
+    z: 133.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b140"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 152.0
+    z: 133.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b141"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 152.0
+    z: 150.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b142"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 168.0
+    z: 150.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b143"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 167.0
+    z: 165.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b144"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 152.0
+    z: 165.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b145"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 152.0
+    z: 182.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b146"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 168.0
+    z: 182.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b153"
+  prototype: "/examples/tinyworld/3D/b5.go"
+  position {
+    x: 215.0
+    z: 584.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b154"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 263.0
+    z: 623.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b155"
+  prototype: "/examples/tinyworld/3D/b6.go"
+  position {
+    x: 200.0
+    z: 623.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "b156"
+  prototype: "/examples/tinyworld/3D/tree5.go"
+  position {
+    x: 191.0
+    z: 564.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "billboard6"
+  prototype: "/examples/tinyworld/props/billboard.go"
+  position {
+    x: 149.0
+    z: 298.0
+  }
+}
+instances {
+  id: "billboard2"
+  prototype: "/examples/tinyworld/props/billboard.go"
+  position {
+    x: 171.0
+    z: 43.0
+  }
+}
+instances {
+  id: "billboard4"
+  prototype: "/examples/tinyworld/props/billboard.go"
+  position {
+    x: -164.0
+    z: -63.0
+  }
+}
+instances {
+  id: "billboard5"
+  prototype: "/examples/tinyworld/props/billboard.go"
+  position {
+    x: -142.0
+    z: 105.0
+  }
+}
+instances {
+  id: "billboard8"
+  prototype: "/examples/tinyworld/props/billboard.go"
+  position {
+    x: 197.0
+    z: -11.0
+  }
+}
+instances {
+  id: "billboard7"
+  prototype: "/examples/tinyworld/props/billboard.go"
+  position {
+    x: 234.0
+    z: 595.0
+  }
+}
+instances {
+  id: "billboard10"
+  prototype: "/examples/tinyworld/props/billboard.go"
+  position {
+    x: 187.0
+    z: -49.0
+  }
+}
+instances {
+  id: "billboard11"
+  prototype: "/examples/tinyworld/props/billboard.go"
+  position {
+    x: 213.0
+    z: 44.0
+  }
+}
+instances {
+  id: "billboard1"
+  prototype: "/examples/tinyworld/props/billboard.go"
+  position {
+    x: 171.0
+    z: -11.0
+  }
+}
+instances {
+  id: "billboard9"
+  prototype: "/examples/tinyworld/props/billboard.go"
+  position {
+    x: 195.0
+    z: 59.0
+  }
+}
+instances {
+  id: "billboard3"
+  prototype: "/examples/tinyworld/props/billboard.go"
+  position {
+    x: 86.0
+    z: -178.0
+  }
+}
+instances {
+  id: "billboard"
+  prototype: "/examples/tinyworld/props/billboard2.go"
+  position {
+    x: 209.0
+    z: 90.0
+  }
+}
+instances {
+  id: "billboard12"
+  prototype: "/examples/tinyworld/props/billboard2.go"
+  position {
+    x: 182.0
+    z: 31.0
+  }
+}
+instances {
+  id: "billboard13"
+  prototype: "/examples/tinyworld/props/billboard2.go"
+  position {
+    x: 226.0
+    z: -16.0
+  }
+}
+instances {
+  id: "billboard14"
+  prototype: "/examples/tinyworld/props/billboard2.go"
+  position {
+    x: 240.0
+    z: 66.0
+  }
+}
+instances {
+  id: "billboard15"
+  prototype: "/examples/tinyworld/props/billboard2.go"
+  position {
+    x: -150.0
+    z: 79.0
+  }
+}
+instances {
+  id: "billboard16"
+  prototype: "/examples/tinyworld/props/billboard2.go"
+  position {
+    x: -161.0
+    z: 88.0
+  }
+}
+instances {
+  id: "billboard17"
+  prototype: "/examples/tinyworld/props/billboard2.go"
+  position {
+    x: -171.0
+    z: -72.0
+  }
+}
+instances {
+  id: "billboard18"
+  prototype: "/examples/tinyworld/props/billboard2.go"
+  position {
+    x: -176.0
+    z: -51.0
+  }
+}
+instances {
+  id: "billboard19"
+  prototype: "/examples/tinyworld/props/billboard2.go"
+  position {
+    x: -186.0
+    z: -38.0
+  }
+}
+instances {
+  id: "billboard29"
+  prototype: "/examples/tinyworld/props/billboard2.go"
+  position {
+    x: -204.0
+    z: 204.0
+  }
+}
+instances {
+  id: "billboard20"
+  prototype: "/examples/tinyworld/props/forest.go"
+  position {
+    x: 240.0
+    z: 127.0
+  }
+}
+instances {
+  id: "billboard21"
+  prototype: "/examples/tinyworld/props/forest.go"
+  position {
+    x: 229.0
+    z: 156.0
+  }
+}
+instances {
+  id: "billboard22"
+  prototype: "/examples/tinyworld/props/forest.go"
+  position {
+    x: 258.0
+    z: 184.0
+  }
+}
+instances {
+  id: "billboard23"
+  prototype: "/examples/tinyworld/props/forest.go"
+  position {
+    x: 241.0
+    z: 209.0
+  }
+}
+instances {
+  id: "billboard24"
+  prototype: "/examples/tinyworld/props/forest.go"
+  position {
+    x: 219.0
+    z: 225.0
+  }
+}
+instances {
+  id: "billboard25"
+  prototype: "/examples/tinyworld/props/forest.go"
+  position {
+    x: 266.0
+    z: -77.0
+  }
+}
+instances {
+  id: "billboard26"
+  prototype: "/examples/tinyworld/props/forest.go"
+  position {
+    x: 184.0
+    z: 226.0
+  }
+}
+instances {
+  id: "billboard27"
+  prototype: "/examples/tinyworld/props/forest.go"
+  position {
+    x: 268.0
+    z: 585.0
+  }
+}
+instances {
+  id: "billboard28"
+  prototype: "/examples/tinyworld/props/forest.go"
+  position {
+    x: 267.0
+    z: 344.0
+  }
+}
+instances {
+  id: "billboard30"
+  prototype: "/examples/tinyworld/props/forest.go"
+  position {
+    x: 240.0
+    z: 324.0
+  }
+}
+instances {
+  id: "billboard31"
+  prototype: "/examples/tinyworld/props/billboard3.go"
+  position {
+    x: 178.0
+    z: 310.0
+  }
+}
+instances {
+  id: "billboard32"
+  prototype: "/examples/tinyworld/props/billboard3.go"
+  position {
+    x: 255.0
+    z: 290.0
+  }
+}
+instances {
+  id: "billboard33"
+  prototype: "/examples/tinyworld/props/billboard3.go"
+  position {
+    x: 209.0
+    z: 146.0
+  }
+}
+instances {
+  id: "billboard34"
+  prototype: "/examples/tinyworld/props/billboard3.go"
+  position {
+    x: -7.0
+    z: 255.0
+  }
+}
+instances {
+  id: "billboard35"
+  prototype: "/examples/tinyworld/props/billboard3.go"
+  position {
+    x: 264.0
+    z: 130.0
+  }
+}
+instances {
+  id: "billboard36"
+  prototype: "/examples/tinyworld/props/billboard3.go"
+  position {
+    x: 278.0
+    z: -23.0
+  }
+}
+instances {
+  id: "billboard37"
+  prototype: "/examples/tinyworld/props/billboard3.go"
+  position {
+    x: 189.0
+    z: 601.0
+  }
+}
+instances {
+  id: "billboard38"
+  prototype: "/examples/tinyworld/props/billboard3.go"
+  position {
+    x: -167.0
+    z: 115.0
+  }
+}
+instances {
+  id: "billboard39"
+  prototype: "/examples/tinyworld/props/billboard3.go"
+  position {
+    x: -186.0
+    z: 229.0
+  }
+}
+instances {
+  id: "billboard40"
+  prototype: "/examples/tinyworld/props/forest.go"
+  position {
+    x: 28.0
+    z: 318.0
+  }
+}
+instances {
+  id: "billboard41"
+  prototype: "/examples/tinyworld/props/forest.go"
+  position {
+    x: -5.0
+    z: 349.0
+  }
+}
+instances {
+  id: "billboard42"
+  prototype: "/examples/tinyworld/props/forest.go"
+  position {
+    x: -323.0
+    z: 306.0
+  }
+}
+instances {
+  id: "b161"
+  prototype: "/examples/tinyworld/3D/b6.go"
+  position {
+    x: -349.0
+    z: 305.0
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "billboard43"
+  prototype: "/examples/tinyworld/props/billboard3.go"
+  position {
+    x: -359.0
+    z: 327.0
+  }
+}
+instances {
+  id: "b147"
+  prototype: "/examples/tinyworld/3D/tower_bridge.go"
+  position {
+    x: 105.0
+    z: 344.0
+  }
+  rotation {
+    y: 0.70710677
+    w: 0.70710677
+  }
+  scale3 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+  }
+}
+instances {
+  id: "billboard44"
+  prototype: "/examples/tinyworld/props/forest.go"
+  position {
+    x: 138.0
+    z: -215.0
+  }
+}
+instances {
+  id: "billboard45"
+  prototype: "/examples/tinyworld/props/forest.go"
+  position {
+    x: 184.0
+    z: -178.0
+  }
+}
+instances {
+  id: "billboard46"
+  prototype: "/examples/tinyworld/props/forest.go"
+  position {
+    x: 25.0
+    z: -217.0
+  }
+}
+instances {
+  id: "billboard47"
+  prototype: "/examples/tinyworld/props/billboard3.go"
+  position {
+    x: 13.0
+    z: -162.0
+  }
+}
+instances {
+  id: "billboard49"
+  prototype: "/examples/tinyworld/props/boy.go"
+  position {
+    x: 28.0
+    z: 41.0
+  }
+}
+instances {
+  id: "billboard51"
+  prototype: "/examples/tinyworld/props/forest2.go"
+  position {
+    x: 267.0
+    z: 261.0
+  }
+}
+instances {
+  id: "billboard52"
+  prototype: "/examples/tinyworld/props/forest2.go"
+  position {
+    x: -98.0
+    z: -136.0
+  }
+}
+instances {
+  id: "billboard53"
+  prototype: "/examples/tinyworld/props/forest2.go"
+  position {
+    x: -354.0
+    z: 259.0
+  }
+}
+instances {
+  id: "billboard54"
+  prototype: "/examples/tinyworld/props/forest2.go"
+  position {
+    x: 289.0
+    z: 539.0
+  }
+}
+instances {
+  id: "billboard55"
+  prototype: "/examples/tinyworld/props/billboard4.go"
+  position {
+    x: 204.0
+    z: 380.0
+  }
+}
+instances {
+  id: "billboard56"
+  prototype: "/examples/tinyworld/props/billboard4.go"
+  position {
+    x: 184.0
+    z: 391.0
+  }
+}
+instances {
+  id: "billboard57"
+  prototype: "/examples/tinyworld/props/billboard4.go"
+  position {
+    x: 215.0
+    z: 421.0
+  }
+}
+instances {
+  id: "billboard58"
+  prototype: "/examples/tinyworld/props/billboard6.go"
+  position {
+    x: 205.0
+    z: 313.0
+  }
+}
+instances {
+  id: "billboard59"
+  prototype: "/examples/tinyworld/props/billboard6.go"
+  position {
+    x: -120.0
+    z: 283.0
+  }
+}
+instances {
+  id: "billboard60"
+  prototype: "/examples/tinyworld/props/billboard6.go"
+  position {
+    x: 262.0
+    z: 517.0
+  }
+}
+instances {
+  id: "billboard61"
+  prototype: "/examples/tinyworld/props/billboard6.go"
+  position {
+    x: 299.0
+    z: 317.0
+  }
+}
+instances {
+  id: "billboard62"
+  prototype: "/examples/tinyworld/props/billboard5.go"
+  position {
+    x: 301.0
+    z: 381.0
+  }
+}
+instances {
+  id: "billboard63"
+  prototype: "/examples/tinyworld/props/forest2.go"
+  position {
+    x: 46.0
+    z: -259.0
+  }
+}
+instances {
+  id: "billboard64"
+  prototype: "/examples/tinyworld/props/forest2.go"
+  position {
+    x: 127.0
+    z: 227.0
+  }
+}
+instances {
+  id: "billboard65"
+  prototype: "/examples/tinyworld/props/forest2.go"
+  position {
+    x: -74.0
+    z: 291.0
+  }
+}
+instances {
+  id: "billboard66"
+  prototype: "/examples/tinyworld/props/billboard4.go"
+  position {
+    x: 164.0
+    z: 73.0
+  }
+}
+instances {
+  id: "sun"
+  prototype: "/light_and_shadows/props/sun.go"
+  children: "moon_sun"
+  position {
+    x: -21.0
+    y: 93.0
+    z: -100.0
+  }
+  component_properties {
+    id: "sun"
+    properties {
+      id: "color"
+      value: "0.5, 0.5, 0.5, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "shadow"
+      value: "0.5, 0.5, 0.2, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "far"
+      value: "1000.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "static"
+      value: "false"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+  }
+}
+scale_along_z: 1
+embedded_instances {
+  id: "ground"
+  children: "go"
+  data: ""
+}
+embedded_instances {
+  id: "lights"
+  children: "light_controller"
+  children: "sun"
+  data: ""
+}
+embedded_instances {
+  id: "walls"
+  children: "b"
+  children: "b1"
+  children: "b10"
+  children: "b100"
+  children: "b101"
+  children: "b102"
+  children: "b103"
+  children: "b104"
+  children: "b105"
+  children: "b106"
+  children: "b107"
+  children: "b108"
+  children: "b109"
+  children: "b11"
+  children: "b110"
+  children: "b111"
+  children: "b112"
+  children: "b113"
+  children: "b114"
+  children: "b115"
+  children: "b116"
+  children: "b117"
+  children: "b118"
+  children: "b119"
+  children: "b12"
+  children: "b120"
+  children: "b121"
+  children: "b122"
+  children: "b123"
+  children: "b124"
+  children: "b125"
+  children: "b126"
+  children: "b127"
+  children: "b128"
+  children: "b129"
+  children: "b13"
+  children: "b130"
+  children: "b131"
+  children: "b132"
+  children: "b133"
+  children: "b134"
+  children: "b135"
+  children: "b136"
+  children: "b137"
+  children: "b138"
+  children: "b139"
+  children: "b14"
+  children: "b140"
+  children: "b141"
+  children: "b142"
+  children: "b143"
+  children: "b144"
+  children: "b145"
+  children: "b146"
+  children: "b147"
+  children: "b15"
+  children: "b153"
+  children: "b154"
+  children: "b155"
+  children: "b156"
+  children: "b16"
+  children: "b161"
+  children: "b17"
+  children: "b18"
+  children: "b19"
+  children: "b2"
+  children: "b20"
+  children: "b21"
+  children: "b22"
+  children: "b23"
+  children: "b24"
+  children: "b25"
+  children: "b26"
+  children: "b27"
+  children: "b28"
+  children: "b29"
+  children: "b3"
+  children: "b30"
+  children: "b31"
+  children: "b32"
+  children: "b33"
+  children: "b34"
+  children: "b35"
+  children: "b36"
+  children: "b37"
+  children: "b38"
+  children: "b39"
+  children: "b4"
+  children: "b40"
+  children: "b41"
+  children: "b42"
+  children: "b43"
+  children: "b44"
+  children: "b45"
+  children: "b46"
+  children: "b47"
+  children: "b48"
+  children: "b49"
+  children: "b5"
+  children: "b50"
+  children: "b51"
+  children: "b52"
+  children: "b53"
+  children: "b54"
+  children: "b55"
+  children: "b56"
+  children: "b57"
+  children: "b58"
+  children: "b59"
+  children: "b6"
+  children: "b60"
+  children: "b61"
+  children: "b62"
+  children: "b63"
+  children: "b64"
+  children: "b65"
+  children: "b66"
+  children: "b67"
+  children: "b68"
+  children: "b69"
+  children: "b7"
+  children: "b70"
+  children: "b71"
+  children: "b72"
+  children: "b73"
+  children: "b74"
+  children: "b75"
+  children: "b76"
+  children: "b77"
+  children: "b78"
+  children: "b79"
+  children: "b8"
+  children: "b80"
+  children: "b81"
+  children: "b82"
+  children: "b83"
+  children: "b84"
+  children: "b85"
+  children: "b86"
+  children: "b87"
+  children: "b88"
+  children: "b89"
+  children: "b9"
+  children: "b90"
+  children: "b91"
+  children: "b92"
+  children: "b93"
+  children: "b94"
+  children: "b95"
+  children: "b96"
+  children: "b97"
+  children: "b98"
+  children: "b99"
+  data: ""
+}
+embedded_instances {
+  id: "go"
+  data: "components {\n"
+  "  id: \"tw\"\n"
+  "  component: \"/examples/tinyworld/tw.tilemap\"\n"
+  "}\n"
+  ""
+  rotation {
+    x: -0.70710677
+    w: 0.70710677
+  }
+}
+embedded_instances {
+  id: "go1"
+  data: "components {\n"
+  "  id: \"moving\"\n"
+  "  component: \"/helper/moving.script\"\n"
+  "  properties {\n"
+  "    id: \"value\"\n"
+  "    value: \"32.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"time\"\n"
+  "    value: \"5.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"prop\"\n"
+  "    value: \"position.y\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"heart\\\"\\n"
+  "material: \\\"/examples/tinyworld/materials/billboard_light_sprite_nearest.material\\\"\\n"
+  "textures {\\n"
+  "  sampler: \\\"tex0\\\"\\n"
+  "  texture: \\\"/examples/tinyworld/tiles.atlas\\\"\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"tex1\\\"\\n"
+  "  texture: \\\"/examples/tinyworld/tiles.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: 8.0
+    y: 4.0
+    z: 106.0
+  }
+}
+embedded_instances {
+  id: "billboards"
+  children: "billboard"
+  children: "billboard1"
+  children: "billboard10"
+  children: "billboard11"
+  children: "billboard12"
+  children: "billboard13"
+  children: "billboard14"
+  children: "billboard15"
+  children: "billboard16"
+  children: "billboard17"
+  children: "billboard18"
+  children: "billboard19"
+  children: "billboard2"
+  children: "billboard20"
+  children: "billboard21"
+  children: "billboard22"
+  children: "billboard23"
+  children: "billboard24"
+  children: "billboard25"
+  children: "billboard26"
+  children: "billboard27"
+  children: "billboard28"
+  children: "billboard29"
+  children: "billboard3"
+  children: "billboard30"
+  children: "billboard31"
+  children: "billboard32"
+  children: "billboard33"
+  children: "billboard34"
+  children: "billboard35"
+  children: "billboard36"
+  children: "billboard37"
+  children: "billboard38"
+  children: "billboard39"
+  children: "billboard4"
+  children: "billboard40"
+  children: "billboard41"
+  children: "billboard42"
+  children: "billboard43"
+  children: "billboard44"
+  children: "billboard45"
+  children: "billboard46"
+  children: "billboard47"
+  children: "billboard49"
+  children: "billboard5"
+  children: "billboard51"
+  children: "billboard52"
+  children: "billboard53"
+  children: "billboard54"
+  children: "billboard55"
+  children: "billboard56"
+  children: "billboard57"
+  children: "billboard58"
+  children: "billboard59"
+  children: "billboard6"
+  children: "billboard60"
+  children: "billboard61"
+  children: "billboard62"
+  children: "billboard63"
+  children: "billboard64"
+  children: "billboard65"
+  children: "billboard66"
+  children: "billboard7"
+  children: "billboard8"
+  children: "billboard9"
+  data: ""
+}
+embedded_instances {
+  id: "go2"
+  data: "components {\n"
+  "  id: \"smoke\"\n"
+  "  component: \"/assets/fx/smoke.particlefx\"\n"
+  "}\n"
+  "components {\n"
+  "  id: \"bulb\"\n"
+  "  component: \"/light_and_shadows/bulb.script\"\n"
+  "  properties {\n"
+  "    id: \"color\"\n"
+  "    value: \"0.9, 0.7, 0.2, 1.0\"\n"
+  "    type: PROPERTY_TYPE_VECTOR4\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"light_on\"\n"
+  "    value: \"false\"\n"
+  "    type: PROPERTY_TYPE_BOOLEAN\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"fxurl\"\n"
+  "    value: \"#smoke\"\n"
+  "    type: PROPERTY_TYPE_URL\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"startfx\"\n"
+  "    value: \"true\"\n"
+  "    type: PROPERTY_TYPE_BOOLEAN\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"model\"\n"
+  "  type: \"model\"\n"
+  "  data: \"mesh: \\\"/light_and_shadows/props/lamp.dae\\\"\\n"
+  "name: \\\"unnamed\\\"\\n"
+  "materials {\\n"
+  "  name: \\\"default\\\"\\n"
+  "  material: \\\"/light_and_shadows/materials/hidden_model/white.material\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: -21.0
+    y: 13.0
+    z: 211.0
+  }
+}
+embedded_instances {
+  id: "cam_target"
+  children: "camera"
+  data: "components {\n"
+  "  id: \"test\"\n"
+  "  component: \"/helper/print_url.script\"\n"
+  "}\n"
+  "components {\n"
+  "  id: \"moving\"\n"
+  "  component: \"/helper/moving.script\"\n"
+  "  properties {\n"
+  "    id: \"value\"\n"
+  "    value: \"360.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"time\"\n"
+  "    value: \"30.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"prop\"\n"
+  "    value: \"euler.y\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"playback\"\n"
+  "    value: \"4.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "}\n"
+  "components {\n"
+  "  id: \"moving1\"\n"
+  "  component: \"/helper/moving.script\"\n"
+  "  properties {\n"
+  "    id: \"value\"\n"
+  "    value: \"-10.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"time\"\n"
+  "    value: \"20.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"prop\"\n"
+  "    value: \"euler.x\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"playback\"\n"
+  "    value: \"6.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 19.256
+    z: 21.373
+  }
+  rotation {
+    x: -0.27563736
+    w: 0.9612617
+  }
+}
+embedded_instances {
+  id: "camera"
+  data: "embedded_components {\n"
+  "  id: \"camera\"\n"
+  "  type: \"camera\"\n"
+  "  data: \"aspect_ratio: 1.0\\n"
+  "fov: 0.7854\\n"
+  "near_z: 10.0\\n"
+  "far_z: 1000.0\\n"
+  "auto_aspect_ratio: 1\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    z: 300.0
+  }
+}
+embedded_instances {
+  id: "root"
+  data: "components {\n"
+  "  id: \"lightsetting\"\n"
+  "  component: \"/light_and_shadows/light_setting.script\"\n"
+  "  properties {\n"
+  "    id: \"clear_color\"\n"
+  "    value: \"0.8, 0.8, 0.8, 0.0\"\n"
+  "    type: PROPERTY_TYPE_VECTOR4\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"fog_color\"\n"
+  "    value: \"0.8, 0.8, 0.8, 0.0\"\n"
+  "    type: PROPERTY_TYPE_VECTOR4\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"fog_density\"\n"
+  "    value: \"0.7\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"fog_min_max\"\n"
+  "    value: \"180.0, 500.0, 1.0, 1.0\"\n"
+  "    type: PROPERTY_TYPE_VECTOR4\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"ambient\"\n"
+  "    value: \"0.8, 0.8, 0.8, 0.0\"\n"
+  "    type: PROPERTY_TYPE_VECTOR4\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"color_max\"\n"
+  "    value: \"1.1\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"on\"\n"
+  "    value: \"true\"\n"
+  "    type: PROPERTY_TYPE_BOOLEAN\n"
+  "  }\n"
+  "}\n"
+  "components {\n"
+  "  id: \"controller\"\n"
+  "  component: \"/examples/tinyworld/scene_controller.script\"\n"
+  "  properties {\n"
+  "    id: \"zoom_speed\"\n"
+  "    value: \"2.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "}\n"
+  ""
+}
+embedded_instances {
+  id: "light_controller"
+  data: "components {\n"
+  "  id: \"light_controller\"\n"
+  "  component: \"/examples/tinyworld/light_controller.script\"\n"
+  "}\n"
+  ""
+}
+embedded_instances {
+  id: "ui"
+  data: "components {\n"
+  "  id: \"blur\"\n"
+  "  component: \"/examples/tinyworld/ui/ui.gui\"\n"
+  "}\n"
+  ""
+}
+embedded_instances {
+  id: "moon_sun"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"sun\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/fog_sprite/billboard/billboard_fog_sprite_nearest.material\\\"\\n"
+  "size {\\n"
+  "  x: 17.0\\n"
+  "  y: 17.0\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/examples/tinyworld/tiles.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"aura\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"light_a\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/fog_sprite/billboard/billboard_fog_sprite_linear.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ADD\\n"
+  "size {\\n"
+  "  x: 17.0\\n"
+  "  y: 17.0\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/examples/tinyworld/tiles.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+}

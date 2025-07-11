@@ -1,0 +1,186 @@
+script: "/examples/tinyworld/ui/ui.gui_script"
+fonts {
+  name: "cardfont"
+  font: "/assets/fnt/cardfont.font"
+}
+textures {
+  name: "tiles"
+  texture: "/assets/rgba/tiles.atlas"
+}
+nodes {
+  position {
+    y: 90.836
+  }
+  size {
+    x: 300.0
+    y: 120.0
+  }
+  type: TYPE_BOX
+  id: "corner2"
+  xanchor: XANCHOR_LEFT
+  yanchor: YANCHOR_BOTTOM
+  pivot: PIVOT_E
+  inherit_alpha: true
+  visible: false
+}
+nodes {
+  position {
+    x: 302.0
+  }
+  size {
+    x: 300.0
+    y: 120.0
+  }
+  type: TYPE_BOX
+  id: "wow"
+  xanchor: XANCHOR_RIGHT
+  yanchor: YANCHOR_BOTTOM
+  pivot: PIVOT_E
+  parent: "corner2"
+  inherit_alpha: true
+  visible: false
+}
+nodes {
+  position {
+    x: -151.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "Day:"
+  font: "cardfont"
+  id: "blur_label"
+  pivot: PIVOT_E
+  outline {
+    x: 0.2
+    z: 0.2
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "wow"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: -141.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  color {
+    x: 0.8
+    y: 0.6
+    z: 0.2
+  }
+  type: TYPE_TEXT
+  text: "On"
+  font: "cardfont"
+  id: "blur"
+  pivot: PIVOT_W
+  outline {
+    x: 0.2
+    z: 0.2
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "wow"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 1.0
+    y: 92.0
+  }
+  size {
+    x: 300.0
+    y: 120.0
+  }
+  type: TYPE_BOX
+  id: "upscale"
+  xanchor: XANCHOR_RIGHT
+  yanchor: YANCHOR_BOTTOM
+  pivot: PIVOT_E
+  parent: "corner2"
+  inherit_alpha: true
+  enabled: false
+  visible: false
+}
+nodes {
+  position {
+    x: -93.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "Upscale:"
+  font: "cardfont"
+  id: "next2"
+  pivot: PIVOT_E
+  outline {
+    x: 0.2
+    z: 0.2
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "upscale"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: -83.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  color {
+    x: 0.8
+    y: 0.6
+    z: 0.2
+  }
+  type: TYPE_TEXT
+  text: "On"
+  font: "cardfont"
+  id: "up"
+  pivot: PIVOT_W
+  outline {
+    x: 0.2
+    z: 0.2
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "upscale"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 800.0
+    y: -244.0
+  }
+  type: TYPE_BOX
+  texture: "tiles/c1"
+  id: "corner"
+  yanchor: YANCHOR_BOTTOM
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+  visible: false
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT

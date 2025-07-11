@@ -171,6 +171,7 @@ end
 
 -- L_S Injection
 local light_and_shadows = require "light_and_shadows.light_and_shadows"
+local constants = require "light_and_shadows.constants"
 --
 
 function init(self)
@@ -228,6 +229,7 @@ function update(self)
     -- L_S Injection
     draw_options_world.constants = self.constants -- add our constants to the default camera options
     draw_options_world.frustum_planes = render.FRUSTUM_PLANES_ALL
+    update_clear_color(state, constants.clear_color) -- set clear color from the constants module instead message passing
     --
     -- L_S Injection
     if light_and_shadows.upscale or light_and_shadows.blur then

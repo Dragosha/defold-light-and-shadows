@@ -14,16 +14,33 @@ light.cam_view = vmath.quat()
 local top_v     = vmath.vector3(0, 1, 0)
 light.top_v = top_v
 
+light.attenuation_coefficient = 1500
+
 local fog_default = vmath.vector4(0.1, 0.2, 0.5, 0.43)
 local fog = vmath.vector4(10, 100, 1, 0.4)
 local ambient_default = vmath.vector4(0.3, 0.2, 0.1, 3)
 
+---Setup base light uniform constants
+---@param fog_color vector4 RGB color
+---@param fog vector4 Min max Z coordinate in the view space where the fog should begining and ending
+---@param ambient vector4 Color
+---@param clear_color vector4 Color to clear default render target or background color.
 function light.set_color(fog_color, fog, ambient, clear_color)
     if ambient then constants.ambient = ambient end
     if fog_color then constants.fog_color = fog_color end
     if fog then constants.fog = fog end
     if clear_color then constants.clear_color = clear_color end
     msg.post("@render:", "clear_color", {color = clear_color or fog_color})
+end
+
+---Setup the camera and the camera look at point positions 
+---@param cam_rotation quaternion
+---@param cam_look_at_position vector3
+---@param cam_position vector3
+function light.set_position(cam_rotation, cam_look_at_position, cam_position)
+    light.cam_view = cam_rotation
+    light.cam_look_at = cam_look_at_position
+    light.cam_position = cam_position
 end
 
 function light.reset(self)
@@ -33,7 +50,7 @@ function light.reset(self)
     constants.fog       = fog
 end
 
--- Prepare constants for the renderscript.
+---Prepare constants for the render script.
 function light.update(self, dt)
 
     local ind = 1
@@ -86,7 +103,7 @@ function light.update(self, dt)
     -- You may remove this loop.
     for i = ind, #lights do
         local a = lights[i]
-        local dist  = a.distance / 1500
+        local dist  = a.distance / light.attenuation_coefficient
         dist = dist < 1 and 1 or dist
         a.color.w = a.power * dist --* dist * dist * dist
         -- print( i, a.color.w, dist )

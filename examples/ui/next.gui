@@ -70,9 +70,38 @@ nodes {
     y: 100.0
   }
   type: TYPE_TEXT
-  text: "Next"
+  text: "Next demo"
   font: "cardfont"
   id: "next"
+  pivot: PIVOT_E
+  outline {
+    x: 0.2
+    z: 0.2
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "arrow"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: -66.68936
+    y: -51.612904
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  color {
+    z: 0.302
+  }
+  type: TYPE_TEXT
+  text: "0/0"
+  font: "cardfont"
+  id: "demo"
   pivot: PIVOT_E
   outline {
     x: 0.2

@@ -10,6 +10,7 @@ local total = 4
 local function text_upd()
     gui.set_text(gui.get_node("qlt"), light_and_shadows.shadow and "On" or "Off")
     gui.set_text(gui.get_node("up"), light_and_shadows.upscale and "On" or "Off")
+    gui.set_text(gui.get_node("demo"), "("..current_example.."/"..total..")")
 end
 
 function init(self)
@@ -21,6 +22,7 @@ function init(self)
         current_example = current_example + 1
         if current_example > total then current_example = 1 end
         monarch.show(hash(current_example), {clear = true, sequential = true}) 
+        text_upd()
     end)
 
     si.register("quality", function()
@@ -50,6 +52,7 @@ function init(self)
         current_example = message.first
         total = message.total
         monarch.show(hash(current_example))
+        text_upd()
     end)
 end
 

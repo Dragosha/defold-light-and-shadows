@@ -1,0 +1,6 @@
+default_animation: "shadow"
+material: "/examples/tinyworld/materials/fog_sprite_nearest.material"
+textures {
+  sampler: "texture_sampler"
+  texture: "/examples/tinyworld/tiles.atlas"
+}

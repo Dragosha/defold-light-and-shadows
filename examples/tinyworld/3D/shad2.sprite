@@ -1,0 +1,11 @@
+default_animation: "shadow2"
+material: "/light_and_shadows/materials/fog_sprite/fog_sprite.material"
+size {
+  x: 19.0
+  y: 11.0
+}
+size_mode: SIZE_MODE_MANUAL
+textures {
+  sampler: "texture_sampler"
+  texture: "/examples/tinyworld/tiles.atlas"
+}

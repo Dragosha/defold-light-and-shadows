@@ -1,0 +1,142 @@
+local constants = require "light_and_shadows.constants"
+local light     = require 'light_and_shadows.light'
+local broadcast = require 'helper.broadcast'
+local sequence = require 'helper.sequence'
+
+go.property("sun_color", vmath.vector4(0.5, 0.5, 0.5, 0))
+go.property("shadow", vmath.vector4(0.5, 0.5, 0.2, 0))
+go.property("clear_color", vmath.vector4(0.8, 0.8, 0.8, 1))
+go.property("fog_color", vmath.vector4(0.8, 0.8, 0.8, .7))
+go.property("ambient", vmath.vector4(0.8, 0.8, 0.8, 1))
+
+
+
+local function set(self)
+	constants.sun_color.x = self.sun_color.x
+	constants.sun_color.y = self.sun_color.y
+	constants.sun_color.z = self.sun_color.z
+	constants.shadow_color.x = self.shadow.x
+	constants.shadow_color.y = self.shadow.y
+	constants.shadow_color.z = self.shadow.z
+	constants.fog_color.x = self.fog_color.x
+	constants.fog_color.y = self.fog_color.y
+	constants.fog_color.z = self.fog_color.z
+	constants.fog_color.w = self.fog_color.w
+	constants.ambient.x = self.ambient.x
+	constants.ambient.y = self.ambient.y
+	constants.ambient.z = self.ambient.z
+	-- constants.ambient.w = self.ambient.w
+	constants.clear_color.x = self.clear_color.x
+	constants.clear_color.y = self.clear_color.y
+	constants.clear_color.z = self.clear_color.z
+end
+
+
+local morning   = vmath.vector4(0.5, 0.6, 0.5, 0)
+local noon      = vmath.vector4(1, 1, .8, 0)
+local evening   = vmath.vector4(0.1, 0.1, 0.5, 0)
+local night     = vmath.vector4(-0.3, -0.1, 0.15, 0)
+
+local fog_color_day     = vmath.vector4(0.8, 0.8, 0.8, .7)
+local fog_color_night     = vmath.vector4(0.15, 0.2, 0.4, .3)
+local clear_day     = vmath.vector4(0.8, 0.8, 0.8, 0)
+local clear_night   = vmath.vector4(0.15, 0.2, 0.4, 0)
+
+local shadow_day    = vmath.vector4(0.5, 0.5, 0.2, 0)
+local shadow_night  = vmath.vector4(0.2, 0.2, 0.1, 0)
+
+local anight    = vmath.vector4(0.2, 0.2, 0.4, 1)
+local amorning  = vmath.vector4(0.6, 0.5, 0.5, 1.2)
+local anoon     = vmath.vector4(0.5, 0.5, 0.3, 1.3)
+local aevening  = vmath.vector4(0.2, 0.2, 0.4, 1)
+
+local function to_day(self)
+	local time = 3
+
+	go.animate("#", "sun_color", go.PLAYBACK_ONCE_FORWARD, morning, go.EASING_LINEAR, time * .2, 0)
+	go.animate("#", "sun_color", go.PLAYBACK_ONCE_FORWARD, noon, go.EASING_LINEAR, time * .8, time * .2)
+
+	go.animate("#", "shadow",       go.PLAYBACK_ONCE_FORWARD, shadow_day, go.EASING_LINEAR, time)
+	go.animate("#", "clear_color",  go.PLAYBACK_ONCE_FORWARD, clear_day, go.EASING_LINEAR, time/2)
+	go.animate("#", "fog_color",    go.PLAYBACK_ONCE_FORWARD, fog_color_day, go.EASING_LINEAR, time/2)
+
+	go.animate("#", "ambient", go.PLAYBACK_ONCE_FORWARD, amorning, go.EASING_LINEAR, time * .3, 0 )
+	go.animate("#", "ambient", go.PLAYBACK_ONCE_FORWARD, anoon, go.EASING_LINEAR, time * .7, time * .3)
+
+	if self.handler then timer.cancel(self.handler) end
+	self.handler = 
+	timer.delay(time * .25, false, function()
+		local b = light.list[go.get_id("bulb")]
+		if b then
+			b.value.w = 1/1
+		end
+	end)
+
+	
+	sequence.run_once(function()
+		sequence.go_animate("moon_sun", "position.y", go.PLAYBACK_ONCE_FORWARD, 100, go.EASING_INBACK, .2)
+		sprite.play_flipbook("moon_sun#sprite", "sun")
+		go.set("moon_sun#aura", "color", vmath.vector4(1))
+		sequence.go_animate("sun", "position.z", go.PLAYBACK_ONCE_FORWARD, -100, go.EASING_INOUTCUBIC, time / 4)
+		sequence.go_animate("moon_sun", "position.y", go.PLAYBACK_ONCE_FORWARD, 0, go.EASING_OUTBACK, .2)
+	end)
+
+end
+
+local function to_night(self)
+	local time = 3
+
+	go.animate("#", "sun_color", go.PLAYBACK_ONCE_FORWARD, evening, go.EASING_LINEAR, time * .2, 0)
+	go.animate("#", "sun_color", go.PLAYBACK_ONCE_FORWARD, night, go.EASING_LINEAR, time * .8, time * .2)
+
+	go.animate("#", "shadow",       go.PLAYBACK_ONCE_FORWARD, shadow_night, go.EASING_LINEAR, time)
+	go.animate("#", "clear_color",  go.PLAYBACK_ONCE_FORWARD, clear_night, go.EASING_LINEAR, time/2)
+	go.animate("#", "fog_color",    go.PLAYBACK_ONCE_FORWARD, fog_color_night, go.EASING_LINEAR, time/2)
+
+	go.animate("#", "ambient", go.PLAYBACK_ONCE_FORWARD, aevening, go.EASING_LINEAR, time * .3, 0 )
+	go.animate("#", "ambient", go.PLAYBACK_ONCE_FORWARD, anight, go.EASING_LINEAR, time * .7, time * .3)
+
+	if self.handler then timer.cancel(self.handler) end
+	self.handler = 
+	timer.delay(time * .5, false, function()
+		local b = light.list[go.get_id("bulb")]
+		if b then
+			b.value.w = 1/300
+		end
+	end)
+
+	sequence.run_once(function()
+		sequence.go_animate("moon_sun", "position.y", go.PLAYBACK_ONCE_FORWARD, 100, go.EASING_INBACK, .2)
+		sprite.play_flipbook("moon_sun#sprite", "moon")
+		go.set("moon_sun#aura", "color", vmath.vector4(.4, .6, 1, 1))
+		sequence.go_animate("sun", "position.z", go.PLAYBACK_ONCE_FORWARD, 100, go.EASING_INOUTCUBIC, time / 4)
+		sequence.go_animate("moon_sun", "position.y", go.PLAYBACK_ONCE_FORWARD, 0, go.EASING_OUTBACK, .2)
+	end)
+end
+
+function init(self)
+	broadcast.register("day", function(message, sender)
+		if message.value then
+			to_day(self)
+		else
+			to_night(self)
+		end
+	end)
+	-- day(self)
+end
+
+-- Remove 'update' if the sun is static object
+function update(self, dt)
+	set(self)
+	-- light.update(self, dt)
+end
+
+function final(self)
+end
+
+function on_message(self, message_id, message, sender)
+	if broadcast.on_message(message_id, message, sender) then
+		-- message was handled
+		return
+	end
+end

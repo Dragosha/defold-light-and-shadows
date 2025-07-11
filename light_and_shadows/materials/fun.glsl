@@ -15,6 +15,7 @@ uniform fs_uniforms
     mediump vec4 fog_color;
     mediump vec4 fog;
     highp vec4 cam_pos;
+    highp vec4 v4; 
     // sun:
     mediump vec4 color0;
     highp vec4 light;
@@ -48,7 +49,7 @@ float rgba_to_float(vec4 rgba)
 //
 float shadow_calculation(vec4 depth_data)
 {
-    float depth_bias = 0.0008;
+    float depth_bias = v4.w;//0.0008;
     float shadow = 0.0;
     float texel_size = 1.0 / 2048.0; //textureSize(tex1, 0);
     int y = 0;
@@ -109,7 +110,7 @@ float random(vec3 seed, int i)
 
 float shadow_calculation(vec4 depth_data)
 {
-    float depth_bias = 0.0025;
+    float depth_bias = v4.w;//0.0025;
     float shadow = 0.0;
     int y = 0;
     for (int x = 0; x < 8; x++)
@@ -136,7 +137,7 @@ float shadow_calculation(vec4 depth_data)
 #ifdef USE_FLAT_SHADOW
 float shadow_calculation(vec4 depth_data)
 {
-    float depth_bias = 0.0008;
+    float depth_bias = v4.w;//0.0008;
     highp vec2 uv = depth_data.xy;
     // vec4 rgba = texture(tex1, uv + rand(uv));
     vec4 rgba = texture(tex1, uv);

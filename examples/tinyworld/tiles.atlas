@@ -1,0 +1,146 @@
+images {
+  image: "/examples/tinyworld/images/src/light_a.png"
+}
+images {
+  image: "/examples/tinyworld/images/src/shadow.png"
+}
+images {
+  image: "/examples/tinyworld/images/src/heart.png"
+}
+images {
+  image: "/examples/tinyworld/images/src/heart_.png"
+}
+images {
+  image: "/examples/tinyworld/images/src/shadow2.png"
+}
+images {
+  image: "/examples/tinyworld/images/tree1.png"
+}
+images {
+  image: "/examples/tinyworld/images/tree2.png"
+}
+images {
+  image: "/examples/tinyworld/images/tree3.png"
+}
+images {
+  image: "/examples/tinyworld/images/tree4.png"
+}
+images {
+  image: "/examples/tinyworld/images/tree5.png"
+}
+images {
+  image: "/examples/tinyworld/images/tree6.png"
+}
+images {
+  image: "/examples/tinyworld/images/grass1.png"
+}
+images {
+  image: "/examples/tinyworld/images/moon.png"
+}
+images {
+  image: "/examples/tinyworld/images/sun.png"
+}
+animations {
+  id: "fire"
+  images {
+    image: "/examples/tinyworld/images/src/fire1.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/src/fire2.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/src/fire3.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/src/fire4.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/src/fire5.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/src/fire6.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/src/fire7.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/src/fire8.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 14
+}
+animations {
+  id: "point"
+  images {
+    image: "/examples/tinyworld/images/src/point1.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/src/point2.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/src/point4.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/src/point5.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/src/point6.png"
+  }
+}
+animations {
+  id: "pointg"
+  images {
+    image: "/examples/tinyworld/images/src/pointg1.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/src/pointg2.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/src/pointg3.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/src/pointg4.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/src/pointg5.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/src/pointg6.png"
+  }
+  playback: PLAYBACK_ONCE_BACKWARD
+}
+animations {
+  id: "smoke"
+  images {
+    image: "/examples/tinyworld/images/src/point6.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/src/point5.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/src/point4.png"
+  }
+  fps: 60
+}
+animations {
+  id: "boyidle"
+  images {
+    image: "/examples/tinyworld/images/chars/boy_idle1.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/chars/boy_idle2.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/chars/boy_idle3.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/chars/boy_idle4.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/chars/boy_idle5.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 12
+}
+margin: 1
+inner_padding: 1

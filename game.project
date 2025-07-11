@@ -12,7 +12,7 @@ high_dpi = 1
 
 [project]
 title = Light and Shadows
-version = 0.81
+version = 0.82
 developer = Igor Suntsev
 dependencies#0 = https://github.com/britzl/defold-input/archive/master.zip
 dependencies#1 = https://github.com/britzl/monarch/archive/refs/tags/3.4.6.zip
@@ -39,8 +39,14 @@ max_debug_vertices = 60000
 game_binding = /builtins/input/all.input_bindingc
 
 [sprite]
-max_count = 512
+max_count = 2048
 
 [library]
 include_dirs = light_and_shadows
+
+[model]
+max_count = 512
+
+[tilemap]
+max_tile_count = 16384
 

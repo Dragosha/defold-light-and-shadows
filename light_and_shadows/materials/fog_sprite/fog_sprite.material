@@ -34,7 +34,7 @@ fragment_constants {
   name: "fog"
   type: CONSTANT_TYPE_USER
   value {
-    x: 10.0
+    x: 1000.0
     y: 1000.0
   }
 }

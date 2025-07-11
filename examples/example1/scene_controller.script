@@ -26,12 +26,8 @@ function final(self)
 end
 
 function update(self, dt)
-    local view = go.get_rotation(self.cam_look_at)
-    light.cam_view = view
-    local pos = go.get_position(self.cam_look_at)
-    light.cam_look_at = pos
-    common.cam_pos = pos
-    light.cam_position  = go.get_world_position(self.camera_go_id)
+    light.set_position(go.get_rotation(self.cam_look_at), go.get_position(self.cam_look_at), go.get_world_position(self.camera_go_id))
+    common.cam_pos = light.cam_look_at
 end
 
 

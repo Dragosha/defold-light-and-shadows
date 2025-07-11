@@ -10,39 +10,43 @@ go.property("PROJECTION_RESOLUTION", 400)
 go.property("perspective", false)
 go.property("fov", 2)
 go.property("static", true)
+go.property("depth_bias", 0.0004)
 
 local dir     = vmath.vector3(0.1, -10, 0.1)
 
-local function set(self)
+local function set_color(self)
     constants.sun_color.x = self.color.x
     constants.sun_color.y = self.color.y
     constants.sun_color.z = self.color.z
     constants.shadow_color.x = self.shadow.x
     constants.shadow_color.y = self.shadow.y
     constants.shadow_color.z = self.shadow.z
+end
 
+local function set_position(self)
     local pos = go.get_world_position()
     constants.sun_position.x = pos.x
     constants.sun_position.y = pos.y
     constants.sun_position.z = pos.z
 
     constants.sun_dir = vmath.rotate(go.get_world_rotation(), dir)
-
 end
 
 function init(self)
-    set(self)
+    set_color(self)
+    set_position(self)
     if self.perspective then
         ls.set_perspective_projection(self.fov, 1.0, self.near, self.far)
     else
         ls.set_orthographic_projection(self.PROJECTION_RESOLUTION, self.PROJECTION_RESOLUTION, self.near, self.far)
     end
+    ls.depth_bias = self.depth_bias
 end
 
 -- Remove 'update' if the sun is static object
 function update(self, dt)
     if not self.static then
-        set(self)
+        set_position(self)
     end
 end
 

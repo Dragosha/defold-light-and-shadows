@@ -1,0 +1,71 @@
+local si        = require 'helper.simple_input'
+local monarch   = require "monarch.monarch"
+local broadcast = require 'helper.broadcast'
+local virtual_stick = require 'helper.virtual_stick'
+local common = require 'helper.common'
+
+local day = true
+
+local function text_upd()
+    gui.set_text(gui.get_node("blur"), day and "On" or "Off")
+end
+
+local function show_or_hide_ui()
+    gui.animate(gui.get_node("corner"), "position.y", day and 400 or -240, gui.EASING_OUTBACK, .2)
+end
+
+function init(self)
+
+    -- Simple input. Registre the 'next' button hundler.
+    si.acquire()
+
+    si.register("wow", function()
+        day = not day
+        text_upd()
+        broadcast.send("day", {value = day})
+
+        show_or_hide_ui()
+    end)
+
+    text_upd()
+    show_or_hide_ui()
+
+    -- The UI scaling depends on the window resolution.
+    local function resize()
+        local x, y, zoom = virtual_stick.get_aspect_ratio()
+        local scale = vmath.vector3(zoom, zoom, 1)
+        -- print("next", scale)
+        gui.set_scale(gui.get_node("corner"), scale)
+        gui.set_scale(gui.get_node("corner2"), scale)
+    end
+
+    broadcast.register("WINDOW_RESIZED", resize)
+    resize()
+
+end
+
+function final(self)
+    -- light_and_shadows.blur = false
+    broadcast.unregister_all()
+    si.unregister()
+    si.release()
+end
+
+function update(self, dt)
+end
+
+function on_message(self, message_id, message, sender)
+    if broadcast.on_message(message_id, message, sender) then
+        -- message was handled
+        return
+    end
+end
+
+function on_input(self, action_id, action)
+    if si.on_input(self, action_id, action) then
+        -- input message was handled
+        return true
+    end
+end
+
+

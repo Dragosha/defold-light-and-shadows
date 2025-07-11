@@ -67,49 +67,66 @@ Most important is:
 * `PROJECTION_RESOLUTION` = 400 - This constant indicates the size of the area on which the shadow is projected around the screen center. Smaller size is better shadow quality. This value also depends on camera zoom / world scale. Feel free to adjust it. You can set it in the sun.script.
 
 
-### Materials
+## Materials
 
-* Model - material to setup the 3D models.
+### Model 
 
- `model_world` uses world vertex space. If you use 3D models with this material and the same texture, such objects will be assembled in batching. But this required more CPU time. Also this material can used for animated models.
+materials to setup the 3D models.
 
- `model_local` uses local vertex space. Less CPU load, but each individual model will require its own drawcall.
+* `model_world` uses world vertex space. If you use 3D models with this material and the same texture, such objects will be assembled in batching. But this required more CPU time. Also this material can used for animated models.
 
- `model_instanced` uses local vertex space and 'mtx_world' and 'mtx_normal' are specified as attributes. This type is best suited for identical models duplicated in large numbers on a scene. Such as trees, walls, grass, etc. The geometry of such a model will be passed to the GPU once.
+* `model_local` uses local vertex space. Less CPU load, but each individual model will require its own drawcall.
 
-* Mesh - material to install on the mesh component. Very similar to the material for models, but also uses the vertex color value in calculating the pixel totals.
+* `model_instanced` uses local vertex space and 'mtx_world' and 'mtx_normal' are specified as attributes. This type is best suited for identical models duplicated in large numbers on a scene. Such as trees, walls, grass, etc. The geometry of such a model will be passed to the GPU once.
 
-* Sprite
+### Mesh 
 
- `light_sprite` - material to install on the sprite component. Since the sprite has no normals, we set the normal in the material as an user vector4 constant.
+material to install on the mesh component. Very similar to the material for models, but also uses the vertex color value in calculating the pixel totals.
+
+### Sprite
+
+* `light_sprite` - material to install on the sprite component. Since the sprite has no normals, we set the normal in the material as an user vector4 constant.
 Note, the direction of the normal can and should be changed depending on what angle you set the sprites in your scene. In the example all sprites are tilted at the same X angle as the camera (-26.6), this is done to minimize distortion when drawing a scene with perspective, so that the sprites "look" exactly at the camera.
 
- `light_sprite_back` - uses the same shaders as light_sprite, but the normal in the material looks "up". Used for decals on the ground, for the floor, etc. Also drawn in its predicate, before the other sprites.
+* `light_sprite_back` - uses the same shaders as light_sprite, but the normal in the material looks "up". Used for decals on the ground, for the floor, etc. Also drawn in its predicate, before the other sprites.
 
- `billboard_light_sprite` - The billboard sprite always faces the camera. If the scale of your sprite is not 1, you can set its scale manually in the sprite properties panel. Or use a special script `billboard.script`. Just add it to the game object with the sprite. 
+* `billboard_light_sprite` - The billboard sprite always faces the camera. If the scale of your sprite is not 1, you can set its scale manually in the sprite properties panel. Or use a special script `billboard.script`. Just add it to the game object with the sprite. 
 
 > [!IMPORTANT]
 > billboarding will only work correctly if the default sprite rotation is zero. See `_uncommon_objects` in /examples/example2/scene.collection as an example of how to use this feature.
 
- `bg_parallax_sprite` - Special sprite type. You can use it for background images by setting the coefficient with which this sprite will follow the camera. Values from 0 to 1 are set in the sprite properties panel for XYZ. 0.0 - the sprite is completely stationary in this dimension, i.e. it behaves like a normal sprite without adding camera coordinates. 1.0 - the sprite follows the camera.See `_uncommon_objects` in /examples/example2/scene.collection as an example of how to use this feature.
+* `bg_parallax_sprite` - Special sprite type. You can use it for background images by setting the coefficient with which this sprite will follow the camera. Values from 0 to 1 are set in the sprite properties panel for XYZ. 0.0 - the sprite is completely stationary in this dimension, i.e. it behaves like a normal sprite without adding camera coordinates. 1.0 - the sprite follows the camera.See `_uncommon_objects` in /examples/example2/scene.collection as an example of how to use this feature.
 
- > [!NOTE]
- > Parallax sprites do not apply dynamic lighting to themselves and do not cast shadows. They do, however, take into account ambient values and sunlight intensity. As well as fog. With such sprites you can fix a distant landscape on the background by moving the main game scene in front of it. The position of such a sprite is considered directly in the shader.
+> [!NOTE]
+> Parallax sprites do not apply dynamic lighting to themselves and do not cast shadows. They do, however, take into account ambient values and sunlight intensity. As well as fog. With such sprites you can fix a distant landscape on the background by moving the main game scene in front of it. The position of such a sprite is considered directly in the shader.
 
- `repeat_sprite_nocast` - A sprite with a repeating (tiled) texture. It is used for repeating the texture on a large area, for example, for filling the surface with grass, water surface (can be animated). In the rendering is drawn before the rest of the sprite to be under the feet of the character in any case. The normal in the material looks "up".
- More info: [Texture repeat shader](https://github.com/Dragosha/defold-sprite-repeat)
+* `repeat_sprite_nocast` - A sprite with a repeating (tiled) texture. It is used for repeating the texture on a large area, for example, for filling the surface with grass, water surface (can be animated). In the rendering is drawn before the rest of the sprite to be under the feet of the character in any case. The normal in the material looks "up".
+More info: [Texture repeat shader](https://github.com/Dragosha/defold-sprite-repeat)
 
- ![Tiling](assets/docs/repeat.png)
+![Tiling](assets/docs/repeat.png)
 
-* Spine - material to install on the spine component. Uses the same shaders as light_sprite, differs from sprite only by using a different view matrix.
+### Tilemap
 
-* Fog - `fog_sprite`, `fog_particle`, `fog_label` are used on appropriate components when we do not need to calculate light and shadows. But the component must fade in the distance and calculate fog. For example, it is used for partials of fire, or the effect of glow from a window. Which is done simply by a sprite with a blending like `ADD` installed. Explore the example scene to understand better. 
+> [!TIP]
+> In fact, tilemaps use the same shaders as sprites. You can use any sprite material to set on a tilemap. You may need to create your own material to give it its own tag for rendering below or above the regular sprites.
 
-* Hidden - materials for auxiliary objects that are not involved in the rendering, but should be visible in the editor window. For example, labels or a camera model.
+### Spine
 
-* Shadow - a special material for calculating the shadow map, set automatically in the render script.
+material to install on the spine component. Uses the same shaders as light_sprite, differs from sprite only by using a different view matrix.
 
-Note that the materials that draw the shadows contain two samplers. Tex0 is your texture or atlas in the case of a sprite. Tex1 will be set automatically in the render script, it is a shadow map texture.
+### Fog 
+* `fog_sprite`, `fog_particle`, `fog_label` are used on appropriate components when we do not need to calculate light and shadows. But the component must fade in the distance and calculate fog. For example, it is used for partials of fire, or the effect of glow from a window. Which is done simply by a sprite with a blending like `ADD` installed. Explore the example scene to understand better. 
+
+### Hidden
+
+materials for auxiliary objects that are not involved in the rendering, but should be visible in the editor window. For example, labels or a camera model.
+
+### Shadow 
+
+a special material for calculating the shadow map, set automatically in the render script.
+
+> [!NOTE]
+> Note that the materials that draw the shadows contain two samplers. Tex0 is your texture or atlas in the case of a sprite. Tex1 will be set automatically in the render script, it is a shadow map texture.
 
 #### Tags:
 
@@ -177,6 +194,8 @@ Only one light source casts shadows and this part is about him. There is a speci
 * `Fov` - field of view of the lens, measured as the angle in radians between the right and left edge. (Optimal value must be < 3.14)
 
 * `Static` - The object is static and does not update its properties every frame.
+
+* `Depth bias` - To reduce the Peter Panning effect (shadows detaching from objects) in shadow mapping, you need to adjust the shadow bias, a value that offsets the shadow depth. Too high a bias causes Peter Panning, while too low a bias leads to shadow acne.
 
 To set the optimal Fov, Near and Far values for perspective projection, you can add a standard camera component to the scene in a `sun' object and adjust these values there, visually contrasting the area where shadows will be cast, then remove the camera from the scene.
 
@@ -266,7 +285,7 @@ You can enable blurring of the game scene canvas and draw an unblurred GUI on to
 You can adjust the blur power by changing the `light_and_shadows.blur_power` value in the range from 1 to 10 (actually any, say 3.5 gives quite nice blur result as on the picture below).
 Enabled blur automatically enables *Upscaling* as it uses the same Render Target.
 
-![blur](/assets/docs/blur.png)
+![blur](assets/docs/blur.png)
 
 
 ## One more thing

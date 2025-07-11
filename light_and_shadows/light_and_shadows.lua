@@ -17,6 +17,10 @@ light_and_shadows.upscale = false
 light_and_shadows.blur = false
 light_and_shadows.blur_power = 1
 
+-- To reduce the Peter Panning effect (shadows detaching from objects) in shadow mapping, you need to adjust the shadow bias, a value that offsets the shadow depth.
+-- Too high a bias causes Peter Panning, while too low a bias leads to shadow acne.
+light_and_shadows.depth_bias = 0.0004
+
 local BUFFER_RESOLUTION = 2048 -- Size of shadow map. Select value from: 1024/2048/4096. More is better quality.
 
 -- Projection resolution of shadow map to the game world. Smaller size is better shadow quality,
@@ -179,7 +183,7 @@ function light_and_shadows.update_light(self)
     v4.x = math.sin(self.dt)
     v4.y = math.cos(self.dt)
     v4.z = 0
-    v4.w = 0
+    v4.w = light_and_shadows.depth_bias
     self.constants.v4 = v4
 
     -- Camera focus point. Look at this point.
