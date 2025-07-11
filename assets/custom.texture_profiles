@@ -1,6 +1,10 @@
 path_settings {
-  path: "**"
+  path: "/assets/rgba/*"
   profile: "Default"
+}
+path_settings {
+  path: "/examples/tinyworld/*"
+  profile: "uncompressed"
 }
 profiles {
   name: "Default"
@@ -8,25 +12,21 @@ profiles {
     os: OS_ID_GENERIC
     formats {
       format: TEXTURE_FORMAT_RGBA
-      compression_level: BEST
-      compression_type: COMPRESSION_TYPE_BASIS_UASTC
+      compressor: "BasisU"
+      compressor_preset: "BASISU_HIGH"
     }
     mipmaps: false
-    max_texture_size: 0
-    premultiply_alpha: true
   }
 }
 profiles {
-  name: "a"
+  name: "uncompressed"
   platforms {
     os: OS_ID_GENERIC
     formats {
       format: TEXTURE_FORMAT_RGBA
-      compression_level: BEST
-      compression_type: COMPRESSION_TYPE_DEFAULT
+      compressor: "Uncompressed"
+      compressor_preset: "UNCOMPRESSED"
     }
     mipmaps: false
-    max_texture_size: 0
-    premultiply_alpha: false
   }
 }
