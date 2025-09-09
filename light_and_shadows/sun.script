@@ -11,6 +11,7 @@ go.property("perspective", false)
 go.property("fov", 2)
 go.property("static", true)
 go.property("depth_bias", 0.0004)
+go.property("max_lights", 8)
 
 local dir     = vmath.vector3(0.1, -10, 0.1)
 
@@ -41,6 +42,7 @@ function init(self)
         ls.set_orthographic_projection(self.PROJECTION_RESOLUTION, self.PROJECTION_RESOLUTION, self.near, self.far)
     end
     ls.depth_bias = self.depth_bias
+    ls.max_lights = self.max_lights
 end
 
 -- Remove 'update' if the sun is static object

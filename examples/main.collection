@@ -11,12 +11,12 @@ embedded_instances {
   "  component: \"/examples/main.script\"\n"
   "  properties {\n"
   "    id: \"first\"\n"
-  "    value: \"6.0\"\n"
+  "    value: \"5.0\"\n"
   "    type: PROPERTY_TYPE_NUMBER\n"
   "  }\n"
   "  properties {\n"
   "    id: \"total\"\n"
-  "    value: \"6.0\"\n"
+  "    value: \"5.0\"\n"
   "    type: PROPERTY_TYPE_NUMBER\n"
   "  }\n"
   "}\n"
@@ -84,6 +84,11 @@ embedded_instances {
   ""
 }
 embedded_instances {
+  id: "rt"
+  children: "render_target_quad"
+  data: ""
+}
+embedded_instances {
   id: "example4"
   data: "components {\n"
   "  id: \"screen_proxy\"\n"
@@ -103,37 +108,13 @@ embedded_instances {
   ""
 }
 embedded_instances {
-  id: "rt"
-  children: "render_target_quad"
-  data: ""
-}
-embedded_instances {
-  id: "example5"
+  id: "example_tinyworld"
   data: "components {\n"
   "  id: \"screen_proxy\"\n"
   "  component: \"/monarch/screen_proxy.script\"\n"
   "  properties {\n"
   "    id: \"screen_id\"\n"
   "    value: \"5\"\n"
-  "    type: PROPERTY_TYPE_HASH\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"collectionproxy\"\n"
-  "  type: \"collectionproxy\"\n"
-  "  data: \"collection: \\\"/examples/example5/scene.collection\\\"\\n"
-  "\"\n"
-  "}\n"
-  ""
-}
-embedded_instances {
-  id: "example6"
-  data: "components {\n"
-  "  id: \"screen_proxy\"\n"
-  "  component: \"/monarch/screen_proxy.script\"\n"
-  "  properties {\n"
-  "    id: \"screen_id\"\n"
-  "    value: \"6\"\n"
   "    type: PROPERTY_TYPE_HASH\n"
   "  }\n"
   "}\n"

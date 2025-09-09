@@ -35,3 +35,11 @@ render_resources {
   name: "copy"
   path: "/light_and_shadows/materials/copy/copy.material"
 }
+render_resources {
+  name: "shadow_instanced_billboard"
+  path: "/light_and_shadows/materials/shadow/shadow_instanced_billboard.material"
+}
+render_resources {
+  name: "shadow_instanced_textured"
+  path: "/light_and_shadows/materials/shadow/shadow_instanced_textured.material"
+}

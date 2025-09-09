@@ -1,6 +1,0 @@
-name: "player"
-instances {
-  id: "player"
-  prototype: "/examples/example4/player/player.go"
-}
-scale_along_z: 0

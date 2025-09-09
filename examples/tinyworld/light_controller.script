@@ -29,11 +29,12 @@ local function set(self)
 	constants.clear_color.x = self.clear_color.x
 	constants.clear_color.y = self.clear_color.y
 	constants.clear_color.z = self.clear_color.z
+
 end
 
 
-local morning   = vmath.vector4(0.5, 0.6, 0.5, 0)
-local noon      = vmath.vector4(1, 1, .8, 0)
+local morning   = vmath.vector4(0.4, 0.4, 0.2, 0)
+local noon      = vmath.vector4(.5, .5, .5, 0)
 local evening   = vmath.vector4(0.1, 0.1, 0.5, 0)
 local night     = vmath.vector4(-0.3, -0.1, 0.15, 0)
 
@@ -45,13 +46,13 @@ local clear_night   = vmath.vector4(0.15, 0.2, 0.4, 0)
 local shadow_day    = vmath.vector4(0.5, 0.5, 0.2, 0)
 local shadow_night  = vmath.vector4(0.2, 0.2, 0.1, 0)
 
-local anight    = vmath.vector4(0.2, 0.2, 0.4, 1)
-local amorning  = vmath.vector4(0.6, 0.5, 0.5, 1.2)
-local anoon     = vmath.vector4(0.5, 0.5, 0.3, 1.3)
-local aevening  = vmath.vector4(0.2, 0.2, 0.4, 1)
+local anight    = vmath.vector4(0.2, 0.2, 0.4, 1.1)
+local amorning  = vmath.vector4(0.6, 0.5, 0.5, 1.1)
+local anoon     = vmath.vector4(0.8, 0.8, 0.8, 1.1)
+local aevening  = vmath.vector4(0.2, 0.2, 0.4, 1.1)
 
 local function to_day(self)
-	local time = 3
+	local time = 1
 
 	go.animate("#", "sun_color", go.PLAYBACK_ONCE_FORWARD, morning, go.EASING_LINEAR, time * .2, 0)
 	go.animate("#", "sun_color", go.PLAYBACK_ONCE_FORWARD, noon, go.EASING_LINEAR, time * .8, time * .2)
@@ -77,14 +78,14 @@ local function to_day(self)
 		sequence.go_animate("moon_sun", "position.y", go.PLAYBACK_ONCE_FORWARD, 100, go.EASING_INBACK, .2)
 		sprite.play_flipbook("moon_sun#sprite", "sun")
 		go.set("moon_sun#aura", "color", vmath.vector4(1))
-		sequence.go_animate("sun", "position.z", go.PLAYBACK_ONCE_FORWARD, -100, go.EASING_INOUTCUBIC, time / 4)
+		sequence.go_animate("sun", "position.z", go.PLAYBACK_ONCE_FORWARD, 100, go.EASING_INOUTCUBIC, time / 4)
 		sequence.go_animate("moon_sun", "position.y", go.PLAYBACK_ONCE_FORWARD, 0, go.EASING_OUTBACK, .2)
 	end)
 
 end
 
 local function to_night(self)
-	local time = 3
+	local time = 1
 
 	go.animate("#", "sun_color", go.PLAYBACK_ONCE_FORWARD, evening, go.EASING_LINEAR, time * .2, 0)
 	go.animate("#", "sun_color", go.PLAYBACK_ONCE_FORWARD, night, go.EASING_LINEAR, time * .8, time * .2)
@@ -109,7 +110,7 @@ local function to_night(self)
 		sequence.go_animate("moon_sun", "position.y", go.PLAYBACK_ONCE_FORWARD, 100, go.EASING_INBACK, .2)
 		sprite.play_flipbook("moon_sun#sprite", "moon")
 		go.set("moon_sun#aura", "color", vmath.vector4(.4, .6, 1, 1))
-		sequence.go_animate("sun", "position.z", go.PLAYBACK_ONCE_FORWARD, 100, go.EASING_INOUTCUBIC, time / 4)
+		sequence.go_animate("sun", "position.z", go.PLAYBACK_ONCE_FORWARD, -100, go.EASING_INOUTCUBIC, time / 4)
 		sequence.go_animate("moon_sun", "position.y", go.PLAYBACK_ONCE_FORWARD, 0, go.EASING_OUTBACK, .2)
 	end)
 end

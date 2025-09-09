@@ -1,26 +1,10 @@
-components {
-  id: "shad"
-  component: "/examples/tinyworld/3D/shad.sprite"
-  position {
-    y: 0.03
-  }
-  rotation {
-    x: 0.70710677
-    w: 0.70710677
-  }
-  scale {
-    x: 0.11252
-    y: 0.11252
-    z: 0.11252
-  }
-}
 embedded_components {
   id: "model"
   type: "model"
   data: "mesh: \"/examples/tinyworld/models/block2.gltf\"\n"
   "name: \"unnamed\"\n"
   "materials {\n"
-  "  name: \"default\"\n"
+  "  name: \"material_0\"\n"
   "  material: \"/examples/tinyworld/materials/model_instanced_nearest.material\"\n"
   "  textures {\n"
   "    sampler: \"tex0\"\n"
@@ -28,4 +12,40 @@ embedded_components {
   "  }\n"
   "}\n"
   ""
+}
+embedded_components {
+  id: "model1"
+  type: "model"
+  data: "mesh: \"/examples/tinyworld/models/block.gltf\"\n"
+  "name: \"unnamed\"\n"
+  "materials {\n"
+  "  name: \"material_0\"\n"
+  "  material: \"/examples/tinyworld/materials/model_instanced_nearest.material\"\n"
+  "  textures {\n"
+  "    sampler: \"tex0\"\n"
+  "    texture: \"/examples/tinyworld/models/texture.png\"\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    y: 1.0
+  }
+}
+embedded_components {
+  id: "model2"
+  type: "model"
+  data: "mesh: \"/examples/tinyworld/models/block4.gltf\"\n"
+  "name: \"unnamed\"\n"
+  "materials {\n"
+  "  name: \"material_0\"\n"
+  "  material: \"/examples/tinyworld/materials/model_instanced_nearest.material\"\n"
+  "  textures {\n"
+  "    sampler: \"tex0\"\n"
+  "    texture: \"/examples/tinyworld/models/texture.png\"\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    y: 2.0
+  }
 }

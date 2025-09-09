@@ -3,6 +3,8 @@ local monarch   = require "monarch.monarch"
 local broadcast = require 'helper.broadcast'
 local virtual_stick = require 'helper.virtual_stick'
 local common = require 'helper.common'
+local light_and_shadows = require "light_and_shadows.light_and_shadows"
+local tweener = require 'helper.tweener'
 
 local day = true
 
@@ -10,25 +12,64 @@ local function text_upd()
     gui.set_text(gui.get_node("blur"), day and "On" or "Off")
 end
 
-local function show_or_hide_ui()
-    gui.animate(gui.get_node("corner"), "position.y", day and 400 or -240, gui.EASING_OUTBACK, .2)
+local t = {
+    move = 0,
+    tree = 1,
+    house = 2,
+    tower = 3,
+}
+local selected = 0
+local function ui_upd()
+    gui.play_flipbook(gui.get_node("move"), selected == t.move and "button_" or "button")
+    gui.play_flipbook(gui.get_node("tree"), selected == t.tree and "button_" or "button")
+    gui.play_flipbook(gui.get_node("house"), selected == t.house and "button_" or "button")
+    -- gui.animate(gui.get_node("corner"), "position.y", day and 400 or -240, gui.EASING_OUTBACK, .2)
 end
+
+
 
 function init(self)
 
     -- Simple input. Registre the 'next' button hundler.
-    si.acquire()
+    timer.delay(.1, false, function()
+        si.acquire()
+    end)
+    
 
     si.register("wow", function()
         day = not day
         text_upd()
         broadcast.send("day", {value = day})
+        ui_upd()
+    end)
+    si.register("move", function()
+        selected = t.move
+        broadcast.send("select", {selected = selected})
+        ui_upd()
+    end)
+    si.register("tree", function()
+        selected = t.tree
+        broadcast.send("select", {selected = selected})
+        ui_upd()
+    end)
+    si.register("house", function()
+        selected = t.house
+        broadcast.send("select", {selected = selected})
+        ui_upd()
+    end)
 
-        show_or_hide_ui()
+    si.register("settings", function()
+        light_and_shadows.blur = not light_and_shadows.blur
+        light_and_shadows.blur_power = 1
+        tweener.tween(tweener.linear, 1, 4, .3, function(value, is_final_call)
+            light_and_shadows.blur_power = value
+        end)
+        text_upd()
+        ui_upd()
     end)
 
     text_upd()
-    show_or_hide_ui()
+    ui_upd()
 
     -- The UI scaling depends on the window resolution.
     local function resize()

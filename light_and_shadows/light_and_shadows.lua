@@ -21,6 +21,8 @@ light_and_shadows.blur_power = 1
 -- Too high a bias causes Peter Panning, while too low a bias leads to shadow acne.
 light_and_shadows.depth_bias = 0.0004
 
+light_and_shadows.max_lights = 8
+
 local BUFFER_RESOLUTION = 2048 -- Size of shadow map. Select value from: 1024/2048/4096. More is better quality.
 
 -- Projection resolution of shadow map to the game world. Smaller size is better shadow quality,
@@ -142,7 +144,7 @@ function light_and_shadows.update_light(self)
     -- #define LIGHT_COUNT 16
     --                     ^^ 
     -- ...
-    for i = 1, 8 do
+    for i = 1, light_and_shadows.max_lights do
         local l = constants.lights[i]
         if l then
             self.constants.lights[i] = constants.lights[i].position or v0
@@ -179,10 +181,11 @@ function light_and_shadows.update_light(self)
     -- It's used in shader to calculate speculars by phong model.
     self.constants.cam_pos = constants.cam_position
     
+    -- v4 uniform uses to pass some important values to shaders program
     self.dt = (self.dt or 0) + 1/60 -- dt
     v4.x = math.sin(self.dt)
     v4.y = math.cos(self.dt)
-    v4.z = 0
+    v4.z = light_and_shadows.max_lights
     v4.w = light_and_shadows.depth_bias
     self.constants.v4 = v4
 
@@ -225,6 +228,12 @@ function light_and_shadows.render_shadows(self)
     render.enable_material("shadow_instanced", {frustum = frustum, frustum_planes = render.FRUSTUM_PLANES_ALL})
         render.draw(self.predicates.shadow_instanced)
         render.disable_material()
+    render.enable_material("shadow_instanced_billboard", {frustum = frustum, frustum_planes = render.FRUSTUM_PLANES_ALL})
+    render.draw(self.predicates.shadow_instanced_billboard)
+    render.disable_material()
+    render.enable_material("shadow_instanced_textured", {frustum = frustum, frustum_planes = render.FRUSTUM_PLANES_ALL})
+    render.draw(self.predicates.shadow_instanced_textured)
+    render.disable_material()
     render.enable_material("shadow_skinned_instanced", {frustum = frustum, frustum_planes = render.FRUSTUM_PLANES_ALL})
         render.draw(self.predicates.shadow_skinned_instanced)
         render.disable_material()

@@ -4,7 +4,7 @@ embedded_components {
   data: "mesh: \"/examples/tinyworld/models/block4.gltf\"\n"
   "name: \"unnamed\"\n"
   "materials {\n"
-  "  name: \"default\"\n"
+  "  name: \"material_0\"\n"
   "  material: \"/examples/tinyworld/materials/model_instanced_nearest.material\"\n"
   "  textures {\n"
   "    sampler: \"tex0\"\n"

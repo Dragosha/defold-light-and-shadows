@@ -32,6 +32,11 @@ void main()
     vec4 color = texture(tex0, uv) * tint_pm;
     // if(color.a < 0.1) discard;
 
+// Editor does not support Lights and Shadows previews yet, so ignore it.
+#ifdef EDITOR
+    out_fragColor = color;
+#else
+
     // Diffuse light calculations
     vec3 diff_light = diffuse_light(ambient.xyz);
 
@@ -53,5 +58,5 @@ void main()
     frag_color = add_fog(frag_color, var_view_position.z, fog.x, fog.y, fog_color.rgb*color.a, fog_color.a);
 
     out_fragColor = vec4(frag_color, color.a);
-
+#endif
 }

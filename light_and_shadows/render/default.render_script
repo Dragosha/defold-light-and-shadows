@@ -176,7 +176,7 @@ local constants = require "light_and_shadows.constants"
 
 function init(self)
     self.predicates = create_predicates("tile", "gui", "particle", "model", "debug_text",
-    "model_alpha_blend", "bgtile",
+    "model_alpha_blend", "bgtile", "shadow_instanced_billboard", "shadow_instanced_textured", "model2", "model3",
     "atile", "shadow", "upscale", "shadow_local", "shadow_instanced", "shadow_skinned_instanced", "shadow_skinned") -- L_S Injection
 
     -- default is stretch projection. copy from builtins and change for different projection
@@ -257,6 +257,8 @@ function update(self)
     --
     render.enable_state(graphics.STATE_CULL_FACE)
     render.draw(predicates.model, draw_options_world)
+    render.draw(predicates.model2, draw_options_world)
+    render.draw(predicates.model3, draw_options_world)
     render.set_depth_mask(false)
     render.enable_state(graphics.STATE_BLEND) -- Enable Alpha Blending for semi-transparent materials
     -- render.set_blend_func(render.BLEND_ONE, render.BLEND_ONE) -- Enable this if wants to ADD blending

@@ -34,7 +34,7 @@ embedded_components {
   "name: \"unnamed\"\n"
   "materials {\n"
   "  name: \"default\"\n"
-  "  material: \"/light_and_shadows/materials/model/model_world_nocast.material\"\n"
+  "  material: \"/light_and_shadows/materials/model/model_instanced_nocast.material\"\n"
   "  textures {\n"
   "    sampler: \"tex0\"\n"
   "    texture: \"/assets/images/tiles/bg.png\"\n"

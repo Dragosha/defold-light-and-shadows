@@ -40,7 +40,13 @@ end
 
 function common.clamp(x, min, max)
     return x < min and min or (x > max and max or x)
-  end
+end
+
+---Get random position from the table
+---@param variants table
+function common.get_one_from(variants)
+    return variants[math.random(#variants)]
+end
 
 common.cam_pos = vmath.vector3()
 common.is_sound_on = true

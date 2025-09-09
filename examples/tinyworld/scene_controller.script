@@ -8,10 +8,155 @@ go.property("camera_id", msg.url("camera#camera"))
 go.property("cam_look_at", msg.url("cam_target"))
 go.property("acquire_delay", 0)
 go.property("zoom_speed", 1)
-
+local root     = vmath.vector3(0, 0, 0)
+local up       = vmath.vector3(0, 1, 0)
 -- Scene Input controller.
 -- Hundle mouse click/touch and broadcast it to listeners.
 -- Scroll/zoom a game world by moving the camera.
+
+local perlin = require 'examples.tinyworld.perlin'
+perlin:load()
+
+local TILE_SIZE = 16
+local SCALE = vmath.vector3(16)
+local objects = {}
+local t = {
+    move = 0,
+    tree = 1,
+    house = 2,
+    tower = 3,
+}
+local props = {
+    tree =  {"#tree_bill", "#tree_bill1", "#tree_bill2", "#tree_bill3", "#tree_bill4", "#tree_bill5", "#tree_bill6", "#tree_bill5"},
+    house = {"#b3", "#b4", "#b5", "#b6", "#b7"},
+    bighouse = {"#b2"},
+    tower = {"tower_wall"},
+}
+local total = 0
+local MAP_WIDTH = 80
+local MAP_HEIGHT = 80
+local function generate(self)
+
+    
+    local map = {}
+    
+    local scale = 1 / 8
+    local turl = msg.url("/tilemap#tw")
+    
+    for y = 1, MAP_HEIGHT do
+        map[y] = {}
+        objects[y] = {}
+        for x = 1, MAP_WIDTH do
+            map[y][x] = 0
+            tilemap.set_tile(turl, "ground", (x - MAP_WIDTH/2), (MAP_HEIGHT/2 - y + 1), common.get_one_from({108, 111, 105, 102, 118}))
+            local v = 0.5 + (perlin:noise(x * scale, y * scale, 0) + 0.5 * perlin:noise(2 * x * scale, 2 * y * scale, 0.1) + 0.25 * perlin:noise(4 * x * scale, 4 * y * scale, 0.2)) / 2
+            -- local v = (0.5 + perlin:noise(x * scale, y * scale, 0) / 2)
+            if v > 0.5 and v <= 0.6 then
+                map[y][x] = 1
+                tilemap.set_tile(turl, "ground", (x - MAP_WIDTH/2), (MAP_HEIGHT/2 - y + 1), common.get_one_from({5, 6}))
+                
+            elseif v > 0.6 and v <= 0.7 then
+                local position = vmath.vector3((x -.5 - MAP_WIDTH/2)* TILE_SIZE, 0, (y - MAP_HEIGHT/2 - .5)* TILE_SIZE)
+                -- local id = factory.create(common.get_one_from{"#billboard"}, position, nil, nil, vmath.vector3(1))
+                local name = common.get_one_from(props.tree)
+                local id = factory.create(name, position, nil, nil, SCALE)
+                objects[y][x] = {id = id, t = t.tree }
+                total = total + 1
+                map[y][x] = 1
+                tilemap.set_tile(turl, "ground", (x - MAP_WIDTH/2), (MAP_HEIGHT/2 - y + 1), common.get_one_from({8, 5, 6}))
+            elseif v > 0.1 and v <= 0.14 then
+                local position = vmath.vector3((x -.5 - MAP_WIDTH/2)* TILE_SIZE, 0, (y - MAP_HEIGHT/2 - .5)* TILE_SIZE)
+                local name = common.get_one_from(props.house)
+                local id = factory.create(name, position, nil, nil, SCALE)
+                objects[y][x] = {id = id, t = t.house}
+                total = total + 1
+            end
+        end
+    end
+    
+    for y = 2, MAP_HEIGHT do
+        for x = 2, MAP_WIDTH do
+            if map[y][x] == 1 then
+                map[y][x -1] = 1
+                tilemap.set_tile(turl, "ground", (x - 1 - MAP_WIDTH/2), (MAP_HEIGHT/2 - y + 1), common.get_one_from({5, 6}))
+                -- map[y-1][x] = 1
+                -- tilemap.set_tile(turl, "ground", (x - MAP_WIDTH/2), (MAP_HEIGHT/2 - y + 2), common.get_one_from({5, 6}))
+            end
+            
+        end
+        for x = MAP_WIDTH-1, 1, -1 do
+            if map[y][x] == 1 then
+                map[y][x +1] = 1
+                tilemap.set_tile(turl, "ground", (x + 1 - MAP_WIDTH/2), (MAP_HEIGHT/2 - y + 1), common.get_one_from({5, 6}))
+            end
+        end
+    end
+    for y = 2, MAP_HEIGHT-1 do
+        for x = 2, MAP_WIDTH-1 do
+            if map[y][x] == 0 then
+                if map[y][x-1] == 1     then tilemap.set_tile(turl, "ground", (x - MAP_WIDTH/2), (MAP_HEIGHT/2 - y + 1), 99) end
+                if map[y][x+1] == 1     then tilemap.set_tile(turl, "ground", (x - MAP_WIDTH/2), (MAP_HEIGHT/2 - y + 1), 97) end
+            end
+        end
+    end
+    for y = 2, MAP_HEIGHT-1 do
+        for x = 2, MAP_WIDTH-1 do
+            if map[y][x] == 0 then
+                if map[y-1][x] == 1     then tilemap.set_tile(turl, "ground", (x - MAP_WIDTH/2), (MAP_HEIGHT/2 - y + 1), 114) end
+                if map[y+1][x] == 1     then tilemap.set_tile(turl, "ground", (x - MAP_WIDTH/2), (MAP_HEIGHT/2 - y + 1), 82) end
+            end
+        end
+    end
+    
+end
+local selected = t.move
+local function neighbours(y, x, typ)
+    local x = common.clamp(x, 2, MAP_WIDTH - 1)
+    local y = common.clamp(y, 2, MAP_HEIGHT -1)
+    if objects[y][x - 1] and objects[y][x -1].t == typ then
+        if objects[y][x + 1] and objects[y][x + 1].t == typ then
+            return true
+        end
+    end
+    return false
+end
+
+local function click(self, position)
+    if selected == t.move then return end
+    common.play_sound("button")
+
+    local x = math.floor(position.x / TILE_SIZE) + MAP_WIDTH/2 + 1
+    local y = math.floor(position.z / TILE_SIZE) + MAP_HEIGHT/2 + 1
+    x = common.clamp(x, 1, MAP_WIDTH)
+    y = common.clamp(y, 1, MAP_HEIGHT)
+    -- print(position, x, y, objects[y][x])
+
+    local position2 = vmath.vector3((x -.5 - MAP_WIDTH/2)* TILE_SIZE, 0, (y - MAP_HEIGHT/2 - .5)* TILE_SIZE)
+
+    local obj = objects[y][x]
+    if obj then
+        go.delete(obj.id)
+        objects[y][x] = nil
+        total = total - 1
+    end
+
+    if selected == t.house then
+        local name = common.get_one_from(props.house)
+        if neighbours(y, x, selected) then name = common.get_one_from(props.bighouse) end
+        local id = factory.create(name, position2, nil, nil, SCALE)
+        objects[y][x] = {id = id, t = t.house}
+        total = total + 1
+        go.animate(id, "scale.y", go.PLAYBACK_ONCE_PINGPONG, SCALE.y * 1.2, go.EASING_OUTBACK, .2)
+        
+    elseif selected == t.tree then
+        local name = common.get_one_from(props.tree)
+        local id = factory.create(name, position2, nil, nil, SCALE)
+        objects[y][x] = {id = id, t = t.tree}
+        total = total + 1
+        go.animate(id, "scale.y", go.PLAYBACK_ONCE_PINGPONG, SCALE.y * 1.2, go.EASING_OUTBACK, .2)
+    end
+
+end
 
 function init(self)
     timer.delay(self.acquire_delay, false, function()
@@ -19,32 +164,105 @@ function init(self)
     end)
     self.touch_down = false
     self.swipe_start_time = 0
+    self.camera_initial_x_angle = go.get(self.cam_look_at, "euler.x")
 
     local function resize()
         local x, y = window.get_size()
-        local z = 300 / common.clamp(x/y, .7, 1)
+        local z = 500 / common.clamp(x/y, .7, 1)
         print(z)
-        go.animate(self.camera_go_id, "position.z", go.PLAYBACK_ONCE_FORWARD, z, go.EASING_LINEAR, .2)
+        -- go.animate(self.camera_go_id, "position.z", go.PLAYBACK_ONCE_FORWARD, z, go.EASING_LINEAR, .2)
     end
     broadcast.register("WINDOW_RESIZED", resize)
     resize()
+    broadcast.register("select", function(message) 
+        selected = message.selected
+        print("selected:", selected)
+    end)
+
+    common.init_default_random()
+    generate(self)
 end
 
 function final(self)
+    broadcast.unregister_all()
     msg.post(".", "release_input_focus")
 end
+
+local function screen_to_world(vec, camera_id)
+    return common.screen_to_world_plane(vec.x, vec.y, camera_id, up, root)
+end
+
+
+local INERTIA = 0.75
+local function pinch_update(self, dt)
+    self.cam_euler_dif = (self.cam_euler_dif or 0) * INERTIA
+
+    -- Handle Pinch and Rotate gestures if we have previous and current frames touch positions. 
+    if self.p1 and self.p2 and self.f_p1 and self.f_p2 then
+        -- local w0 = (self.f_p2 - self.f_p1)
+        -- local w1 = (self.p2 - self.p1)
+        -- Vectors between fingers in the World coordinate system.
+        local w0 = screen_to_world(self.f_p2, self.camera_id) - screen_to_world(self.f_p1, self.camera_id)
+        local w1 = screen_to_world(self.p2, self.camera_id) - screen_to_world(self.p1, self.camera_id)
+
+        -- Zoom pinch
+        local scale = vmath.length(w0) / math.max(vmath.length(w1), 0.000001)
+        local z = go.get_position(self.camera_go_id).z * scale
+        go.set(self.camera_go_id, "position.z", common.clamp(z, 300, 940))
+
+        -- Rotate gesture
+        local a0 = math.atan2(w0.z, w0.x)
+        local a1 = math.atan2(w1.z, w1.x)
+        local dif = math.deg(a0 - a1)
+        self.cam_euler_dif = dif
+    end
+    -- Remembers current touches positions for the next frame.
+    self.f_p1 = self.p1
+    self.f_p2 = self.p2
+    self.p1 = nil
+    self.p2 = nil
+
+    -- Rotate the camera with an inertia. Ignore the very small difference (in deg) between frames.
+    if math.abs(self.cam_euler_dif) > .5 then 
+        local angle = (go.get(self.cam_look_at, "euler.y") - self.cam_euler_dif)%360
+        go.set(self.cam_look_at, "euler.y", angle)
+
+        -- Blocks microshifting the camera by second axis.
+        -- Otherwise euler float rounding errors accumulate (probably) and the camera angle moves away.
+        go.set(self.cam_look_at, "euler.x", self.camera_initial_x_angle or -32)
+    end
+
+    -- The camera movement
+    self.cam_translate = (self.cam_translate or vmath.vector3(0)) * INERTIA
+
+    if self.translate then
+        if self.prev_translate then
+            local p = screen_to_world(self.translate, self.camera_id) - screen_to_world(self.prev_translate, self.camera_id)
+            self.cam_translate = p
+        end
+    end
+    self.prev_translate = self.translate
+    self.translate = nil
+
+    -- Set new position to the camera. Ignore small changes.
+    -- Clamp borders.
+    if vmath.length(self.cam_translate) > 0.01 then
+        local position = go.get_position(self.cam_look_at) - self.cam_translate
+        position.z = common.clamp(position.z, -MAP_HEIGHT/2*TILE_SIZE, MAP_HEIGHT/2*TILE_SIZE)
+        position.x = common.clamp(position.x, -MAP_WIDTH/2*TILE_SIZE, MAP_WIDTH/2*TILE_SIZE)
+        go.set_position(position, self.cam_look_at)
+    end
+
+end
+
 
 function update(self, dt)
     light.set_position(go.get_rotation(self.cam_look_at), go.get_position(self.cam_look_at), go.get_world_position(self.camera_go_id))
     common.cam_pos = light.cam_look_at
+    pinch_update(self, dt)
 end
 
-function on_message(self, message_id, message, sender)
-    if broadcast.on_message(message_id, message, sender) then
-        -- message was handled
-        return
-    end
-end
+
 
 local function keyboard_map(self, action_id, action)
 
@@ -60,40 +278,74 @@ local function zoom(self, action_id, action)
      if action_id == hash("mouse_wheel_up") then
         local z = go.get_position(self.camera_go_id).z - self.zoom_speed
         go.set(self.camera_go_id, "position.z", z)
+        local ex = go.get(self.cam_look_at, "euler.x") + 1
+        go.set(self.cam_look_at, "euler.x", ex)
     elseif action_id == hash("mouse_wheel_down") then
         local z = go.get_position(self.camera_go_id).z + self.zoom_speed
         go.set(self.camera_go_id, "position.z", z)
-
+        local ex = go.get(self.cam_look_at, "euler.x") - 1
+        go.set(self.cam_look_at, "euler.x", ex)
     end
 end
 
-local left     = hash("touch")
-local root     = vmath.vector3(0, 0, 0)
-local up       = vmath.vector3(0, 1, 0)
+
+
+local left = hash("touch")
+local TOUCH_MULTI = hash("touch_multi")
+local TOUCH = hash("touch")
+local function pinch_on_input(self, action_id, action)
+    local ret = true
+    -- Multi? (iOS sends it always, Android too?)
+    if action_id==TOUCH_MULTI then
+        for i, v in ipairs(action.touch) do
+            if i == 1 then
+                self.p1 = vmath.vector3(v.x, v.y, 0)
+            elseif i == 2 then
+                self.p2 = vmath.vector3(v.x, v.y, 0)
+            end
+        end
+    -- Single touch (or the first of multi touch + mouse left button)
+    elseif action_id==TOUCH and not action.touch then
+        self.translate = vmath.vector3(action.x, action.y, 0)
+    end
+
+    return ret
+end
+
+
+local CLICK_DELAY = .25
 function on_input(self, action_id, action)
 
     keyboard_map(self, action_id, action)
-    zoom(self, action_id, action)
+    zoom(self, action_id, action) -- mouse wheel zoom
        
-    -- if action_id == left then
-    --     self.touch_down = true
-    --     if action.pressed then
-    --         self.swipe_start_time = socket.gettime()
-    --         self.start_p = common.screen_to_world_plane(action.x, action.y, self.camera_id, up, root)
-    --     end
-    --     if action.released then
-    --         -- if socket.gettime() - self.swipe_start_time < 1 then
-    --         broadcast.send("click", {x = action.x, y = action.y, sx = action.screen_x, sy = action.screen_y})
-    --         -- end
-    --         self.touch_down = false
-    --     end
-    -- end
+    if action_id == left then
+        
+        self.touch_down = true
+        if action.pressed then
+            self.swipe_start_time = socket.gettime()
+        end
+        if action.released then
+            if socket.gettime() - self.swipe_start_time < CLICK_DELAY then
+                click(self,  common.screen_to_world_plane(action.x, action.y, self.camera_id, up, root))
+            -- broadcast.send("click", {x = action.x, y = action.y, sx = action.screen_x, sy = action.screen_y})
+            end
+            self.touch_down = false
+            self.start_p = nil
+        end
+    end
     -- 
-    -- if self.touch_down and action_id == nil then
-    --     local p = common.screen_to_world_plane(action.x, action.y, self.camera_id, up, root)
-    --     local position = go.get_position(self.cam_look_at) - (p - self.start_p)
-    --     go.set_position(position, self.cam_look_at)
-    -- end
+     -- Multi and single touch handler. Camera movement (mouse + touch) 
+    if pinch_on_input(self, action_id, action) then return end
+
     
 end
 
+
+function on_message(self, message_id, message, sender)
+    if broadcast.on_message(message_id, message, sender) then
+        -- message was handled
+        return
+    end
+
+end

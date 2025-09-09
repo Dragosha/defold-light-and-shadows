@@ -90,6 +90,11 @@ instances {
       value: "0.5, 0.5, 0.0, 0.0"
       type: PROPERTY_TYPE_VECTOR4
     }
+    properties {
+      id: "max_lights"
+      value: "0.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
   }
 }
 instances {

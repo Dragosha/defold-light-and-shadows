@@ -78,7 +78,7 @@ attributes {
   name: "sprite_scale"
   double_values {
     v: 1.0
-    v: 0.0
+    v: 0.75
     v: 1.0
   }
   vector_type: VECTOR_TYPE_VEC3

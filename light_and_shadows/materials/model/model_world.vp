@@ -11,7 +11,7 @@ in highp vec3 normal;
 
 uniform vs_uniforms
 {
-    // highp mat4 mtx_normal;
+    highp mat4 mtx_normal;
     highp mat4 mtx_view;
     highp mat4 mtx_proj;
     highp mat4 mtx_light;
@@ -33,8 +33,8 @@ void main()
     var_texcoord0_shadow = mtx_light * pw;
     // If world vertex space is selected, you can remove the
     // normal matrix multiplication for optimal performance.
-    var_normal = normalize(normal);
-    // var_normal = normalize((mtx_normal * vec4(normal, 0.0)).xyz);
+    // var_normal = normalize(normal);
+    var_normal = normalize((mtx_normal * vec4(normal, 0.0)).xyz);
     gl_Position = mtx_proj * p;
   
 }

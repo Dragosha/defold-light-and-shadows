@@ -26,9 +26,10 @@ nodes {
 nodes {
   position {
     x: -62.0
+    y: -0.014343
   }
   size {
-    x: 300.0
+    x: 400.0
     y: 120.0
   }
   type: TYPE_BOX
@@ -117,24 +118,8 @@ nodes {
 }
 nodes {
   position {
-    x: 1600.0
-    y: 90.836
-  }
-  size {
-    x: 300.0
-    y: 120.0
-  }
-  type: TYPE_BOX
-  id: "corner2"
-  xanchor: XANCHOR_RIGHT
-  yanchor: YANCHOR_BOTTOM
-  pivot: PIVOT_E
-  inherit_alpha: true
-  visible: false
-}
-nodes {
-  position {
     x: 1.0
+    y: -131.65804
   }
   size {
     x: 300.0
@@ -145,7 +130,7 @@ nodes {
   xanchor: XANCHOR_RIGHT
   yanchor: YANCHOR_BOTTOM
   pivot: PIVOT_E
-  parent: "corner2"
+  parent: "corner1"
   inherit_alpha: true
   visible: false
 }
@@ -203,6 +188,23 @@ nodes {
   }
   parent: "quality"
   inherit_alpha: true
+}
+nodes {
+  position {
+    x: 1600.0
+    y: 90.836
+  }
+  size {
+    x: 300.0
+    y: 120.0
+  }
+  type: TYPE_BOX
+  id: "corner2"
+  xanchor: XANCHOR_RIGHT
+  yanchor: YANCHOR_BOTTOM
+  pivot: PIVOT_E
+  inherit_alpha: true
+  visible: false
 }
 nodes {
   position {
@@ -295,11 +297,6 @@ nodes {
   visible: false
 }
 nodes {
-  scale {
-    x: 1.58
-    y: 1.58
-    z: 1.58
-  }
   size {
     x: 200.0
     y: 100.0

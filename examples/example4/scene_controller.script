@@ -6,9 +6,12 @@ local broadcast = require 'helper.broadcast'
 go.property("camera_go_id", msg.url("camera"))
 go.property("camera_id", msg.url("camera#camera"))
 go.property("cam_look_at", msg.url("cam_target"))
-go.property("cam_follow", msg.url(""))
 go.property("acquire_delay", 0)
 go.property("zoom_speed", 1)
+
+-- Scene Input controller.
+-- Hundle mouse click/touch and broadcast it to listeners.
+-- Scroll/zoom a game world by moving the camera.
 
 function init(self)
     timer.delay(self.acquire_delay, false, function()
@@ -16,17 +19,19 @@ function init(self)
     end)
     self.touch_down = false
     self.swipe_start_time = 0
-    self.camera_velocity = vmath.vector3()
-
+    self.camera_initial_x_angle = go.get(self.cam_look_at, "euler.x")
+    
     local function resize()
         local x, y = window.get_size()
         -- camera.set_aspect_ratio( self.camera_id, x/y) -- Auto aspect ratio is enabled, see the camera properties
         -- Correct the camera Fov for mobile portrait mode
-        local fov = 0.6854 / common.clamp(x/y, .8, 1)
+        local fov = .5 / common.clamp(x/y, .5, 1)
+        print(x/y, fov)
         camera.set_fov(self.camera_id, fov)
     end
     broadcast.register("WINDOW_RESIZED", resize)
     resize()
+
 end
 
 function final(self)
@@ -34,22 +39,75 @@ function final(self)
     msg.post(".", "release_input_focus")
 end
 
-function update(self, dt)
 
-    if self.cam_follow ~= msg.url("") then
-        local obj_position = go.get(self.cam_follow, "position")
-        local camera_pos = go.get(self.cam_look_at, "position")
-        local cur_velocity = self.camera_velocity -- The type is `vmath.vector3(0)`. Store this variable somewhere, for example in `self`.
-        local smooth_time = 0.2
-        local max_speed = nil
-        camera_pos.x, cur_velocity.x = common.smooth_damp(camera_pos.x, obj_position.x, cur_velocity.x, smooth_time, max_speed, dt)
-        -- camera_pos.y, cur_velocity.y = common.smooth_damp(camera_pos.y, obj_position.y, cur_velocity.y, smooth_time, max_speed, dt)
-        camera_pos.z, cur_velocity.z = common.smooth_damp(camera_pos.z, obj_position.z, cur_velocity.z, smooth_time, max_speed, dt)
-        go.set(self.cam_look_at, "position", camera_pos)
+local root     = vmath.vector3(0, 0, 0)
+local up       = vmath.vector3(0, 1, 0)
+
+local function screen_to_world(vec, camera_id)
+    return common.screen_to_world_plane(vec.x, vec.y, camera_id, up, root)
+end
+
+local INERTIA = 0.75
+local function pinch_update(self, dt)
+    self.cam_euler_dif = (self.cam_euler_dif or 0) * INERTIA
+
+    -- Handle Pinch and Rotate gestures if we have previous and current frames touch positions. 
+    if self.p1 and self.p2 and self.f_p1 and self.f_p2 then
+        -- local w0 = (self.f_p2 - self.f_p1)
+        -- local w1 = (self.p2 - self.p1)
+        -- Vectors between fingers in the World coordinate system.
+        local w0 = screen_to_world(self.f_p2, self.camera_id) - screen_to_world(self.f_p1, self.camera_id)
+        local w1 = screen_to_world(self.p2, self.camera_id) - screen_to_world(self.p1, self.camera_id)
+
+        -- Zoom pinch
+        local scale = vmath.length(w0) / math.max(vmath.length(w1), 0.000001)
+        local z = go.get_position(self.camera_go_id).z * scale
+        go.set(self.camera_go_id, "position.z", common.clamp(z, 150, 600))
+
+        -- Rotate gesture
+        local a0 = math.atan2(w0.z, w0.x)
+        local a1 = math.atan2(w1.z, w1.x)
+        local dif = math.deg(a0 - a1)
+        self.cam_euler_dif = dif
     end
-    
+    -- Remembers current touches positions for the next frame.
+    self.f_p1 = self.p1
+    self.f_p2 = self.p2
+    self.p1 = nil
+    self.p2 = nil
+
+    -- Rotate the camera with an inertia. Ignore the very small difference (in deg) between frames.
+    if math.abs(self.cam_euler_dif) > .5 then 
+        local angle = (go.get(self.cam_look_at, "euler.y") - self.cam_euler_dif)%360
+        go.set(self.cam_look_at, "euler.y", angle)
+
+        -- Blocks microshifting the camera by second axis.
+        -- Otherwise euler float rounding errors accumulate (probably) and the camera angle moves away.
+        go.set(self.cam_look_at, "euler.x", self.camera_initial_x_angle or -32)
+    end
+
+     -- The camera movement
+    self.cam_translate = (self.cam_translate or vmath.vector3(0)) * INERTIA
+
+    if self.translate then
+        if self.prev_translate then
+            local p = screen_to_world(self.translate, self.camera_id) - screen_to_world(self.prev_translate, self.camera_id)
+            self.cam_translate = p
+        end
+    end
+    self.prev_translate = self.translate
+    self.translate = nil
+
+    if vmath.length(self.cam_translate) > 0.01 then
+        local position = go.get_position(self.cam_look_at) - self.cam_translate
+        go.set_position(position, self.cam_look_at)
+    end
+
+end
+function update(self, dt)
     light.set_position(go.get_rotation(self.cam_look_at), go.get_position(self.cam_look_at), go.get_world_position(self.camera_go_id))
     common.cam_pos = light.cam_look_at
+    pinch_update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
@@ -70,7 +128,7 @@ local function keyboard_map(self, action_id, action)
 end
 
 local function zoom(self, action_id, action)
-     if action_id == hash("mouse_wheel_up") then
+    if action_id == hash("mouse_wheel_up") then
         local z = go.get_position(self.camera_go_id).z - self.zoom_speed
         go.set(self.camera_go_id, "position.z", z)
     elseif action_id == hash("mouse_wheel_down") then
@@ -81,12 +139,39 @@ local function zoom(self, action_id, action)
 end
 
 local left     = hash("touch")
-local root     = vmath.vector3(0, 0, 0)
-local up       = vmath.vector3(0, 1, 0)
+
+local TOUCH_MULTI = hash("touch_multi")
+local TOUCH = hash("touch")
+local function pinch_on_input(self, action_id, action)
+    local ret = true
+    -- Multi? (iOS sends it always, Android too?)
+    if action_id==TOUCH_MULTI then
+        for i, v in ipairs(action.touch) do
+            if i == 1 then
+                self.p1 = vmath.vector3(v.x, v.y, 0)
+            elseif i == 2 then
+                self.p2 = vmath.vector3(v.x, v.y, 0)
+            end
+        end
+    -- Single touch (or the first of multi touch + mouse left button)
+    elseif action_id==TOUCH and not action.touch then
+        self.translate = vmath.vector3(action.x, action.y, 0)
+    end
+
+    return ret
+end
 function on_input(self, action_id, action)
 
     keyboard_map(self, action_id, action)
     zoom(self, action_id, action)
-       
+
+    -- Multi and single touch handler. Camera movement (mouse + touch) 
+    if pinch_on_input(self, action_id, action) then return end
+
+    if action_id == hash"mouse_button_right" and action.pressed then
+        go.set("girl", "position.y", 0)
+        go.animate("girl", "position.y", go.PLAYBACK_ONCE_PINGPONG, 20, go.EASING_OUTSINE, .5)
+    end
+
 end
 

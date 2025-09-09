@@ -1,118 +1,3 @@
-components {
-  id: "shad"
-  component: "/examples/tinyworld/3D/shad.sprite"
-  position {
-    y: 0.3
-  }
-  rotation {
-    x: 0.70710677
-    w: 0.70710677
-  }
-}
-components {
-  id: "shad1"
-  component: "/examples/tinyworld/3D/shad.sprite"
-  position {
-    x: 8.0
-    y: 0.3
-    z: -7.0
-  }
-  rotation {
-    x: 0.70710677
-    w: 0.70710677
-  }
-}
-components {
-  id: "shad2"
-  component: "/examples/tinyworld/3D/shad.sprite"
-  position {
-    x: 19.0
-    y: 0.3
-    z: -14.0
-  }
-  rotation {
-    x: 0.70710677
-    w: 0.70710677
-  }
-}
-components {
-  id: "shad3"
-  component: "/examples/tinyworld/3D/shad.sprite"
-  position {
-    x: 5.0
-    y: 0.3
-    z: -23.0
-  }
-  rotation {
-    x: 0.70710677
-    w: 0.70710677
-  }
-}
-components {
-  id: "shad4"
-  component: "/examples/tinyworld/3D/shad.sprite"
-  position {
-    x: -6.0
-    y: 0.3
-    z: -25.0
-  }
-  rotation {
-    x: 0.70710677
-    w: 0.70710677
-  }
-}
-components {
-  id: "shad5"
-  component: "/examples/tinyworld/3D/shad.sprite"
-  position {
-    x: 17.0
-    y: 0.3
-    z: -27.0
-  }
-  rotation {
-    x: 0.70710677
-    w: 0.70710677
-  }
-}
-components {
-  id: "shad6"
-  component: "/examples/tinyworld/3D/shad.sprite"
-  position {
-    x: -8.0
-    y: 0.3
-    z: -9.0
-  }
-  rotation {
-    x: 0.70710677
-    w: 0.70710677
-  }
-}
-components {
-  id: "shad7"
-  component: "/examples/tinyworld/3D/shad.sprite"
-  position {
-    x: 25.0
-    y: 0.3
-    z: 2.0
-  }
-  rotation {
-    x: 0.70710677
-    w: 0.70710677
-  }
-}
-components {
-  id: "shad8"
-  component: "/examples/tinyworld/3D/shad.sprite"
-  position {
-    x: 27.0
-    y: 0.3
-    z: -18.0
-  }
-  rotation {
-    x: 0.70710677
-    w: 0.70710677
-  }
-}
 embedded_components {
   id: "sprite"
   type: "sprite"
@@ -127,9 +12,6 @@ embedded_components {
   "  texture: \"/examples/tinyworld/tiles.atlas\"\n"
   "}\n"
   ""
-  position {
-    y: 8.5
-  }
 }
 embedded_components {
   id: "sprite2"
@@ -147,7 +29,6 @@ embedded_components {
   ""
   position {
     x: 8.0
-    y: 9.0
     z: -7.0
   }
 }
@@ -167,7 +48,6 @@ embedded_components {
   ""
   position {
     x: 19.0
-    y: 8.5
     z: -14.0
   }
 }
@@ -187,7 +67,6 @@ embedded_components {
   ""
   position {
     x: 5.0
-    y: 13.5
     z: -23.0
   }
 }
@@ -207,7 +86,6 @@ embedded_components {
   ""
   position {
     x: -6.0
-    y: 9.0
     z: -25.0
   }
 }
@@ -227,7 +105,6 @@ embedded_components {
   ""
   position {
     x: 17.0
-    y: 13.5
     z: -27.0
   }
 }
@@ -247,7 +124,6 @@ embedded_components {
   ""
   position {
     x: -8.0
-    y: 13.5
     z: -9.0
   }
 }
@@ -267,7 +143,6 @@ embedded_components {
   ""
   position {
     x: 25.0
-    y: 9.0
     z: 2.0
   }
 }
@@ -287,7 +162,6 @@ embedded_components {
   ""
   position {
     x: 27.0
-    y: 13.5
     z: -18.0
   }
 }
@@ -307,7 +181,6 @@ embedded_components {
   ""
   position {
     x: 12.0
-    y: 2.5
     z: 4.0
   }
 }
@@ -327,7 +200,6 @@ embedded_components {
   ""
   position {
     x: -13.0
-    y: 2.5
     z: -18.0
   }
 }

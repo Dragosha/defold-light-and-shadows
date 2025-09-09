@@ -1,27 +1,50 @@
-name: "example2"
+name: "example5"
 instances {
-  id: "bulb"
-  prototype: "/light_and_shadows/props/bulb.go"
+  id: "f"
+  prototype: "/assets/props/tiles/grig10x10.go"
+  scale3 {
+    x: 10.0
+    y: 10.0
+    z: 10.0
+  }
+}
+instances {
+  id: "sun"
+  prototype: "/light_and_shadows/props/sun.go"
   position {
-    y: 11.0
-    z: 4.0
+    y: 129.0
   }
   component_properties {
-    id: "bulb"
+    id: "sun"
     properties {
       id: "color"
-      value: "1.0, 0.8, 0.6, 1.0"
+      value: "0.5, 0.5, 0.5, 0.0"
       type: PROPERTY_TYPE_VECTOR4
     }
     properties {
-      id: "power"
-      value: "200.0"
+      id: "shadow"
+      value: "0.5, 0.5, 0.2, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "near"
+      value: "50.0"
       type: PROPERTY_TYPE_NUMBER
     }
     properties {
-      id: "light_on"
+      id: "far"
+      value: "1000.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "perspective"
       value: "true"
       type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "fov"
+      value: "2.5"
+      type: PROPERTY_TYPE_NUMBER
     }
     properties {
       id: "static"
@@ -29,94 +52,9 @@ instances {
       type: PROPERTY_TYPE_BOOLEAN
     }
     properties {
-      id: "num"
+      id: "max_lights"
       value: "1.0"
       type: PROPERTY_TYPE_NUMBER
-    }
-  }
-}
-instances {
-  id: "bulb1"
-  prototype: "/light_and_shadows/props/bulb.go"
-  position {
-    z: 42.900043
-  }
-  component_properties {
-    id: "bulb"
-    properties {
-      id: "color"
-      value: "1.0, 0.7, 0.0, 1.0"
-      type: PROPERTY_TYPE_VECTOR4
-    }
-    properties {
-      id: "power"
-      value: "250.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "direct"
-      value: "true"
-      type: PROPERTY_TYPE_BOOLEAN
-    }
-  }
-}
-instances {
-  id: "bulb2"
-  prototype: "/light_and_shadows/props/bulb.go"
-  position {
-    z: 42.900043
-  }
-  component_properties {
-    id: "bulb"
-    properties {
-      id: "color"
-      value: "1.0, 0.7, 0.0, 1.0"
-      type: PROPERTY_TYPE_VECTOR4
-    }
-    properties {
-      id: "power"
-      value: "250.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "direct"
-      value: "true"
-      type: PROPERTY_TYPE_BOOLEAN
-    }
-  }
-}
-instances {
-  id: "die"
-  prototype: "/examples/example4/die.go"
-  position {
-    x: -20.0
-    y: 15.0
-  }
-  scale3 {
-    x: 4.0
-    y: 4.0
-    z: 4.0
-  }
-}
-instances {
-  id: "sun"
-  prototype: "/light_and_shadows/props/sun.go"
-  position {
-    x: -7.0
-    y: 12.0
-    z: 17.0
-  }
-  component_properties {
-    id: "sun"
-    properties {
-      id: "color"
-      value: "0.2, 0.2, 0.2, 0.0"
-      type: PROPERTY_TYPE_VECTOR4
-    }
-    properties {
-      id: "shadow"
-      value: "0.5, 0.5, 0.0, 0.0"
-      type: PROPERTY_TYPE_VECTOR4
     }
   }
 }
@@ -128,12 +66,12 @@ embedded_instances {
   "  component: \"/light_and_shadows/light_setting.script\"\n"
   "  properties {\n"
   "    id: \"clear_color\"\n"
-  "    value: \"0.0, 0.0, 0.0, 0.0\"\n"
+  "    value: \"0.8, 0.8, 0.8, 0.0\"\n"
   "    type: PROPERTY_TYPE_VECTOR4\n"
   "  }\n"
   "  properties {\n"
   "    id: \"fog_color\"\n"
-  "    value: \"0.25, 0.26, 0.3, 0.0\"\n"
+  "    value: \"0.8, 0.8, 0.8, 0.0\"\n"
   "    type: PROPERTY_TYPE_VECTOR4\n"
   "  }\n"
   "  properties {\n"
@@ -143,17 +81,17 @@ embedded_instances {
   "  }\n"
   "  properties {\n"
   "    id: \"fog_min_max\"\n"
-  "    value: \"10.0, 180.0, 1.0, 1.0\"\n"
+  "    value: \"400.0, 2500.0, 1.0, 1.0\"\n"
   "    type: PROPERTY_TYPE_VECTOR4\n"
   "  }\n"
   "  properties {\n"
   "    id: \"ambient\"\n"
-  "    value: \"0.1, 0.1, 0.1, 0.0\"\n"
+  "    value: \"0.7, 0.7, 0.7, 0.0\"\n"
   "    type: PROPERTY_TYPE_VECTOR4\n"
   "  }\n"
   "  properties {\n"
   "    id: \"color_max\"\n"
-  "    value: \"1.1\"\n"
+  "    value: \"1.2\"\n"
   "    type: PROPERTY_TYPE_NUMBER\n"
   "  }\n"
   "  properties {\n"
@@ -166,264 +104,22 @@ embedded_instances {
   "  id: \"controller\"\n"
   "  component: \"/examples/example4/scene_controller.script\"\n"
   "  properties {\n"
-  "    id: \"cam_follow\"\n"
-  "    value: \"player\"\n"
-  "    type: PROPERTY_TYPE_URL\n"
+  "    id: \"zoom_speed\"\n"
+  "    value: \"5.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
   "  }\n"
   "}\n"
   ""
 }
 embedded_instances {
   id: "ground"
-  children: "go"
-  children: "go1"
-  children: "go10"
-  children: "go11"
-  children: "go114"
-  children: "go17"
-  children: "go18"
-  children: "go2"
-  children: "go20"
-  children: "go21"
-  children: "go23"
-  children: "go24"
-  children: "go4"
-  children: "go5"
-  children: "go6"
-  children: "go7"
-  children: "go8"
-  children: "go9"
-  data: "embedded_components {\n"
-  "  id: \"collisionobject\"\n"
-  "  type: \"collisionobject\"\n"
-  "  data: \"type: COLLISION_OBJECT_TYPE_STATIC\\n"
-  "mass: 0.0\\n"
-  "friction: 0.1\\n"
-  "restitution: 0.5\\n"
-  "group: \\\"default\\\"\\n"
-  "mask: \\\"default\\\"\\n"
-  "mask: \\\"unit\\\"\\n"
-  "mask: \\\"bullet\\\"\\n"
-  "mask: \\\"bullet2\\\"\\n"
-  "embedded_collision_shape {\\n"
-  "  shapes {\\n"
-  "    shape_type: TYPE_BOX\\n"
-  "    position {\\n"
-  "      y: 5.0\\n"
-  "      z: -52.0\\n"
-  "    }\\n"
-  "    rotation {\\n"
-  "    }\\n"
-  "    index: 0\\n"
-  "    count: 3\\n"
-  "  }\\n"
-  "  shapes {\\n"
-  "    shape_type: TYPE_BOX\\n"
-  "    position {\\n"
-  "      y: -5.0\\n"
-  "      z: -49.0\\n"
-  "    }\\n"
-  "    rotation {\\n"
-  "    }\\n"
-  "    index: 3\\n"
-  "    count: 3\\n"
-  "  }\\n"
-  "  shapes {\\n"
-  "    shape_type: TYPE_BOX\\n"
-  "    position {\\n"
-  "      y: 5.0\\n"
-  "      z: 52.0\\n"
-  "    }\\n"
-  "    rotation {\\n"
-  "    }\\n"
-  "    index: 6\\n"
-  "    count: 3\\n"
-  "  }\\n"
-  "  shapes {\\n"
-  "    shape_type: TYPE_BOX\\n"
-  "    position {\\n"
-  "      x: -124.0\\n"
-  "      y: 5.0\\n"
-  "      z: -39.0\\n"
-  "    }\\n"
-  "    rotation {\\n"
-  "    }\\n"
-  "    index: 9\\n"
-  "    count: 3\\n"
-  "  }\\n"
-  "  shapes {\\n"
-  "    shape_type: TYPE_BOX\\n"
-  "    position {\\n"
-  "      x: 83.0\\n"
-  "      y: 5.0\\n"
-  "      z: -8.0\\n"
-  "    }\\n"
-  "    rotation {\\n"
-  "    }\\n"
-  "    index: 12\\n"
-  "    count: 3\\n"
-  "  }\\n"
-  "  shapes {\\n"
-  "    shape_type: TYPE_BOX\\n"
-  "    position {\\n"
-  "      x: -260.0\\n"
-  "      y: 5.0\\n"
-  "      z: -8.0\\n"
-  "    }\\n"
-  "    rotation {\\n"
-  "    }\\n"
-  "    index: 15\\n"
-  "    count: 3\\n"
-  "  }\\n"
-  "  shapes {\\n"
-  "    shape_type: TYPE_BOX\\n"
-  "    position {\\n"
-  "      x: -189.0\\n"
-  "      y: 5.0\\n"
-  "      z: 11.0\\n"
-  "    }\\n"
-  "    rotation {\\n"
-  "    }\\n"
-  "    index: 18\\n"
-  "    count: 3\\n"
-  "  }\\n"
-  "  data: 256.0\\n"
-  "  data: 5.0\\n"
-  "  data: 5.0\\n"
-  "  data: 256.0\\n"
-  "  data: 5.0\\n"
-  "  data: 256.0\\n"
-  "  data: 256.0\\n"
-  "  data: 5.0\\n"
-  "  data: 5.0\\n"
-  "  data: 5.0\\n"
-  "  data: 5.0\\n"
-  "  data: 50.0\\n"
-  "  data: 5.0\\n"
-  "  data: 5.0\\n"
-  "  data: 60.0\\n"
-  "  data: 5.0\\n"
-  "  data: 5.0\\n"
-  "  data: 60.0\\n"
-  "  data: 70.0\\n"
-  "  data: 5.0\\n"
-  "  data: 5.0\\n"
-  "}\\n"
-  "event_collision: false\\n"
-  "event_contact: false\\n"
-  "event_trigger: false\\n"
-  "\"\n"
-  "}\n"
-  ""
+  children: "f"
+  data: ""
 }
 embedded_instances {
   id: "lights"
   children: "sun"
   data: ""
-}
-embedded_instances {
-  id: "props"
-  children: "chandelier"
-  children: "chandelier1"
-  children: "go12"
-  children: "go13"
-  children: "go14"
-  children: "go15"
-  children: "go16"
-  children: "go19"
-  children: "go22"
-  children: "go25"
-  children: "go3"
-  data: ""
-}
-embedded_instances {
-  id: "go3"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"barrel\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"collisionobject\"\n"
-  "  type: \"collisionobject\"\n"
-  "  data: \"type: COLLISION_OBJECT_TYPE_STATIC\\n"
-  "mass: 0.0\\n"
-  "friction: 0.1\\n"
-  "restitution: 0.5\\n"
-  "group: \\\"default\\\"\\n"
-  "mask: \\\"default\\\"\\n"
-  "mask: \\\"unit\\\"\\n"
-  "embedded_collision_shape {\\n"
-  "  shapes {\\n"
-  "    shape_type: TYPE_SPHERE\\n"
-  "    position {\\n"
-  "      y: 66.46662\\n"
-  "      z: 18.170828\\n"
-  "    }\\n"
-  "    rotation {\\n"
-  "    }\\n"
-  "    index: 0\\n"
-  "    count: 1\\n"
-  "  }\\n"
-  "  data: 57.84302\\n"
-  "}\\n"
-  "event_collision: false\\n"
-  "event_contact: false\\n"
-  "event_trigger: false\\n"
-  "\"\n"
-  "}\n"
-  ""
-  position {
-    x: -27.474
-    z: -13.95
-  }
-  rotation {
-    x: -0.23004974
-    w: 0.97317886
-  }
-  scale3 {
-    x: 0.074
-    y: 0.074
-    z: 0.074
-  }
-}
-embedded_instances {
-  id: "go114"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgstone2\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  ""
-  rotation {
-    x: -0.70710677
-    w: 0.70710677
-  }
-  scale3 {
-    x: 0.102771
-    y: 0.102771
-    z: 0.102771
-  }
 }
 embedded_instances {
   id: "sounds"
@@ -437,21 +133,274 @@ embedded_instances {
   ""
 }
 embedded_instances {
-  id: "ui"
-  data: "components {\n"
-  "  id: \"ui\"\n"
-  "  component: \"/examples/example4/ui.gui\"\n"
-  "}\n"
-  ""
-}
-embedded_instances {
   id: "cam_target"
-  children: "camera"
+  children: "go1"
   data: "components {\n"
   "  id: \"test\"\n"
   "  component: \"/helper/print_url.script\"\n"
   "}\n"
   ""
+  position {
+    x: -26.0
+  }
+}
+embedded_instances {
+  id: "model2"
+  data: "embedded_components {\n"
+  "  id: \"model\"\n"
+  "  type: \"model\"\n"
+  "  data: \"mesh: \\\"/assets/models/gltf/Yeti.gltf\\\"\\n"
+  "skeleton: \\\"/assets/models/gltf/Yeti.gltf\\\"\\n"
+  "animations: \\\"/assets/models/gltf/Yeti.gltf\\\"\\n"
+  "default_animation: \\\"Run\\\"\\n"
+  "name: \\\"{{NAME}}\\\"\\n"
+  "materials {\\n"
+  "  name: \\\"Atlas\\\"\\n"
+  "  material: \\\"/light_and_shadows/materials/model/skinned/model_skinned_instanced.material\\\"\\n"
+  "  textures {\\n"
+  "    sampler: \\\"tex0\\\"\\n"
+  "    texture: \\\"/assets/models/gltf/Atlas.png\\\"\\n"
+  "  }\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: 57.70117
+    z: 31.737385
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+embedded_instances {
+  id: "model3"
+  data: "embedded_components {\n"
+  "  id: \"model\"\n"
+  "  type: \"model\"\n"
+  "  data: \"mesh: \\\"/assets/models/gltf/Character_Male_1.gltf\\\"\\n"
+  "skeleton: \\\"/assets/models/gltf/Character_Male_1.gltf\\\"\\n"
+  "animations: \\\"/assets/models/gltf/Character_Male_1.gltf\\\"\\n"
+  "default_animation: \\\"Wave\\\"\\n"
+  "name: \\\"{{NAME}}\\\"\\n"
+  "materials {\\n"
+  "  name: \\\"Atlas\\\"\\n"
+  "  material: \\\"/light_and_shadows/materials/model/skinned/model_skinned_instanced.material\\\"\\n"
+  "  textures {\\n"
+  "    sampler: \\\"tex0\\\"\\n"
+  "    texture: \\\"/assets/models/gltf/Atlas.png\\\"\\n"
+  "  }\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: -53.50185
+    z: -72.23483
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+embedded_instances {
+  id: "model4"
+  data: "embedded_components {\n"
+  "  id: \"model\"\n"
+  "  type: \"model\"\n"
+  "  data: \"mesh: \\\"/assets/models/gltf/Yeti.gltf\\\"\\n"
+  "skeleton: \\\"/assets/models/gltf/Yeti.gltf\\\"\\n"
+  "animations: \\\"/assets/models/gltf/Yeti.gltf\\\"\\n"
+  "default_animation: \\\"Attack\\\"\\n"
+  "name: \\\"{{NAME}}\\\"\\n"
+  "materials {\\n"
+  "  name: \\\"Atlas\\\"\\n"
+  "  material: \\\"/light_and_shadows/materials/model/skinned/model_skinned_instanced.material\\\"\\n"
+  "  textures {\\n"
+  "    sampler: \\\"tex0\\\"\\n"
+  "    texture: \\\"/assets/models/gltf/Atlas.png\\\"\\n"
+  "  }\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: -46.29883
+    z: 8.737385
+  }
+  rotation {
+    y: -0.8883378
+    w: 0.45919055
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+embedded_instances {
+  id: "go"
+  children: "girl"
+  data: "components {\n"
+  "  id: \"moving\"\n"
+  "  component: \"/helper/moving.script\"\n"
+  "  properties {\n"
+  "    id: \"value\"\n"
+  "    value: \"360.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"time\"\n"
+  "    value: \"10.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"prop\"\n"
+  "    value: \"euler.y\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"playback\"\n"
+  "    value: \"4.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"easing\"\n"
+  "    value: \"0.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "}\n"
+  ""
+}
+embedded_instances {
+  id: "girl"
+  children: "circle_shadow"
+  data: "embedded_components {\n"
+  "  id: \"model\"\n"
+  "  type: \"model\"\n"
+  "  data: \"mesh: \\\"/assets/models/gltf/Character_Female_2.gltf\\\"\\n"
+  "skeleton: \\\"/assets/models/gltf/Character_Female_2.gltf\\\"\\n"
+  "animations: \\\"/assets/models/gltf/Character_Female_2.gltf\\\"\\n"
+  "default_animation: \\\"Run\\\"\\n"
+  "name: \\\"{{NAME}}\\\"\\n"
+  "materials {\\n"
+  "  name: \\\"Atlas\\\"\\n"
+  "  material: \\\"/examples/example4/model_skinned_instanced_no_shadow.material\\\"\\n"
+  "  textures {\\n"
+  "    sampler: \\\"tex0\\\"\\n"
+  "    texture: \\\"/assets/models/gltf/Atlas.png\\\"\\n"
+  "  }\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: -30.0
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+embedded_instances {
+  id: "model"
+  data: "embedded_components {\n"
+  "  id: \"model\"\n"
+  "  type: \"model\"\n"
+  "  data: \"mesh: \\\"/assets/models/gltf/tower2.glb\\\"\\n"
+  "name: \\\"{{NAME}}\\\"\\n"
+  "materials {\\n"
+  "  name: \\\"Material.001\\\"\\n"
+  "  material: \\\"/light_and_shadows/materials/model/model_local.material\\\"\\n"
+  "  textures {\\n"
+  "    sampler: \\\"tex0\\\"\\n"
+  "    texture: \\\"/assets/models/gltf/Atlas.png\\\"\\n"
+  "  }\\n"
+  "}\\n"
+  "materials {\\n"
+  "  name: \\\"blend\\\"\\n"
+  "  material: \\\"/examples/example4/model_alpha_blend.material\\\"\\n"
+  "  textures {\\n"
+  "    sampler: \\\"tex0\\\"\\n"
+  "    texture: \\\"/assets/models/gltf/Atlas.png\\\"\\n"
+  "  }\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: 47.498154
+    z: -82.23483
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+embedded_instances {
+  id: "circle_shadow"
+  data: "embedded_components {\n"
+  "  id: \"model\"\n"
+  "  type: \"model\"\n"
+  "  data: \"mesh: \\\"/light_and_shadows/props/shpere.glb\\\"\\n"
+  "name: \\\"unnamed\\\"\\n"
+  "materials {\\n"
+  "  name: \\\"default\\\"\\n"
+  "  material: \\\"/light_and_shadows/materials/shadow/shadow_instanced.material\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+}
+embedded_instances {
+  id: "model1"
+  data: "embedded_components {\n"
+  "  id: \"model\"\n"
+  "  type: \"model\"\n"
+  "  data: \"mesh: \\\"/assets/models/gltf/tower2.glb\\\"\\n"
+  "name: \\\"{{NAME}}\\\"\\n"
+  "materials {\\n"
+  "  name: \\\"Material.001\\\"\\n"
+  "  material: \\\"/light_and_shadows/materials/model/model_local.material\\\"\\n"
+  "  textures {\\n"
+  "    sampler: \\\"tex0\\\"\\n"
+  "    texture: \\\"/assets/models/gltf/Atlas.png\\\"\\n"
+  "  }\\n"
+  "}\\n"
+  "materials {\\n"
+  "  name: \\\"blend\\\"\\n"
+  "  material: \\\"/examples/example4/model_tint_blend_yellow.material\\\"\\n"
+  "  textures {\\n"
+  "    sampler: \\\"tex0\\\"\\n"
+  "    texture: \\\"/assets/models/gltf/Atlas.png\\\"\\n"
+  "  }\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: -58.50185
+    z: -6.23483
+  }
+  rotation {
+    y: 0.42366576
+    w: 0.9058186
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
+  }
+}
+embedded_instances {
+  id: "go1"
+  children: "camera"
+  data: ""
   rotation {
     x: -0.34202015
     w: 0.9396926
@@ -462,1604 +411,60 @@ embedded_instances {
   data: "embedded_components {\n"
   "  id: \"camera\"\n"
   "  type: \"camera\"\n"
-  "  data: \"aspect_ratio: 1.777778\\n"
-  "fov: 0.7854\\n"
+  "  data: \"aspect_ratio: 1.0\\n"
+  "fov: 0.5\\n"
   "near_z: 10.0\\n"
-  "far_z: 600.0\\n"
+  "far_z: 2000.0\\n"
   "auto_aspect_ratio: 1\\n"
   "\"\n"
   "}\n"
   ""
   position {
-    z: 100.0
+    z: 300.0
   }
 }
 embedded_instances {
-  id: "player"
-  children: "bulb"
-  children: "view"
+  id: "ui"
   data: "components {\n"
-  "  id: \"dust\"\n"
-  "  component: \"/examples/example4/player/dust.particlefx\"\n"
-  "}\n"
-  "components {\n"
-  "  id: \"player\"\n"
-  "  component: \"/examples/example4/player/player.script\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"co\"\n"
-  "  type: \"collisionobject\"\n"
-  "  data: \"type: COLLISION_OBJECT_TYPE_KINEMATIC\\n"
-  "mass: 0.0\\n"
-  "friction: 0.1\\n"
-  "restitution: 0.5\\n"
-  "group: \\\"unit\\\"\\n"
-  "mask: \\\"default\\\"\\n"
-  "mask: \\\"unit\\\"\\n"
-  "embedded_collision_shape {\\n"
-  "  shapes {\\n"
-  "    shape_type: TYPE_SPHERE\\n"
-  "    position {\\n"
-  "      y: 5.0\\n"
-  "    }\\n"
-  "    rotation {\\n"
-  "    }\\n"
-  "    index: 0\\n"
-  "    count: 1\\n"
-  "  }\\n"
-  "  data: 5.0\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"trig\"\n"
-  "  type: \"collisionobject\"\n"
-  "  data: \"type: COLLISION_OBJECT_TYPE_TRIGGER\\n"
-  "mass: 0.0\\n"
-  "friction: 0.1\\n"
-  "restitution: 0.5\\n"
-  "group: \\\"unit\\\"\\n"
-  "mask: \\\"coin\\\"\\n"
-  "embedded_collision_shape {\\n"
-  "  shapes {\\n"
-  "    shape_type: TYPE_SPHERE\\n"
-  "    position {\\n"
-  "      y: 6.0\\n"
-  "    }\\n"
-  "    rotation {\\n"
-  "    }\\n"
-  "    index: 0\\n"
-  "    count: 1\\n"
-  "  }\\n"
-  "  data: 7.5\\n"
-  "}\\n"
-  "\"\n"
+  "  id: \"blur\"\n"
+  "  component: \"/examples/example4/ui/blur.gui\"\n"
   "}\n"
   ""
 }
 embedded_instances {
-  id: "go"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgstone2\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "size {\\n"
-  "  x: 471.0\\n"
-  "  y: 309.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite1\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgstone1b\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 473.0\\n"
-  "  y: 76.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    y: -154.1904\n"
-  "    z: 3.198168\n"
+  id: "repeat_sprite"
+  data: "components {\n"
+  "  id: \"sprite_repeat\"\n"
+  "  component: \"/light_and_shadows/materials/sprite/repeat/sprite_repeat.script\"\n"
+  "  properties {\n"
+  "    id: \"repeat_x\"\n"
+  "    value: \"8.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
   "  }\n"
-  "  rotation {\n"
-  "    x: 0.70710677\n"
-  "    w: 0.70710677\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    z: 32.0
-  }
-  rotation {
-    x: -0.70710677
-    w: 0.70710677
-  }
-  scale3 {
-    x: 0.102771
-    y: 0.102771
-    z: 0.102771
-  }
-}
-embedded_instances {
-  id: "go1"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgstone2\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "size {\\n"
-  "  x: 471.0\\n"
-  "  y: 309.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  ""
-  position {
-    x: -48.0
-  }
-  rotation {
-    x: -0.70710677
-    w: 0.70710677
-  }
-  scale3 {
-    x: 0.102771
-    y: 0.102771
-    z: 0.102771
-  }
-}
-embedded_instances {
-  id: "go2"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgwooden1\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "size {\\n"
-  "  x: 471.0\\n"
-  "  y: 309.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  ""
-  position {
-    x: 48.0
-  }
-  rotation {
-    x: -0.70710677
-    w: 0.70710677
-  }
-  scale3 {
-    x: 0.102771
-    y: 0.102771
-    z: 0.102771
-  }
-}
-embedded_instances {
-  id: "go4"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgwooden1\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "size {\\n"
-  "  x: 471.0\\n"
-  "  y: 309.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite1\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgwooden1b\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 473.0\\n"
-  "  y: 76.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    y: -154.76949\n"
-  "    z: 1.207042\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.70710677\n"
-  "    w: 0.70710677\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: 48.0
-    z: 32.0
-  }
-  rotation {
-    x: -0.70710677
-    w: 0.70710677
-  }
-  scale3 {
-    x: 0.102771
-    y: 0.102771
-    z: 0.102771
-  }
-}
-embedded_instances {
-  id: "go5"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgstone3\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "size {\\n"
-  "  x: 471.0\\n"
-  "  y: 309.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  ""
-  position {
-    x: 75.0
-  }
-  rotation {
-    x: -0.70710677
-    w: 0.70710677
-  }
-  scale3 {
-    x: 0.102771
-    y: 0.102771
-    z: 0.102771
-  }
-}
-embedded_instances {
-  id: "go6"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgstone3\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "size {\\n"
-  "  x: 51.0\\n"
-  "  y: 309.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  ""
-  position {
-    x: 75.0
-    z: 32.0
-  }
-  rotation {
-    x: -0.70710677
-    w: 0.70710677
-  }
-  scale3 {
-    x: 0.102771
-    y: 0.102771
-    z: 0.102771
-  }
-}
-embedded_instances {
-  id: "go7"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgwooden1\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "size {\\n"
-  "  x: 471.0\\n"
-  "  y: 309.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite1\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgwooden1b\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 471.0\\n"
-  "  y: 309.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    y: -154.76949\n"
-  "    z: 1.207042\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.70710677\n"
-  "    w: 0.70710677\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: -48.0
-    z: 32.0
-  }
-  rotation {
-    x: -0.70710677
-    w: 0.70710677
-  }
-  scale3 {
-    x: 0.102771
-    y: 0.102771
-    z: 0.102771
-  }
-}
-embedded_instances {
-  id: "go8"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgwooden1\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "size {\\n"
-  "  x: 471.0\\n"
-  "  y: 309.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  ""
-  position {
-    x: -48.0
-    z: -32.0
-  }
-  rotation {
-    x: -0.70710677
-    w: 0.70710677
-  }
-  scale3 {
-    x: 0.102771
-    y: 0.102771
-    z: 0.102771
-  }
-}
-embedded_instances {
-  id: "go9"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgwooden1\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "size {\\n"
-  "  x: 471.0\\n"
-  "  y: 309.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  ""
-  position {
-    z: -32.0
-  }
-  rotation {
-    x: -0.70710677
-    w: 0.70710677
-  }
-  scale3 {
-    x: 0.102771
-    y: 0.102771
-    z: 0.102771
-  }
-}
-embedded_instances {
-  id: "go10"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgwooden1\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "size {\\n"
-  "  x: 471.0\\n"
-  "  y: 309.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  ""
-  position {
-    x: 48.0
-    z: -32.0
-  }
-  rotation {
-    x: -0.70710677
-    w: 0.70710677
-  }
-  scale3 {
-    x: 0.102771
-    y: 0.102771
-    z: 0.102771
-  }
-}
-embedded_instances {
-  id: "go11"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgstone3\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "size {\\n"
-  "  x: 51.0\\n"
-  "  y: 309.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  ""
-  position {
-    x: 75.0
-    z: -32.0
-  }
-  rotation {
-    x: -0.70710677
-    w: 0.70710677
-  }
-  scale3 {
-    x: 0.102771
-    y: 0.102771
-    z: 0.102771
-  }
-}
-embedded_instances {
-  id: "go12"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bg1\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 140.0\\n"
-  "  y: 156.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  ""
-  position {
-    x: -49.474
-    z: -46.95
-  }
-  rotation {
-    x: -0.23004974
-    w: 0.97317886
-  }
-  scale3 {
-    x: 0.074
-    y: 0.074
-    z: 0.074
-  }
-}
-embedded_instances {
-  id: "go13"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bg2\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 640.0\\n"
-  "  y: 388.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  ""
-  position {
-    x: 6.526
-    z: -46.95
-  }
-  rotation {
-    x: -0.23004974
-    w: 0.97317886
-  }
-  scale3 {
-    x: 0.074
-    y: 0.074
-    z: 0.074
-  }
-}
-embedded_instances {
-  id: "go14"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bg1\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 640.0\\n"
-  "  y: 388.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  ""
-  position {
-    x: 62.526
-    z: -46.95
-  }
-  rotation {
-    x: -0.23004974
-    w: 0.97317886
-  }
-  scale3 {
-    x: 0.074
-    y: 0.074
-    z: 0.074
-  }
-}
-embedded_instances {
-  id: "go15"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"stuff1\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 140.0\\n"
-  "  y: 156.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  ""
-  position {
-    x: 46.526
-    z: -45.95
-  }
-  rotation {
-    x: -0.23004974
-    w: 0.97317886
-  }
-  scale3 {
-    x: 0.074
-    y: 0.074
-    z: 0.074
-  }
-}
-embedded_instances {
-  id: "view"
-  data: "embedded_components {\n"
-  "  id: \"spinemodel\"\n"
-  "  type: \"spinemodel\"\n"
-  "  data: \"spine_scene: \\\"/assets/units/skeleton/skeleton.spinescene\\\"\\n"
-  "default_animation: \\\"idle\\\"\\n"
-  "skin: \\\"skeleton2\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/spine/light_spine.material\\\"\\n"
-  "\"\n"
-  "  rotation {\n"
-  "    x: -0.23004974\n"
-  "    w: 0.97317886\n"
-  "  }\n"
-  "  scale {\n"
-  "    x: 0.06146\n"
-  "    y: 0.06146\n"
-  "    z: 0.06146\n"
-  "  }\n"
-  "}\n"
-  ""
-}
-embedded_instances {
-  id: "go16"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"house1\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 640.0\\n"
-  "  y: 388.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: -40.540543\n"
+  "  properties {\n"
+  "    id: \"repeat_y\"\n"
+  "    value: \"8.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
   "  }\n"
   "}\n"
   "embedded_components {\n"
-  "  id: \"sprite1\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"lightaura_red\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/fog_sprite/fog_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ADD\\n"
-  "size {\\n"
-  "  x: 597.0\\n"
-  "  y: 399.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 148.64865\n"
-  "    y: 187.33514\n"
-  "    z: 18.244553\n"
-  "  }\n"
-  "  scale {\n"
-  "    y: 1.703137\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite2\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"lightaura_red\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/fog_sprite/fog_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ADD\\n"
-  "size {\\n"
-  "  x: 102.0\\n"
-  "  y: 102.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: -216.21622\n"
-  "    y: 187.33514\n"
-  "    z: 18.244553\n"
-  "  }\n"
-  "  scale {\n"
-  "    y: 1.703137\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: -220.474
-    z: 18.05
-  }
-  rotation {
-    x: -0.23004974
-    w: 0.97317886
-  }
-  scale3 {
-    x: 0.074
-    y: 0.074
-    z: 0.074
-  }
-}
-embedded_instances {
-  id: "go17"
-  data: "embedded_components {\n"
   "  id: \"sprite\"\n"
   "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgwooden1\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "size {\\n"
-  "  x: 471.0\\n"
-  "  y: 309.0\\n"
-  "}\\n"
+  "  data: \"default_animation: \\\"t5\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
   "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
   "}\\n"
   "\"\n"
-  "}\n"
-  ""
-  position {
-    x: -96.0
-    z: -32.0
-  }
-  rotation {
-    x: -0.70710677
-    w: 0.70710677
-  }
-  scale3 {
-    x: 0.102771
-    y: 0.102771
-    z: 0.102771
-  }
-}
-embedded_instances {
-  id: "go18"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgstone2\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "size {\\n"
-  "  x: 471.0\\n"
-  "  y: 309.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  ""
-  position {
-    x: -96.0
-  }
-  rotation {
-    x: -0.70710677
-    w: 0.70710677
-  }
-  scale3 {
-    x: 0.102771
-    y: 0.102771
-    z: 0.102771
-  }
-}
-embedded_instances {
-  id: "go19"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"barrel\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 140.0\\n"
-  "  y: 156.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"collisionobject\"\n"
-  "  type: \"collisionobject\"\n"
-  "  data: \"type: COLLISION_OBJECT_TYPE_STATIC\\n"
-  "mass: 0.0\\n"
-  "friction: 0.1\\n"
-  "restitution: 0.5\\n"
-  "group: \\\"default\\\"\\n"
-  "mask: \\\"default\\\"\\n"
-  "mask: \\\"unit\\\"\\n"
-  "embedded_collision_shape {\\n"
-  "  shapes {\\n"
-  "    shape_type: TYPE_SPHERE\\n"
-  "    position {\\n"
-  "      y: 66.46662\\n"
-  "      z: 18.170828\\n"
-  "    }\\n"
-  "    rotation {\\n"
-  "    }\\n"
-  "    index: 0\\n"
-  "    count: 1\\n"
-  "  }\\n"
-  "  data: 57.84302\\n"
-  "}\\n"
-  "event_collision: false\\n"
-  "event_contact: false\\n"
-  "event_trigger: false\\n"
-  "\"\n"
-  "}\n"
-  ""
-  position {
-    x: -75.474
-    z: -33.95
-  }
-  rotation {
-    x: -0.23004974
-    w: 0.97317886
-  }
-  scale3 {
-    x: 0.074
-    y: 0.074
-    z: 0.074
-  }
-}
-embedded_instances {
-  id: "go20"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgstone2\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "size {\\n"
-  "  x: 471.0\\n"
-  "  y: 309.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite1\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgstone1b\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 477.0\\n"
-  "  y: 76.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    y: -154.1904\n"
-  "    z: 3.198168\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.70710677\n"
-  "    w: 0.70710677\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: -96.0
-    z: 32.0
-  }
-  rotation {
-    x: -0.70710677
-    w: 0.70710677
-  }
-  scale3 {
-    x: 0.102771
-    y: 0.102771
-    z: 0.102771
-  }
-}
-embedded_instances {
-  id: "chandelier"
-  children: "bulb1"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"chandelier-chain\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 876.0\\n"
-  "  y: 388.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite1\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"chandelier\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 28.0\\n"
-  "  y: 491.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  scale {\n"
-  "    y: 0.687973\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite2\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"firea\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/fog_sprite/fog_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ADD\\n"
-  "size {\\n"
-  "  x: 102.0\\n"
-  "  y: 102.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 81.08108\n"
-  "    y: 92.74055\n"
-  "    z: 18.244553\n"
-  "  }\n"
-  "  scale {\n"
-  "    y: 1.703137\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite3\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"firea\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/fog_sprite/fog_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ADD\\n"
-  "size {\\n"
-  "  x: 81.0\\n"
-  "  y: 171.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: -81.081085\n"
-  "    y: 92.74055\n"
-  "    z: 18.244553\n"
-  "  }\n"
-  "  scale {\n"
-  "    y: 1.703137\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: 47.526
-    y: 21.0
-    z: -28.95
-  }
-  scale3 {
-    x: 0.09324
-    y: 0.09324
-    z: 0.09324
-  }
-}
-embedded_instances {
-  id: "go22"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"stuff3_B\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 206.0\\n"
-  "  y: 251.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite1\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"stuff3_A\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_up.material\\\"\\n"
-  "size {\\n"
-  "  x: 250.0\\n"
-  "  y: 65.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    y: 65.367256\n"
-  "  }\n"
   "  rotation {\n"
   "    x: -0.70710677\n"
   "    w: 0.70710677\n"
   "  }\n"
   "}\n"
-  "embedded_components {\n"
-  "  id: \"collisionobject\"\n"
-  "  type: \"collisionobject\"\n"
-  "  data: \"type: COLLISION_OBJECT_TYPE_STATIC\\n"
-  "mass: 0.0\\n"
-  "friction: 0.1\\n"
-  "restitution: 0.5\\n"
-  "group: \\\"default\\\"\\n"
-  "mask: \\\"default\\\"\\n"
-  "mask: \\\"unit\\\"\\n"
-  "embedded_collision_shape {\\n"
-  "  shapes {\\n"
-  "    shape_type: TYPE_BOX\\n"
-  "    position {\\n"
-  "      y: 40.540543\\n"
-  "      z: -40.540543\\n"
-  "    }\\n"
-  "    rotation {\\n"
-  "    }\\n"
-  "    index: 0\\n"
-  "    count: 3\\n"
-  "  }\\n"
-  "  data: 119.08915\\n"
-  "  data: 21.68944\\n"
-  "  data: 41.515163\\n"
-  "}\\n"
-  "event_collision: false\\n"
-  "event_contact: false\\n"
-  "event_trigger: false\\n"
-  "\"\n"
-  "}\n"
   ""
   position {
-    x: 46.526
-    z: -24.95
-  }
-  scale3 {
-    x: 0.0814
-    y: 0.0814
-    z: 0.0814
-  }
-}
-embedded_instances {
-  id: "chandelier1"
-  children: "bulb2"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"chandelier-chain\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 28.0\\n"
-  "  y: 491.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite1\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"chandelier\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 175.0\\n"
-  "  y: 120.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  scale {\n"
-  "    y: 0.687973\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite2\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"firea\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/fog_sprite/fog_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ADD\\n"
-  "size {\\n"
-  "  x: 81.0\\n"
-  "  y: 171.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 81.08108\n"
-  "    y: 92.74055\n"
-  "    z: 18.244553\n"
-  "  }\n"
-  "  scale {\n"
-  "    y: 1.703137\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite3\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"firea\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/fog_sprite/fog_sprite.material\\\"\\n"
-  "blend_mode: BLEND_MODE_ADD\\n"
-  "size {\\n"
-  "  x: 81.0\\n"
-  "  y: 171.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: -81.081085\n"
-  "    y: 92.74055\n"
-  "    z: 18.244553\n"
-  "  }\n"
-  "  scale {\n"
-  "    y: 1.703137\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: -64.520035
-    y: 21.0
-    z: -28.95
-  }
-  scale3 {
-    x: 0.09324
-    y: 0.09324
-    z: 0.09324
-  }
-}
-embedded_instances {
-  id: "go21"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgstone2\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "size {\\n"
-  "  x: 471.0\\n"
-  "  y: 309.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite1\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgstone1b\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 477.0\\n"
-  "  y: 76.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    y: -154.1904\n"
-  "    z: 3.198168\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.70710677\n"
-  "    w: 0.70710677\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: -144.0
-    z: 32.0
-  }
-  rotation {
-    x: -0.70710677
-    w: 0.70710677
-  }
-  scale3 {
-    x: 0.102771
-    y: 0.102771
-    z: 0.102771
-  }
-}
-embedded_instances {
-  id: "go23"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgstone2\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "size {\\n"
-  "  x: 471.0\\n"
-  "  y: 309.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite1\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgstone1b\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 477.0\\n"
-  "  y: 76.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    y: -154.1904\n"
-  "    z: 3.198168\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.70710677\n"
-  "    w: 0.70710677\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: -192.0
-    z: 32.0
-  }
-  rotation {
-    x: -0.70710677
-    w: 0.70710677
-  }
-  scale3 {
-    x: 0.102771
-    y: 0.102771
-    z: 0.102771
-  }
-}
-embedded_instances {
-  id: "go24"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgstone2\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite_back.material\\\"\\n"
-  "size {\\n"
-  "  x: 471.0\\n"
-  "  y: 309.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite1\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bgstone1b\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 477.0\\n"
-  "  y: 76.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    y: -154.1904\n"
-  "    z: 3.198168\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.70710677\n"
-  "    w: 0.70710677\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: -240.0
-    z: 32.0
-  }
-  rotation {
-    x: -0.70710677
-    w: 0.70710677
-  }
-  scale3 {
-    x: 0.102771
-    y: 0.102771
-    z: 0.102771
-  }
-}
-embedded_instances {
-  id: "go25"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"bg1\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/sprite/light_sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 640.0\\n"
-  "  y: 388.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles2.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  ""
-  position {
-    x: -95.474
-    z: -46.95
-  }
-  rotation {
-    x: -0.23004974
-    w: 0.97317886
-  }
-  scale3 {
-    x: 0.074
-    y: 0.074
-    z: 0.074
-  }
-}
-embedded_instances {
-  id: "ger"
-  children: "herospine"
-  data: "embedded_components {\n"
-  "  id: \"co\"\n"
-  "  type: \"collisionobject\"\n"
-  "  data: \"type: COLLISION_OBJECT_TYPE_KINEMATIC\\n"
-  "mass: 0.0\\n"
-  "friction: 0.1\\n"
-  "restitution: 0.5\\n"
-  "group: \\\"unit\\\"\\n"
-  "mask: \\\"default\\\"\\n"
-  "mask: \\\"unit\\\"\\n"
-  "embedded_collision_shape {\\n"
-  "  shapes {\\n"
-  "    shape_type: TYPE_SPHERE\\n"
-  "    position {\\n"
-  "      y: 5.0\\n"
-  "    }\\n"
-  "    rotation {\\n"
-  "    }\\n"
-  "    index: 0\\n"
-  "    count: 1\\n"
-  "  }\\n"
-  "  data: 4.0\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  ""
-  position {
-    x: -43.0
-    z: 7.0
-  }
-}
-embedded_instances {
-  id: "herospine"
-  data: "embedded_components {\n"
-  "  id: \"spinemodel\"\n"
-  "  type: \"spinemodel\"\n"
-  "  data: \"spine_scene: \\\"/assets/units/hero/hero.spinescene\\\"\\n"
-  "default_animation: \\\"idle\\\"\\n"
-  "skin: \\\"skin1\\\"\\n"
-  "material: \\\"/light_and_shadows/materials/spine/light_spine.material\\\"\\n"
-  "\"\n"
-  "}\n"
-  ""
-  rotation {
-    x: -0.23004974
-    w: 0.97317886
-  }
-  scale3 {
-    x: 0.0568
-    y: 0.0568
-    z: 1.42
+    x: 11.0
+    z: 163.0
   }
 }

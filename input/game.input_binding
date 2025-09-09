@@ -30,3 +30,7 @@ mouse_trigger {
   input: MOUSE_BUTTON_RIGHT
   action: "right_click"
 }
+touch_trigger {
+  input: TOUCH_MULTI
+  action: "touch_multi"
+}

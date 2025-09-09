@@ -1,0 +1,24 @@
+#version 140
+
+in highp vec4 position;
+in highp vec2 texcoord0;
+in highp mat4 mtx_world;
+
+out highp vec2 	 var_texcoord0;
+
+uniform vs_uniforms
+{
+    highp mat4 mtx_viewproj;
+    highp mat4 mtx_proj;
+};
+
+void main()
+{
+    vec4 pw = mtx_world * vec4(position.xyz, 1.0);
+    vec3 axis_factor = vec3(1.0, 0.0, 1.0); // which axis should use to toward the camera 
+    float scaling_factor = mtx_world[0].x; // ger model scale
+    vec3 model_scale = axis_factor * scaling_factor;
+    gl_Position = (mtx_viewproj * vec4(pw.xyz - position.xyz * model_scale, 1.0)) + (mtx_proj * vec4(position.xy * model_scale.xy, 0.0, 0.0));
+    var_texcoord0 = texcoord0;
+}
+

@@ -21,7 +21,8 @@ function init(self)
     function()
         current_example = current_example + 1
         if current_example > total then current_example = 1 end
-        monarch.show(hash(current_example), {clear = true, sequential = true}) 
+        monarch.show(hash(current_example), {clear = true, sequential = true}, nil, function() print("cb", current_example); si.acquire() end)
+        -- ^^ move input acquire on the input stack top after next scene is loaded
         text_upd()
     end)
 
@@ -51,7 +52,7 @@ function init(self)
     broadcast.register("SHOW", function(message)
         current_example = message.first
         total = message.total
-        monarch.show(hash(current_example))
+        monarch.show(hash(current_example), nil, nil, function() si.acquire() end)
         text_upd()
     end)
 end
@@ -63,16 +64,15 @@ function final(self)
 end
 
 function update(self, dt)
-    self.frames = self.frames or 0
-    self.delta = self.delta or 0
-    self.delta = self.delta + dt
-    self.frames = self.frames + 1
-    if self.delta >= 1 then
-        self.delta = self.delta - math.floor(self.delta)
-        gui.set_text(gui.get_node("fps"), self.frames)
-        self.frames = 0
-    end 
-   
+
+    self.frames = self.frames or {}
+    self.frames[#self.frames + 1] = socket.gettime()
+    local fps = 0
+    if #self.frames == 61 then
+        table.remove(self.frames, 1)
+        fps = 1 / ((self.frames[#self.frames] - self.frames[1]) / (#self.frames - 1))
+    end
+    gui.set_text(gui.get_node("fps"), ("%.0f"):format(fps))
 end
 
 function on_message(self, message_id, message, sender)

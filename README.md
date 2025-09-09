@@ -1,28 +1,28 @@
 # Light and Shadows. Pack of shaders and scene setup examples.
 
-Required Defold 1.10.3 version.
-Also, to run with other versions of the editor, you must update the Spine extension dependency to the correct version.
-
 ## What is this?
-A pack of materials and shaders to make a game with realtime shadow from one source (the sun) and a lot of point light sources.
-The main difference from previous examples (see on the Defold forum) is the projection of the shadow map to the center of the screen (cast shadows follow the camera). So you can create a game world of any size. And the sprites/spine models get shadows from other objects as well as 3D models.
+A pack of materials and shaders to create a game with real-time shadows from a single light source (the sun) and many point light sources. Even sprites and spine models receive shadows from other objects, as well as 3D models.
 
 ![title](assets/docs/title.png)
 
+## Demo
+
 [Html5 demo](https://dragosha.com/defold/Light_and_Shadows/)
 
-- Press and hold left mouse button to move the camera.
-- Click on coins to collect them.
-- Works on mobile as well.
+- Works on PC/MAC and mobile as well.
 
 ## Setup
 
-> [!NOTE]
-> Make sure that you updated the 'Spine extension' dependence to [actual version](https://github.com/defold/extension-spine/releases) before open the project in Defold editor. To make this: open `game.project` file in any text editor and change the path `dependencies#.. = https://github.com/defold/extension-spine/archive/refs/tags/3.9.5.zip` depending on the version of your Defold editor.
-> Also you may remove this dependence from your project at all. It's is not a part of the `light and shadows` and can be excluded from the project without any effect. Spine animation is using in a collection `examples\example4`.
+You can use the **Light and Shadows** in your own project by adding this library as a [Defold library dependency](http://www.defold.com/manuals/libraries/).  
+Open your game.project file and in the dependencies field under project add:
+
+>https://github.com/Dragosha/defold-light-and-shadows/archive/master.zip
 
 > [!TIP]
 > You can link this library as a dependency in your project and replace the renderer in your project settings. Or you can add the whole folder to your project. For something more than “just trying it out” I would recommend copying the library to your project, though, because you're likely to want to add your own customizations to shaders, new materials, etc.
+
+> [!NOTE]
+> An example with the Spine models has been moved to [its own repository](https://github.com/Dragosha/defold-slasher).
 
 ### Render
 The demo project is fully configured, if you want to configure your project from scratch see this section.
@@ -78,6 +78,10 @@ materials to setup the 3D models.
 * `model_local` uses local vertex space. Less CPU load, but each individual model will require its own drawcall.
 
 * `model_instanced` uses local vertex space and 'mtx_world' and 'mtx_normal' are specified as attributes. This type is best suited for identical models duplicated in large numbers on a scene. Such as trees, walls, grass, etc. The geometry of such a model will be passed to the GPU once.
+
+* `billboard_model_instanced` meshes of this model always toward the camera. You can change the rotation ratio towards the camera for specific axes. To do this, inside the vertex shader `/light_and_shadows/materials/model/billboard/billboard_model_instanced.vp` set the desired value (from 0.0 to 1.0) in the line:  `vec3 axis_factor = vec3(1.0, 1.0, 1.0); // which axis should use to toward the camera`
+
+* `model_skinned` and `model_skinned_instanced` for models with skinned GPU animation. 
 
 ### Mesh 
 
@@ -199,6 +203,8 @@ Only one light source casts shadows and this part is about him. There is a speci
 
 To set the optimal Fov, Near and Far values for perspective projection, you can add a standard camera component to the scene in a `sun' object and adjust these values there, visually contrasting the area where shadows will be cast, then remove the camera from the scene.
 
+* `Max lights` - The maximum number of light sources on the Scene that need to be processed simultaneously. (Default is 8). The maximum number fixed in the shader file is 16 (you can also change it). The fewer the sources, the lower the hardware requirements. For example, in the `tinyworld` example, there is only one source + light from the sun.
+
 ![sun](assets/docs/sun2.png)
 
 Note that color mixing from different light sources takes into account the normal to the surface of the object, be it a sprite or a 3D model.
@@ -226,11 +232,11 @@ You may use a negative values as well as values more than 1.0 for override final
 * Also you may auto start particle FX attached to this game object and referenced in 'fxurl'.
 * `Rotate` set to true is this object need to follow the camera rotating (works as Bilboard).
 
-This example uses 8 simultaneously calculated light sources in the scene. If you need to change this number of light sources, you must change it in 'light_and_shadows.lua' and in the `/light_and_shadows/materials/fun.glsl` file.
+This example uses up to 16 simultaneously calculated light sources in the scene. If you need to change this number of light sources, you may change it in 'sun' object properties (0 - 16). And in the `/light_and_shadows/materials/fun.glsl` file if you need more than 16 sources.
 Change the size of the arrays here:
 
 ---
-    #define LIGHT_COUNT 8
+    #define LIGHT_COUNT 16
                         ^^
 
 If you don't want to use light sources at all and you have enough ambient light from the "sun" you can optimize the fragment shaders by excluding the calculation of light sources from them. Just comment the line ` #define USE_DIFFUSE_LIGHT` in `/light_and_shadows/materials/fun.glsl` file.

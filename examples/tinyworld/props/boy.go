@@ -1,14 +1,3 @@
-components {
-  id: "shad"
-  component: "/examples/tinyworld/3D/shad.sprite"
-  position {
-    y: 0.3
-  }
-  rotation {
-    x: 0.70710677
-    w: 0.70710677
-  }
-}
 embedded_components {
   id: "sprite"
   type: "sprite"
@@ -24,6 +13,8 @@ embedded_components {
   "}\n"
   ""
   position {
+    x: -18.699322
     y: 9.0
+    z: 75.04193
   }
 }

@@ -1,0 +1,52 @@
+#version 140
+
+// Positions can be world or local space, since world and normal
+// matrices are identity for world vertex space materials.
+// If world vertex space is selected, you can remove the
+// normal matrix multiplication for optimal performance.
+
+in highp vec4 position;
+in mediump vec2 texcoord0;
+in highp vec3 normal;
+
+// When 'mtx_world' and 'mtx_normal' is specified as attributes,
+// instanced rendering is automatically triggered.
+// #ifndef EDITOR
+in highp mat4 mtx_world;
+in highp mat4 mtx_normal;
+// #endif
+
+uniform vs_uniforms
+{
+    // #ifdef EDITOR
+    // highp mat4 mtx_world;
+    // #endif
+    highp mat4 mtx_view;
+    highp mat4 mtx_proj;
+    highp mat4 mtx_light;
+};
+
+out highp vec4 var_view_position;
+out highp vec4 var_position;
+out highp vec3 var_normal;
+out mediump vec2 var_texcoord0;
+out highp vec4 var_texcoord0_shadow;
+
+void main()
+{
+    vec4 pw = mtx_world * vec4(position.xyz, 1.0);
+    vec4 p = mtx_view * pw;
+    var_view_position = p;
+    var_position = pw;
+    var_texcoord0 = texcoord0;
+    var_texcoord0_shadow = mtx_light * pw;
+    var_normal = normalize((mtx_world * vec4(normal, 0.0)).xyz);
+    // gl_Position = mtx_proj * p;
+    
+    vec3 axis_factor = vec3(1.0, 1.0, 1.0); // which axis should use to toward the camera 
+    float scaling_factor = mtx_world[0].x; // ger model scale
+    vec3 model_scale = axis_factor * scaling_factor;
+    gl_Position = (mtx_proj * mtx_view * vec4(pw.xyz - position.xyz * model_scale, 1.0)) + (mtx_proj * vec4(position.xy * model_scale.xy, 0.0, 0.0));
+  
+}
+

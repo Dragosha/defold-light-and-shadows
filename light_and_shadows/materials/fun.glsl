@@ -7,7 +7,7 @@
 #ifndef LS_FUN
 #define LS_FUN
 
-#define LIGHT_COUNT 8
+#define LIGHT_COUNT 16
 uniform fs_uniforms
 {
     mediump vec4 tint;
@@ -228,9 +228,14 @@ vec3 direct_light(vec3 light_color, vec3 light_position, vec3 position, vec3 vno
 vec3 diffuse_light(vec3 ambient)
 {
     vec3 diff_light = vec3(ambient.xyz);
+    // don't calculate lights in Editor
+#ifndef EDITOR
 #ifdef USE_DIFFUSE_LIGHT
+
+    int max_lights = clamp(int(v4.z), 0, LIGHT_COUNT);
     // vec3 view_dir = normalize((cam_pos - var_position).xyz);
     for (int i = 0; i < LIGHT_COUNT; ++i) {
+        if (i >= max_lights) break;
         float power = colors[i].w;
         if (power > 0.0) {
 
@@ -245,6 +250,7 @@ vec3 diffuse_light(vec3 ambient)
             // diff_light += phong_light(colors[i].xyz, power, lights[i].xyz, var_position.xyz, var_normal, 0.2, view_dir);
         }
     }
+#endif
 #endif
     return diff_light;
 }

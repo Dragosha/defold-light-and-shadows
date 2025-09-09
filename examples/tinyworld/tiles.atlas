@@ -15,30 +15,61 @@ images {
 }
 images {
   image: "/examples/tinyworld/images/tree1.png"
+  pivot_y: 0.951019
 }
 images {
   image: "/examples/tinyworld/images/tree2.png"
+  pivot_y: 0.915484
 }
 images {
   image: "/examples/tinyworld/images/tree3.png"
+  pivot_y: 0.949403
 }
 images {
   image: "/examples/tinyworld/images/tree4.png"
+  pivot_y: 0.964209
 }
 images {
   image: "/examples/tinyworld/images/tree5.png"
+  pivot_y: 0.94772
 }
 images {
   image: "/examples/tinyworld/images/tree6.png"
+  pivot_x: 0.473857
+  pivot_y: 0.954889
 }
 images {
   image: "/examples/tinyworld/images/grass1.png"
+  pivot_x: 0.528853
+  pivot_y: 1.0
 }
 images {
   image: "/examples/tinyworld/images/moon.png"
 }
 images {
   image: "/examples/tinyworld/images/sun.png"
+}
+images {
+  image: "/examples/tinyworld/images/button.png"
+}
+images {
+  image: "/examples/tinyworld/images/button2.png"
+}
+images {
+  image: "/examples/tinyworld/images/button3.png"
+}
+images {
+  image: "/examples/tinyworld/images/button_.png"
+}
+images {
+  image: "/examples/tinyworld/images/house.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/tinyworld/images/move.png"
+}
+images {
+  image: "/examples/tinyworld/images/gear.png"
 }
 animations {
   id: "fire"
