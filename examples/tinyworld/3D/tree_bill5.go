@@ -18,6 +18,10 @@ embedded_components {
   "    sampler: \"tex0\"\n"
   "    texture: \"/examples/tinyworld/models/texture.png\"\n"
   "  }\n"
+  "  textures {\n"
+  "    sampler: \"fow\"\n"
+  "    texture: \"/examples/tinyworld/images/empty.png\"\n"
+  "  }\n"
   "}\n"
   ""
 }

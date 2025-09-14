@@ -248,17 +248,21 @@ function update(self)
         render.set_render_target(self.upscale_rt.rt)
         render.clear(state.clear_buffers)
     end
-    if light_and_shadows.shadow then
+    -- if light_and_shadows.shadow then
         render.enable_texture("tex1", self.shadowmap_buffer, render.BUFFER_COLOR_BIT) -- enable shadowmap texture
-    end
+    -- end
     --
+
+    if constants.fog_of_war_handle then
+        render.enable_texture("fow", constants.fog_of_war_handle, render.BUFFER_COLOR_BIT)
+    end
    
     -- render `model` predicate for default 3D material
     --
     render.enable_state(graphics.STATE_CULL_FACE)
     render.draw(predicates.model, draw_options_world)
     render.draw(predicates.model2, draw_options_world)
-    render.draw(predicates.model3, draw_options_world)
+    -- render.draw(predicates.model3, draw_options_world)
     render.set_depth_mask(false)
     render.enable_state(graphics.STATE_BLEND) -- Enable Alpha Blending for semi-transparent materials
     -- render.set_blend_func(render.BLEND_ONE, render.BLEND_ONE) -- Enable this if wants to ADD blending
@@ -276,10 +280,13 @@ function update(self)
     render.disable_state(graphics.STATE_DEPTH_TEST)
 
     -- L_S Injection
-    if light_and_shadows.shadow then
+    -- if light_and_shadows.shadow then
         render.disable_texture("tex1")
-    end
+    -- end
     --
+    if constants.fog_of_war_handle then
+        render.disable_texture("fow", constants.fog_of_war_handle, render.BUFFER_COLOR_BIT)
+    end
 
     render.draw_debug3d()
 

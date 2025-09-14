@@ -74,13 +74,13 @@ local function to_day(self)
 	end)
 
 	
-	sequence.run_once(function()
-		sequence.go_animate("moon_sun", "position.y", go.PLAYBACK_ONCE_FORWARD, 100, go.EASING_INBACK, .2)
-		sprite.play_flipbook("moon_sun#sprite", "sun")
-		go.set("moon_sun#aura", "color", vmath.vector4(1))
-		sequence.go_animate("sun", "position.z", go.PLAYBACK_ONCE_FORWARD, 100, go.EASING_INOUTCUBIC, time / 4)
-		sequence.go_animate("moon_sun", "position.y", go.PLAYBACK_ONCE_FORWARD, 0, go.EASING_OUTBACK, .2)
-	end)
+	-- sequence.run_once(function()
+	-- 	sequence.go_animate("moon_sun", "position.y", go.PLAYBACK_ONCE_FORWARD, 100, go.EASING_INBACK, .2)
+	-- 	sprite.play_flipbook("moon_sun#sprite", "sun")
+	-- 	go.set("moon_sun#aura", "color", vmath.vector4(1))
+	-- 	sequence.go_animate("sun", "position.z", go.PLAYBACK_ONCE_FORWARD, 100, go.EASING_INOUTCUBIC, time / 4)
+	-- 	sequence.go_animate("moon_sun", "position.y", go.PLAYBACK_ONCE_FORWARD, 0, go.EASING_OUTBACK, .2)
+	-- end)
 
 end
 
@@ -106,13 +106,13 @@ local function to_night(self)
 		end
 	end)
 
-	sequence.run_once(function()
-		sequence.go_animate("moon_sun", "position.y", go.PLAYBACK_ONCE_FORWARD, 100, go.EASING_INBACK, .2)
-		sprite.play_flipbook("moon_sun#sprite", "moon")
-		go.set("moon_sun#aura", "color", vmath.vector4(.4, .6, 1, 1))
-		sequence.go_animate("sun", "position.z", go.PLAYBACK_ONCE_FORWARD, -100, go.EASING_INOUTCUBIC, time / 4)
-		sequence.go_animate("moon_sun", "position.y", go.PLAYBACK_ONCE_FORWARD, 0, go.EASING_OUTBACK, .2)
-	end)
+	-- sequence.run_once(function()
+	-- 	sequence.go_animate("moon_sun", "position.y", go.PLAYBACK_ONCE_FORWARD, 100, go.EASING_INBACK, .2)
+	-- 	sprite.play_flipbook("moon_sun#sprite", "moon")
+	-- 	go.set("moon_sun#aura", "color", vmath.vector4(.4, .6, 1, 1))
+	-- 	sequence.go_animate("sun", "position.z", go.PLAYBACK_ONCE_FORWARD, -100, go.EASING_INOUTCUBIC, time / 4)
+	-- 	sequence.go_animate("moon_sun", "position.y", go.PLAYBACK_ONCE_FORWARD, 0, go.EASING_OUTBACK, .2)
+	-- end)
 end
 
 function init(self)

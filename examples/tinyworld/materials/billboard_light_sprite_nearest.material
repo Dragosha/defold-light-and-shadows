@@ -2,7 +2,7 @@ name: "billboard_sprite"
 tags: "tile"
 tags: "shadow"
 vertex_program: "/light_and_shadows/materials/sprite/billboard/billboard_sprite.vp"
-fragment_program: "/light_and_shadows/materials/sprite/sprite.fp"
+fragment_program: "/examples/tinyworld/materials/fog _of_ war/model_fow.fp"
 vertex_constants {
   name: "view_proj"
   type: CONSTANT_TYPE_VIEWPROJ
@@ -67,6 +67,14 @@ samplers {
   wrap_v: WRAP_MODE_CLAMP_TO_EDGE
   filter_min: FILTER_MODE_MIN_NEAREST
   filter_mag: FILTER_MODE_MAG_NEAREST
+  max_anisotropy: 0.0
+}
+samplers {
+  name: "fow"
+  wrap_u: WRAP_MODE_CLAMP_TO_EDGE
+  wrap_v: WRAP_MODE_CLAMP_TO_EDGE
+  filter_min: FILTER_MODE_MIN_LINEAR
+  filter_mag: FILTER_MODE_MAG_LINEAR
   max_anisotropy: 0.0
 }
 attributes {

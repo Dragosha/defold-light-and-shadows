@@ -11,10 +11,12 @@ embedded_components {
   "  sampler: \"tex1\"\n"
   "  texture: \"/examples/tinyworld/tiles.atlas\"\n"
   "}\n"
+  "textures {\n"
+  "  sampler: \"fow\"\n"
+  "  texture: \"/examples/tinyworld/tiles.atlas\"\n"
+  "}\n"
   ""
   position {
-    x: -18.699322
     y: 9.0
-    z: 75.04193
   }
 }

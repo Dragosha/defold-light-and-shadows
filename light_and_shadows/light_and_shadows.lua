@@ -189,6 +189,8 @@ function light_and_shadows.update_light(self)
     v4.w = light_and_shadows.depth_bias
     self.constants.v4 = v4
 
+    if constants.map then self.constants.map = constants.map end
+
     -- Camera focus point. Look at this point.
     cam_look_at_position.x = constants.cam_look_at_position.x
     cam_look_at_position.y = constants.cam_look_at_position.y
