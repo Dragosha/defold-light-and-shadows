@@ -67,6 +67,13 @@ void main()
 
     vec2 fow_uv = vec2(0.5 + (var_position.x / map.z)/map.x, 0.5 +(var_position.z / map.z)/map.y);
     vec4 var_fog_of_war = texture(fow, fow_uv );
+    // additional smooth
+    // var_fog_of_war += texture(fow, vec2(0.5 + ((var_position.x - map.z) / map.z)/map.x, 0.5 +(var_position.z / map.z)/map.y) );
+    // var_fog_of_war += texture(fow, vec2(0.5 + ((var_position.x + map.z) / map.z)/map.x, 0.5 +(var_position.z / map.z)/map.y) );
+    // var_fog_of_war += texture(fow, vec2(0.5 + (var_position.x / map.z)/map.x, 0.5 +((var_position.z - map.z) / map.z)/map.y) );
+    // var_fog_of_war += texture(fow, vec2(0.5 + (var_position.x / map.z)/map.x, 0.5 +((var_position.z + map.z) / map.z)/map.y) );
+    // var_fog_of_war /= 5;
+    // clamp borders
     if (fow_uv.x<0.0) var_fog_of_war.r = 0.0;
     if (fow_uv.x>1.0) var_fog_of_war.r = 0.0;
     if (fow_uv.y<0.0) var_fog_of_war.r = 0.0;

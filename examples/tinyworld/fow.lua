@@ -12,6 +12,8 @@ local tstream
 local temp
 local fmax = math.max
 local fmin = math.min
+local random = math.random
+
 local function clamp(x, min, max)
     return x < min and min or (x > max and max or x)
 end
@@ -22,7 +24,7 @@ local function buffer_index(x, y)
     return (y-1) * buffer_info.width * buffer_info.channels + (x-1) * buffer_info.channels + 1
 end
 
-local function fill_line(fromx, tox, y, r, g, b, a)
+local function fill_line(fromx, tox, y, r, g, b, a, cx, cy)
 
     if fromx > tox then
         fromx, tox = tox, fromx
@@ -35,9 +37,14 @@ local function fill_line(fromx, tox, y, r, g, b, a)
     local toend = buffer_index(tox, y)
 
     for index = start, toend, buffer_info.channels do
-        tstream[index + 0] = fmax(tstream[index + 0], r)
-        -- tstream[index + 1] = g
-        -- tstream[index + 2] = b
+        -- approximate smooth without Sqrt  
+        local dist = ((fromx - cx)*(fromx - cx) + (y - cy)*(y - cy)) * .075
+        local p = 1/(dist >= 1 and dist or 1)
+        fromx = fromx + 1
+
+        tstream[index + 0] = fmin(255, tstream[index + 0] + r * p)
+        -- tstream[index + 1] = fmin(255, tstream[index + 0] + g * p)
+        -- tstream[index + 2] = fmin(255, tstream[index + 0] + b * p)
         -- index = index + 4
     end
 end
@@ -52,10 +59,10 @@ local function draw_filled_circle(posx, posy, diameter, r, g, b, a)
         local dy = 1
         local err = dx - (radius *2)
         while (x >= y) do
-            fill_line(posx - x, posx + x, posy + y, r, g, b, a)
-            fill_line(posx - y, posx + y, posy + x, r, g, b, a)
-            fill_line(posx - x, posx + x, posy - y, r, g, b, a)
-            fill_line(posx - y, posx + y, posy - x, r, g, b, a)
+            fill_line(posx - x, posx + x, posy + y, r, g, b, a, posx, posy)
+            fill_line(posx - y, posx + y, posy + x, r, g, b, a, posx, posy)
+            fill_line(posx - x, posx + x, posy - y, r, g, b, a, posx, posy)
+            fill_line(posx - y, posx + y, posy - x, r, g, b, a, posx, posy)
 
             if (err <= 0) then
                 y = y + 1
@@ -90,7 +97,7 @@ function fow.init(self, MAP_WIDTH, MAP_HEIGHT, TILE_SIZE, _resource_path)
     tstream = buffer.get_stream(tbuffer, name)
     local index = 1
     for i=1,MAP_WIDTH * MAP_HEIGHT * coef * coef do
-            tstream[index + 0] = 2
+            tstream[index + 0] = 0
             tstream[index + 1] = 0
             tstream[index + 2] = 0
             index = index + channels
@@ -106,6 +113,11 @@ function fow.init(self, MAP_WIDTH, MAP_HEIGHT, TILE_SIZE, _resource_path)
 end
 
 
+function fow.get(x, y)
+    local index = buffer_index(x, y)
+    return tstream[index + 0]
+end
+
 function fow.draw_in(x, y, diameter)
 	local power = 0
 	timer.delay(1/30, true, function (self, handle, time_elapsed)
@@ -120,20 +132,32 @@ function fow.draw_in(x, y, diameter)
 end
 
 function fow.draw(x, y, diameter)
-    draw_filled_circle(x * coef, y * coef, (diameter+4) * coef, 32, 0, 0, 0)
-    draw_filled_circle(x * coef, y * coef, (diameter+2) * coef, 64, 0, 0, 0)
-	draw_filled_circle(x * coef, y * coef, diameter * coef, 128, 0, 0, 16)
-    draw_filled_circle(x * coef, y * coef, (diameter-2) * coef, 255, 0, 0, 255)
+    -- draw_filled_circle(x * coef, y * coef, (diameter+4) * coef, 32, 0, 0, 0)
+    -- draw_filled_circle(x * coef, y * coef, (diameter+2) * coef, 64, 0, 0, 0)
+	-- draw_filled_circle(x * coef, y * coef, diameter * coef, 128, 0, 0, 16)
+    draw_filled_circle(x * coef, y * coef, (diameter) * coef, 255, 0, 0, 255)
 	changes = true
 end
 
 function fow.update(self, dt)
-	if changes and buffer_info and resource_path then
-		resource.set_texture( resource_path, header, buffer_info.buffer )
-		changes = false
-	end
+    self.fow_dt = (self.fow_dt or 0) + dt
+    if self.fow_dt > .1 then
+    	if changes and buffer_info and resource_path then
+    		resource.set_texture( resource_path, header, buffer_info.buffer )
+    		changes = false
+            return true
+    	end
+        self.fow_dt = 0
+    end
+    return false
 end
 
+
+function fow.set_texture(_resource_path)
+    if header and buffer_info and _resource_path then
+        resource.set_texture( _resource_path, header, buffer_info.buffer )
+    end
+end
 
 function fow.final(self)
 	resource_path = nil

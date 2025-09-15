@@ -257,8 +257,8 @@ instances {
   id: "b56"
   prototype: "/examples/tinyworld/3D/tower2.go"
   position {
-    x: 25.0
-    z: -56.0
+    x: 41.0
+    z: -41.0
   }
   scale3 {
     x: 16.0
@@ -270,8 +270,8 @@ instances {
   id: "b57"
   prototype: "/examples/tinyworld/3D/tower2.go"
   position {
-    x: 45.0
-    z: -78.0
+    x: 41.0
+    z: -73.0
   }
   rotation {
     y: 0.70710677
@@ -287,8 +287,8 @@ instances {
   id: "b58"
   prototype: "/examples/tinyworld/3D/tower_wall.go"
   position {
-    x: 45.0
-    z: -62.0
+    x: 41.0
+    z: -57.0
   }
   rotation {
     y: -0.70710677
@@ -304,8 +304,8 @@ instances {
   id: "b59"
   prototype: "/examples/tinyworld/3D/tower.go"
   position {
-    x: 77.0
-    z: -46.0
+    x: 73.0
+    z: -41.0
   }
   scale3 {
     x: 16.0
@@ -317,8 +317,8 @@ instances {
   id: "b60"
   prototype: "/examples/tinyworld/3D/tower.go"
   position {
-    x: 77.0
-    z: -78.0
+    x: 73.0
+    z: -73.0
   }
   rotation {
     y: 0.70710677
@@ -334,8 +334,8 @@ instances {
   id: "b61"
   prototype: "/examples/tinyworld/3D/tower_wall.go"
   position {
-    x: 77.0
-    z: -62.0
+    x: 73.0
+    z: -57.0
   }
   rotation {
     y: -0.70710677
@@ -351,8 +351,8 @@ instances {
   id: "b62"
   prototype: "/examples/tinyworld/3D/tower_wall.go"
   position {
-    x: 41.0
-    z: -53.0
+    x: 24.0
+    z: -38.0
   }
   scale3 {
     x: 16.0
@@ -364,8 +364,8 @@ instances {
   id: "b63"
   prototype: "/examples/tinyworld/3D/tower_wall.go"
   position {
-    x: 61.0
-    z: -78.0
+    x: 57.0
+    z: -73.0
   }
   scale3 {
     x: 16.0
@@ -1006,6 +1006,7 @@ embedded_instances {
 }
 embedded_instances {
   id: "root"
+  children: "minimap"
   children: "smoke"
   data: "components {\n"
   "  id: \"scene_controller\"\n"
@@ -1146,6 +1147,12 @@ embedded_instances {
   "  id: \"b6\"\n"
   "  type: \"factory\"\n"
   "  data: \"prototype: \\\"/examples/tinyworld/3D/b6.go\\\"\\n"
+  "\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"point\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/examples/tinyworld/props/point.go\\\"\\n"
   "\"\n"
   "}\n"
   ""
@@ -1502,5 +1509,25 @@ embedded_instances {
     x: 0.131085
     y: 0.131085
     z: 0.131085
+  }
+}
+embedded_instances {
+  id: "minimap"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"empty\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/examples/tinyworld/fow.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: -1910.0
+    y: 95.0
+    z: -2324.0
   }
 }

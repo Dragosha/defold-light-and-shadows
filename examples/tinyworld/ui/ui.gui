@@ -7,6 +7,10 @@ textures {
   name: "tiles"
   texture: "/examples/tinyworld/tiles.atlas"
 }
+textures {
+  name: "fow"
+  texture: "/examples/tinyworld/fow.atlas"
+}
 nodes {
   position {
     y: 837.6891
@@ -201,6 +205,40 @@ nodes {
   texture: "tiles/gear"
   id: "box3"
   parent: "settings"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 1600.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_BOX
+  id: "box4"
+  xanchor: XANCHOR_RIGHT
+  yanchor: YANCHOR_BOTTOM
+  pivot: PIVOT_SE
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+  visible: false
+}
+nodes {
+  position {
+    x: -89.0
+    y: 93.0
+  }
+  scale {
+    x: 2.0
+    y: -2.0
+    z: 2.0
+  }
+  type: TYPE_BOX
+  texture: "fow/empty"
+  id: "box5"
+  parent: "box4"
   inherit_alpha: true
   size_mode: SIZE_MODE_AUTO
 }

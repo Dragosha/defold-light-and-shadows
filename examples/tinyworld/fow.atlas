@@ -1,0 +1,3 @@
+images {
+  image: "/examples/tinyworld/images/empty.png"
+}
