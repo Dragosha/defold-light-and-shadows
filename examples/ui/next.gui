@@ -21,6 +21,7 @@ nodes {
   xanchor: XANCHOR_RIGHT
   yanchor: YANCHOR_TOP
   inherit_alpha: true
+  enabled: false
   visible: false
 }
 nodes {

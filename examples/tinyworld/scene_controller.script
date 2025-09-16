@@ -12,12 +12,11 @@ go.property("cam_look_at", msg.url("cam_target"))
 go.property("acquire_delay", 0)
 go.property("zoom_speed", 1)
 
+-- Texture for fog-of-war (used as a resource)
 go.property("fow", resource.texture(""))
 local root     = vmath.vector3(0, 0, 0)
 local up       = vmath.vector3(0, 1, 0)
--- Scene Input controller.
--- Hundle mouse click/touch and broadcast it to listeners.
--- Scroll/zoom a game world by moving the camera.
+
 
 local perlin = require 'examples.tinyworld.perlin'
 perlin:load()
@@ -57,7 +56,7 @@ local function generate(self)
 
     local temp = {}
     local scale = 1 / 8
-   
+
 
     for y = 1, MAP_HEIGHT do
         temp[y] = {}
@@ -96,7 +95,7 @@ local function generate(self)
             end
         end
     end
-    
+
     for y = 2, MAP_HEIGHT do
         for x = 2, MAP_WIDTH do
             if temp[y][x] == 1 then
@@ -105,7 +104,7 @@ local function generate(self)
                 -- map[y-1][x] = 1
                 -- tilemap.set_tile(turl, "ground", (x - MAP_WIDTH/2), (MAP_HEIGHT/2 - y + 2), common.get_one_from({5, 6}))
             end
-            
+
         end
         for x = MAP_WIDTH-1, 1, -1 do
             if temp[y][x] == 1 then
@@ -130,7 +129,7 @@ local function generate(self)
             end
         end
     end
-    
+
 end
 local selected = t.move
 local function neighbours(y, x, typ)
@@ -165,7 +164,7 @@ local heroes = {
         y = MAP_HEIGHT / 2,
         id = "boy",
         sprite = "boy#sprite",
-        visible_radius = 10,
+        visible_radius = 16,
     }
 }
 local function follow_path(obj, path, marks, step_cb)
@@ -184,7 +183,7 @@ local function follow_path(obj, path, marks, step_cb)
             if p then
                 local temp = pos_xy(p.x, p.y)
 
-                local time = .25
+                local time = .2
                 if tx ~= p.x and ty ~= p.y then
                     time = time * 1.41
                 end
@@ -206,10 +205,16 @@ local function follow_path(obj, path, marks, step_cb)
                 end
 
                 local easing = go.EASING_LINEAR
-                go.animate(obj.id, "position", go.PLAYBACK_ONCE_FORWARD, temp, easing, time, 0, step)
+                go.animate(obj.id, "position.x", go.PLAYBACK_ONCE_FORWARD, temp.x, easing, time, 0, step)
+                go.animate(obj.id, "position.z", go.PLAYBACK_ONCE_FORWARD, temp.z, easing, time)
+                go.set(obj.id, "position.y", 0)
+                go.animate(obj.id, "position.y", go.PLAYBACK_ONCE_PINGPONG, 2, easing, time)
+                go.animate(obj.id, "euler.z", go.PLAYBACK_ONCE_PINGPONG, (obj.path_index %2 == 0 and 5 or -5) , easing, time)
 
                 obj.x = p.x
                 obj.y = p.y
+                obj.prev_x = tx
+                obj.prev_y = ty
 
                 if step_cb then
                     step_cb(obj)
@@ -228,10 +233,17 @@ local function follow_path(obj, path, marks, step_cb)
     step()
 end
 
+local function noway(x,y)
+    local id = factory.create("#point", pos_xy(x, y, 1))
+    sprite.play_flipbook(msg.url(nil, id, "sprite"), "noway")
+    timer.delay(.4, false, function (self, handle, time_elapsed)
+        go.delete(id)
+    end)
+end
 
 local function click(self, position)
     -- if selected == t.move then return end
-    common.play_sound("button", {speed = 2, gain = .3})
+    print("Click!")
 
     local x = math.floor(position.x / TILE_SIZE) + MAP_WIDTH/2 + 1
     local y = math.floor(position.z / TILE_SIZE) + MAP_HEIGHT/2 + 1
@@ -248,7 +260,9 @@ local function click(self, position)
         objects[y][x] = {id = id, t = t.house}
         total = total + 1
         map.set(x, y, map.solid)
+        fow.set_b(x, y, 255) -- add to minimap
         go.animate(id, "scale.y", go.PLAYBACK_ONCE_PINGPONG, SCALE.y * 1.2, go.EASING_OUTBACK, .2)
+        common.play_sound("button", {speed = 2, gain = .3})
 
     elseif selected == t.tree then
         erase(x, y)
@@ -257,39 +271,70 @@ local function click(self, position)
         objects[y][x] = {id = id, t = t.tree}
         total = total + 1
         map.set(x, y, map.solid)
+        fow.set_b(x, y, 255) -- add to minimap
         go.animate(id, "scale.y", go.PLAYBACK_ONCE_PINGPONG, SCALE.y * 1.2, go.EASING_OUTBACK, .2)
+        common.play_sound("button", {speed = 2, gain = .3})
+
     elseif selected == t.move then
 
-        if fow.get(x, y) > 0 then
-            local t1 = socket.gettime()
-            local result, size, cost, path = map.find_path(heroes[1].x, heroes[1].y, x, y)
-
+        local hero = heroes[1]
             if self.path_ids then
                 for index, id in ipairs(self.path_ids) do
                     go.delete(id)
                 end
             end
             self.path_ids = {}
+        if hero.path then
+            hero.path = nil
+            return
+        end
+
+        if fow.get(x, y) > 0 then
+            local t1 = socket.gettime()
+            local result, size, cost, path = map.find_path(hero.x, hero.y, x, y)
+
             if result == map.result.SOLVED then
                 for index, v in ipairs(path) do
                     local id = factory.create("#point", pos_xy(v.x, v.y, 1))
                     table.insert(self.path_ids, id)
                 end
 
-                follow_path(heroes[1], path, self.path_ids,
-                 function(obj, done)
+                follow_path(hero, path, self.path_ids,
+                  function(obj, done)
                     fow.draw(obj.x, obj.y, obj.visible_radius)
+                    if obj.prev_x then fow.set_g(obj.prev_x, obj.prev_y, 0) end
+                    fow.set_g(obj.x, obj.y, 255)
                     if #self.path_ids > 0 then
                         local id = table.remove(self.path_ids, 1)
                         go.delete(id)
                     end
-                end)
+                    if not done and obj.path_index % 2 == 0 then
+                        common.play_sound("horse", {speed = 1 + math.random() * .2, gain = .7})
+                    end
+                    if done then obj.path = nil end
+                  end)
             else
-                heroes[1].path = nil
+                noway(x,y)
             end
-            print(x, y, result, socket.gettime() - t1)
+            print(x, y, result, socket.gettime() - t1) -- profiling pathfinder
         else
             print("The tile is covered by the fog of war.", x, y)
+            noway(x,y)
+
+            local near_result, near_size, nears = map.find_nears(heroes[1].x, heroes[1].y, 8, function(v, x, y)
+                return fow.get(x, y) > 0
+            end)
+            print(near_result, near_size)
+            if self.path_ids then
+                for index, id in ipairs(self.path_ids) do
+                    go.delete(id)
+                end
+            end
+            for index, v in pairs(nears) do
+                local id = factory.create("#point", pos_xy(v.x, v.y, 1))
+                table.insert(self.path_ids, id)
+            end
+
         end
     end
 
@@ -316,12 +361,26 @@ function init(self)
         print("selected:", selected)
     end)
 
+    broadcast.register("minimap", function(message)
+        go.animate(self.cam_look_at, "position", go.PLAYBACK_ONCE_FORWARD, pos_xy(message.x, message.y), go.EASING_LINEAR, .1)
+        -- go.set_position(pos_xy(message.x, message.y), self.cam_look_at)
+    end)
+
     common.init_default_random()
     generate(self)
 
 
     fow.init(self, MAP_WIDTH, MAP_HEIGHT, TILE_SIZE, self.fow)
-    fow.draw(MAP_WIDTH / 2, MAP_HEIGHT / 2, 16)
+    fow.draw(MAP_WIDTH / 2, MAP_HEIGHT / 2, 22)
+
+    for y = 1, MAP_HEIGHT do
+        for x = 1, MAP_WIDTH do
+            local v = map.get(x, y)
+            if v == map.solid then
+                fow.set_b(x, y, 255)
+            end
+        end
+    end
 
 end
 
@@ -469,9 +528,9 @@ function on_input(self, action_id, action)
 
     keyboard_map(self, action_id, action)
     zoom(self, action_id, action) -- mouse wheel zoom
-       
+
     if action_id == left then
-        
+
         self.touch_down = true
         if action.pressed then
             self.swipe_start_time = socket.gettime()
@@ -489,7 +548,6 @@ function on_input(self, action_id, action)
      -- Multi and single touch handler. Camera movement (mouse + touch) 
     if pinch_on_input(self, action_id, action) then return end
 
-    
 end
 
 

@@ -680,10 +680,6 @@ instances {
   }
 }
 instances {
-  id: "boy"
-  prototype: "/examples/tinyworld/props/boy.go"
-}
-instances {
   id: "b"
   prototype: "/examples/tinyworld/3D/tower.go"
   position {
@@ -871,11 +867,6 @@ embedded_instances {
   children: "b94"
   children: "b95"
   children: "b96"
-  children: "go"
-  children: "go2"
-  children: "go3"
-  children: "go4"
-  children: "go5"
   data: ""
 }
 embedded_instances {
@@ -943,6 +934,13 @@ embedded_instances {
   "  id: \"button\"\n"
   "  type: \"sound\"\n"
   "  data: \"sound: \\\"/assets/ogg/navigate_36.ogg\\\"\\n"
+  "gain: 0.4\\n"
+  "\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"horse\"\n"
+  "  type: \"sound\"\n"
+  "  data: \"sound: \\\"/assets/ogg/horse.ogg\\\"\\n"
   "gain: 0.4\\n"
   "\"\n"
   "}\n"
@@ -1182,336 +1180,6 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "go"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"tr7\\\"\\n"
-  "material: \\\"/examples/tinyworld/materials/billboard_light_sprite_nearest.material\\\"\\n"
-  "size {\\n"
-  "  x: 177.0\\n"
-  "  y: 296.0\\n"
-  "}\\n"
-  "attributes {\\n"
-  "  name: \\\"sprite_scale\\\"\\n"
-  "  double_values {\\n"
-  "    v: 0.05\\n"
-  "    v: 0.05\\n"
-  "    v: 0.05\\n"
-  "  }\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"fow\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    y: 142.215\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite1\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"tr2\\\"\\n"
-  "material: \\\"/examples/tinyworld/materials/billboard_light_sprite_nearest.material\\\"\\n"
-  "size {\\n"
-  "  x: 456.0\\n"
-  "  y: 490.0\\n"
-  "}\\n"
-  "attributes {\\n"
-  "  name: \\\"sprite_scale\\\"\\n"
-  "  double_values {\\n"
-  "    v: 0.05\\n"
-  "    v: 0.05\\n"
-  "    v: 0.05\\n"
-  "  }\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"fow\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 20.097\n"
-  "    y: 391.332\n"
-  "    z: -1.0\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: 67.647
-    y: -0.333
-    z: 132.833
-  }
-  scale3 {
-    x: 0.05
-    y: 0.05
-    z: 0.05
-  }
-}
-embedded_instances {
-  id: "go2"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"tr6\\\"\\n"
-  "material: \\\"/examples/tinyworld/materials/billboard_light_sprite_nearest.material\\\"\\n"
-  "size {\\n"
-  "  x: 177.0\\n"
-  "  y: 296.0\\n"
-  "}\\n"
-  "attributes {\\n"
-  "  name: \\\"sprite_scale\\\"\\n"
-  "  double_values {\\n"
-  "    v: 0.05\\n"
-  "    v: 0.05\\n"
-  "    v: 0.05\\n"
-  "  }\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"fow\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    y: 142.215\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite1\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"tr1\\\"\\n"
-  "material: \\\"/examples/tinyworld/materials/billboard_light_sprite_nearest.material\\\"\\n"
-  "size {\\n"
-  "  x: 456.0\\n"
-  "  y: 490.0\\n"
-  "}\\n"
-  "attributes {\\n"
-  "  name: \\\"sprite_scale\\\"\\n"
-  "  double_values {\\n"
-  "    v: 0.05\\n"
-  "    v: 0.05\\n"
-  "    v: 0.05\\n"
-  "  }\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"fow\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 20.097\n"
-  "    y: 391.332\n"
-  "    z: -1.0\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: 43.647
-    y: -0.333
-    z: 147.833
-  }
-  scale3 {
-    x: 0.05
-    y: 0.05
-    z: 0.05
-  }
-}
-embedded_instances {
-  id: "go3"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"h1\\\"\\n"
-  "material: \\\"/examples/tinyworld/materials/billboard_light_sprite_nearest.material\\\"\\n"
-  "size {\\n"
-  "  x: 173.0\\n"
-  "  y: 326.0\\n"
-  "}\\n"
-  "attributes {\\n"
-  "  name: \\\"sprite_scale\\\"\\n"
-  "  double_values {\\n"
-  "    v: 0.05\\n"
-  "    v: 0.05\\n"
-  "    v: 0.05\\n"
-  "  }\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"fow\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    y: 182.215\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: 58.647
-    y: -0.333
-    z: 157.833
-  }
-  scale3 {
-    x: 0.05
-    y: 0.05
-    z: 0.05
-  }
-}
-embedded_instances {
-  id: "go4"
-  data: "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"h3\\\"\\n"
-  "material: \\\"/examples/tinyworld/materials/billboard_light_sprite_nearest.material\\\"\\n"
-  "size {\\n"
-  "  x: 320.0\\n"
-  "  y: 361.0\\n"
-  "}\\n"
-  "attributes {\\n"
-  "  name: \\\"sprite_scale\\\"\\n"
-  "  double_values {\\n"
-  "    v: 0.05\\n"
-  "    v: 0.05\\n"
-  "    v: 0.05\\n"
-  "  }\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"fow\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    y: 182.215\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: 81.647
-    y: 0.667
-    z: 126.833
-  }
-  scale3 {
-    x: 0.05
-    y: 0.05
-    z: 0.05
-  }
-}
-embedded_instances {
-  id: "go5"
-  data: "components {\n"
-  "  id: \"moving\"\n"
-  "  component: \"/helper/moving.script\"\n"
-  "  properties {\n"
-  "    id: \"value\"\n"
-  "    value: \"-170.0\"\n"
-  "    type: PROPERTY_TYPE_NUMBER\n"
-  "  }\n"
-  "  properties {\n"
-  "    id: \"time\"\n"
-  "    value: \"100.0\"\n"
-  "    type: PROPERTY_TYPE_NUMBER\n"
-  "  }\n"
-  "  properties {\n"
-  "    id: \"prop\"\n"
-  "    value: \"position.x\"\n"
-  "    type: PROPERTY_TYPE_HASH\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"c1\\\"\\n"
-  "material: \\\"/examples/tinyworld/materials/billboard_light_sprite_nearest.material\\\"\\n"
-  "size {\\n"
-  "  x: 361.0\\n"
-  "  y: 195.0\\n"
-  "}\\n"
-  "attributes {\\n"
-  "  name: \\\"sprite_scale\\\"\\n"
-  "  double_values {\\n"
-  "    v: 0.131085\\n"
-  "    v: 0.131085\\n"
-  "    v: 0.131085\\n"
-  "  }\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex0\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"tex1\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"fow\\\"\\n"
-  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "  position {\n"
-  "    y: 286.435\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: 168.989
-    z: 21.716
-  }
-  scale3 {
-    x: 0.131085
-    y: 0.131085
-    z: 0.131085
-  }
-}
-embedded_instances {
   id: "minimap"
   data: "embedded_components {\n"
   "  id: \"sprite\"\n"
@@ -1529,5 +1197,36 @@ embedded_instances {
     x: -1910.0
     y: 95.0
     z: -2324.0
+  }
+}
+embedded_instances {
+  id: "boy"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"hero1\\\"\\n"
+  "material: \\\"/examples/tinyworld/materials/billboard_light_sprite_nearest.material\\\"\\n"
+  "size {\\n"
+  "  x: 14.0\\n"
+  "  y: 18.0\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"tex0\\\"\\n"
+  "  texture: \\\"/examples/tinyworld/tiles.atlas\\\"\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"tex1\\\"\\n"
+  "  texture: \\\"/examples/tinyworld/tiles.atlas\\\"\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"fow\\\"\\n"
+  "  texture: \\\"/examples/tinyworld/tiles.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: -7.0
+    z: -5.0
   }
 }

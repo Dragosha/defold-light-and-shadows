@@ -1,23 +1,26 @@
 local map = {}
 
+--- A pure LUA library for pathfinding in an array.
+-- Author Igor Suntsev
+-- http://dragosha.com
+-- MIT License
+
 map.world = {}
 map.width = 8
 map.height = 8
-map.bounds = {left = 0, bottom = 0, right = 0, top = 0}
 map.tile_size = 16
 map.cache = {}
 
 map.diagonals = false
 
+-- Cell types:
 map.empty = hash("empty")
 map.solid = hash("solid")
 map.props = hash("props")
 map.unit = hash("unit")
-map.out = hash("out")
+map.outside = hash("outside")
 
-map.mark = {}
-map.enemy_spawn = {}
-
+-- Initialization
 function map.init(w, h, tile_size)
 	map.cache = {}
 	map.world = {}
@@ -29,6 +32,7 @@ function map.init(w, h, tile_size)
 	map.tile_size = tile_size or 16
 end
 
+-- Set a value to cell
 function map.set(x, y, value)
 	if x < 1 or x > map.width or y < 1 or y > map.height then return end
 	local index = (y - 1) * map.width + x
@@ -36,8 +40,9 @@ function map.set(x, y, value)
 
 end
 
+-- Get a value from cell
 function map.get(x, y)
-	if x < 1 or x > map.width or y < 1 or y > map.height then return map.out end
+	if x < 1 or x > map.width or y < 1 or y > map.height then return map.outside end
 	local index = (y - 1) * map.width + x
 	return map.world[index]
 end
@@ -53,12 +58,19 @@ map.result = {
 
 }
 
----Find path
+map.MAX_COST = 100
+---Finding a path in a predefined array map.world
+---@param start_x number
+---@param start_y number
+---@param end_x number
+---@param end_y number
+---@param fn function? @The callback(map value, x, y) to checking is a cell suitable for adding to the path.
+---@return hash result, number size, number total_cost, table path @(array of {x, y, deep})
 function map.find_path(start_x, start_y, end_x, end_y, fn)
 	local size = 0
 	local total_cost = 0
 	local path =  {}
-	local max_cost = 100
+	local max_cost = map.MAX_COST
 
 	if start_x == end_x and start_y == end_y then
 		return map.result.SAME, size, total_cost, path
@@ -67,12 +79,30 @@ function map.find_path(start_x, start_y, end_x, end_y, fn)
 	local near_size = 0
 	local nears = {}
 	local node
+	local finish = false
 
-	local function check(x, y, deep)
-		if deep <= max_cost and x > 0 and x <= map.width and y > 0 and y <= map.height then
+	local function is_ok(x, y)
+		local ok = false
+		if x > 0 and x <= map.width and y > 0 and y <= map.height then
 			local index = (y - 1) * map.width + x
 			local value = map.world[index]
-			-- print(x, y, "=", value, t[index])
+			if fn then
+				ok = fn(value, x, y)
+			else
+				ok = value == map.empty
+			end
+		end
+		return ok
+	end
+	if not is_ok(end_x, end_y) then
+		return map.result.NO_SOLUTION, size, total_cost, path
+	end
+
+
+	local function check(x, y, deep)
+		if not finish and deep <= max_cost and x > 0 and x <= map.width and y > 0 and y <= map.height then
+			local index = (y - 1) * map.width + x
+			local value = map.world[index]
 
 			local ok = false
 			if fn then
@@ -82,23 +112,35 @@ function map.find_path(start_x, start_y, end_x, end_y, fn)
 			end
 
 			local ti = nears[index]
+			-- print(x, y, "=", value, deep, ti, finish)
 			if (ok or deep == 0) and (not ti or ti.deep > deep) then
 				if not ti then near_size = near_size + 1 end
 				nears[index] = {x = x, y = y, deep = deep}
 
 				if x == end_x and y == end_y then
 					node = nears[index]
-				else
-					check(x - 1, y, deep + 1)
-					check(x + 1, y, deep + 1)
-					check(x, y + 1, deep + 1)
-					check(x, y - 1, deep + 1)
+					finish = true
 				end
 			end
 		end
 	end
 
 	check(start_x, start_y, 0)
+	local d = 0
+	while not finish do
+		for key, value in pairs(nears) do
+			local x = value.x
+			local y = value.y
+			local deep = value.deep + 1
+			if not finish then check(x - 1, y, deep) end
+			if not finish then check(x + 1, y, deep) end
+			if not finish then check(x, y + 1, deep) end
+			if not finish then check(x, y - 1, deep) end
+			if deep >= max_cost then finish = true end
+		end
+		d = d + 1
+		if d >= max_cost then finish = true end
+	end
 
 	if node then
 		return map.find_path_in_nears(nears, start_x, start_y, end_x, end_y, node)
@@ -182,6 +224,12 @@ function map.is_empty(value) return value == map.empty end
 function map.is_empty_or_unit(value) return value == map.empty or value == map.unit end
 function map.is_empty_or_unit_or_props(value) return value == map.empty or value == map.unit or value == map.props end
 ----------------------------------------------
+---Finds the nearest cells with a distance from the reference point of no more than max_cost.
+---@param start_x number
+---@param start_y number
+---@param max_cost number
+---@param fn function? @The callback(value, x, y) to checking is a cell suitable for adding to the list.
+---@return hash near_result, number near_size, table nears (pairs, not array)
 function map.find_nears(start_x, start_y, max_cost, fn)
 
 	-- local key = "" .. start_x .. start_y .. max_cost
@@ -193,6 +241,7 @@ function map.find_nears(start_x, start_y, max_cost, fn)
 	local near_result = map.result.NO_SOLUTION
 	local near_size = 0
 	local nears = {}
+	local finish = false
 
 	local function check(x, y, deep)
 		if deep <= max_cost and x > 0 and x <= map.width and y > 0 and y <= map.height then
@@ -202,25 +251,35 @@ function map.find_nears(start_x, start_y, max_cost, fn)
 			local ti = nears[index]
 
 			local ok = false
-			if fn then 
-				ok = fn(value)
+			if fn then
+				ok = fn(value, x, y)
 			else 
 				ok = value == map.empty or value == map.unit or value == map.props
 			end
 
 			if (ok or deep == 0) and (not ti or ti.deep > deep) then
 				if not ti then near_size = near_size + 1 end
-				if deep > 0 then nears[index] = { x = x, y = y, deep = deep } end
+				nears[index] = { x = x, y = y, deep = deep }
 				-- print("^^^ added, deep:", deep)
-				check(x - 1, y, deep + 1)
-				check(x + 1, y, deep + 1)
-				check(x, y + 1, deep + 1)
-				check(x, y - 1, deep + 1)
 			end
 		end
 	end
 
 	check(start_x, start_y, 0)
+	local d = 0
+	while d < max_cost do
+		for key, value in pairs(nears) do
+			local x = value.x
+			local y = value.y
+			local deep = value.deep + 1
+			if not finish then check(x - 1, y, deep) end
+			if not finish then check(x + 1, y, deep) end
+			if not finish then check(x, y + 1, deep) end
+			if not finish then check(x, y - 1, deep) end
+			-- if deep > max_cost then finish = true end
+		end
+		d = d + 1
+	end
 	if near_size > 0 then near_result = map.result.SOLVED end
 
 	-- map.cache[key] = {near_result = near_result, near_size = near_size, nears = nears}
@@ -321,46 +380,6 @@ function map.is_neighbor_strict(ix, iy, tx, ty)
 	end
 
 	return false
-end
-
-function map.find_nears_units(start_x, start_y, max_cost, callback, fn)
-	local near_result = map.result.NO_SOLUTION
-	local near_size = 0
-	local nears = {}
-
-	local function check(x, y, deep)
-		if deep <= max_cost and x > 0 and x <= map.width and y > 0 and y <= map.height then
-			local index = (y - 1) * map.width + x
-			local value = map.world[index]
-			-- print(x, y, "=", value, t[index])
-
-			local ti = nears[index]
-			local ok = false
-			if fn then
-				ok = fn(value)
-			else
-				ok = value == map.empty or value == map.unit
-			end
-
-			if (ok or deep == 0) and (not ti or ti.deep > deep) then
-				if not ti then near_size = near_size + 1 end
-				local node = {x = x, y = y, deep = deep}
-				if value == map.unit and callback and not ti then
-					callback(node)
-				end
-				nears[index] = node
-				-- print("^^^ added, deep:", deep)
-				check(x - 1, y, deep + 1)
-				check(x + 1, y, deep + 1)
-				check(x, y + 1, deep + 1)
-				check(x, y - 1, deep + 1)
-			end
-		end
-	end
-
-	check(start_x, start_y, 0)
-	if near_size > 0 then near_result = map.result.SOLVED end
-	return near_result, near_size, nears
 end
 
 function map.pos_xy_vec(x, y, h)

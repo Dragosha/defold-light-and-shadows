@@ -1,7 +1,7 @@
 local M = {}
 
-local registered_nodes = {}
-M.registered_nodes = registered_nodes
+local nodes_list = {}
+M.registered_nodes = nodes_list
 local longtap={}
 
 local function ensure_node(node_or_node_id)
@@ -32,10 +32,21 @@ function M.register(param, callback, value, click_cb, longtap_cb)
 
     if type(param) == 'table' then
         local node = ensure_node(param.node)
-        registered_nodes[node] = { url = msg.url(), callback = param.callback, click_cb=param.click_cb, node = node, scale = gui.get_scale(node), value=param.value, longtap_cb=param.longtap_cb }
+        table.insert(nodes_list, 1,
+        {   url = msg.url(),
+            noshake = param.noshake,
+            callback = param.callback,
+            click_cb = param.click_cb,
+            repeat_cb = param.repeat_cb,
+            drag_cb = param.drag_cb,
+            node = node,
+            scale = gui.get_scale(node),
+            value = param.value,
+            longtap_cb=param.longtap_cb }
+        )
     else
         local node = ensure_node(param)
-        registered_nodes[node] = { url = msg.url(), callback = callback, click_cb=click_cb, node = node, scale = gui.get_scale(node), value=value, longtap_cb=longtap_cb }
+        table.insert(nodes_list, 1, { url = msg.url(), callback = callback, click_cb=click_cb, node = node, scale = gui.get_scale(node), value=value, longtap_cb=longtap_cb })
     end
 end
 
@@ -44,22 +55,28 @@ end
 -- @param node_or_string
 function M.unregister(node_or_string)
     if not node_or_string then
+        -- ALL
         local url = msg.url()
-        for k,registered_node in pairs(registered_nodes) do
-            if registered_node.url == url then
-                registered_nodes[k] = nil
+        for k,registered in ipairs(nodes_list) do
+            if registered.url == url then
+                nodes_list[k] = nil
                 longtap[k] = nil
             end
         end
     else
         local node = ensure_node(node_or_string)
-        registered_nodes[node] = nil
-        longtap[node] = nil
+        for k,registered in ipairs(nodes_list) do
+            if registered.node == node then
+                nodes_list[k] = nil
+                longtap[k] = nil
+                break
+            end
+        end
     end
 end
 
 local function shake(node, initial_scale)
-    local initial_scale_ = initial_scale or registered_nodes[node].scale
+    local initial_scale_ = initial_scale or nodes_list[node].scale
     gui.cancel_animation(node, "scale.x")
     gui.cancel_animation(node, "scale.y")
     gui.set_scale(node, initial_scale_)
@@ -93,34 +110,34 @@ function M.on_input(self, action_id, action)
     --print("action_id=",action_id,action.pressed,action.released,action.repeated)
     if action.pressed then
         local url = msg.url()
-        for _,registered_node in pairs(registered_nodes) do
-            if registered_node.url == url then
-                local node = registered_node.node
+        for _,registered in pairs(nodes_list) do
+            if registered.url == url then
+                local node = registered.node
                 if is_enabled(node) and gui.pick_node(node, action.x, action.y) then
-                    registered_node.pressed = true
-                    if registered_node.longtap_cb then
-                        registered_node.startTime=socket.gettime()
-                        longtap[node]=registered_node
+                    registered.pressed = true
+                    if registered.longtap_cb then
+                        registered.startTime=socket.gettime()
+                        longtap[node]=registered
                     end
-                    if registered_node.click_cb then registered_node.click_cb(self, registered_node.value, node) end
-                    shake(node, registered_node.scale)
-                    self.some_is_pressed = true
+                    if registered.click_cb then registered.click_cb(self, registered.value, node, action) end
+                    if not registered.noshake then shake(node, registered.scale) end
+                    self.some_is_pressed = registered
                     return true, node
                 end
             end
         end
     elseif action.released then
         local url = msg.url()
-        for _,registered_node in pairs(registered_nodes) do
-            if registered_node.url == url then
+        for _,registered in pairs(nodes_list) do
+            if registered.url == url then
                 self.some_is_pressed = nil
-                local node = registered_node.node
-                local pressed = registered_node.pressed
-                registered_node.pressed = false
+                local node = registered.node
+                local pressed = registered.pressed
+                registered.pressed = false
                 longtap[node] = nil
                 if is_enabled(node) and gui.pick_node(node, action.x, action.y) and pressed then
                     --shake(node, registered_node.scale)
-                    if registered_node.callback then registered_node.callback(self, registered_node.value, node) end
+                    if registered.callback then registered.callback(self, registered.value, node) end
                     return true, node
                 end
             end
@@ -142,6 +159,23 @@ function M.on_input(self, action_id, action)
                     end
                 end
             end
+        end
+        for _,registered in pairs(nodes_list) do
+            if registered.url == url then
+                local node = registered.node
+                if is_enabled(node) and gui.pick_node(node, action.x, action.y) and registered.pressed then
+                    if registered.repeat_cb then registered.repeat_cb(self, registered.value, node, action) end
+                    return true, node
+                end
+            end
+        end
+    end
+    if self.some_is_pressed then
+        local registered = self.some_is_pressed
+        local node = registered.node
+        if is_enabled(node) and gui.pick_node(node, action.x, action.y) and registered.pressed then
+            if registered.drag_cb then registered.drag_cb(self, registered.value, node, action) end
+            return true, node
         end
     end
     return self.some_is_pressed or false

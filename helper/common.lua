@@ -53,6 +53,7 @@ common.is_sound_on = true
 common.sound_url = "/sounds#"
 common.sounds = {
     [hash("button")] = "button",
+    [hash("horse")] = "horse",
  }
 
 function common.pan(position, gain_pow)

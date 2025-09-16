@@ -1,3 +1,10 @@
+-- A module for preparing a low-resolution texture for the fog-of-war effect. 
+-- This texture is passed to the fragment shader in the render script and used as a mask.
+-- See: https://defold.com/ref/stable/resource-lua/#resource.set_texture:path-table-buffer
+-- R channel is fog-of-war mask
+-- G channel for units
+-- B chahhel for solid objects 
+
 local constants = require "light_and_shadows.constants"
 
 local fow = {}
@@ -24,7 +31,7 @@ local function buffer_index(x, y)
     return (y-1) * buffer_info.width * buffer_info.channels + (x-1) * buffer_info.channels + 1
 end
 
-local function fill_line(fromx, tox, y, r, g, b, a, cx, cy)
+local function fill_line(fromx, tox, y, r, g, b, a)
 
     if fromx > tox then
         fromx, tox = tox, fromx
@@ -36,13 +43,9 @@ local function fill_line(fromx, tox, y, r, g, b, a, cx, cy)
     local start = buffer_index(fromx, y)
     local toend = buffer_index(tox, y)
 
-    for index = start, toend, buffer_info.channels do
-        -- approximate smooth without Sqrt  
-        local dist = ((fromx - cx)*(fromx - cx) + (y - cy)*(y - cy)) * .075
-        local p = 1/(dist >= 1 and dist or 1)
-        fromx = fromx + 1
-
-        tstream[index + 0] = fmin(255, tstream[index + 0] + r * p)
+    local channels = buffer_info.channels
+    for index = start, toend, channels do
+        tstream[index + 0] = fmax(tstream[index + 0], r)
         -- tstream[index + 1] = fmin(255, tstream[index + 0] + g * p)
         -- tstream[index + 2] = fmin(255, tstream[index + 0] + b * p)
         -- index = index + 4
@@ -50,19 +53,18 @@ local function fill_line(fromx, tox, y, r, g, b, a, cx, cy)
 end
 
 local function draw_filled_circle(posx, posy, diameter, r, g, b, a)
-
     if diameter > 0 then
         local radius = diameter / 2
         local x = radius - 1
         local y = 0
         local dx = 1
         local dy = 1
-        local err = dx - (radius *2)
+        local err = dx - diameter
         while (x >= y) do
-            fill_line(posx - x, posx + x, posy + y, r, g, b, a, posx, posy)
-            fill_line(posx - y, posx + y, posy + x, r, g, b, a, posx, posy)
-            fill_line(posx - x, posx + x, posy - y, r, g, b, a, posx, posy)
-            fill_line(posx - y, posx + y, posy - x, r, g, b, a, posx, posy)
+            fill_line(posx - x, posx + x, posy + y, r)
+            fill_line(posx - y, posx + y, posy + x, r)
+            fill_line(posx - x, posx + x, posy - y, r)
+            fill_line(posx - y, posx + y, posy - x, r)
 
             if (err <= 0) then
                 y = y + 1
@@ -75,6 +77,28 @@ local function draw_filled_circle(posx, posy, diameter, r, g, b, a)
                 dx = dx + 2
                 err = err+ dx - radius *2
             end
+        end
+    end
+end
+
+-- A really dirty function for drawing a gradient circle.
+local function draw_grad(posx, posy, diameter, r)
+    local width = buffer_info.width
+    local channels = buffer_info.channels
+    local radius = math.floor(diameter / 2)
+    local top = clamp(posy - radius, 1, buffer_info.height)
+    local bottom = clamp(posy + radius, 1, buffer_info.height)
+    local left = clamp(posx - radius, 1, width)
+    local right = clamp(posx + radius, 1, width)
+
+    for y = top, bottom, 1 do
+        for x = left, right, 1 do
+            local dist = math.sqrt((x - posx)*(x - posx) + (y - posy)*(y - posy))
+            local p =  1 - dist / (radius)
+            if dist < radius then p = p * 2 end
+            if p > 1 then p = 1 end
+            local index = (y-1) * width * channels + (x-1) * channels + 1
+            tstream[index] = fmax(tstream[index], r*p)
         end
     end
 end
@@ -93,7 +117,7 @@ function fow.init(self, MAP_WIDTH, MAP_HEIGHT, TILE_SIZE, _resource_path)
         premultiply_alpha = true
   	}
 
-    -- Fill the buffer stream with some values
+    -- Fill the buffer stream with zero values
     tstream = buffer.get_stream(tbuffer, name)
     local index = 1
     for i=1,MAP_WIDTH * MAP_HEIGHT * coef * coef do
@@ -118,6 +142,21 @@ function fow.get(x, y)
     return tstream[index + 0]
 end
 
+function fow.set_r(x, y, value)
+    local index = buffer_index(x, y)
+    tstream[index] = value
+end
+function fow.set_g(x, y, value)
+    local index = buffer_index(x, y)
+    tstream[index + 1] = value
+    changes = true
+end
+function fow.set_b(x, y, value)
+    local index = buffer_index(x, y)
+    tstream[index + 2] = value
+    changes = true
+end
+
 function fow.draw_in(x, y, diameter)
 	local power = 0
 	timer.delay(1/30, true, function (self, handle, time_elapsed)
@@ -132,10 +171,8 @@ function fow.draw_in(x, y, diameter)
 end
 
 function fow.draw(x, y, diameter)
-    -- draw_filled_circle(x * coef, y * coef, (diameter+4) * coef, 32, 0, 0, 0)
-    -- draw_filled_circle(x * coef, y * coef, (diameter+2) * coef, 64, 0, 0, 0)
-	-- draw_filled_circle(x * coef, y * coef, diameter * coef, 128, 0, 0, 16)
-    draw_filled_circle(x * coef, y * coef, (diameter) * coef, 255, 0, 0, 255)
+    -- draw_filled_circle(x * coef, y * coef, (diameter) * coef, 255, 0, 0, 255)
+    draw_grad(x * coef, y * coef, diameter * coef, 255)
 	changes = true
 end
 

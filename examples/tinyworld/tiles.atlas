@@ -71,6 +71,9 @@ images {
 images {
   image: "/examples/tinyworld/images/gear.png"
 }
+images {
+  image: "/examples/tinyworld/images/noway.png"
+}
 animations {
   id: "fire"
   images {
@@ -173,5 +176,34 @@ animations {
   playback: PLAYBACK_LOOP_FORWARD
   fps: 12
 }
+animations {
+  id: "pointa"
+  images {
+    image: "/examples/tinyworld/images/src/point4.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/src/point5.png"
+  }
+  images {
+    image: "/examples/tinyworld/images/src/point6.png"
+  }
+  fps: 16
+}
+animations {
+  id: "hero1"
+  images {
+    image: "/examples/tinyworld/images/chars/hero1.png"
+    pivot_y: 1.0
+  }
+  images {
+    image: "/examples/tinyworld/images/chars/hero2.png"
+    pivot_y: 1.0
+  }
+  images {
+    image: "/examples/tinyworld/images/chars/hero3.png"
+    pivot_y: 1.0
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 10
+}
 margin: 1
-inner_padding: 1

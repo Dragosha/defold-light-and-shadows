@@ -7,6 +7,7 @@ local light_and_shadows = require "light_and_shadows.light_and_shadows"
 local tweener = require 'helper.tweener'
 
 local day = true
+local x_ratio, y_ratio, zoom  = 1, 1, 1
 
 local function text_upd()
     gui.set_text(gui.get_node("blur"), day and "On" or "Off")
@@ -71,13 +72,30 @@ function init(self)
     text_upd()
     ui_upd()
 
+    local function minimap(self, value, node, action)
+
+            local action_pos = vmath.vector3(action.screen_x, action.screen_y, 0)
+            local initial_pos = gui.get_screen_position(node)
+            local position = (action_pos - initial_pos) * math.max(x_ratio, y_ratio)
+            local scale = gui.get_scale(node)
+            local size = gui.get_size(node)
+            position.x = math.floor((position.x/ scale.x) + size.x / 2)
+            position.y = math.floor((position.y/ scale.y) + size.y / 2)
+
+            print("Minimap clicked at:", position)
+            broadcast.send("minimap", {x = position.x, y = position.y})
+        end
+
+    si.register({node = "minimap", noshake = true, click_cb = minimap, drag_cb = minimap })
+
     -- The UI scaling depends on the window resolution.
     local function resize()
-        local x, y, zoom = virtual_stick.get_aspect_ratio()
+        x_ratio, y_ratio, zoom = virtual_stick.get_aspect_ratio()
         local scale = vmath.vector3(zoom, zoom, 1)
         -- print("next", scale)
         gui.set_scale(gui.get_node("corner"), scale)
         gui.set_scale(gui.get_node("corner2"), scale)
+        gui.set_scale(gui.get_node("corner3"), scale)
     end
 
     broadcast.register("WINDOW_RESIZED", resize)

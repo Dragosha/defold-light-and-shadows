@@ -217,7 +217,7 @@ nodes {
     y: 100.0
   }
   type: TYPE_BOX
-  id: "box4"
+  id: "corner3"
   xanchor: XANCHOR_RIGHT
   yanchor: YANCHOR_BOTTOM
   pivot: PIVOT_SE
@@ -227,20 +227,25 @@ nodes {
 }
 nodes {
   position {
-    x: -89.0
-    y: 93.0
+    x: -111.0
+    y: 113.0
   }
   scale {
-    x: 2.0
-    y: -2.0
+    x: 3.0
+    y: -3.0
     z: 2.0
   }
   type: TYPE_BOX
   texture: "fow/empty"
-  id: "box5"
-  parent: "box4"
+  id: "minimap"
+  parent: "corner3"
   inherit_alpha: true
   size_mode: SIZE_MODE_AUTO
+  material: "minimap_gui"
 }
 material: "/examples/tinyworld/materials/gui_nearest.material"
 adjust_reference: ADJUST_REFERENCE_PARENT
+materials {
+  name: "minimap_gui"
+  material: "/examples/tinyworld/materials/minimap/minimap_gui.material"
+}

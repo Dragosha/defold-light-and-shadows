@@ -1,7 +1,7 @@
 embedded_components {
   id: "sprite"
   type: "sprite"
-  data: "default_animation: \"pointg\"\n"
+  data: "default_animation: \"pointa\"\n"
   "material: \"/light_and_shadows/materials/fog_sprite/fog_sprite.material\"\n"
   "textures {\n"
   "  sampler: \"texture_sampler\"\n"
