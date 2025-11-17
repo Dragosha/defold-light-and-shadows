@@ -15,23 +15,23 @@ images {
 }
 images {
   image: "/examples/tinyworld/images/tree1.png"
-  pivot_y: 0.951019
+  pivot_y: 1.0
 }
 images {
   image: "/examples/tinyworld/images/tree2.png"
-  pivot_y: 0.915484
+  pivot_y: 1.0
 }
 images {
   image: "/examples/tinyworld/images/tree3.png"
-  pivot_y: 0.949403
+  pivot_y: 1.0
 }
 images {
   image: "/examples/tinyworld/images/tree4.png"
-  pivot_y: 0.964209
+  pivot_y: 1.0
 }
 images {
   image: "/examples/tinyworld/images/tree5.png"
-  pivot_y: 0.94772
+  pivot_y: 1.0
 }
 images {
   image: "/examples/tinyworld/images/tree6.png"
@@ -73,6 +73,55 @@ images {
 }
 images {
   image: "/examples/tinyworld/images/noway.png"
+}
+images {
+  image: "/examples/tinyworld/images/chars/tree_b1.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/tinyworld/images/chars/tree_b2.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/tinyworld/images/chars/tree_b3.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/tinyworld/images/chars/tree_b4.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/tinyworld/images/chars/chest.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/tinyworld/images/chars/art1.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/tinyworld/images/chars/woodmil.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/tinyworld/images/chars/fhouse1.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/tinyworld/images/chars/wood.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/tinyworld/images/chars/fhouse2.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/tinyworld/images/src/Sprite-0001.png"
+  pivot_x: 0.554175
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/tinyworld/images/src/Sprite-0002.png"
+  pivot_y: 1.0
 }
 animations {
   id: "fire"
@@ -201,6 +250,23 @@ animations {
   }
   images {
     image: "/examples/tinyworld/images/chars/hero3.png"
+    pivot_y: 1.0
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 10
+}
+animations {
+  id: "gob"
+  images {
+    image: "/examples/tinyworld/images/chars/gob1.png"
+    pivot_y: 1.0
+  }
+  images {
+    image: "/examples/tinyworld/images/chars/gob2.png"
+    pivot_y: 1.0
+  }
+  images {
+    image: "/examples/tinyworld/images/chars/gob3.png"
     pivot_y: 1.0
   }
   playback: PLAYBACK_LOOP_FORWARD

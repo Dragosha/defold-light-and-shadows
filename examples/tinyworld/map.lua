@@ -76,7 +76,6 @@ function map.find_path(start_x, start_y, end_x, end_y, fn)
 		return map.result.SAME, size, total_cost, path
 	end
 
-	local near_size = 0
 	local nears = {}
 	local node
 	local finish = false
@@ -113,8 +112,7 @@ function map.find_path(start_x, start_y, end_x, end_y, fn)
 
 			local ti = nears[index]
 			-- print(x, y, "=", value, deep, ti, finish)
-			if (ok or deep == 0) and (not ti or ti.deep > deep) then
-				if not ti then near_size = near_size + 1 end
+			if (ok or deep == 0) and (not ti) then
 				nears[index] = {x = x, y = y, deep = deep}
 
 				if x == end_x and y == end_y then
@@ -174,7 +172,7 @@ function map.find_path_in_nears(nears, start_x, start_y, end_x, end_y, end_node)
 	end
 
 	repeat
-		table.insert(path, {x = node.x, y = node.y})
+		table.insert(path, {x = node.x, y = node.y, deep = node.deep})
 		size = size + 1
 
 		local current = node
@@ -215,7 +213,7 @@ function map.find_path_in_nears(nears, start_x, start_y, end_x, end_y, end_node)
 		table.insert(invers_path, path[i])
 	end
 
-	return map.result.SOLVED, size, total_cost, invers_path
+	return map.result.SOLVED, size, total_cost, invers_path, nears
 end
 
 

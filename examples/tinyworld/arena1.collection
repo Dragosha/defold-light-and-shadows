@@ -674,7 +674,7 @@ instances {
     }
     properties {
       id: "max_lights"
-      value: "0.0"
+      value: "1.0"
       type: PROPERTY_TYPE_NUMBER
     }
   }
@@ -1153,6 +1153,60 @@ embedded_instances {
   "  data: \"prototype: \\\"/examples/tinyworld/props/point.go\\\"\\n"
   "\"\n"
   "}\n"
+  "embedded_components {\n"
+  "  id: \"treeb_1\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/examples/tinyworld/props/treeb_1.go\\\"\\n"
+  "\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"treeb_2\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/examples/tinyworld/props/treeb_2.go\\\"\\n"
+  "\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"treeb_3\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/examples/tinyworld/props/treeb_3.go\\\"\\n"
+  "\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"treeb_4\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/examples/tinyworld/props/treeb_4.go\\\"\\n"
+  "\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"billboard2\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/examples/tinyworld/props/billboard2.go\\\"\\n"
+  "\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"billboard3\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/examples/tinyworld/props/billboard3.go\\\"\\n"
+  "\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"billboard4\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/examples/tinyworld/props/billboard4.go\\\"\\n"
+  "\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"billboard5\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/examples/tinyworld/props/billboard5.go\\\"\\n"
+  "\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"billboard6\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/examples/tinyworld/props/billboard6.go\\\"\\n"
+  "\"\n"
+  "}\n"
   ""
 }
 embedded_instances {
@@ -1228,5 +1282,63 @@ embedded_instances {
   position {
     x: -7.0
     z: -5.0
+  }
+}
+embedded_instances {
+  id: "go"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"Sprite-0001\\\"\\n"
+  "material: \\\"/examples/tinyworld/materials/billboard_light_sprite_nearest.material\\\"\\n"
+  "textures {\\n"
+  "  sampler: \\\"tex0\\\"\\n"
+  "  texture: \\\"/examples/tinyworld/tiles.atlas\\\"\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"fow\\\"\\n"
+  "  texture: \\\"/examples/tinyworld/tiles.atlas\\\"\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"tex1\\\"\\n"
+  "  texture: \\\"/examples/tinyworld/tiles.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: 115.70477
+    z: -104.145035
+  }
+}
+embedded_instances {
+  id: "go2"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"Sprite-0002\\\"\\n"
+  "material: \\\"/examples/tinyworld/materials/billboard_light_sprite_nearest.material\\\"\\n"
+  "size {\\n"
+  "  x: 23.0\\n"
+  "  y: 34.0\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"tex0\\\"\\n"
+  "  texture: \\\"/examples/tinyworld/tiles.atlas\\\"\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"fow\\\"\\n"
+  "  texture: \\\"/examples/tinyworld/tiles.atlas\\\"\\n"
+  "}\\n"
+  "textures {\\n"
+  "  sampler: \\\"tex1\\\"\\n"
+  "  texture: \\\"/examples/tinyworld/tiles.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: 168.41052
+    z: -104.14503
   }
 }

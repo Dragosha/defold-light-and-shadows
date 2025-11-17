@@ -1,7 +1,7 @@
 embedded_components {
   id: "sprite"
   type: "sprite"
-  data: "default_animation: \"tree5\"\n"
+  data: "default_animation: \"tree_b4\"\n"
   "material: \"/examples/tinyworld/materials/billboard_light_sprite_nearest.material\"\n"
   "textures {\n"
   "  sampler: \"tex0\"\n"

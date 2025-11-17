@@ -11,5 +11,9 @@ embedded_components {
   "  sampler: \"tex1\"\n"
   "  texture: \"/examples/tinyworld/tiles.atlas\"\n"
   "}\n"
+  "textures {\n"
+  "  sampler: \"fow\"\n"
+  "  texture: \"/examples/tinyworld/tiles.atlas\"\n"
+  "}\n"
   ""
 }

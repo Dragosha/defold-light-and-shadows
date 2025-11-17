@@ -5,6 +5,7 @@ local broadcast = require 'helper.broadcast'
 local constants = require "light_and_shadows.constants"
 local fow       = require 'examples.tinyworld.fow'
 local map       = require 'examples.tinyworld.map'
+local astar     = require 'examples.tinyworld.astar'
 
 go.property("camera_go_id", msg.url("camera"))
 go.property("camera_id", msg.url("camera#camera"))
@@ -35,10 +36,21 @@ local props = {
     house = {"#b3", "#b4", "#b5", "#b6", "#b7"},
     bighouse = {"#b2"},
     tower = {"tower_wall"},
+    tree2 = {"#treeb_1", "#treeb_2", "#treeb_3", "#treeb_4", "#billboard", "#billboard2", "#billboard3", "#billboard4", "#billboard5", "#billboard6" }
 }
 local total = 0
 local MAP_WIDTH = 64
 local MAP_HEIGHT = 64
+local world = {}
+
+local function pos_xy(x, y, h)
+    return vmath.vector3((x -.5 - MAP_WIDTH/2)* TILE_SIZE,  h or 0, (y - MAP_HEIGHT/2 - .5)* TILE_SIZE)
+end
+
+local function pos_xy_rnd(x, y, h, rnd)
+    return vmath.vector3((x -.5 - MAP_WIDTH/2)* TILE_SIZE + math.random()*rnd - rnd/2,  h or 0, (y - MAP_HEIGHT/2 - .5)* TILE_SIZE + math.random()*rnd - rnd/2)
+end
+
 local function generate(self)
 
     local turl = msg.url("/tilemap#tw")
@@ -61,8 +73,10 @@ local function generate(self)
     for y = 1, MAP_HEIGHT do
         temp[y] = {}
         objects[y] = {}
+        world[y] = {} 
         for x = 1, MAP_WIDTH do
             temp[y][x] = 0
+            world[y][x] = 1
             tilemap.set_tile(turl, "ground", (x - MAP_WIDTH/2), (MAP_HEIGHT/2 - y + 1), common.get_one_from({108, 111, 105, 102, 118}))
             local v = 0.5 + (perlin:noise(x * scale, y * scale, 0) + 0.5 * perlin:noise(2 * x * scale, 2 * y * scale, 0.1) + 0.25 * perlin:noise(4 * x * scale, 4 * y * scale, 0.2)) / 2
             -- local v = (0.5 + perlin:noise(x * scale, y * scale, 0) / 2)
@@ -70,22 +84,31 @@ local function generate(self)
                 temp[y][x] = 1
                 tilemap.set_tile(turl, "ground", (x - MAP_WIDTH/2), (MAP_HEIGHT/2 - y + 1), common.get_one_from({5, 6}))
             elseif v > 0.6 and v <= 0.7 then
-                local position = vmath.vector3((x -.5 - MAP_WIDTH/2)* TILE_SIZE, 0, (y - MAP_HEIGHT/2 - .5)* TILE_SIZE)
+                local position = pos_xy_rnd(x, y, 0, 8)
                 -- local id = factory.create(common.get_one_from{"#billboard"}, position, nil, nil, vmath.vector3(1))
-                local name = common.get_one_from(props.tree)
-                local id = factory.create(name, position, nil, nil, SCALE)
+                local name = common.get_one_from(props.tree2)
+                local id = factory.create(name, position, nil, nil)
+
+                if math.random() < .4 then
+                    factory.create(common.get_one_from(props.tree2), pos_xy_rnd(x, y, 0, 12), nil, nil)
+                end
+                if math.random() < .4 then
+                    factory.create(common.get_one_from(props.tree2), pos_xy_rnd(x, y, 0, 24), nil, nil)
+                end
+
                 objects[y][x] = {id = id, t = t.tree }
                 total = total + 1
                 temp[y][x] = 1
                 tilemap.set_tile(turl, "ground", (x - MAP_WIDTH/2), (MAP_HEIGHT/2 - y + 1), common.get_one_from({8, 5, 6}))
                 map.set(x, y, map.solid)
-            elseif v > 0.1 and v <= 0.14 then
-                local position = vmath.vector3((x -.5 - MAP_WIDTH/2)* TILE_SIZE, 0, (y - MAP_HEIGHT/2 - .5)* TILE_SIZE)
-                local name = common.get_one_from(props.house)
-                local id = factory.create(name, position, nil, nil, SCALE)
-                objects[y][x] = {id = id, t = t.house}
-                total = total + 1
-                map.set(x, y, map.solid)
+                world[y][x] = 0
+            -- elseif v > 0.1 and v <= 0.14 then
+            --     local position = vmath.vector3((x -.5 - MAP_WIDTH/2)* TILE_SIZE, 0, (y - MAP_HEIGHT/2 - .5)* TILE_SIZE)
+            --     local name = common.get_one_from(props.house)
+            --     local id = factory.create(name, position, nil, nil, SCALE)
+            --     objects[y][x] = {id = id, t = t.house}
+            --     total = total + 1
+            --     map.set(x, y, map.solid)
             end
 
             -- Setup map pass posibility from tilemap
@@ -153,10 +176,6 @@ local function erase(x, y)
     end
 end
 
-local function pos_xy(x, y, h)
-    return vmath.vector3((x -.5 - MAP_WIDTH/2)* TILE_SIZE,  h or 0, (y - MAP_HEIGHT/2 - .5)* TILE_SIZE)
-end
-
 local heroes = {
     {
         name = "ABC",
@@ -164,7 +183,7 @@ local heroes = {
         y = MAP_HEIGHT / 2,
         id = "boy",
         sprite = "boy#sprite",
-        visible_radius = 16,
+        visible_radius = 12,
     }
 }
 local function follow_path(obj, path, marks, step_cb)
@@ -241,6 +260,18 @@ local function noway(x,y)
     end)
 end
 
+local DEBUG = false
+local function point(v)
+    local id
+    if DEBUG then
+        id = factory.create("#debug", pos_xy(v.x, v.y, 1))
+        label.set_text(msg.url(nil, id, "label"), ("%.1f"):format(v.dist or 0))
+    else
+        id = factory.create("#point", pos_xy(v.x, v.y, 1))
+    end
+    return id
+end
+
 local function click(self, position)
     -- if selected == t.move then return end
     print("Click!")
@@ -250,7 +281,7 @@ local function click(self, position)
     x = common.clamp(x, 1, MAP_WIDTH)
     y = common.clamp(y, 1, MAP_HEIGHT)
 
-    local position2 = pos_xy(x, y)
+    local position2 = pos_xy_rnd(x, y, 0, 0)
 
     if selected == t.house then
         erase(x, y)
@@ -260,30 +291,32 @@ local function click(self, position)
         objects[y][x] = {id = id, t = t.house}
         total = total + 1
         map.set(x, y, map.solid)
+        world[y][x] = 0
         fow.set_b(x, y, 255) -- add to minimap
         go.animate(id, "scale.y", go.PLAYBACK_ONCE_PINGPONG, SCALE.y * 1.2, go.EASING_OUTBACK, .2)
         common.play_sound("button", {speed = 2, gain = .3})
 
     elseif selected == t.tree then
         erase(x, y)
-        local name = common.get_one_from(props.tree)
-        local id = factory.create(name, position2, nil, nil, SCALE)
+        local name = common.get_one_from(props.tree2)
+        local id = factory.create(name, position2, nil, nil)
         objects[y][x] = {id = id, t = t.tree}
         total = total + 1
         map.set(x, y, map.solid)
+        world[y][x] = 0
         fow.set_b(x, y, 255) -- add to minimap
-        go.animate(id, "scale.y", go.PLAYBACK_ONCE_PINGPONG, SCALE.y * 1.2, go.EASING_OUTBACK, .2)
+        go.animate(id, "scale.y", go.PLAYBACK_ONCE_PINGPONG, 1.2, go.EASING_OUTBACK, .2)
         common.play_sound("button", {speed = 2, gain = .3})
 
     elseif selected == t.move then
 
         local hero = heroes[1]
-            if self.path_ids then
-                for index, id in ipairs(self.path_ids) do
-                    go.delete(id)
-                end
+        if self.path_ids then
+            for index, id in ipairs(self.path_ids) do
+                go.delete(id)
             end
-            self.path_ids = {}
+        end
+        self.path_ids = {}
         if hero.path then
             hero.path = nil
             return
@@ -291,11 +324,13 @@ local function click(self, position)
 
         if fow.get(x, y) > 0 then
             local t1 = socket.gettime()
-            local result, size, cost, path = map.find_path(hero.x, hero.y, x, y)
-
-            if result == map.result.SOLVED then
+            -- local result, size, cost, path, nears = map.find_path(hero.x, hero.y, x, y)
+            local path, cost = astar.a_star(world, {x = hero.x, y = hero.y}, {x = x, y = y})
+            print("cost=", cost)
+            print("time:", socket.gettime() - t1) -- profiling pathfinder
+            if path then
                 for index, v in ipairs(path) do
-                    local id = factory.create("#point", pos_xy(v.x, v.y, 1))
+                    local id = point(v)
                     table.insert(self.path_ids, id)
                 end
 
@@ -316,22 +351,24 @@ local function click(self, position)
             else
                 noway(x,y)
             end
-            print(x, y, result, socket.gettime() - t1) -- profiling pathfinder
+
         else
             print("The tile is covered by the fog of war.", x, y)
             noway(x,y)
 
-            local near_result, near_size, nears = map.find_nears(heroes[1].x, heroes[1].y, 8, function(v, x, y)
-                return fow.get(x, y) > 0
-            end)
-            print(near_result, near_size)
+            -- local near_result, near_size, nears = map.find_nears(heroes[1].x, heroes[1].y, 12, function(value, x, y)
+            --     return value == map.empty and fow.get(x, y) > 0
+            -- end)
+            local t1 = socket.gettime()
+            local nears = astar.find_nearest_cells(world, {x = hero.x, y = hero.y}, hero.visible_radius)
+            print("time:", socket.gettime() - t1) -- profiling pathfinder
             if self.path_ids then
                 for index, id in ipairs(self.path_ids) do
                     go.delete(id)
                 end
             end
-            for index, v in pairs(nears) do
-                local id = factory.create("#point", pos_xy(v.x, v.y, 1))
+            for index, v in ipairs(nears) do
+                local id = point(v)
                 table.insert(self.path_ids, id)
             end
 
