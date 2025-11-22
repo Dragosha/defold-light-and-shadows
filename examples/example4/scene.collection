@@ -402,8 +402,8 @@ embedded_instances {
   children: "camera"
   data: ""
   rotation {
-    x: -0.34202015
-    w: 0.9396926
+    x: -0.23004974
+    w: 0.97317886
   }
 }
 embedded_instances {
@@ -414,7 +414,7 @@ embedded_instances {
   "  data: \"aspect_ratio: 1.0\\n"
   "fov: 0.5\\n"
   "near_z: 10.0\\n"
-  "far_z: 2000.0\\n"
+  "far_z: 1000.0\\n"
   "auto_aspect_ratio: 1\\n"
   "\"\n"
   "}\n"

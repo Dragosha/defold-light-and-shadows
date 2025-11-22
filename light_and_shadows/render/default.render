@@ -43,3 +43,7 @@ render_resources {
   name: "shadow_instanced_textured"
   path: "/light_and_shadows/materials/shadow/shadow_instanced_textured.material"
 }
+render_resources {
+  name: "mix"
+  path: "/light_and_shadows/materials/post/mix/mix.material"
+}

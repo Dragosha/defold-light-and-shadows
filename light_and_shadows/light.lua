@@ -13,6 +13,7 @@ light.cam_position = vmath.vector3()
 light.cam_view = vmath.quat()
 local top_v     = vmath.vector3(0, 1, 0)
 light.top_v = top_v
+light.cam_z = 100
 
 light.attenuation_coefficient = 1500
 
@@ -37,10 +38,11 @@ end
 ---@param cam_rotation quaternion
 ---@param cam_look_at_position vector3
 ---@param cam_position vector3
-function light.set_position(cam_rotation, cam_look_at_position, cam_position)
+function light.set_position(cam_rotation, cam_look_at_position, cam_position, cam_z)
     light.cam_view = cam_rotation
     light.cam_look_at = cam_look_at_position
     light.cam_position = cam_position
+    light.cam_z = cam_z or light.cam_z
 end
 
 function light.reset(self)
@@ -117,6 +119,8 @@ function light.update(self, dt)
     constants.cam_position.x = light.cam_position.x
     constants.cam_position.y = light.cam_position.y
     constants.cam_position.z = light.cam_position.z
+
+    constants.cam_z = light.cam_z
 
 end
 

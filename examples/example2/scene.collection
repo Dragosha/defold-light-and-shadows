@@ -5307,8 +5307,8 @@ embedded_instances {
   "}\n"
   ""
   position {
-    x: 51.365
-    z: 49.174
+    x: -0.372877
+    z: -2.360502
   }
   rotation {
     x: -0.70710677
@@ -5545,7 +5545,7 @@ embedded_instances {
   "}\n"
   ""
   position {
-    x: 11.0
-    z: 120.0
+    x: 11.726822
+    z: 125.08609
   }
 }

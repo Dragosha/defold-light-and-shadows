@@ -3,6 +3,7 @@ local monarch   = require "monarch.monarch"
 local light_and_shadows = require "light_and_shadows.light_and_shadows"
 local broadcast = require 'helper.broadcast'
 local virtual_stick = require 'helper.virtual_stick'
+local triggers  = require "in.triggers"
 
 local current_example = 3
 local total = 4
@@ -55,6 +56,9 @@ function init(self)
         monarch.show(hash(current_example), nil, nil, function() si.acquire() end)
         text_upd()
     end)
+
+    self.hide = true
+    self.dof = false
 end
 
 function final(self)
@@ -86,6 +90,22 @@ function on_input(self, action_id, action)
     if si.on_input(self, action_id, action) then
         -- input message was handled
         return true
+    end
+
+    if action_id == triggers.KEY_H and action.released then
+        self.hide = not self.hide
+        gui.set_enabled(gui.get_node("corner0"), self.hide)
+        gui.set_enabled(gui.get_node("corner1"), self.hide)
+    end
+
+    if action_id == triggers.KEY_F and action.released then
+        self.dof = not self.dof
+        light_and_shadows.dof(self.dof, {
+            blur_power = 2,
+            upscale = false,
+            blur_resolution = 1
+        })
+
     end
 end
 

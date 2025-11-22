@@ -149,7 +149,7 @@ local function set_camera_world(state)
                 render.set_camera(camera_component.camera, { use_frustum = true })
                 -- The frustum will be overridden by the render.set_camera call,
                 -- so we don't need to return anything here other than an empty table.
-                return camera_component.options
+                return camera_component.options, camera_component.camera
             end
         end
     end
@@ -225,15 +225,15 @@ function update(self)
 
     -- setup camera view and projection
     --
-    local draw_options_world = set_camera_world(state)
+    local draw_options_world, cam = set_camera_world(state)
     -- L_S Injection
     draw_options_world.constants = self.constants -- add our constants to the default camera options
     draw_options_world.frustum_planes = render.FRUSTUM_PLANES_ALL
     update_clear_color(state, constants.clear_color) -- set clear color from the constants module instead message passing
     --
     -- L_S Injection
-    if light_and_shadows.upscale or light_and_shadows.blur then
-        render.set_viewport(0, 0, state.window_width / light_and_shadows.zoom, state.window_height / light_and_shadows.zoom)
+    if light_and_shadows.upscale and self.main_rt then
+        render.set_viewport(0, 0, self.main_rt.w, self.main_rt.h)
     else
         render.set_viewport(0, 0, state.window_width, state.window_height)
     end
@@ -244,12 +244,17 @@ function update(self)
     render.enable_state(graphics.STATE_DEPTH_TEST)
 
     -- L_S Injection
-    if light_and_shadows.upscale or light_and_shadows.blur then
-        render.set_render_target(self.upscale_rt.rt)
+    if light_and_shadows.upscale or light_and_shadows.blur or light_and_shadows.mix then
+        -- if camera component is enabled then get far Z and near Z from the camera component
+        if cam and light_and_shadows.get_far_near_z_from_camera then
+            constants.far_z = camera.get_far_z(cam)
+            constants.near_z = camera.get_near_z(cam)
+        end
+        render.set_render_target(self.main_rt.rt)
         render.clear(state.clear_buffers)
     end
     if light_and_shadows.shadow then
-        render.enable_texture("tex1", self.shadowmap_buffer, render.BUFFER_COLOR_BIT) -- enable shadowmap texture
+        render.enable_texture("tex1", self.shadowmap_buffer, graphics.BUFFER_TYPE_COLOR0_BIT) -- enable shadowmap texture
     end
     --
    
@@ -269,7 +274,9 @@ function update(self)
     -- render the other components: sprites, tilemaps, particles etc
     --
     render.enable_state(graphics.STATE_BLEND)
+    render.set_depth_mask(true) -- ground sprites/tilemap for correct DepthOField effect should write to the depth buffer
     render.draw(predicates.bgtile, draw_options_world)
+    render.set_depth_mask(false)
     render.draw(predicates.atile, draw_options_world)
     render.draw(predicates.tile, draw_options_world)
     render.draw(predicates.particle, draw_options_world)
@@ -286,7 +293,7 @@ function update(self)
     reset_camera_world(state)
 
     -- L_S Injection
-    if light_and_shadows.upscale or light_and_shadows.blur then 
+    if light_and_shadows.upscale or light_and_shadows.blur or light_and_shadows.mix then
         render.set_render_target(render.RENDER_TARGET_DEFAULT)
         light_and_shadows.draw_upscaled(self)
     end

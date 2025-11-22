@@ -1,0 +1,20 @@
+#version 140
+
+// positions are in world space
+in mediump vec4 position;
+in mediump vec2 texcoord0;
+in mediump vec3 normal;
+
+out mediump vec2 var_texcoord0;
+
+uniform vs_uniforms
+{
+    mediump mat4 mtx_viewproj;
+};
+
+void main()
+{
+    gl_Position = mtx_viewproj * vec4(position.xyz, 1.0);
+    var_texcoord0 = texcoord0;
+}
+

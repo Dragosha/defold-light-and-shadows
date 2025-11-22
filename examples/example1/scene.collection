@@ -169,7 +169,7 @@ instances {
     }
     properties {
       id: "max_lights"
-      value: "4.0"
+      value: "6.0"
       type: PROPERTY_TYPE_NUMBER
     }
   }

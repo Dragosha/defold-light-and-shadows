@@ -753,6 +753,9 @@ embedded_instances {
   "  component: \"/examples/tinyworld/tw.tilemap\"\n"
   "}\n"
   ""
+  position {
+    y: -0.1
+  }
   rotation {
     x: -0.70710677
     w: 0.70710677
