@@ -28,7 +28,7 @@ function init(self)
             update_counter(self)
             gui.set_visible(self.coin, false)
         end)
-        
+
     end)
 
     local function resize(self)
@@ -54,6 +54,11 @@ function init(self)
     virtual_stick.init(self)
     virtual_stick.register_stick(self, 1, "zone", "stick", "pad", 0.2, .5)
     virtual_stick.register_button(self, "jump", hash("jump"))
+
+    broadcast.register("gear_popup", function(message)
+        gui.set_enabled(gui.get_node("corner"), not message.visible)
+        gui.set_enabled(gui.get_node("corner2"), not message.visible)
+    end)
 end
 
 function final(self)

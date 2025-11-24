@@ -159,9 +159,9 @@ local function click(self, position)
 end
 
 function init(self)
-    timer.delay(self.acquire_delay, false, function()
+    -- timer.delay(self.acquire_delay, false, function()
         msg.post(".", "acquire_input_focus")
-    end)
+    -- end)
     self.touch_down = false
     self.swipe_start_time = 0
     self.camera_initial_x_angle = go.get(self.cam_look_at, "euler.x")

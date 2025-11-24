@@ -40,6 +40,11 @@ function init(self)
 
     broadcast.register("WINDOW_RESIZED", resize)
     resize()
+
+    broadcast.register("gear_popup", function(message)
+        print("message.visible", message.visible)
+        gui.set_enabled(gui.get_node("corner"), not message.visible)
+    end)
 end
 
 function final(self)

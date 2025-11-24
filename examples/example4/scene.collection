@@ -140,9 +140,6 @@ embedded_instances {
   "  component: \"/helper/print_url.script\"\n"
   "}\n"
   ""
-  position {
-    x: -26.0
-  }
 }
 embedded_instances {
   id: "model2"
@@ -402,8 +399,8 @@ embedded_instances {
   children: "camera"
   data: ""
   rotation {
-    x: -0.23004974
-    w: 0.97317886
+    x: -0.13052619
+    w: 0.9914449
   }
 }
 embedded_instances {
@@ -425,11 +422,7 @@ embedded_instances {
 }
 embedded_instances {
   id: "ui"
-  data: "components {\n"
-  "  id: \"blur\"\n"
-  "  component: \"/examples/example4/ui/blur.gui\"\n"
-  "}\n"
-  ""
+  data: ""
 }
 embedded_instances {
   id: "repeat_sprite"

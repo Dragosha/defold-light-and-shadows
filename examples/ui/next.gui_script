@@ -4,38 +4,120 @@ local light_and_shadows = require "light_and_shadows.light_and_shadows"
 local broadcast = require 'helper.broadcast'
 local virtual_stick = require 'helper.virtual_stick'
 local triggers  = require "in.triggers"
+local tweener = require 'helper.tweener'
 
 local current_example = 3
 local total = 4
+local url = msg.url()
+local popup = false
 
-local function text_upd()
+local function text_upd(self)
+    gui.set_text(gui.get_node("dof_checkbox"), self.dof and "On" or "Off")
+    gui.set_text(gui.get_node("fps_checkbox"), self.fps and "On" or "Off")
     gui.set_text(gui.get_node("qlt"), light_and_shadows.shadow and "On" or "Off")
     gui.set_text(gui.get_node("up"), light_and_shadows.upscale and "On" or "Off")
     gui.set_text(gui.get_node("demo"), "("..current_example.."/"..total..")")
+    gui.set_enabled(gui.get_node("corner0"), self.fps)
+end
+
+local function dof(self)
+    self.dof = not self.dof
+        light_and_shadows.dof(self.dof, {
+            blur_power = 2,
+            upscale = false,
+            blur_resolution = 1
+        })
+
+end
+
+local function ui_popup(self)
+    light_and_shadows.blur = popup
+    gui.set_enabled(gui.get_node("popup"), popup)
+    gui.set_enabled(gui.get_node("corner1"), not popup)
+    -- gui.set_enabled(gui.get_node("corner"), false)
+    if popup then 
+        gui.set(gui.get_node("popup_"), "position.y", -50)
+        gui.animate(gui.get_node("popup_"), "position.y", 0, go.EASING_INOUTBACK, .2)
+        light_and_shadows.blur_power = 1
+        tweener.tween(tweener.linear, .1, 2, .3, function(value, is_final_call)
+            light_and_shadows.blur_power = value
+        end)
+    end
+end
+
+local function show(self)
+    monarch.show(hash(current_example), {clear = true, sequential = true}, nil,
+        function()
+            print("monarch.show cb", current_example, url, "This callback called from context:", msg.url())
+            msg.post(url, "acquire_input_focus")
+            -- ^^^ Get focus again every time when switch collections.
+            -- Why? To handle unput message before each others scripts.
+            -- We stored url (main:/go#ui) in init()
+
+            -- hide scene interface if needs
+            timer.delay(0, false, function() 
+                broadcast("gear_popup", {visible = popup})
+            end)
+        end)
 end
 
 function init(self)
 
-    -- Simple input. Registre the 'next' button hundler.
-    si.acquire()
-    si.register("next_example", 
-    function()
-        current_example = current_example + 1
-        if current_example > total then current_example = 1 end
-        monarch.show(hash(current_example), {clear = true, sequential = true}, nil, function() print("cb", current_example); si.acquire() end)
-        -- ^^ move input acquire on the input stack top after next scene is loaded
-        text_upd()
+    -- on TOP of the all GUI 
+    gui.set_render_order(14)
+    url = msg.url()
+
+    timer.delay(.2, false, function()
+        si.acquire()
     end)
 
-    si.register("quality", function()
+
+    -- OPEN / CLOSE POPUP
+    local function pop()
+        popup = not popup
+        ui_popup(self)
+        text_upd(self)
+        broadcast("gear_popup", {visible = popup})
+    end
+    si.register("gear", pop)
+    si.register({node = "popup_bg", noshake = true, callback = pop})
+    si.register({node = "popup_", noshake = true, callback = function()
+        print("popup panel click")
+    end})
+    -- POPUP Buttons
+    ui_popup(self)
+
+    si.register("next_example", function()
+        current_example = current_example + 1
+        if current_example > total then current_example = 1 end
+        show(self)
+        text_upd(self)
+    end)
+    si.register("prev_example", function()
+        current_example = current_example - 1
+        if current_example < 1 then current_example = total end
+        show(self)
+        text_upd(self)
+    end)
+
+    si.register("DOF", function()
+        dof(self)
+        text_upd(self)
+    end)
+    si.register("FPS", function()
+        self.fps = not self.fps
+        text_upd(self)
+    end)
+    si.register("shadows", function()
         light_and_shadows.shadow = not light_and_shadows.shadow
-        text_upd()
+        text_upd(self)
     end)
     si.register("upscale", function()
         light_and_shadows.upscale = not light_and_shadows.upscale
-        text_upd()
+        text_upd(self)
     end)
-    text_upd()
+
+
 
     -- The UI scaling depends on the window resolution.
     local function resize()
@@ -44,7 +126,7 @@ function init(self)
         -- print("next", scale)
         gui.set_scale(gui.get_node("corner0"), scale)
         gui.set_scale(gui.get_node("corner1"), scale)
-        gui.set_scale(gui.get_node("corner2"), scale)
+        gui.set_scale(gui.get_node("popup_"), scale)
     end
 
     broadcast.register("WINDOW_RESIZED", resize)
@@ -53,12 +135,15 @@ function init(self)
     broadcast.register("SHOW", function(message)
         current_example = message.first
         total = message.total
-        monarch.show(hash(current_example), nil, nil, function() si.acquire() end)
-        text_upd()
+        show(self)
+        text_upd(self)
     end)
 
     self.hide = true
-    self.dof = false
+    self.dof = light_and_shadows.mix
+    self.fps = false
+
+    text_upd(self)
 end
 
 function final(self)
@@ -69,14 +154,16 @@ end
 
 function update(self, dt)
 
-    self.frames = self.frames or {}
-    self.frames[#self.frames + 1] = socket.gettime()
-    local fps = 0
-    if #self.frames == 61 then
-        table.remove(self.frames, 1)
-        fps = 1 / ((self.frames[#self.frames] - self.frames[1]) / (#self.frames - 1))
+    if self.fps then
+        self.frames = self.frames or {}
+        self.frames[#self.frames + 1] = socket.gettime()
+        local fps = 0
+        if #self.frames == 61 then
+            table.remove(self.frames, 1)
+            fps = 1 / ((self.frames[#self.frames] - self.frames[1]) / (#self.frames - 1))
+        end
+        gui.set_text(gui.get_node("fps"), ("%.0f"):format(fps))
     end
-    gui.set_text(gui.get_node("fps"), ("%.0f"):format(fps))
 end
 
 function on_message(self, message_id, message, sender)
@@ -99,13 +186,7 @@ function on_input(self, action_id, action)
     end
 
     if action_id == triggers.KEY_F and action.released then
-        self.dof = not self.dof
-        light_and_shadows.dof(self.dof, {
-            blur_power = 2,
-            upscale = false,
-            blur_resolution = 1
-        })
-
+        dof(self)
     end
 end
 

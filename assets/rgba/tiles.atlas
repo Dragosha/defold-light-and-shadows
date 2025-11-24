@@ -164,6 +164,18 @@ images {
 images {
   image: "/assets/images/Arrow-right.png"
 }
+images {
+  image: "/assets/images/Rounded Rectangle.png"
+}
+images {
+  image: "/assets/images/Icon-gear.png"
+}
+images {
+  image: "/assets/images/Arrow-left.png"
+}
+images {
+  image: "/assets/images/Button.png"
+}
 animations {
   id: "firea"
   images {

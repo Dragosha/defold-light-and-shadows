@@ -107,6 +107,9 @@ nodes {
   visible: false
 }
 nodes {
+  position {
+    x: 113.0
+  }
   scale {
     x: 3.0
     y: 3.0
@@ -131,7 +134,7 @@ nodes {
 }
 nodes {
   position {
-    x: -113.23512
+    x: -0.235123
   }
   scale {
     x: 3.0
@@ -157,7 +160,7 @@ nodes {
 }
 nodes {
   position {
-    x: -228.56401
+    x: -115.56401
   }
   scale {
     x: 3.0
@@ -192,6 +195,7 @@ nodes {
   parent: "corner"
   inherit_alpha: true
   size_mode: SIZE_MODE_AUTO
+  enabled: false
 }
 nodes {
   position {

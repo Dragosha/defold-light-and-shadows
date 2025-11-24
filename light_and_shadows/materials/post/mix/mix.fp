@@ -38,9 +38,9 @@ void main()
     // d =  abs(d*d -.5) * 2. - coef;
 
     // DEBUG: 
-    if (var_texcoord0.x > 0.75) 
-        out_fragColor = vec4(vec3(coc), 1.);
-    else
+    // if (var_texcoord0.x > 0.75) 
+    //     out_fragColor = vec4(vec3(coc), 1.);
+    // else
         out_fragColor = vec4(mix(color, blured, clamp(coc, 0., 1.0)), 1.);
 
 
