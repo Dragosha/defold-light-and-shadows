@@ -7,7 +7,7 @@ A pack of materials and shaders to create a game with real-time shadows from a s
 
 ## Demo
 
-[Html5 demo](https://dragosha.com/defold/Light_and_Shadows/)
+> **[HTML5 demo](https://dragosha.com/defold/Light_and_Shadows/)**
 
 - Works on PC/MAC and mobile as well.
 
@@ -16,13 +16,26 @@ A pack of materials and shaders to create a game with real-time shadows from a s
 You can use the **Light and Shadows** in your own project by adding this library as a [Defold library dependency](http://www.defold.com/manuals/libraries/).  
 Open your game.project file and in the dependencies field under project add:
 
->https://github.com/Dragosha/defold-light-and-shadows/archive/master.zip
+> [!quote]
+> > https://github.com/Dragosha/defold-light-and-shadows/archive/master.zip
 
 > [!TIP]
 > You can link this library as a dependency in your project and replace the renderer in your project settings. Or you can add the whole folder to your project. For something more than “just trying it out” I would recommend copying the library to your project, though, because you're likely to want to add your own customizations to shaders, new materials, etc.
 
 > [!NOTE]
 > An example with the Spine models has been moved to [its own repository](https://github.com/Dragosha/defold-slasher).
+
+
+### Fog of war
+
+An example with the *fog of war shader* and the *a-star* module for finding a character's path is in a [separate branch](https://github.com/Dragosha/defold-light-and-shadows/tree/fog_of_war) of this repository.
+
+![[fow.png]]
+
+> This example also has its own demo. **[HTML5 demo](https://dragosha.com/defold/fow/)** 
+
+---
+
 
 ### Render
 The demo project is fully configured, if you want to configure your project from scratch see this section.
@@ -292,6 +305,26 @@ You can adjust the blur power by changing the `light_and_shadows.blur_power` val
 Enabled blur automatically enables *Upscaling* as it uses the same Render Target.
 
 ![blur](assets/docs/blur.png)
+
+## Depth of Field
+
+![[dof.jpg]]
+
+To enable call:
+`light_and_shadows.dof(enable, options)`
+
+Where **enable** is boolean and **options** is an optional table with properties:
+- blur_power -- how strong should be a blur effect 2..10 
+- focus_range -- how wide is a focus zone 1...4(?) 
+- blur_resolution -- How much should we reduce a size of blur render target (texture) for speed purposes (1..2 is ok). In general, the size of the blurred render target does not exceed the logical screen resolution in the project settings. The blurred texture is literally blurred so it doesn't need the full size.
+
+---
+	light_and_shadows.dof(true, {`
+	            `blur_power = 2,`
+	            `upscale = false,`
+	            `blur_resolution = 1`
+	        `})
+
 
 
 ## One more thing
