@@ -16,8 +16,8 @@ A pack of materials and shaders to create a game with real-time shadows from a s
 You can use the **Light and Shadows** in your own project by adding this library as a [Defold library dependency](http://www.defold.com/manuals/libraries/).  
 Open your game.project file and in the dependencies field under project add:
 
-> [!quote]
-> > https://github.com/Dragosha/defold-light-and-shadows/archive/master.zip
+> [!NOTE]
+> https://github.com/Dragosha/defold-light-and-shadows/archive/master.zip
 
 > [!TIP]
 > You can link this library as a dependency in your project and replace the renderer in your project settings. Or you can add the whole folder to your project. For something more than “just trying it out” I would recommend copying the library to your project, though, because you're likely to want to add your own customizations to shaders, new materials, etc.
@@ -30,7 +30,7 @@ Open your game.project file and in the dependencies field under project add:
 
 An example with the *fog of war shader* and the *a-star* module for finding a character's path is in a [separate branch](https://github.com/Dragosha/defold-light-and-shadows/tree/fog_of_war) of this repository.
 
-![[fow.png]]
+![fog of war](assets/docs/fow.png)
 
 > This example also has its own demo. **[HTML5 demo](https://dragosha.com/defold/fow/)** 
 
@@ -308,7 +308,7 @@ Enabled blur automatically enables *Upscaling* as it uses the same Render Target
 
 ## Depth of Field
 
-![[dof.jpg]]
+![depth of field](assets/docs/dof.jpg)
 
 To enable call:
 `light_and_shadows.dof(enable, options)`
