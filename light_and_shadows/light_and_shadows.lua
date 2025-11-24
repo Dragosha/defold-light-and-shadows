@@ -47,6 +47,13 @@ function light_and_shadows.dof(enable, options)
 
 end
 
+-- DEBUG
+light_and_shadows.dof(true, {
+            blur_power = 2,
+            upscale = false,
+            blur_resolution = 1
+        })
+
 -- To reduce the Peter Panning effect (shadows detaching from objects) in shadow mapping, you need to adjust the shadow bias, a value that offsets the shadow depth.
 -- Too high a bias causes Peter Panning, while too low a bias leads to shadow acne.
 light_and_shadows.depth_bias = 0.0004
