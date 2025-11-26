@@ -172,7 +172,7 @@ nodes {
     y: 40.34196
   }
   size {
-    x: 500.0
+    x: 200.0
     y: 120.0
   }
   type: TYPE_BOX
@@ -241,7 +241,7 @@ nodes {
     y: -54.0
   }
   size {
-    x: 500.0
+    x: 200.0
     y: 120.0
   }
   type: TYPE_BOX
@@ -310,7 +310,7 @@ nodes {
     y: 126.34196
   }
   size {
-    x: 500.0
+    x: 200.0
     y: 120.0
   }
   type: TYPE_BOX
@@ -379,7 +379,7 @@ nodes {
     y: 209.34196
   }
   size {
-    x: 500.0
+    x: 200.0
     y: 120.0
   }
   type: TYPE_BOX
@@ -442,6 +442,123 @@ nodes {
   parent: "DOF"
   layer: "text"
   inherit_alpha: true
+}
+nodes {
+  position {
+    x: 214.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_BOX
+  id: "range_box"
+  parent: "DOF"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+  enabled: false
+  visible: false
+}
+nodes {
+  position {
+    x: 9.0
+    y: 35.0
+  }
+  scale {
+    x: 0.74
+    y: 0.74
+    z: 0.74
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  color {
+    x: 0.2
+    y: 0.0
+    z: 0.2
+  }
+  type: TYPE_TEXT
+  text: "range"
+  font: "cardfont"
+  id: "range"
+  outline {
+    x: 0.949
+    y: 0.949
+    z: 0.949
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "range_box"
+  layer: "text"
+  inherit_alpha: true
+  outline_alpha: 0.0
+}
+nodes {
+  position {
+    x: 65.84616
+    y: 2.153839
+  }
+  rotation {
+    z: -90.0
+  }
+  type: TYPE_BOX
+  texture: "tiles/Arrow-up"
+  id: "right"
+  parent: "range_box"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: -55.46153
+    y: 2.15384
+  }
+  rotation {
+    z: 90.0
+  }
+  type: TYPE_BOX
+  texture: "tiles/Arrow-up"
+  id: "left"
+  parent: "range_box"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 9.0
+    y: 58.0
+  }
+  scale {
+    x: 0.74
+    y: 0.74
+    z: 0.74
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "focus range:"
+  font: "cardfont"
+  id: "range1"
+  outline {
+    x: 0.949
+    y: 0.949
+    z: 0.949
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "range_box"
+  layer: "text"
+  inherit_alpha: true
+  outline_alpha: 0.0
 }
 nodes {
   position {

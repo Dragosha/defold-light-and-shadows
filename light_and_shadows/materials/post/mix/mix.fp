@@ -30,7 +30,7 @@ void main()
     float d = (2.0 * near_z) / (far_z + near_z - z * (far_z - near_z));
 
     // Circle of Confusion
-    float focus_distance = coef * 1.5;
+    float focus_distance = coef * 1.75;
     float focus_range = coef * _focus_range;
     float coc = (d - focus_distance) / focus_range;
     coc = abs(clamp(coc, -1, 1));

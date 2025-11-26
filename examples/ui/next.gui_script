@@ -5,11 +5,14 @@ local broadcast = require 'helper.broadcast'
 local virtual_stick = require 'helper.virtual_stick'
 local triggers  = require "in.triggers"
 local tweener = require 'helper.tweener'
+local common = require 'helper.common'
+local constants = require "light_and_shadows.constants"
 
 local current_example = 3
 local total = 4
 local url = msg.url()
 local popup = false
+local focus_range = .5
 
 local function text_upd(self)
     gui.set_text(gui.get_node("dof_checkbox"), self.dof and "On" or "Off")
@@ -17,6 +20,7 @@ local function text_upd(self)
     gui.set_text(gui.get_node("qlt"), light_and_shadows.shadow and "On" or "Off")
     gui.set_text(gui.get_node("up"), light_and_shadows.upscale and "On" or "Off")
     gui.set_text(gui.get_node("demo"), "("..current_example.."/"..total..")")
+    gui.set_text(gui.get_node("range"), focus_range.."")
     gui.set_enabled(gui.get_node("corner0"), self.fps)
 end
 
@@ -25,7 +29,8 @@ local function dof(self)
         light_and_shadows.dof(self.dof, {
             blur_power = 2,
             upscale = false,
-            blur_resolution = 1
+            blur_resolution = 1,
+            focus_range = focus_range
         })
 
 end
@@ -100,8 +105,23 @@ function init(self)
         text_upd(self)
     end)
 
+    local step = 0.1
+    local min_range = 0
+    local max_range = 6
+    si.register("right", function()
+        focus_range = common.clamp(focus_range + step, min_range, max_range)
+        constants.focus_range = focus_range
+        text_upd(self)
+    end)
+    si.register("left", function()
+        focus_range =  common.clamp(focus_range - step, min_range, max_range)
+        constants.focus_range = focus_range
+        text_upd(self)
+    end)
+
     si.register("DOF", function()
         dof(self)
+        gui.set_enabled(gui.get_node("range_box"), self.dof)
         text_upd(self)
     end)
     si.register("FPS", function()
