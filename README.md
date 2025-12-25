@@ -13,33 +13,33 @@ A pack of materials and shaders to create a game with real-time shadows from a s
 
 ## Table of contents:
 
-- [[#Setup]]
-- [[#Fog of war]]
-- [[#Render]]
-- [[#Materials]]
-	- [[#Model]]
-	- [[#Mesh]]
-	- [[#Sprite]]
-	- [[#Tilemap]]
-	- [[#Spine]]
-	- [[#Fog]]
-	- [[#Hidden]]
-- [[#Tags]]
-- [[#Render constants]]
-- [[#Light setting]]
-- [[#Sun]]
-- [[#Scale of objects]]
-- [[#Bulb]]
-- [[#Shadow's quality]]
-	- [[#USE_PCF_SHADOW. Standart quality.]]
-	- [[#USE_PCF_POISSON_SHADOW. Good quality.]]
-	- [[#USE_FLAT_SHADOW. Low quality.]]
-- [[#Shadow casting on off]]
-- [[#Upscaling]]
-- [[#Blur]]
-- [[#Depth of Field]]
-- [[#FXAA (Fast Approximate Anti-Aliasing)]]
-- [[#Credits]]
+- [Setup](#setup)
+- [Fog of war](#fog-of-war)
+- [Render](#render)
+- [Materials](#materials)
+	- [Model](#model)
+	- [Mesh](#mesh)
+	- [Sprite](#sprite)
+	- [Tilemap](#tilemap)
+	- [Spine](#spine)
+	- [Fog](#fog)
+	- [Hidden](#hidden)
+- [Tags](#tags)
+- [Render constants](#render-constants)
+- [Light settings](#light-settings)
+- [Sun](#sun)
+- [Scale of objects](#scale-of-objects)
+- [Bulb](#bulb)
+- [Shadow's quality](#shadows-quality)
+	- [USE_PCF_SHADOW. Standart quality.](#use_pcf_shadow-standart-quality)
+	- [USE_PCF_POISSON_SHADOW. Good quality.](#use_pcf_poisson_shadow-good-quality)
+	- [USE_FLAT_SHADOW. Low quality.](#use_flat_shadow-low-quality)
+- [Shadow casting on | off](#shadow-casting-on--off)
+- [Upscaling](#upscaling)
+- [Blur](#blur)
+- [Depth of Field](#depth-of-field)
+- [FXAA (Fast Approximate Anti-Aliasing)](#fxaa-fast-approximate-anti-aliasing)
+- [Credits](#credits)
 
 ## Setup
 
@@ -201,7 +201,7 @@ These are:
 
 All constants are in `constants.lua` module.
 
-### Light setting
+### Light settings
 
 There is a special script and module with functions to setup initial render constants and manage the list of light sources during runtime in update function. This script sets constants into `constants.lua` module.
 
