@@ -244,7 +244,7 @@ function update(self)
     render.enable_state(graphics.STATE_DEPTH_TEST)
 
     -- L_S Injection
-    if light_and_shadows.upscale or light_and_shadows.blur or light_and_shadows.mix then
+    if light_and_shadows.upscale or light_and_shadows.blur or light_and_shadows.mix or light_and_shadows.fxaa then
         -- if camera component is enabled then get far Z and near Z from the camera component
         if cam and light_and_shadows.get_far_near_z_from_camera then
             constants.far_z = camera.get_far_z(cam)
@@ -293,7 +293,7 @@ function update(self)
     reset_camera_world(state)
 
     -- L_S Injection
-    if light_and_shadows.upscale or light_and_shadows.blur or light_and_shadows.mix then
+    if light_and_shadows.upscale or light_and_shadows.blur or light_and_shadows.mix or light_and_shadows.fxaa then
         render.set_render_target(render.RENDER_TARGET_DEFAULT)
         light_and_shadows.draw_upscaled(self)
     end

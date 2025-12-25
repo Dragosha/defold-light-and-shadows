@@ -19,6 +19,7 @@ local function text_upd(self)
     gui.set_text(gui.get_node("fps_checkbox"), self.fps and "On" or "Off")
     gui.set_text(gui.get_node("qlt"), light_and_shadows.shadow and "On" or "Off")
     gui.set_text(gui.get_node("up"), light_and_shadows.upscale and "On" or "Off")
+    gui.set_text(gui.get_node("fxaa_checkbox"), light_and_shadows.fxaa and "On" or "Off")
     gui.set_text(gui.get_node("demo"), "("..current_example.."/"..total..")")
     gui.set_text(gui.get_node("range"), focus_range.."")
     gui.set_enabled(gui.get_node("corner0"), self.fps)
@@ -134,6 +135,10 @@ function init(self)
     end)
     si.register("upscale", function()
         light_and_shadows.upscale = not light_and_shadows.upscale
+        text_upd(self)
+    end)
+    si.register("fxaa", function()
+        light_and_shadows.fxaa = not light_and_shadows.fxaa
         text_upd(self)
     end)
 

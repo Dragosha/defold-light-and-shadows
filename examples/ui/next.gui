@@ -238,6 +238,7 @@ nodes {
 }
 nodes {
   position {
+    x: -161.0
     y: -54.0
   }
   size {
@@ -761,6 +762,76 @@ nodes {
     z: 1.0
   }
   parent: "popup_"
+  layer: "text"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 178.0
+    y: -54.0
+  }
+  size {
+    x: 200.0
+    y: 120.0
+  }
+  type: TYPE_BOX
+  id: "fxaa"
+  yanchor: YANCHOR_BOTTOM
+  parent: "popup_"
+  inherit_alpha: true
+  visible: false
+}
+nodes {
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "FXAA:"
+  font: "cardfont"
+  id: "label"
+  pivot: PIVOT_E
+  outline {
+    x: 0.2
+    z: 0.2
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "fxaa"
+  layer: "text"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 10.0
+  }
+  size {
+    x: 100.0
+    y: 100.0
+  }
+  color {
+    x: 0.8
+    y: 0.6
+    z: 0.2
+  }
+  type: TYPE_TEXT
+  text: "On"
+  font: "cardfont"
+  id: "fxaa_checkbox"
+  pivot: PIVOT_W
+  outline {
+    x: 0.2
+    z: 0.2
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "fxaa"
   layer: "text"
   inherit_alpha: true
 }

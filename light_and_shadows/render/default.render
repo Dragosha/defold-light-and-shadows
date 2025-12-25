@@ -33,7 +33,7 @@ render_resources {
 }
 render_resources {
   name: "copy"
-  path: "/light_and_shadows/materials/copy/copy.material"
+  path: "/light_and_shadows/materials/post/copy/copy.material"
 }
 render_resources {
   name: "shadow_instanced_billboard"
@@ -46,4 +46,12 @@ render_resources {
 render_resources {
   name: "mix"
   path: "/light_and_shadows/materials/post/mix/mix.material"
+}
+render_resources {
+  name: "fxaa"
+  path: "/light_and_shadows/materials/post/fxaa/fxaa.material"
+}
+render_resources {
+  name: "mix_fxaa"
+  path: "/light_and_shadows/materials/post/mix_fxaa/mix_fxaa.material"
 }

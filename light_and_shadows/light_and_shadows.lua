@@ -14,6 +14,8 @@ light_and_shadows.shadow = true
 -- than specified in the project settings, then this entire render target is placed on the screen with linear scaling. 
 light_and_shadows.upscale = false
 
+light_and_shadows.fxaa = false
+
 light_and_shadows.mix = false
 
 -- Should near/far Z plane updated from the camera component?
@@ -296,6 +298,7 @@ end
 -- local common    = require 'helper.common'
 light_and_shadows.zoom = 1
 local resolution = vmath.vector4()
+local main_rt_resolution = vmath.vector4()
 local dof = vmath.vector4()
 function light_and_shadows.update(self)
     light_and_shadows.update_light(self)
@@ -303,31 +306,32 @@ function light_and_shadows.update(self)
         light_and_shadows.render_shadows(self)
     end
 
+    local window_width = render.get_window_width()
+    local window_height = render.get_window_height()
+    local zoom = math.max(window_width / render.get_width(), window_height / render.get_height())
+
     if light_and_shadows.upscale then
-        local window_width = render.get_window_width()
-        local window_height = render.get_window_height()
-        local zoom = math.max(window_width / render.get_width(), window_height / render.get_height())
         light_and_shadows.zoom = zoom
-        local w = window_width / zoom
-        local h = window_height / zoom
-        self.main_rt = light_and_shadows.render_target('main_rt', w, h)
+    else
+        light_and_shadows.zoom = 1
     end
 
-    if light_and_shadows.mix or light_and_shadows.blur then
-        local window_width = render.get_window_width()
-        local window_height = render.get_window_height()
-        if not light_and_shadows.upscale then
-            -- if we don't use upscale then create RT in the full window resolution
-            local w = window_width
-            local h = window_height
-            self.main_rt = light_and_shadows.render_target('main_rt', w, h)
-        end 
+    -- Create or update the main render target in cases where any post-effect has been used.  
+    if light_and_shadows.upscale or light_and_shadows.blur or light_and_shadows.mix or light_and_shadows.fxaa then
+        local w = window_width / light_and_shadows.zoom
+        local h = window_height / light_and_shadows.zoom
+        self.main_rt = light_and_shadows.render_target('main_rt', w, h)
+        main_rt_resolution.x = w
+        main_rt_resolution.y = h
+        self.constants.main_rt_resolution = main_rt_resolution
+    end
 
+    -- Create render targers for the blur post-effect. 
+    if light_and_shadows.mix or light_and_shadows.blur then
         -- Blur RT resolution
-        local zoom = math.max(window_width / render.get_width(), window_height / render.get_height())
-        zoom = math.max(light_and_shadows.blur_resolution, zoom)
-        local w = window_width / zoom
-        local h = window_height / zoom
+        local blur_zoom = math.max(light_and_shadows.blur_resolution, zoom)
+        local w = window_width / blur_zoom
+        local h = window_height / blur_zoom
         resolution.x = w
         resolution.y = h
         resolution.w = light_and_shadows.blur_power
@@ -343,11 +347,8 @@ function light_and_shadows.update(self)
 
         self.blur_rt = light_and_shadows.render_target("blur_rt", w, h, true)
         self.blur_final = light_and_shadows.render_target("blur_final", w, h, true)
-    else
-        -- common.zoom = 1
-        light_and_shadows.zoom = 1
     end
-    
+
 end
 
 local IDENTITY = vmath.matrix4()
@@ -387,7 +388,7 @@ function light_and_shadows.draw_upscaled(self)
     render.set_view(IDENTITY)
     render.set_projection(IDENTITY)
     if light_and_shadows.mix and self.blur_final then
-        render.enable_material("mix")
+        render.enable_material(light_and_shadows.fxaa and "mix_fxaa" or "mix")
         render.enable_texture("tex0", self.main_rt.rt, graphics.BUFFER_TYPE_COLOR0_BIT)
         render.enable_texture("tex1", self.blur_final.rt, graphics.BUFFER_TYPE_COLOR0_BIT)
         render.enable_texture("depth", self.main_rt.rt, graphics.BUFFER_TYPE_DEPTH_BIT)
@@ -397,15 +398,15 @@ function light_and_shadows.draw_upscaled(self)
         render.disable_texture("depth")
         render.disable_material()
     elseif light_and_shadows.blur then
-        render.enable_material("copy")
+        render.enable_material(light_and_shadows.fxaa and "fxaa" or "copy")
         render.enable_texture("tex0", self.blur_final.rt, graphics.BUFFER_TYPE_COLOR0_BIT)
-        render.draw(self.predicates.upscale)
+        render.draw(self.predicates.upscale, {constants = self.constants})
         render.disable_texture("tex0")
         render.disable_material()
     else
-        render.enable_material("copy")
+        render.enable_material(light_and_shadows.fxaa and "fxaa" or "copy")
         render.enable_texture("tex0", self.main_rt.rt, graphics.BUFFER_TYPE_COLOR0_BIT)
-        render.draw(self.predicates.upscale)
+        render.draw(self.predicates.upscale, {constants = self.constants})
         render.disable_texture("tex0")
         render.disable_material()
     end

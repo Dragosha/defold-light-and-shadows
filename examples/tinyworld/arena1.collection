@@ -674,6 +674,11 @@ instances {
       type: PROPERTY_TYPE_BOOLEAN
     }
     properties {
+      id: "depth_bias"
+      value: "8.0E-4"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
       id: "max_lights"
       value: "1.0"
       type: PROPERTY_TYPE_NUMBER

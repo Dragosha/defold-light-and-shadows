@@ -11,6 +11,36 @@ A pack of materials and shaders to create a game with real-time shadows from a s
 
 - Works on PC/MAC and mobile as well.
 
+## Table of contents:
+
+- [[#Setup]]
+- [[#Fog of war]]
+- [[#Render]]
+- [[#Materials]]
+	- [[#Model]]
+	- [[#Mesh]]
+	- [[#Sprite]]
+	- [[#Tilemap]]
+	- [[#Spine]]
+	- [[#Fog]]
+	- [[#Hidden]]
+- [[#Tags]]
+- [[#Render constants]]
+- [[#Light setting]]
+- [[#Sun]]
+- [[#Scale of objects]]
+- [[#Bulb]]
+- [[#Shadow's quality]]
+	- [[#USE_PCF_SHADOW. Standart quality.]]
+	- [[#USE_PCF_POISSON_SHADOW. Good quality.]]
+	- [[#USE_FLAT_SHADOW. Low quality.]]
+- [[#Shadow casting on off]]
+- [[#Upscaling]]
+- [[#Blur]]
+- [[#Depth of Field]]
+- [[#FXAA (Fast Approximate Anti-Aliasing)]]
+- [[#Credits]]
+
 ## Setup
 
 You can use the **Light and Shadows** in your own project by adding this library as a [Defold library dependency](http://www.defold.com/manuals/libraries/).  
@@ -130,6 +160,9 @@ More info: [Texture repeat shader](https://github.com/Dragosha/defold-sprite-rep
 ### Spine
 
 material to install on the spine component. Uses the same shaders as light_sprite, differs from sprite only by using a different view matrix.
+
+> [!NOTE]
+> An example with the Spine models has been moved to [its own repository](https://github.com/Dragosha/defold-slasher).
 
 ### Fog 
 * `fog_sprite`, `fog_particle`, `fog_label` are used on appropriate components when we do not need to calculate light and shadows. But the component must fade in the distance and calculate fog. For example, it is used for partials of fire, or the effect of glow from a window. Which is done simply by a sprite with a blending like `ADD` installed. Explore the example scene to understand better. 
@@ -256,7 +289,7 @@ If you don't want to use light sources at all and you have enough ambient light 
 
 ![fun.glsl](assets/docs/fun.png)
 
-## Shadow's quality.
+## Shadow's quality
 
 This bundle contains three variants of shadow in the fragment shader program.
 You can choose one of them by uncomment #define in `/light_and_shadows/materials/fun.glsl` shader file and comment others variants.
@@ -348,6 +381,21 @@ You also need to pass the near and far values of the current camera. They are st
 
 ![focus range = 0.3](assets/docs/fr03.jpg)
 
+
+## FXAA (Fast Approximate Anti-Aliasing)
+
+To enable anti-aliasing of the final image, set the flag `light_and_shadows.fxaa = false` to `true`.
+
+> FXAA = **OFF**
+
+![FXAA Off](assets/docs/fxaa_off.png)
+
+
+> FXAA = **ON**
+
+![FXAA On](assets/docs/fxaa_on.png)
+
+FXAA is a really cool and fast anti-aliasing algorithm, However it can be a major challenge for a low-level GPU. Therefore, the game should add the option to turn off this parameter in the game settings, or turn on the algorithm in case of sufficient fps. Also note that on high-resolution screens like on mobile devices, FXAA may not be needed at all, since the difference in the image will simply not be visible due to the very small pixel size.
 
 ## One more thing
 
