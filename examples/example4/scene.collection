@@ -461,3 +461,26 @@ embedded_instances {
     z: 163.0
   }
 }
+embedded_instances {
+  id: "billboard"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"light_a\\\"\\n"
+  "material: \\\"/light_and_shadows/materials/fog_sprite/billboard/billboard_fog_sprite_linear.material\\\"\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/assets/rgba/tiles.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: -64.856575\n"
+  "    y: 34.01557\n"
+  "    z: -7.487921\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    y: 38.90786
+  }
+}

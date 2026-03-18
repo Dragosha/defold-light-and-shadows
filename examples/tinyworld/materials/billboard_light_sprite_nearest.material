@@ -8,7 +8,7 @@ vertex_constants {
   type: CONSTANT_TYPE_VIEWPROJ
 }
 vertex_constants {
-  name: "mtx_view"
+  name: "view"
   type: CONSTANT_TYPE_VIEW
 }
 vertex_constants {
@@ -70,16 +70,29 @@ samplers {
   max_anisotropy: 0.0
 }
 attributes {
-  name: "local_position"
+  name: "position"
   semantic_type: SEMANTIC_TYPE_POSITION
-  vector_type: VECTOR_TYPE_VEC3
 }
 attributes {
-  name: "sprite_scale"
+  name: "color"
+  semantic_type: SEMANTIC_TYPE_COLOR
   double_values {
     v: 1.0
-    v: 0.75
+    v: 1.0
+    v: 1.0
     v: 1.0
   }
-  vector_type: VECTOR_TYPE_VEC3
+}
+attributes {
+  name: "mtx_world"
+  semantic_type: SEMANTIC_TYPE_WORLD_MATRIX
+  coordinate_space: COORDINATE_SPACE_WORLD
+  vector_type: VECTOR_TYPE_MAT4
+}
+attributes {
+  name: "billboard_mode"
+  double_values {
+    v: 0.0
+  }
+  vector_type: VECTOR_TYPE_SCALAR
 }
