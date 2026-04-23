@@ -30,10 +30,10 @@ embedded_components {
 embedded_components {
   id: "model"
   type: "model"
-  data: "mesh: \"/assets/images/tiles/base.dae\"\n"
+  data: "mesh: \"/assets/images/tiles/base.glb\"\n"
   "name: \"unnamed\"\n"
   "materials {\n"
-  "  name: \"default\"\n"
+  "  name: \"Material\"\n"
   "  material: \"/light_and_shadows/materials/model/model_world.material\"\n"
   "  textures {\n"
   "    sampler: \"tex0\"\n"

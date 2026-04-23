@@ -8,14 +8,12 @@
 in highp vec4 position;
 in mediump vec2 texcoord0;
 in highp vec3 normal;
-
-// When 'mtx_world' and 'mtx_normal' is specified as attributes,
-// instanced rendering is automatically triggered.
-in highp mat4 mtx_world;
-in highp mat4 mtx_normal;
+in highp vec4 tintcolor;
 
 uniform vs_uniforms
 {
+    highp mat4 mtx_world;
+    highp mat4 mtx_normal;
     highp mat4 mtx_view;
     highp mat4 mtx_proj;
     highp mat4 mtx_light;
@@ -26,6 +24,7 @@ out highp vec4 var_position;
 out highp vec3 var_normal;
 out mediump vec2 var_texcoord0;
 out highp vec4 var_texcoord0_shadow;
+out highp vec4 var_color;
 
 void main()
 {
@@ -35,6 +34,7 @@ void main()
     var_position = pw;
     var_texcoord0 = texcoord0;
     var_texcoord0_shadow = mtx_light * pw;
+    var_color = vec4(tintcolor.rgb * tintcolor.a, tintcolor.a);
     var_normal = normalize((mtx_normal * vec4(normal, 0.0)).xyz);
     gl_Position = mtx_proj * p;
   
