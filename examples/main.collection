@@ -121,7 +121,7 @@ embedded_instances {
   "embedded_components {\n"
   "  id: \"collectionproxy\"\n"
   "  type: \"collectionproxy\"\n"
-  "  data: \"collection: \\\"/examples/tinyworld/arena1.collection\\\"\\n"
+  "  data: \"collection: \\\"/examples/fow/arena1.collection\\\"\\n"
   "\"\n"
   "}\n"
   ""

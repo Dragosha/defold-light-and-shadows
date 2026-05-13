@@ -1,0 +1,275 @@
+images {
+  image: "/examples/fow/images/src/light_a.png"
+}
+images {
+  image: "/examples/fow/images/src/shadow.png"
+}
+images {
+  image: "/examples/fow/images/src/heart.png"
+}
+images {
+  image: "/examples/fow/images/src/heart_.png"
+}
+images {
+  image: "/examples/fow/images/src/shadow2.png"
+}
+images {
+  image: "/examples/fow/images/tree1.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/fow/images/tree2.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/fow/images/tree3.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/fow/images/tree4.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/fow/images/tree5.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/fow/images/tree6.png"
+  pivot_x: 0.473857
+  pivot_y: 0.954889
+}
+images {
+  image: "/examples/fow/images/grass1.png"
+  pivot_x: 0.528853
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/fow/images/moon.png"
+}
+images {
+  image: "/examples/fow/images/sun.png"
+}
+images {
+  image: "/examples/fow/images/button.png"
+}
+images {
+  image: "/examples/fow/images/button2.png"
+}
+images {
+  image: "/examples/fow/images/button3.png"
+}
+images {
+  image: "/examples/fow/images/button_.png"
+}
+images {
+  image: "/examples/fow/images/house.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/fow/images/move.png"
+}
+images {
+  image: "/examples/fow/images/gear.png"
+}
+images {
+  image: "/examples/fow/images/noway.png"
+}
+images {
+  image: "/examples/fow/images/chars/tree_b1.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/fow/images/chars/tree_b2.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/fow/images/chars/tree_b3.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/fow/images/chars/tree_b4.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/fow/images/chars/chest.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/fow/images/chars/art1.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/fow/images/chars/woodmil.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/fow/images/chars/fhouse1.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/fow/images/chars/wood.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/fow/images/chars/fhouse2.png"
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/fow/images/src/Sprite-0001.png"
+  pivot_x: 0.554175
+  pivot_y: 1.0
+}
+images {
+  image: "/examples/fow/images/src/Sprite-0002.png"
+  pivot_y: 1.0
+}
+animations {
+  id: "fire"
+  images {
+    image: "/examples/fow/images/src/fire1.png"
+  }
+  images {
+    image: "/examples/fow/images/src/fire2.png"
+  }
+  images {
+    image: "/examples/fow/images/src/fire3.png"
+  }
+  images {
+    image: "/examples/fow/images/src/fire4.png"
+  }
+  images {
+    image: "/examples/fow/images/src/fire5.png"
+  }
+  images {
+    image: "/examples/fow/images/src/fire6.png"
+  }
+  images {
+    image: "/examples/fow/images/src/fire7.png"
+  }
+  images {
+    image: "/examples/fow/images/src/fire8.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 14
+}
+animations {
+  id: "point"
+  images {
+    image: "/examples/fow/images/src/point1.png"
+  }
+  images {
+    image: "/examples/fow/images/src/point2.png"
+  }
+  images {
+    image: "/examples/fow/images/src/point4.png"
+  }
+  images {
+    image: "/examples/fow/images/src/point5.png"
+  }
+  images {
+    image: "/examples/fow/images/src/point6.png"
+  }
+}
+animations {
+  id: "pointg"
+  images {
+    image: "/examples/fow/images/src/pointg1.png"
+  }
+  images {
+    image: "/examples/fow/images/src/pointg2.png"
+  }
+  images {
+    image: "/examples/fow/images/src/pointg3.png"
+  }
+  images {
+    image: "/examples/fow/images/src/pointg4.png"
+  }
+  images {
+    image: "/examples/fow/images/src/pointg5.png"
+  }
+  images {
+    image: "/examples/fow/images/src/pointg6.png"
+  }
+  playback: PLAYBACK_ONCE_BACKWARD
+}
+animations {
+  id: "smoke"
+  images {
+    image: "/examples/fow/images/src/point6.png"
+  }
+  images {
+    image: "/examples/fow/images/src/point5.png"
+  }
+  images {
+    image: "/examples/fow/images/src/point4.png"
+  }
+  fps: 60
+}
+animations {
+  id: "boyidle"
+  images {
+    image: "/examples/fow/images/chars/boy_idle1.png"
+  }
+  images {
+    image: "/examples/fow/images/chars/boy_idle2.png"
+  }
+  images {
+    image: "/examples/fow/images/chars/boy_idle3.png"
+  }
+  images {
+    image: "/examples/fow/images/chars/boy_idle4.png"
+  }
+  images {
+    image: "/examples/fow/images/chars/boy_idle5.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 12
+}
+animations {
+  id: "pointa"
+  images {
+    image: "/examples/fow/images/src/point4.png"
+  }
+  images {
+    image: "/examples/fow/images/src/point5.png"
+  }
+  images {
+    image: "/examples/fow/images/src/point6.png"
+  }
+  fps: 16
+}
+animations {
+  id: "hero1"
+  images {
+    image: "/examples/fow/images/chars/hero1.png"
+    pivot_y: 1.0
+  }
+  images {
+    image: "/examples/fow/images/chars/hero2.png"
+    pivot_y: 1.0
+  }
+  images {
+    image: "/examples/fow/images/chars/hero3.png"
+    pivot_y: 1.0
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 10
+}
+animations {
+  id: "gob"
+  images {
+    image: "/examples/fow/images/chars/gob1.png"
+    pivot_y: 1.0
+  }
+  images {
+    image: "/examples/fow/images/chars/gob2.png"
+    pivot_y: 1.0
+  }
+  images {
+    image: "/examples/fow/images/chars/gob3.png"
+    pivot_y: 1.0
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 10
+}
+margin: 1
