@@ -673,6 +673,11 @@ instances {
       type: PROPERTY_TYPE_BOOLEAN
     }
     properties {
+      id: "depth_bias"
+      value: "8.0E-4"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
       id: "max_lights"
       value: "1.0"
       type: PROPERTY_TYPE_NUMBER
@@ -876,6 +881,9 @@ embedded_instances {
   "  component: \"/examples/fow/tw.tilemap\"\n"
   "}\n"
   ""
+  position {
+    y: -0.1
+  }
   rotation {
     x: -0.70710677
     w: 0.70710677
@@ -1218,7 +1226,7 @@ embedded_instances {
   "embedded_components {\n"
   "  id: \"model\"\n"
   "  type: \"model\"\n"
-  "  data: \"mesh: \\\"/light_and_shadows/props/lamp.dae\\\"\\n"
+  "  data: \"mesh: \\\"/light_and_shadows/props/shpere.glb\\\"\\n"
   "name: \\\"unnamed\\\"\\n"
   "materials {\\n"
   "  name: \\\"default\\\"\\n"

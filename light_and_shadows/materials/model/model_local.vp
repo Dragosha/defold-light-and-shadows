@@ -32,7 +32,7 @@ void main()
     var_position = pw;
     var_texcoord0 = texcoord0;
     var_texcoord0_shadow = mtx_light * pw;
-    var_normal = normalize((mtx_world * vec4(normal, 0.0)).xyz);
+    var_normal = normalize((mtx_normal * vec4(normal, 0.0)).xyz);
     gl_Position = mtx_proj * p;
  
 }

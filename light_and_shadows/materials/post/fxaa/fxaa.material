@@ -1,7 +1,7 @@
-name: "copy"
+name: "fxaa"
 tags: "upscale"
-vertex_program: "/light_and_shadows/materials/copy/copy.vp"
-fragment_program: "/light_and_shadows/materials/copy/copy.fp"
+vertex_program: "/light_and_shadows/materials/post/copy/copy.vp"
+fragment_program: "/light_and_shadows/materials/post/fxaa/fxaa.fp"
 vertex_space: VERTEX_SPACE_LOCAL
 vertex_constants {
   name: "mtx_viewproj"

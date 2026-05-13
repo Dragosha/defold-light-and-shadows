@@ -16,3 +16,4 @@ manifest.public.der
 *.psd
 *.mdp
 /.editor_settings
+/.obsidian

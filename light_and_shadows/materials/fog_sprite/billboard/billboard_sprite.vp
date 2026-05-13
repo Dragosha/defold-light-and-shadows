@@ -1,17 +1,17 @@
 #version 140
 
-// positions are in world space
+// positions are in LOCAL space now as Vertex Attribute
 in highp vec4 position;
+in highp mat4 mtx_world;  // world transform (translation = center)
 in mediump vec2 texcoord0;
-in highp vec3 local_position;
-in highp vec3 sprite_scale;
 in highp vec4 color;
+in lowp float billboard_mode;
 
 uniform vs_uniforms
 {
     highp mat4 view_proj;
     highp mat4 proj;
-    highp mat4 mtx_view;
+    highp mat4 view;
     highp vec4 cam_pos;
 };
 
@@ -21,14 +21,35 @@ out highp vec4 var_view_position;
 out highp vec3 var_normal;
 out highp vec4 var_color;
 
-
+#include "/light_and_shadows/materials/billboard.glsl"
 void main()
 {
-    gl_Position = (view_proj * vec4(position.xyz - local_position.xyz * sprite_scale, 1.0)) + (proj * vec4(local_position.xy * sprite_scale.xy, 0.0, 0.0));
+    // extract scale from world matrix columns
+    float scaleX = length(mtx_world[0].xyz);
+    float scaleY = length(mtx_world[1].xyz);
+
+    // billboard center in world space
+    vec3 center_position = mtx_world[3].xyz;
+    vec2 local_position = position.xy;
+    vec3 world_position;
+
+    if (billboard_mode < 1.0)
+    {
+        world_position = computeScreenBillboard(center_position, local_position, scaleX, scaleY);
+    }
+    else
+    {
+        world_position = computeAxisLockedBillboard(center_position, local_position, scaleX, scaleY);
+    }
+
+    // Write outputs
+    gl_Position = view_proj * vec4(world_position, 1.0);
+
     var_texcoord0 = texcoord0;
-    var_color = color;
-    var_position = vec4(position.xyz, 1.0);
-    var_view_position = mtx_view * position;
-    var_normal = normalize((cam_pos - position).xyz);
+    vec4 wp = vec4(world_position, 1.0);
+    var_position =  wp;
+    var_view_position = view * wp;
+    var_normal = normalize((cam_pos.xyz - world_position));
+    var_color = vec4(color.rgb * color.a, color.a);
 
 }

@@ -22,5 +22,9 @@ return {
     sun_position = vmath.vector4(-10, 10, 9, 0),
     sun_color = vmath.vector4(0.75, 0.75, 0.5, 0),
     sun_dir = vmath.vector3(.1, -10, .1 ),
-    shadow_color = vmath.vector4(0.25, 0.25, 0.5, 0)
+    shadow_color = vmath.vector4(0.25, 0.25, 0.5, 0),
+    cam_z = 100, -- camera Z coord (a distance from focus point)
+    focus_range = 1.2, -- how wide is a focus zone
+    near_z = 10, -- camera near Z plane
+    far_z = 1000 -- camera far Z plane
 }

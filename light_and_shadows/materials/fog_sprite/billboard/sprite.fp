@@ -11,6 +11,7 @@ uniform fs_uniforms
     mediump vec4 tint;
     mediump vec4 fog_color;
     mediump vec4 fog;
+    mediump vec4 ambient;
 };
 
 
@@ -25,7 +26,7 @@ void main()
     mediump vec4 tint_pm = vec4(tint.xyz * tint.w, tint.w);
     vec4 color = texture(texture_sampler, var_texcoord0.xy) * tint_pm * var_color;
     
-    vec3 frag_color  = color.rgb;
+    vec3 frag_color  = color.rgb * clamp(ambient.rgb + fog_color.rgb, 0.5, 1.0);
     // Add the fog
     frag_color = add_fog(frag_color, var_view_position.z, fog.x, fog.y, fog_color.rgb*color.a, fog_color.a);
     

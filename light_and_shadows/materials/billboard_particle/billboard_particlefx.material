@@ -7,8 +7,8 @@ vertex_constants {
   type: CONSTANT_TYPE_VIEWPROJ
 }
 vertex_constants {
-  name: "proj"
-  type: CONSTANT_TYPE_PROJECTION
+  name: "view"
+  type: CONSTANT_TYPE_VIEW
 }
 fragment_constants {
   name: "tint"
@@ -39,7 +39,12 @@ fragment_constants {
   }
 }
 attributes {
-  name: "local_position"
+  name: "position"
   semantic_type: SEMANTIC_TYPE_POSITION
-  vector_type: VECTOR_TYPE_VEC3
+}
+attributes {
+  name: "mtx_world"
+  semantic_type: SEMANTIC_TYPE_WORLD_MATRIX
+  coordinate_space: COORDINATE_SPACE_WORLD
+  vector_type: VECTOR_TYPE_MAT4
 }

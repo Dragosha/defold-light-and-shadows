@@ -7,7 +7,7 @@ vertex_constants {
   type: CONSTANT_TYPE_VIEWPROJ
 }
 vertex_constants {
-  name: "mtx_view"
+  name: "view"
   type: CONSTANT_TYPE_VIEW
 }
 vertex_constants {
@@ -42,6 +42,16 @@ fragment_constants {
     y: 10000.0
   }
 }
+fragment_constants {
+  name: "ambient"
+  type: CONSTANT_TYPE_USER
+  value {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+}
 samplers {
   name: "texture_sampler"
   wrap_u: WRAP_MODE_CLAMP_TO_EDGE
@@ -51,18 +61,8 @@ samplers {
   max_anisotropy: 0.0
 }
 attributes {
-  name: "local_position"
+  name: "position"
   semantic_type: SEMANTIC_TYPE_POSITION
-  vector_type: VECTOR_TYPE_VEC3
-}
-attributes {
-  name: "sprite_scale"
-  double_values {
-    v: 1.0
-    v: 1.0
-    v: 1.0
-  }
-  vector_type: VECTOR_TYPE_VEC3
 }
 attributes {
   name: "color"
@@ -73,4 +73,17 @@ attributes {
     v: 1.0
     v: 1.0
   }
+}
+attributes {
+  name: "mtx_world"
+  semantic_type: SEMANTIC_TYPE_WORLD_MATRIX
+  coordinate_space: COORDINATE_SPACE_WORLD
+  vector_type: VECTOR_TYPE_MAT4
+}
+attributes {
+  name: "billboard_mode"
+  double_values {
+    v: 0.0
+  }
+  vector_type: VECTOR_TYPE_SCALAR
 }

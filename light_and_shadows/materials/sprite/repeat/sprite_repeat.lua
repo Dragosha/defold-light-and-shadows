@@ -40,7 +40,8 @@ function M.create(sprite_url, sprite_id, self)
 	assert(animation_data, "Unable to find image " .. sprite_image_id)
 
 	local frames = {}
-	for index = animation_data.frame_start, animation_data.frame_end - 1 do
+	for _, index in ipairs(animation_data.frames) do -- Ver 1.12.3+
+    -- for index = animation_data.frame_start, animation_data.frame_end - 1 do -- Ver 1.12.2 or older
 
 		local uvs = atlas_data.geometries[index].uvs
 		assert(#uvs == 8, "Sprite trim mode should be disabled for the images.")

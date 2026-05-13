@@ -7,22 +7,65 @@ A pack of materials and shaders to create a game with real-time shadows from a s
 
 ## Demo
 
-[Html5 demo](https://dragosha.com/defold/Light_and_Shadows/)
+> **[HTML5 demo](https://dragosha.com/defold/Light_and_Shadows/)**
 
 - Works on PC/MAC and mobile as well.
+
+## Table of contents:
+
+- [Setup](#setup)
+- [Fog of war](#fog-of-war)
+- [Render](#render)
+- [Materials](#materials)
+	- [Model](#model)
+	- [Mesh](#mesh)
+	- [Sprite](#sprite)
+	- [Tilemap](#tilemap)
+	- [Spine](#spine)
+	- [Fog](#fog)
+	- [Hidden](#hidden)
+- [Tags](#tags)
+- [Render constants](#render-constants)
+- [Light settings](#light-settings)
+- [Sun](#sun)
+- [Scale of objects](#scale-of-objects)
+- [Bulb](#bulb)
+- [Shadow's quality](#shadows-quality)
+	- [USE_PCF_SHADOW. Standart quality.](#use_pcf_shadow-standart-quality)
+	- [USE_PCF_POISSON_SHADOW. Good quality.](#use_pcf_poisson_shadow-good-quality)
+	- [USE_FLAT_SHADOW. Low quality.](#use_flat_shadow-low-quality)
+- [Shadow casting on | off](#shadow-casting-on--off)
+- [Upscaling](#upscaling)
+- [Blur](#blur)
+- [Depth of Field](#depth-of-field)
+- [FXAA (Fast Approximate Anti-Aliasing)](#fxaa-fast-approximate-anti-aliasing)
+- [Credits](#credits)
 
 ## Setup
 
 You can use the **Light and Shadows** in your own project by adding this library as a [Defold library dependency](http://www.defold.com/manuals/libraries/).  
 Open your game.project file and in the dependencies field under project add:
 
->https://github.com/Dragosha/defold-light-and-shadows/archive/master.zip
+---
+    https://github.com/Dragosha/defold-light-and-shadows/archive/master.zip
 
 > [!TIP]
 > You can link this library as a dependency in your project and replace the renderer in your project settings. Or you can add the whole folder to your project. For something more than “just trying it out” I would recommend copying the library to your project, though, because you're likely to want to add your own customizations to shaders, new materials, etc.
 
 > [!NOTE]
 > An example with the Spine models has been moved to [its own repository](https://github.com/Dragosha/defold-slasher).
+
+
+### Fog of war
+
+An example with the *fog of war shader* and the *a-star* module for finding a character's path is in a [separate branch](https://github.com/Dragosha/defold-light-and-shadows/tree/fog_of_war) of this repository.
+
+![fog of war](assets/docs/fow.png)
+
+> This example also has its own demo. **[HTML5 demo](https://dragosha.com/defold/fow/)** 
+
+---
+
 
 ### Render
 The demo project is fully configured, if you want to configure your project from scratch see this section.
@@ -94,10 +137,8 @@ Note, the direction of the normal can and should be changed depending on what an
 
 * `light_sprite_back` - uses the same shaders as light_sprite, but the normal in the material looks "up". Used for decals on the ground, for the floor, etc. Also drawn in its predicate, before the other sprites.
 
-* `billboard_light_sprite` - The billboard sprite always faces the camera. If the scale of your sprite is not 1, you can set its scale manually in the sprite properties panel. Or use a special script `billboard.script`. Just add it to the game object with the sprite. 
+* `billboard_light_sprite` - The billboard sprite always faces the camera. 
 
-> [!IMPORTANT]
-> billboarding will only work correctly if the default sprite rotation is zero. See `_uncommon_objects` in /examples/example2/scene.collection as an example of how to use this feature.
 
 * `bg_parallax_sprite` - Special sprite type. You can use it for background images by setting the coefficient with which this sprite will follow the camera. Values from 0 to 1 are set in the sprite properties panel for XYZ. 0.0 - the sprite is completely stationary in this dimension, i.e. it behaves like a normal sprite without adding camera coordinates. 1.0 - the sprite follows the camera.See `_uncommon_objects` in /examples/example2/scene.collection as an example of how to use this feature.
 
@@ -117,6 +158,9 @@ More info: [Texture repeat shader](https://github.com/Dragosha/defold-sprite-rep
 ### Spine
 
 material to install on the spine component. Uses the same shaders as light_sprite, differs from sprite only by using a different view matrix.
+
+> [!NOTE]
+> An example with the Spine models has been moved to [its own repository](https://github.com/Dragosha/defold-slasher).
 
 ### Fog 
 * `fog_sprite`, `fog_particle`, `fog_label` are used on appropriate components when we do not need to calculate light and shadows. But the component must fade in the distance and calculate fog. For example, it is used for partials of fire, or the effect of glow from a window. Which is done simply by a sprite with a blending like `ADD` installed. Explore the example scene to understand better. 
@@ -155,7 +199,7 @@ These are:
 
 All constants are in `constants.lua` module.
 
-### Light setting
+### Light settings
 
 There is a special script and module with functions to setup initial render constants and manage the list of light sources during runtime in update function. This script sets constants into `constants.lua` module.
 
@@ -243,7 +287,7 @@ If you don't want to use light sources at all and you have enough ambient light 
 
 ![fun.glsl](assets/docs/fun.png)
 
-## Shadow's quality.
+## Shadow's quality
 
 This bundle contains three variants of shadow in the fragment shader program.
 You can choose one of them by uncomment #define in `/light_and_shadows/materials/fun.glsl` shader file and comment others variants.
@@ -293,6 +337,63 @@ Enabled blur automatically enables *Upscaling* as it uses the same Render Target
 
 ![blur](assets/docs/blur.png)
 
+## Depth of Field
+
+![depth of field](assets/docs/dof.jpg)
+
+To enable call:
+`light_and_shadows.dof(enable, options)`
+
+Where **enable** is boolean and **options** is an optional table with properties:
+- blur_power -- how strong should be a blur effect 2..10 
+- focus_range -- how wide is a focus zone 0.1 ..4(?) 
+- blur_resolution -- How much should we reduce a size of blur render target (texture) for speed purposes (1..2 is ok). In general, the size of the blurred render target does not exceed the logical screen resolution in the project settings. The blurred texture is literally blurred so it doesn't need the full size.
+
+---
+	light_and_shadows.dof(true, {
+	            blur_power = 2,
+	            upscale = false,
+	            blur_resolution = 1,
+                focus_range = .25
+	        })
+
+
+Please note that to adjust the focus position, you need to pass the camera's Z position (the distance to the focus point). You can do this with the 4th parameter of the function `light.set_position(...)` or by directly setting the value to `light.cam_z`
+
+---
+    light.set_position(go.get_rotation(self.cam_look_at), go.get_position(self.cam_look_at), go.get_world_position(self.camera_go_id), go.get(self.camera_go_id, "position.z"))
+
+You also need to pass the near and far values of the current camera. They are stored in the constants.lua file. By default, this is done **automatically** in the render script. If you want to change these values manually, then you need to set the parameter `light_and_shadows.get_far_near_z_from_camera = true` to the value **false**
+
+---
+    near_z = 10, -- camera near Z plane
+    far_z = 1000 -- camera far Z plane
+
+
+> Focus range = **1.0**
+
+![focus range = 1](assets/docs/fr1.jpg)
+
+
+> Focus range = **0.3**
+
+![focus range = 0.3](assets/docs/fr03.jpg)
+
+
+## FXAA (Fast Approximate Anti-Aliasing)
+
+To enable anti-aliasing of the final image, set the flag `light_and_shadows.fxaa = false` to `true`.
+
+> FXAA = **OFF**
+
+![FXAA Off](assets/docs/fxaa_off.png)
+
+
+> FXAA = **ON**
+
+![FXAA On](assets/docs/fxaa_on.png)
+
+FXAA is a really cool and fast anti-aliasing algorithm, However it can be a major challenge for a low-level GPU. Therefore, the game should add the option to turn off this parameter in the game settings, or turn on the algorithm in case of sufficient fps. Also note that on high-resolution screens like on mobile devices, FXAA may not be needed at all, since the difference in the image will simply not be visible due to the very small pixel size.
 
 ## One more thing
 

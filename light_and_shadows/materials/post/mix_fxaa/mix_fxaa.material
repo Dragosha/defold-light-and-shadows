@@ -1,0 +1,40 @@
+name: "mix_fxaa"
+tags: "upscale"
+vertex_program: "/light_and_shadows/materials/post/mix/mix.vp"
+fragment_program: "/light_and_shadows/materials/post/mix_fxaa/mix_fxaa.fp"
+vertex_space: VERTEX_SPACE_LOCAL
+vertex_constants {
+  name: "mtx_viewproj"
+  type: CONSTANT_TYPE_WORLDVIEWPROJ
+}
+fragment_constants {
+  name: "dof"
+  type: CONSTANT_TYPE_USER
+  value {
+    x: 10.0
+    y: 100.0
+  }
+}
+samplers {
+  name: "tex0"
+  wrap_u: WRAP_MODE_CLAMP_TO_EDGE
+  wrap_v: WRAP_MODE_CLAMP_TO_EDGE
+  filter_min: FILTER_MODE_MIN_DEFAULT
+  filter_mag: FILTER_MODE_MAG_DEFAULT
+}
+samplers {
+  name: "tex1"
+  wrap_u: WRAP_MODE_CLAMP_TO_EDGE
+  wrap_v: WRAP_MODE_CLAMP_TO_EDGE
+  filter_min: FILTER_MODE_MIN_DEFAULT
+  filter_mag: FILTER_MODE_MAG_DEFAULT
+  max_anisotropy: 0.0
+}
+samplers {
+  name: "depth"
+  wrap_u: WRAP_MODE_CLAMP_TO_EDGE
+  wrap_v: WRAP_MODE_CLAMP_TO_EDGE
+  filter_min: FILTER_MODE_MIN_NEAREST
+  filter_mag: FILTER_MODE_MAG_NEAREST
+  max_anisotropy: 0.0
+}

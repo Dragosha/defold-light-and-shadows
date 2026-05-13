@@ -41,7 +41,7 @@ function update(self, dt)
         go.set(self.cam_look_at, "position", camera_pos)
     end
     
-    light.set_position(go.get_rotation(self.cam_look_at), go.get_position(self.cam_look_at), go.get_world_position(self.camera_go_id))
+    light.set_position(go.get_rotation(self.cam_look_at), go.get_position(self.cam_look_at), go.get_world_position(self.camera_go_id), go.get(self.camera_go_id, "position.z"))
     common.cam_pos = light.cam_look_at
 end
 
