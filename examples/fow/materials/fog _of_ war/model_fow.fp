@@ -33,7 +33,7 @@ void main()
     vec4 tint_pm = vec4(tint.xyz * tint.w, tint.w);
     vec4 color = texture(tex0, var_texcoord0.xy) * tint_pm;
     // vec4 color = rgss_tex2D(tex0, var_texcoord0.xy, -1.0) * tint_pm;
-    if(color.a < 0.9) discard;
+    if(color.a < param.y) discard;
 
 // Editor does not support Lights and Shadows previews yet, so ignore it.
 #ifdef EDITOR

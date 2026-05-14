@@ -19,7 +19,7 @@ void main()
     // Pre-multiply alpha since all runtime textures already are
     mediump vec4 tint_pm = vec4(tint.xyz * tint.w, tint.w);
     vec4 color = texture(tex0, var_texcoord0.xy)*tint_pm;
-    // if(color.a < 0.1) discard;
+    if(param.x > 0. && color.a < param.y) discard;
     
 // Editor does not support Lights and Shadows previews yet, so ignore it.
 #ifdef EDITOR

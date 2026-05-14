@@ -21,20 +21,19 @@ nodes {
   xanchor: XANCHOR_RIGHT
   yanchor: YANCHOR_TOP
   inherit_alpha: true
-  enabled: false
   visible: false
 }
 nodes {
   position {
     x: -75.801
   }
-  scale {
-    x: 0.62
-    y: 0.62
-    z: 0.62
+  color {
+    x: 0.9490196
+    y: 0.9490196
+    z: 0.9490196
   }
   type: TYPE_BOX
-  texture: "tiles/Icon-gear"
+  texture: "tiles/grey_gear"
   id: "gear"
   xanchor: XANCHOR_RIGHT
   yanchor: YANCHOR_TOP
@@ -89,6 +88,10 @@ nodes {
 nodes {
   position {
     x: -3.0
+  }
+  scale {
+    x: 0.7
+    y: 0.7
   }
   size {
     x: 200.0
@@ -153,24 +156,34 @@ nodes {
 }
 nodes {
   size {
-    x: 700.0
-    y: 650.0
+    x: 500.0
+    y: 500.0
+  }
+  color {
+    x: 0.6
+    y: 0.6
+    z: 0.6
   }
   type: TYPE_BOX
-  texture: "tiles/Rounded Rectangle"
+  texture: "tiles/grey_button"
   id: "popup_"
   parent: "popup"
   inherit_alpha: true
   slice9 {
-    x: 50.0
-    y: 60.0
-    z: 50.0
-    w: 60.0
+    x: 10.0
+    y: 10.0
+    z: 10.0
+    w: 10.0
   }
+  alpha: 0.85
 }
 nodes {
   position {
-    y: 40.34196
+    y: 19.34196
+  }
+  scale {
+    x: 0.8
+    y: 0.8
   }
   size {
     x: 200.0
@@ -239,8 +252,12 @@ nodes {
 }
 nodes {
   position {
-    x: -161.0
-    y: -54.0
+    x: 1.0
+    y: -75.0
+  }
+  scale {
+    x: 0.8
+    y: 0.8
   }
   size {
     x: 200.0
@@ -309,7 +326,11 @@ nodes {
 }
 nodes {
   position {
-    y: 126.34196
+    y: 105.34196
+  }
+  scale {
+    x: 0.8
+    y: 0.8
   }
   size {
     x: 200.0
@@ -378,7 +399,11 @@ nodes {
 }
 nodes {
   position {
-    y: 209.34196
+    y: 188.34196
+  }
+  scale {
+    x: 0.8
+    y: 0.8
   }
   size {
     x: 200.0
@@ -447,7 +472,8 @@ nodes {
 }
 nodes {
   position {
-    x: 214.0
+    x: 174.0
+    y: -15.0
   }
   size {
     x: 200.0
@@ -464,7 +490,7 @@ nodes {
 nodes {
   position {
     x: 9.0
-    y: 35.0
+    y: 7.5
   }
   scale {
     x: 0.74
@@ -505,10 +531,10 @@ nodes {
     y: 2.153839
   }
   rotation {
-    z: -90.0
+    z: 180.0
   }
   type: TYPE_BOX
-  texture: "tiles/Arrow-up"
+  texture: "tiles/grey_arrow"
   id: "right"
   parent: "range_box"
   inherit_alpha: true
@@ -519,11 +545,8 @@ nodes {
     x: -55.46153
     y: 2.15384
   }
-  rotation {
-    z: 90.0
-  }
   type: TYPE_BOX
-  texture: "tiles/Arrow-up"
+  texture: "tiles/grey_arrow"
   id: "left"
   parent: "range_box"
   inherit_alpha: true
@@ -564,212 +587,12 @@ nodes {
 }
 nodes {
   position {
-    x: 178.0
-    y: -215.01434
-  }
-  size {
-    x: 280.0
-    y: 120.0
-  }
-  type: TYPE_BOX
-  texture: "tiles/Button"
-  id: "next_example"
-  xanchor: XANCHOR_RIGHT
-  yanchor: YANCHOR_TOP
-  parent: "popup_"
-  inherit_alpha: true
-  slice9 {
-    x: 42.0
-    y: 44.0
-    z: 42.0
-    w: 42.0
-  }
-}
-nodes {
-  position {
-    x: 53.198997
-  }
-  scale {
-    x: 0.62
-    y: 0.62
-    z: 0.62
-  }
-  type: TYPE_BOX
-  texture: "tiles/Arrow-right"
-  id: "arrow"
-  xanchor: XANCHOR_RIGHT
-  yanchor: YANCHOR_TOP
-  parent: "next_example"
-  inherit_alpha: true
-  size_mode: SIZE_MODE_AUTO
-}
-nodes {
-  position {
-    x: -66.68936
-  }
-  scale {
-    x: 1.64
-    y: 1.64
-  }
-  size {
-    x: 139.0
-    y: 100.0
-  }
-  type: TYPE_TEXT
-  text: "Next "
-  font: "cardfont"
-  id: "next"
-  pivot: PIVOT_E
-  outline {
-    x: 0.2
-    z: 0.2
-  }
-  shadow {
     x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-  parent: "arrow"
-  layer: "text"
-  inherit_alpha: true
-}
-nodes {
-  position {
-    x: -173.0
-    y: -215.01434
-  }
-  size {
-    x: 280.0
-    y: 120.0
-  }
-  type: TYPE_BOX
-  texture: "tiles/Button"
-  id: "prev_example"
-  xanchor: XANCHOR_RIGHT
-  yanchor: YANCHOR_TOP
-  parent: "popup_"
-  inherit_alpha: true
-  slice9 {
-    x: 42.0
-    y: 42.0
-    z: 42.0
-    w: 42.0
-  }
-}
-nodes {
-  position {
-    x: -86.0
+    y: -174.0
   }
   scale {
-    x: 0.62
-    y: 0.62
-    z: 0.62
-  }
-  type: TYPE_BOX
-  texture: "tiles/Arrow-left"
-  id: "arrow1"
-  xanchor: XANCHOR_RIGHT
-  yanchor: YANCHOR_TOP
-  parent: "prev_example"
-  inherit_alpha: true
-  size_mode: SIZE_MODE_AUTO
-}
-nodes {
-  position {
-    x: 68.79451
-  }
-  scale {
-    x: 1.64
-    y: 1.64
-  }
-  size {
-    x: 200.0
-    y: 100.0
-  }
-  type: TYPE_TEXT
-  text: "Previous"
-  font: "cardfont"
-  id: "next1"
-  pivot: PIVOT_W
-  outline {
-    x: 0.2
-    z: 0.2
-  }
-  shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-  parent: "arrow1"
-  layer: "text"
-  inherit_alpha: true
-}
-nodes {
-  position {
-    x: 3.0
-    y: -217.6129
-  }
-  scale {
-    x: 0.7
-    y: 0.7
-    z: 0.7
-  }
-  size {
-    x: 200.0
-    y: 100.0
-  }
-  color {
-    z: 0.302
-  }
-  type: TYPE_TEXT
-  text: "0/0"
-  font: "cardfont"
-  id: "demo"
-  outline {
-    x: 0.2
-    z: 0.2
-  }
-  shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-  parent: "popup_"
-  layer: "text"
-  inherit_alpha: true
-}
-nodes {
-  position {
-    y: -369.6129
-  }
-  size {
-    x: 200.0
-    y: 100.0
-  }
-  color {
-    z: 0.302
-  }
-  type: TYPE_TEXT
-  text: "ok"
-  font: "cardfont"
-  id: "ok"
-  outline {
-    x: 0.2
-    z: 0.2
-  }
-  shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-  parent: "popup_"
-  layer: "text"
-  inherit_alpha: true
-}
-nodes {
-  position {
-    x: 178.0
-    y: -54.0
+    x: 0.8
+    y: 0.8
   }
   size {
     x: 200.0
@@ -835,6 +658,208 @@ nodes {
   parent: "fxaa"
   layer: "text"
   inherit_alpha: true
+}
+nodes {
+  position {
+    y: -317.6129
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  color {
+    z: 0.302
+  }
+  type: TYPE_TEXT
+  text: "ok"
+  font: "cardfont"
+  id: "ok"
+  outline {
+    x: 0.2
+    z: 0.2
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "popup_"
+  layer: "text"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    y: 846.0
+  }
+  size {
+    x: 300.0
+    y: 120.0
+  }
+  type: TYPE_BOX
+  id: "corner"
+  xanchor: XANCHOR_LEFT
+  yanchor: YANCHOR_TOP
+  inherit_alpha: true
+  visible: false
+}
+nodes {
+  position {
+    x: 154.0
+    y: -142.0
+  }
+  size {
+    x: 300.0
+    y: 800.0
+  }
+  color {
+    x: 0.7019608
+    y: 0.7019608
+    z: 0.7019608
+  }
+  type: TYPE_BOX
+  texture: "tiles/grey_button"
+  id: "examples_popup"
+  pivot: PIVOT_N
+  parent: "corner"
+  inherit_alpha: true
+  slice9 {
+    x: 10.0
+    y: 10.0
+    z: 10.0
+    w: 10.0
+  }
+  alpha: 0.49
+}
+nodes {
+  position {
+    y: -120.0
+  }
+  size {
+    x: 280.0
+    y: 70.0
+  }
+  color {
+    x: 0.5019608
+    y: 0.5019608
+    z: 0.5019608
+  }
+  type: TYPE_BOX
+  texture: "tiles/grey_button"
+  id: "button"
+  xanchor: XANCHOR_RIGHT
+  yanchor: YANCHOR_TOP
+  parent: "examples_popup"
+  slice9 {
+    x: 10.0
+    y: 10.0
+    z: 10.0
+    w: 10.0
+  }
+}
+nodes {
+  position {
+    x: -111.68936
+  }
+  scale {
+    x: 0.6
+    y: 0.6
+  }
+  size {
+    x: 260.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "Blend material"
+  font: "cardfont"
+  id: "blabel"
+  pivot: PIVOT_W
+  outline {
+    x: 0.2
+    z: 0.2
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  line_break: true
+  parent: "button"
+  layer: "text"
+  inherit_alpha: true
+  text_leading: 0.7
+}
+nodes {
+  position {
+    x: -111.68936
+    y: -40.0
+  }
+  scale {
+    x: 0.9
+    y: 0.9
+  }
+  size {
+    x: 260.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "Examples:"
+  font: "cardfont"
+  id: "blabel1"
+  pivot: PIVOT_W
+  outline {
+    x: 0.2
+    z: 0.2
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  line_break: true
+  parent: "examples_popup"
+  layer: "text"
+  text_leading: 0.7
+}
+nodes {
+  position {
+    x: 35.199
+    y: -102.0
+  }
+  scale {
+    x: 0.62
+    y: 0.62
+    z: 0.62
+  }
+  size {
+    x: 100.0
+    y: 100.0
+  }
+  color {
+    x: 0.6
+    y: 0.6
+    z: 0.6
+  }
+  type: TYPE_BOX
+  texture: "tiles/grey_button"
+  id: "examples"
+  xanchor: XANCHOR_RIGHT
+  yanchor: YANCHOR_TOP
+  parent: "corner"
+  inherit_alpha: true
+  slice9 {
+    x: 10.0
+    y: 10.0
+    z: 10.0
+    w: 10.0
+  }
+}
+nodes {
+  type: TYPE_BOX
+  texture: "tiles/grey_triangle"
+  id: "examples_arrow"
+  parent: "examples"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
 }
 layers {
   name: "text"

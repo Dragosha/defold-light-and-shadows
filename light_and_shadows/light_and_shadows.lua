@@ -18,6 +18,9 @@ light_and_shadows.fxaa = false
 
 light_and_shadows.mix = false
 
+-- The threshold after which the shader will discard semitransparent pixels
+light_and_shadows.discard_threshold = .5
+
 -- Should near/far Z plane updated from the camera component?
 light_and_shadows.get_far_near_z_from_camera = true
 
@@ -234,6 +237,11 @@ function light_and_shadows.update_light(self)
     self.constants.v4 = v4
 
     if constants.map then self.constants.map = constants.map end
+
+    -- 
+    param.x = light_and_shadows.mix and 1 or 0 -- should we discard transparent pixels in the sprite fragment shader
+    param.y = light_and_shadows.discard_threshold
+    self.constants.param = param
 
     -- Camera focus point. Look at this point.
     cam_look_at_position.x = constants.cam_look_at_position.x

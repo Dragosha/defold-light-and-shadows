@@ -14,13 +14,22 @@ local url = msg.url()
 local popup = false
 local focus_range = .5
 
+
+
+local examples = {
+    {name = "2.5D", collection = 1},
+    {name = "2.5D + player", collection = 2},
+    {name = "Dice", collection = 3},
+    {name = "Blend material", collection = 4},
+    {name = "Fog of War", collection = 5},
+}
+
 local function text_upd(self)
     gui.set_text(gui.get_node("dof_checkbox"), self.dof and "On" or "Off")
     gui.set_text(gui.get_node("fps_checkbox"), self.fps and "On" or "Off")
     gui.set_text(gui.get_node("qlt"), light_and_shadows.shadow and "On" or "Off")
     gui.set_text(gui.get_node("up"), light_and_shadows.upscale and "On" or "Off")
     gui.set_text(gui.get_node("fxaa_checkbox"), light_and_shadows.fxaa and "On" or "Off")
-    gui.set_text(gui.get_node("demo"), "("..current_example.."/"..total..")")
     gui.set_text(gui.get_node("range"), focus_range.."")
     gui.set_enabled(gui.get_node("corner0"), self.fps)
 end
@@ -51,8 +60,8 @@ local function ui_popup(self)
     end
 end
 
-local function show(self)
-    monarch.show(hash(current_example), {clear = true, sequential = true}, nil,
+local function show(self, value)
+    monarch.show(hash(value or current_example), {clear = true, sequential = true}, nil,
         function()
             print("monarch.show cb", current_example, url, "This callback called from context:", msg.url())
             msg.post(url, "acquire_input_focus")
@@ -67,6 +76,41 @@ local function show(self)
         end)
 end
 
+local function collections(self)
+    self.collections_visible = true
+    self.buttons = {}
+    for index, value in ipairs(examples) do
+        local button = gui.clone_tree(gui.get_node("button"))
+        self.buttons[index] = button
+        gui.set(button[hash'button'], "position.y", - 120 - (index-1) * 85)
+        gui.set_text(button[hash'blabel'], value.name)
+        si.register(button[hash'button'], function(self, v)
+            for _, b in ipairs(self.buttons) do
+                gui.set_color(b[hash'button'], vmath.vector4(.5,.5,.5,1))
+            end
+            gui.set_color(button[hash'button'], vmath.vector4(1))
+            show(self, v)
+        end, value.collection)
+        -- pprint(button)
+    end
+    gui.set_enabled(gui.get_node("button"), false)
+
+    si.register("examples", function()
+        self.collections_visible = not self.collections_visible
+        if self.collections_visible then
+            gui.set(gui.get_node("examples_arrow"), "euler.z", 0)
+            gui.set_enabled(gui.get_node("examples_popup"), true)
+            gui.animate(gui.get_node("examples_popup"), "position.x", 154.0, go.EASING_OUTBACK, .15)
+        else
+            gui.set(gui.get_node("examples_arrow"), "euler.z", 180)
+            gui.animate(gui.get_node("examples_popup"), "position.x", 0.0, go.EASING_INBACK, .15, 0, function()
+                gui.set_enabled(gui.get_node("examples_popup"), false)
+            end)
+        end
+    end)
+    
+end
+
 function init(self)
 
     -- on TOP of the all GUI 
@@ -77,6 +121,7 @@ function init(self)
         si.acquire()
     end)
 
+    collections(self)
 
     -- OPEN / CLOSE POPUP
     local function pop()
@@ -92,19 +137,6 @@ function init(self)
     end})
     -- POPUP Buttons
     ui_popup(self)
-
-    si.register("next_example", function()
-        current_example = current_example + 1
-        if current_example > total then current_example = 1 end
-        show(self)
-        text_upd(self)
-    end)
-    si.register("prev_example", function()
-        current_example = current_example - 1
-        if current_example < 1 then current_example = total end
-        show(self)
-        text_upd(self)
-    end)
 
     local step = 0.1
     local min_range = 0
@@ -149,6 +181,7 @@ function init(self)
         local x, y, zoom = virtual_stick.get_aspect_ratio()
         local scale = vmath.vector3(zoom, zoom, 1)
         -- print("next", scale)
+        gui.set_scale(gui.get_node("corner"), scale)
         gui.set_scale(gui.get_node("corner0"), scale)
         gui.set_scale(gui.get_node("corner1"), scale)
         gui.set_scale(gui.get_node("popup_"), scale)

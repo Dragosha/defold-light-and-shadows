@@ -176,6 +176,18 @@ images {
 images {
   image: "/assets/images/Button.png"
 }
+images {
+  image: "/assets/images/ui/grey_arrow.png"
+}
+images {
+  image: "/assets/images/ui/grey_gear.png"
+}
+images {
+  image: "/assets/images/ui/grey_button.png"
+}
+images {
+  image: "/assets/images/ui/grey_triangle.png"
+}
 animations {
   id: "firea"
   images {

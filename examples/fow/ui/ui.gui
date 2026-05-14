@@ -29,7 +29,7 @@ nodes {
 }
 nodes {
   position {
-    x: 302.0
+    x: 270.0
   }
   size {
     x: 300.0

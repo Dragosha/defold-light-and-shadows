@@ -253,11 +253,17 @@ function update(self)
         render.set_render_target(self.main_rt.rt)
         render.clear(state.clear_buffers)
     end
+    -- Enable shadowmap texture
     if light_and_shadows.shadow then
-        render.enable_texture("tex1", self.shadowmap_buffer, graphics.BUFFER_TYPE_COLOR0_BIT) -- enable shadowmap texture
+        render.enable_texture("tex1", self.shadowmap_buffer, graphics.BUFFER_TYPE_COLOR0_BIT)
+    end
+
+    -- Enable fow texture. See Fog of War example (fow.lua) 
+    if constants.fog_of_war_handle then
+        render.enable_texture("fow", constants.fog_of_war_handle, graphics.BUFFER_TYPE_COLOR0_BIT)
     end
     --
-   
+
     -- render `model` predicate for default 3D material
     --
     render.enable_state(graphics.STATE_CULL_FACE)
@@ -269,12 +275,16 @@ function update(self)
     -- render the other components: sprites, tilemaps, particles etc
     --
     render.enable_state(graphics.STATE_BLEND)
-    render.set_depth_mask(true) -- ground sprites/tilemap for correct DepthOField effect should write to the depth buffer
+    if light_and_shadows.mix then
+        render.set_depth_mask(true) -- sprites/tilemap for correct DepthOField effect should write to the depth buffer
+    end
     render.draw(predicates.bgtile, draw_options_world)
-    render.set_depth_mask(false)
     render.draw(predicates.atile, draw_options_world)
     render.draw(predicates.tile, draw_options_world)
     render.draw(predicates.particle, draw_options_world)
+    if light_and_shadows.mix then
+        render.set_depth_mask(false)
+    end
 
     -- render model component with blend material 
     -- 
@@ -292,6 +302,9 @@ function update(self)
     -- L_S Injection
     if light_and_shadows.shadow then
         render.disable_texture("tex1")
+    end
+    if constants.fog_of_war_handle then
+        render.disable_texture("fow")
     end
     --
 

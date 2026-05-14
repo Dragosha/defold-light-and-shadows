@@ -15,7 +15,9 @@ uniform fs_uniforms
     mediump vec4 fog_color;
     mediump vec4 fog;
     highp vec4 cam_pos;
-    highp vec4 v4; 
+    highp vec4 v4;
+    highp vec4 param;
+
     // sun:
     mediump vec4 color0;
     highp vec4 light;
