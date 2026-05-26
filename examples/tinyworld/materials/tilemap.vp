@@ -3,11 +3,10 @@
 // positions are in world space
 in highp vec4 position;
 in mediump vec2 texcoord0;
-in highp vec4 color;
 
 uniform vs_uniforms
 {
-    highp mat4 world_view_proj;
+    highp mat4 view_proj;
     highp mat4 mtx_view;
     highp vec4 normal;
     highp mat4 mtx_light;
@@ -22,12 +21,12 @@ out highp vec4 var_color;
 
 void main()
 {
-    gl_Position = world_view_proj * vec4(position.xyz, 1.0);
+    gl_Position = view_proj * vec4(position.xyz, 1.0);
     var_texcoord0 = texcoord0;
     var_texcoord0_shadow = mtx_light * position;
     var_position = vec4(position.xyz, 1.0);
     var_view_position = mtx_view * position;
     var_normal = normalize(normal.xyz);
-    var_color = vec4(color.rgb * color.a, color.a);
+    var_color = vec4(1.0); // since sprite.fp shader needs the color input value, but the tilemap material doesn't have vertex attributes.
 
 }

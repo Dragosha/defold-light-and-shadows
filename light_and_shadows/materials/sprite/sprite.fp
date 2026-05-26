@@ -5,6 +5,7 @@ in highp vec3 var_normal;
 in highp vec4 var_position;
 in highp vec4 var_view_position;
 in highp vec4 var_texcoord0_shadow;
+in highp vec4 var_color;
 
 out vec4 out_fragColor;
 
@@ -18,7 +19,7 @@ void main()
 {
     // Pre-multiply alpha since all runtime textures already are
     mediump vec4 tint_pm = vec4(tint.xyz * tint.w, tint.w);
-    vec4 color = texture(tex0, var_texcoord0.xy)*tint_pm;
+    vec4 color = texture(tex0, var_texcoord0.xy) * tint_pm * var_color;
     // if(color.a < 0.1) discard;
     
 // Editor does not support Lights and Shadows previews yet, so ignore it.

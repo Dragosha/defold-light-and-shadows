@@ -447,9 +447,9 @@ instances {
   id: "bulb"
   prototype: "/light_and_shadows/props/bulb.go"
   position {
-    x: 22.0
-    y: 10.0
-    z: 22.0
+    x: 25.0
+    y: 27.0
+    z: 140.0
   }
   component_properties {
     id: "bulb"
@@ -457,6 +457,16 @@ instances {
       id: "color"
       value: "0.9, 0.7, 0.2, 1.0"
       type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "power"
+      value: "500.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "direct"
+      value: "true"
+      type: PROPERTY_TYPE_BOOLEAN
     }
     properties {
       id: "num"
@@ -689,8 +699,8 @@ instances {
   id: "boy"
   prototype: "/examples/tinyworld/props/boy.go"
   position {
-    x: 25.451057
-    z: 52.1738
+    x: 24.451057
+    z: 143.1738
   }
 }
 scale_along_z: 1
