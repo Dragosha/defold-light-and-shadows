@@ -72,3 +72,13 @@ samplers {
   filter_mag: FILTER_MODE_MAG_NEAREST
   max_anisotropy: 0.0
 }
+attributes {
+  name: "color"
+  semantic_type: SEMANTIC_TYPE_COLOR
+  double_values {
+    v: 1.0
+    v: 1.0
+    v: 1.0
+    v: 1.0
+  }
+}
