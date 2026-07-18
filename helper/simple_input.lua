@@ -17,7 +17,6 @@ end
 
 --- Convenience function to acquire input focus
 function M.acquire()
-    print("acquire_input_focus", msg.url())
     msg.post("#", "acquire_input_focus")
 end
 
@@ -37,10 +36,12 @@ function M.register(param, callback, value, click_cb, longtap_cb)
         {   url = msg.url(),
             noshake = param.noshake,
             callback = param.callback,
-            click_cb=param.click_cb,
+            click_cb = param.click_cb,
+            repeat_cb = param.repeat_cb,
+            drag_cb = param.drag_cb,
             node = node,
             scale = gui.get_scale(node),
-            value=param.value,
+            value = param.value,
             longtap_cb=param.longtap_cb }
         )
     else
@@ -118,9 +119,9 @@ function M.on_input(self, action_id, action)
                         registered.startTime=socket.gettime()
                         longtap[node]=registered
                     end
-                    if registered.click_cb then registered.click_cb(self, registered.value, node) end
+                    if registered.click_cb then registered.click_cb(self, registered.value, node, action) end
                     if not registered.noshake then shake(node, registered.scale) end
-                    self.some_is_pressed = true
+                    self.some_is_pressed = registered
                     return true, node
                 end
             end
@@ -158,6 +159,23 @@ function M.on_input(self, action_id, action)
                     end
                 end
             end
+        end
+        for _,registered in pairs(nodes_list) do
+            if registered.url == url then
+                local node = registered.node
+                if is_enabled(node) and gui.pick_node(node, action.x, action.y) and registered.pressed then
+                    if registered.repeat_cb then registered.repeat_cb(self, registered.value, node, action) end
+                    return true, node
+                end
+            end
+        end
+    end
+    if self.some_is_pressed then
+        local registered = self.some_is_pressed
+        local node = registered.node
+        if is_enabled(node) and gui.pick_node(node, action.x, action.y) and registered.pressed then
+            if registered.drag_cb then registered.drag_cb(self, registered.value, node, action) end
+            return true, node
         end
     end
     return self.some_is_pressed or false

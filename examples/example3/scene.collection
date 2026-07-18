@@ -327,8 +327,8 @@ instances {
   id: "sun"
   prototype: "/light_and_shadows/props/sun.go"
   position {
-    y: 55.0
-    z: 42.0
+    y: 93.0
+    z: 71.0
   }
   rotation {
     x: 0.37735373
@@ -544,7 +544,7 @@ embedded_instances {
   id: "lights"
   children: "bulb1"
   children: "bulb2"
-  children: "go5"
+  children: "sun_"
   data: ""
 }
 embedded_instances {
@@ -891,7 +891,7 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "go5"
+  id: "sun_"
   children: "bulb"
   children: "sun"
   data: "components {\n"

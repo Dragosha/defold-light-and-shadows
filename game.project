@@ -52,3 +52,6 @@ max_tile_count = 16384
 [collection]
 max_instances = 16384
 
+[label]
+max_count = 1024
+

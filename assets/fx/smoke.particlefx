@@ -2,9 +2,9 @@ emitters {
   mode: PLAY_MODE_LOOP
   duration: 1.0
   space: EMISSION_SPACE_WORLD
-  tile_source: "/examples/tinyworld/tiles.atlas"
+  tile_source: "/examples/fow/tiles.atlas"
   animation: "smoke"
-  material: "/examples/tinyworld/materials/billboard_particlefx_nearest.material"
+  material: "/examples/fow/materials/billboard_particlefx_nearest.material"
   particle_orientation: PARTICLE_ORIENTATION_INITIAL_DIRECTION
   max_particle_count: 64
   type: EMITTER_TYPE_CONE

@@ -1,0 +1,22 @@
+embedded_components {
+  id: "sprite"
+  type: "sprite"
+  data: "default_animation: \"boyidle\"\n"
+  "material: \"/examples/fow/materials/billboard_light_sprite_nearest.material\"\n"
+  "textures {\n"
+  "  sampler: \"tex0\"\n"
+  "  texture: \"/examples/fow/tiles.atlas\"\n"
+  "}\n"
+  "textures {\n"
+  "  sampler: \"tex1\"\n"
+  "  texture: \"/examples/fow/tiles.atlas\"\n"
+  "}\n"
+  "textures {\n"
+  "  sampler: \"fow\"\n"
+  "  texture: \"/examples/fow/tiles.atlas\"\n"
+  "}\n"
+  ""
+  position {
+    y: 9.0
+  }
+}

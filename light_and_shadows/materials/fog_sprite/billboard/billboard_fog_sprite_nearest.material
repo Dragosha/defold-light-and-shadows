@@ -1,5 +1,5 @@
 name: "billboard_sprite"
-tags: "tile"
+tags: "btile"
 vertex_program: "/light_and_shadows/materials/fog_sprite/billboard/billboard_sprite.vp"
 fragment_program: "/light_and_shadows/materials/fog_sprite/billboard/sprite.fp"
 vertex_constants {

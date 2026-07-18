@@ -1,0 +1,6 @@
+default_animation: "shadow"
+material: "/examples/fow/materials/fog_sprite_nearest.material"
+textures {
+  sampler: "texture_sampler"
+  texture: "/examples/fow/tiles.atlas"
+}

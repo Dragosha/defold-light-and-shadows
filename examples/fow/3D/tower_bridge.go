@@ -1,0 +1,15 @@
+embedded_components {
+  id: "model"
+  type: "model"
+  data: "mesh: \"/examples/fow/models/tower_bridge.gltf\"\n"
+  "name: \"unnamed\"\n"
+  "materials {\n"
+  "  name: \"material_0\"\n"
+  "  material: \"/examples/fow/materials/fog _of_ war/model_fow.material\"\n"
+  "  textures {\n"
+  "    sampler: \"tex0\"\n"
+  "    texture: \"/examples/fow/models/texture.png\"\n"
+  "  }\n"
+  "}\n"
+  ""
+}

@@ -639,6 +639,7 @@ instances {
   prototype: "/examples/tinyworld/3D/b6.go"
   position {
     x: -21.0
+    y: 1.0
     z: 217.0
   }
   scale3 {
