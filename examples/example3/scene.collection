@@ -1,118 +1,11 @@
 name: "example3"
 instances {
   id: "f"
-  prototype: "/assets/props/tiles/grig10x10.go"
+  prototype: "/assets/props/tiles/grig10x10_2.go"
   scale3 {
-    x: 5.0
-    y: 5.0
-    z: 5.0
-  }
-}
-instances {
-  id: "f1"
-  prototype: "/assets/props/tiles/grig10x10.go"
-  position {
-    x: -250.0
-  }
-  scale3 {
-    x: 5.0
-    y: 5.0
-    z: 5.0
-  }
-}
-instances {
-  id: "f2"
-  prototype: "/assets/props/tiles/grig10x10.go"
-  position {
-    x: 250.0
-  }
-  scale3 {
-    x: 5.0
-    y: 5.0
-    z: 5.0
-  }
-}
-instances {
-  id: "f6"
-  prototype: "/assets/props/tiles/grig10x10.go"
-  position {
-    z: -250.0
-  }
-  scale3 {
-    x: 5.0
-    y: 5.0
-    z: 5.0
-  }
-}
-instances {
-  id: "f7"
-  prototype: "/assets/props/tiles/grig10x10.go"
-  position {
-    x: -250.0
-    z: -250.0
-  }
-  scale3 {
-    x: 5.0
-    y: 5.0
-    z: 5.0
-  }
-}
-instances {
-  id: "f8"
-  prototype: "/assets/props/tiles/grig10x10.go"
-  position {
-    x: 250.0
-    z: -250.0
-  }
-  scale3 {
-    x: 5.0
-    y: 5.0
-    z: 5.0
-  }
-}
-instances {
-  id: "sun"
-  prototype: "/light_and_shadows/props/sun.go"
-  position {
-    y: 115.0
-  }
-  component_properties {
-    id: "sun"
-    properties {
-      id: "color"
-      value: "0.2, 0.2, 0.2, 0.0"
-      type: PROPERTY_TYPE_VECTOR4
-    }
-    properties {
-      id: "shadow"
-      value: "0.5, 0.5, 0.0, 0.0"
-      type: PROPERTY_TYPE_VECTOR4
-    }
-    properties {
-      id: "near"
-      value: "10.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "far"
-      value: "1000.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "perspective"
-      value: "true"
-      type: PROPERTY_TYPE_BOOLEAN
-    }
-    properties {
-      id: "fov"
-      value: "2.4"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "max_lights"
-      value: "0.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
+    x: 10.0
+    y: 10.0
+    z: 10.0
   }
 }
 instances {
@@ -217,6 +110,383 @@ instances {
     z: 4.0
   }
 }
+instances {
+  id: "bulb1"
+  prototype: "/light_and_shadows/props/bulb.go"
+  position {
+    y: 32.0
+    z: 62.0
+  }
+  rotation {
+    x: 0.62157404
+    w: 0.7833554
+  }
+  component_properties {
+    id: "bulb"
+    properties {
+      id: "color"
+      value: "0.0, 0.0, 3.0, 1.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "power"
+      value: "1000.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "direct"
+      value: "true"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "angle"
+      value: "30.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "smoothness"
+      value: "0.1"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "num"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+}
+instances {
+  id: "bulb2"
+  prototype: "/light_and_shadows/props/bulb.go"
+  position {
+    x: 64.0
+    y: 32.0
+    z: 11.0
+  }
+  rotation {
+    x: 0.52909213
+    y: 0.41112044
+    z: -0.3262144
+    w: 0.6668026
+  }
+  component_properties {
+    id: "bulb"
+    properties {
+      id: "color"
+      value: "2.0, 0.0, 0.0, 1.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "power"
+      value: "1000.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "light_on"
+      value: "false"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "direct"
+      value: "true"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "angle"
+      value: "30.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "smoothness"
+      value: "0.1"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "num"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+}
+instances {
+  id: "bulb3"
+  prototype: "/light_and_shadows/props/bulb.go"
+  component_properties {
+    id: "bulb"
+    properties {
+      id: "color"
+      value: "2.0, 1.0, 0.0, 1.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "power"
+      value: "1000.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "static"
+      value: "false"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "direct"
+      value: "false"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "angle"
+      value: "30.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "smoothness"
+      value: "0.1"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "static_spot"
+      value: "false"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "num"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 0.25
+  }
+}
+instances {
+  id: "bulb"
+  prototype: "/light_and_shadows/props/bulb.go"
+  position {
+    y: 56.0
+    z: 43.0
+  }
+  rotation {
+    x: 0.37109774
+    w: 0.9285938
+  }
+  component_properties {
+    id: "bulb"
+    properties {
+      id: "color"
+      value: "1.0, 1.0, 0.0, 1.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "power"
+      value: "1000.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "light_on"
+      value: "true"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "static"
+      value: "false"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "direct"
+      value: "true"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "angle"
+      value: "40.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "smoothness"
+      value: "0.1"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "static_spot"
+      value: "false"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "num"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.027257
+  }
+}
+instances {
+  id: "sun"
+  prototype: "/light_and_shadows/props/sun.go"
+  position {
+    y: 55.0
+    z: 42.0
+  }
+  rotation {
+    x: 0.37735373
+    w: 0.9260692
+  }
+  component_properties {
+    id: "sun"
+    properties {
+      id: "color"
+      value: "0.0, 0.0, 0.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "shadow"
+      value: "0.4, 0.4, 0.2, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "near"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "far"
+      value: "1000.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "PROJECTION_RESOLUTION"
+      value: "1000.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "perspective"
+      value: "true"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "fov"
+      value: "2.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "static"
+      value: "false"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "depth_bias"
+      value: "1.0E-4"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+}
+instances {
+  id: "bulb4"
+  prototype: "/light_and_shadows/props/bulb.go"
+  component_properties {
+    id: "bulb"
+    properties {
+      id: "color"
+      value: "0.0, 1.0, 2.0, 1.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "power"
+      value: "1000.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "static"
+      value: "false"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "direct"
+      value: "false"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "angle"
+      value: "30.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "smoothness"
+      value: "0.1"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "static_spot"
+      value: "false"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "num"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 0.25
+  }
+}
+instances {
+  id: "bulb5"
+  prototype: "/light_and_shadows/props/bulb.go"
+  component_properties {
+    id: "bulb"
+    properties {
+      id: "color"
+      value: "2.0, 0.0, 0.0, 1.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "power"
+      value: "1000.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "static"
+      value: "false"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "direct"
+      value: "false"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "angle"
+      value: "30.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "smoothness"
+      value: "0.1"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "static_spot"
+      value: "false"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "num"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 0.25
+  }
+}
 scale_along_z: 1
 embedded_instances {
   id: "root"
@@ -225,12 +495,12 @@ embedded_instances {
   "  component: \"/light_and_shadows/light_setting.script\"\n"
   "  properties {\n"
   "    id: \"clear_color\"\n"
-  "    value: \"0.8, 0.8, 0.8, 0.0\"\n"
+  "    value: \"0.1, 0.1, 0.15, 0.0\"\n"
   "    type: PROPERTY_TYPE_VECTOR4\n"
   "  }\n"
   "  properties {\n"
   "    id: \"fog_color\"\n"
-  "    value: \"0.8, 0.8, 0.8, 0.0\"\n"
+  "    value: \"0.1, 0.1, 0.15, 0.0\"\n"
   "    type: PROPERTY_TYPE_VECTOR4\n"
   "  }\n"
   "  properties {\n"
@@ -240,17 +510,17 @@ embedded_instances {
   "  }\n"
   "  properties {\n"
   "    id: \"fog_min_max\"\n"
-  "    value: \"10.0, 180.0, 1.0, 1.0\"\n"
+  "    value: \"200.0, 2000.0, 1.0, 1.0\"\n"
   "    type: PROPERTY_TYPE_VECTOR4\n"
   "  }\n"
   "  properties {\n"
   "    id: \"ambient\"\n"
-  "    value: \"0.8, 0.8, 0.8, 0.0\"\n"
+  "    value: \"0.1, 0.1, 0.1, 0.0\"\n"
   "    type: PROPERTY_TYPE_VECTOR4\n"
   "  }\n"
   "  properties {\n"
   "    id: \"color_max\"\n"
-  "    value: \"1.1\"\n"
+  "    value: \"1.3\"\n"
   "    type: PROPERTY_TYPE_NUMBER\n"
   "  }\n"
   "  properties {\n"
@@ -268,16 +538,13 @@ embedded_instances {
 embedded_instances {
   id: "ground"
   children: "f"
-  children: "f1"
-  children: "f2"
-  children: "f6"
-  children: "f7"
-  children: "f8"
   data: ""
 }
 embedded_instances {
   id: "lights"
-  children: "sun"
+  children: "bulb1"
+  children: "bulb2"
+  children: "go5"
   data: ""
 }
 embedded_instances {
@@ -304,6 +571,8 @@ embedded_instances {
   children: "go2"
   children: "go3"
   children: "go4"
+  children: "go6"
+  children: "go7"
   data: ""
 }
 embedded_instances {
@@ -333,7 +602,7 @@ embedded_instances {
   "}\n"
   ""
   position {
-    z: 100.0
+    z: 150.0
   }
 }
 embedded_instances {
@@ -344,11 +613,6 @@ embedded_instances {
   "  data: \"size {\\n"
   "  x: 300.0\\n"
   "  y: 32.0\\n"
-  "}\\n"
-  "color {\\n"
-  "  x: 0.6\\n"
-  "  y: 0.8\\n"
-  "  z: 0.6\\n"
   "}\\n"
   "line_break: true\\n"
   "text: \\\"hello\\\"\\n"
@@ -558,6 +822,7 @@ embedded_instances {
 }
 embedded_instances {
   id: "go4"
+  children: "bulb3"
   data: "embedded_components {\n"
   "  id: \"collisionobject\"\n"
   "  type: \"collisionobject\"\n"
@@ -595,7 +860,7 @@ embedded_instances {
   "name: \\\"{{NAME}}\\\"\\n"
   "materials {\\n"
   "  name: \\\"Material\\\"\\n"
-  "  material: \\\"/light_and_shadows/materials/model/blend/model_blend.material\\\"\\n"
+  "  material: \\\"/light_and_shadows/materials/model/blend_emissive/model_blend_emissive.material\\\"\\n"
   "  textures {\\n"
   "    sampler: \\\"tex0\\\"\\n"
   "    texture: \\\"/assets/dice/dice.png\\\"\\n"
@@ -606,17 +871,183 @@ embedded_instances {
   "      v: 2.0\\n"
   "      v: 1.0\\n"
   "      v: 0.0\\n"
-  "      v: 0.75\\n"
+  "      v: 1.0\\n"
   "    }\\n"
   "  }\\n"
   "}\\n"
+  "create_go_bones: false\\n"
   "\"\n"
   "}\n"
   ""
   position {
-    x: -16.0
-    y: 21.0
+    x: -71.0
+    y: 44.0
     z: 6.0
+  }
+  scale3 {
+    x: 4.0
+    y: 4.0
+    z: 4.0
+  }
+}
+embedded_instances {
+  id: "go5"
+  children: "bulb"
+  children: "sun"
+  data: "components {\n"
+  "  id: \"moving\"\n"
+  "  component: \"/helper/moving.script\"\n"
+  "  properties {\n"
+  "    id: \"value\"\n"
+  "    value: \"360.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"time\"\n"
+  "    value: \"10.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"prop\"\n"
+  "    value: \"euler.y\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "}\n"
+  ""
+}
+embedded_instances {
+  id: "go6"
+  children: "bulb4"
+  data: "embedded_components {\n"
+  "  id: \"collisionobject\"\n"
+  "  type: \"collisionobject\"\n"
+  "  data: \"type: COLLISION_OBJECT_TYPE_DYNAMIC\\n"
+  "mass: 1.0\\n"
+  "friction: 0.5\\n"
+  "restitution: 0.5\\n"
+  "group: \\\"unit\\\"\\n"
+  "mask: \\\"default\\\"\\n"
+  "mask: \\\"unit\\\"\\n"
+  "embedded_collision_shape {\\n"
+  "  shapes {\\n"
+  "    shape_type: TYPE_BOX\\n"
+  "    position {\\n"
+  "    }\\n"
+  "    rotation {\\n"
+  "    }\\n"
+  "    index: 0\\n"
+  "    count: 3\\n"
+  "  }\\n"
+  "  data: 1.0\\n"
+  "  data: 1.0\\n"
+  "  data: 1.0\\n"
+  "}\\n"
+  "linear_damping: 0.8\\n"
+  "angular_damping: 0.8\\n"
+  "event_contact: false\\n"
+  "event_trigger: false\\n"
+  "\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"model\"\n"
+  "  type: \"model\"\n"
+  "  data: \"mesh: \\\"/assets/dice/die.glb\\\"\\n"
+  "name: \\\"{{NAME}}\\\"\\n"
+  "materials {\\n"
+  "  name: \\\"Material\\\"\\n"
+  "  material: \\\"/light_and_shadows/materials/model/blend_emissive/model_blend_emissive.material\\\"\\n"
+  "  textures {\\n"
+  "    sampler: \\\"tex0\\\"\\n"
+  "    texture: \\\"/assets/dice/dice.png\\\"\\n"
+  "  }\\n"
+  "  attributes {\\n"
+  "    name: \\\"tintcolor\\\"\\n"
+  "    double_values {\\n"
+  "      v: 0.0\\n"
+  "      v: 1.0\\n"
+  "      v: 2.0\\n"
+  "      v: 1.0\\n"
+  "    }\\n"
+  "  }\\n"
+  "}\\n"
+  "create_go_bones: false\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: 75.0
+    y: 58.0
+    z: 6.0
+  }
+  scale3 {
+    x: 4.0
+    y: 4.0
+    z: 4.0
+  }
+}
+embedded_instances {
+  id: "go7"
+  children: "bulb5"
+  data: "embedded_components {\n"
+  "  id: \"collisionobject\"\n"
+  "  type: \"collisionobject\"\n"
+  "  data: \"type: COLLISION_OBJECT_TYPE_DYNAMIC\\n"
+  "mass: 1.0\\n"
+  "friction: 0.5\\n"
+  "restitution: 0.5\\n"
+  "group: \\\"unit\\\"\\n"
+  "mask: \\\"default\\\"\\n"
+  "mask: \\\"unit\\\"\\n"
+  "embedded_collision_shape {\\n"
+  "  shapes {\\n"
+  "    shape_type: TYPE_BOX\\n"
+  "    position {\\n"
+  "    }\\n"
+  "    rotation {\\n"
+  "    }\\n"
+  "    index: 0\\n"
+  "    count: 3\\n"
+  "  }\\n"
+  "  data: 1.0\\n"
+  "  data: 1.0\\n"
+  "  data: 1.0\\n"
+  "}\\n"
+  "linear_damping: 0.8\\n"
+  "angular_damping: 0.8\\n"
+  "event_contact: false\\n"
+  "event_trigger: false\\n"
+  "\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"model\"\n"
+  "  type: \"model\"\n"
+  "  data: \"mesh: \\\"/assets/dice/die.glb\\\"\\n"
+  "name: \\\"{{NAME}}\\\"\\n"
+  "materials {\\n"
+  "  name: \\\"Material\\\"\\n"
+  "  material: \\\"/light_and_shadows/materials/model/blend_emissive/model_blend_emissive.material\\\"\\n"
+  "  textures {\\n"
+  "    sampler: \\\"tex0\\\"\\n"
+  "    texture: \\\"/assets/dice/dice.png\\\"\\n"
+  "  }\\n"
+  "  attributes {\\n"
+  "    name: \\\"tintcolor\\\"\\n"
+  "    double_values {\\n"
+  "      v: 2.0\\n"
+  "      v: 0.0\\n"
+  "      v: 0.0\\n"
+  "      v: 0.75\\n"
+  "    }\\n"
+  "  }\\n"
+  "}\\n"
+  "create_go_bones: false\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: -5.0
+    y: 46.0
+    z: -76.0
   }
   scale3 {
     x: 4.0

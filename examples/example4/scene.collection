@@ -225,8 +225,8 @@ embedded_instances {
   "}\n"
   ""
   position {
-    x: -46.29883
-    z: 8.737385
+    x: -51.29883
+    z: -4.262615
   }
   rotation {
     y: -0.8883378
@@ -400,18 +400,27 @@ embedded_instances {
   "}\\n"
   "materials {\\n"
   "  name: \\\"blend\\\"\\n"
-  "  material: \\\"/examples/example4/model_tint_blend_yellow.material\\\"\\n"
+  "  material: \\\"/light_and_shadows/materials/model/blend_emissive/model_blend_emissive.material\\\"\\n"
   "  textures {\\n"
   "    sampler: \\\"tex0\\\"\\n"
   "    texture: \\\"/assets/models/gltf/Atlas.png\\\"\\n"
+  "  }\\n"
+  "  attributes {\\n"
+  "    name: \\\"tintcolor\\\"\\n"
+  "    double_values {\\n"
+  "      v: 1.0\\n"
+  "      v: 1.0\\n"
+  "      v: 1.0\\n"
+  "      v: 0.75\\n"
+  "    }\\n"
   "  }\\n"
   "}\\n"
   "\"\n"
   "}\n"
   ""
   position {
-    x: -58.50185
-    z: -6.23483
+    x: -72.50185
+    z: -20.23483
   }
   rotation {
     y: 0.42366576
@@ -428,8 +437,8 @@ embedded_instances {
   children: "camera"
   data: ""
   rotation {
-    x: -0.13052619
-    w: 0.9914449
+    x: -0.25881904
+    w: 0.9659258
   }
 }
 embedded_instances {
@@ -446,7 +455,7 @@ embedded_instances {
   "}\n"
   ""
   position {
-    z: 300.0
+    z: 400.0
   }
 }
 embedded_instances {

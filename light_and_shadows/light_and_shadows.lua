@@ -48,6 +48,8 @@ function light_and_shadows.dof(enable, options)
     end
 
 end
+-- Dof focus position (focus.z)
+light_and_shadows.focus = vmath.vector4(0, 0, 1.5, 0)
 
 -- DEBUG
 -- light_and_shadows.dof(true, {
@@ -210,7 +212,12 @@ function light_and_shadows.update_light(self)
     if light_and_shadows.shadow then
         if is_ortho_proj then
             local pos_light = constants.cam_look_at_position + sun
-            self.light_transform = vmath.matrix4_look_at(pos_light, constants.cam_look_at_position, top)
+            if pos_light.x == 0 and pos_light.z == 0 then
+                pos_light.x = 0.001
+                self.light_transform = vmath.matrix4_look_at(pos_light, constants.cam_look_at_position, top)
+            else
+                self.light_transform = vmath.matrix4_look_at(pos_light, constants.cam_look_at_position, top)
+            end
         else
             self.light_transform = vmath.matrix4_look_at(sun, sun + constants.sun_dir, top)
         end
@@ -240,6 +247,10 @@ function light_and_shadows.update_light(self)
     self.constants.cam_look_at_position = cam_look_at_position
 end
 
+light_and_shadows.polygon_offset = {
+    factor = 2.0,
+    units = 4.0
+}
 local clear_buffers = {[graphics.BUFFER_TYPE_COLOR0_BIT] = vmath.vector4(1, 1, 1, 1), [graphics.BUFFER_TYPE_DEPTH_BIT] = 1}
 function light_and_shadows.render_shadows(self)
 
@@ -253,6 +264,14 @@ function light_and_shadows.render_shadows(self)
     render.enable_state(graphics.STATE_DEPTH_TEST)
     render.disable_state(graphics.STATE_BLEND)
     render.disable_state(graphics.STATE_CULL_FACE)
+
+    -- Caster-side bias. Increase these values to reduce remaining shadow acne,
+    -- but reduce them if shadows visibly detach from their casters.
+    render.enable_state(graphics.STATE_POLYGON_OFFSET_FILL)
+    render.set_polygon_offset(
+        light_and_shadows.polygon_offset.factor,
+        light_and_shadows.polygon_offset.units
+    )
 
     -- Set render target to shadowmap
     render.set_render_target(self.shadowmap_buffer, { transient = {graphics.BUFFER_TYPE_DEPTH_BIT} })
@@ -290,6 +309,10 @@ function light_and_shadows.render_shadows(self)
     render.enable_material("shadow_skinned")
     render.draw(self.predicates.shadow_skinned, options)
     render.disable_material()
+
+    render.set_polygon_offset(0.0, 0.0)
+    render.disable_state(graphics.STATE_POLYGON_OFFSET_FILL)
+
     -- Reset render target
     render.set_render_target(render.RENDER_TARGET_DEFAULT)
 end
@@ -300,6 +323,7 @@ light_and_shadows.zoom = 1
 local resolution = vmath.vector4()
 local main_rt_resolution = vmath.vector4()
 local dof = vmath.vector4()
+
 function light_and_shadows.update(self)
     light_and_shadows.update_light(self)
     if light_and_shadows.shadow then
@@ -342,6 +366,7 @@ function light_and_shadows.update(self)
         dof.z = constants.cam_z
         dof.w = constants.focus_range
         self.constants.dof  = dof
+        self.constants.focus = light_and_shadows.focus
         -- local coef = dof.z / ((dof.y - dof.x));
         -- print(self.constants.dof, coef)
 

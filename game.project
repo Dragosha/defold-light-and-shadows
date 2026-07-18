@@ -12,7 +12,7 @@ high_dpi = 1
 
 [project]
 title = Light and Shadows
-version = 0.88
+version = 0.9
 developer = Igor Suntsev
 dependencies#0 = https://github.com/britzl/defold-input/archive/master.zip
 dependencies#1 = https://github.com/britzl/monarch/archive/refs/tags/6.0.1.zip

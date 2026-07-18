@@ -214,18 +214,18 @@ vec3 phong_light(vec3 light_color, float power, vec3 light_position, vec3 positi
 }
 
 // SUN! DIRECT LIGHT
-vec3 direct_light(vec3 light_color, vec3 light_position, vec3 position, vec3 vnormal, vec3 minus_color)
+vec3 direct_light(vec3 light_color, vec3 light_position, vec3 position, vec3 vnormal)
 {
     vec3 dist = light_position;
     vec3 direction = normalize(dist);
     float n = max(dot(vnormal, direction), 0.0);
-    vec3 diffuse = (light_color - minus_color) * n;
+    vec3 diffuse = (light_color) * n;
     return diffuse;
 }
 
 
 // Diffuse light calculations
-vec3 diffuse_light(vec3 ambient)
+vec3 diffuse_light()
 {
     vec3 diff_light = vec3(ambient.xyz);
     // don't calculate lights in Editor
@@ -250,8 +250,24 @@ vec3 diffuse_light(vec3 ambient)
             // diff_light += phong_light(colors[i].xyz, power, lights[i].xyz, var_position.xyz, var_normal, 0.2, view_dir);
         }
     }
-#endif
-#endif
+#endif //USE_DIFFUSE_LIGHT
+
+    // Shadow map
+    vec3 minus_color = vec3(1.);
+    if(shadow_color.w > 0.) // on
+    {
+        vec4 depth_proj = var_texcoord0_shadow / var_texcoord0_shadow.w;
+        float shadow = shadow_calculation(depth_proj.xyzw);
+        minus_color -= shadow_color.xyz * shadow;
+    };
+
+    // Direct light * shadow
+    diff_light += direct_light(color0.xyz, light.xyz, var_position.xyz, var_normal);
+    diff_light = clamp(diff_light, 0.0, ambient.w);
+    diff_light *= minus_color;
+
+#endif //EDITOR
+
     return diff_light;
 }
 

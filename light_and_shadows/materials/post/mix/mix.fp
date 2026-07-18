@@ -8,6 +8,7 @@ uniform mediump sampler2D depth;
 uniform fs_uniforms
 {
     highp vec4 dof;
+    highp vec4 focus;
 };
 
 out vec4 out_fragColor;
@@ -30,10 +31,11 @@ void main()
     float d = (2.0 * near_z) / (far_z + near_z - z * (far_z - near_z));
 
     // Circle of Confusion
-    float focus_distance = coef * 1.75;
+    float focus_distance = coef * focus.z;
     float focus_range = coef * _focus_range;
     float coc = (d - focus_distance) / focus_range;
     coc = abs(clamp(coc, -1, 1));
+    // coc = pow(abs((var_texcoord0.y-.5)*2.), 2.);
     
     // d =  abs(d*d -.5) * 2. - coef;
 

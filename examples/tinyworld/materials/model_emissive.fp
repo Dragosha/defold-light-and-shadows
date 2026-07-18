@@ -28,27 +28,15 @@ void main()
     out_fragColor = color;
 #else 
     // Diffuse light calculations
-    vec3 diff_light = diffuse_light(ambient.xyz);
-
-    // Shadow map
-    vec3 minus_color = vec3(0.);
-    if(shadow_color.w > 0.) // on
-    {
-        vec4 depth_proj = var_texcoord0_shadow / var_texcoord0_shadow.w;
-        float shadow = shadow_calculation(depth_proj.xyzw);
-        minus_color = shadow_color.xyz * shadow;
-    };
-
-    // Direct light minus shadow
-    diff_light += direct_light(color0.xyz, light.xyz, var_position.xyz, var_normal, minus_color);
-    diff_light = clamp(diff_light, 0.0, ambient.w);
-
+    vec3 frag_color  = color.rgb;
     if(color.a < 1.0)
     { 
         // SELF EMISSIVE if alfa < 1.0
-        diff_light = vec3(1.0);
-    };
-    vec3 frag_color  = color.rgb * diff_light;
+        // do nothing
+    }
+    else{
+        frag_color *= diffuse_light();
+    }
 
     // Add the fog
     frag_color = add_fog(frag_color, var_view_position.z, fog.x, fog.y, fog_color.rgb*color.a, fog_color.a);
