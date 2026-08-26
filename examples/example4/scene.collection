@@ -437,8 +437,8 @@ embedded_instances {
   children: "camera"
   data: ""
   rotation {
-    x: -0.25881904
-    w: 0.9659258
+    x: -0.27563736
+    w: 0.9612617
   }
 }
 embedded_instances {
@@ -449,13 +449,13 @@ embedded_instances {
   "  data: \"aspect_ratio: 1.0\\n"
   "fov: 0.5\\n"
   "near_z: 10.0\\n"
-  "far_z: 1000.0\\n"
+  "far_z: 3000.0\\n"
   "auto_aspect_ratio: 1\\n"
   "\"\n"
   "}\n"
   ""
   position {
-    z: 400.0
+    z: 700.0
   }
 }
 embedded_instances {
@@ -582,5 +582,65 @@ embedded_instances {
     x: 10.0
     y: 10.0
     z: 10.0
+  }
+}
+embedded_instances {
+  id: "skybox"
+  data: "embedded_components {\n"
+  "  id: \"model\"\n"
+  "  type: \"model\"\n"
+  "  data: \"mesh: \\\"/builtins/assets/gltf/cube.gltf\\\"\\n"
+  "name: \\\"{{NAME}}\\\"\\n"
+  "materials {\\n"
+  "  name: \\\"default\\\"\\n"
+  "  material: \\\"/light_and_shadows/materials/skybox/skybox.material\\\"\\n"
+  "  textures {\\n"
+  "    sampler: \\\"cubemap\\\"\\n"
+  "    texture: \\\"/assets/skybox/skybox.cubemap\\\"\\n"
+  "  }\\n"
+  "}\\n"
+  "create_go_bones: false\\n"
+  "\"\n"
+  "}\n"
+  ""
+}
+embedded_instances {
+  id: "model5"
+  data: "embedded_components {\n"
+  "  id: \"model\"\n"
+  "  type: \"model\"\n"
+  "  data: \"mesh: \\\"/assets/models/gltf/tower2.glb\\\"\\n"
+  "name: \\\"{{NAME}}\\\"\\n"
+  "materials {\\n"
+  "  name: \\\"Material.001\\\"\\n"
+  "  material: \\\"/light_and_shadows/materials/model/model_local.material\\\"\\n"
+  "  textures {\\n"
+  "    sampler: \\\"tex0\\\"\\n"
+  "    texture: \\\"/assets/models/gltf/Atlas.png\\\"\\n"
+  "  }\\n"
+  "}\\n"
+  "materials {\\n"
+  "  name: \\\"blend\\\"\\n"
+  "  material: \\\"/examples/example4/model_alpha_blend.material\\\"\\n"
+  "  textures {\\n"
+  "    sampler: \\\"tex0\\\"\\n"
+  "    texture: \\\"/assets/models/gltf/Atlas.png\\\"\\n"
+  "  }\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: 129.49503
+    z: 6.357498
+  }
+  rotation {
+    y: -0.5212685
+    w: 0.8533928
+  }
+  scale3 {
+    x: 5.0
+    y: 5.0
+    z: 5.0
   }
 }

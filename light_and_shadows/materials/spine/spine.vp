@@ -3,7 +3,8 @@
 // positions are in world space
 in highp vec4 position;
 in mediump vec2 texcoord0;
-in highp vec4 color;
+in mediump vec4 color;
+in mediump vec3 darkcolor;
 
 uniform vs_uniforms
 {
@@ -18,7 +19,8 @@ out highp vec4 var_position;
 out highp vec4 var_view_position;
 out highp vec3 var_normal;
 out highp vec4 var_texcoord0_shadow;
-out highp vec4 var_color;
+out mediump vec4 var_color;
+out mediump vec3 var_darkcolor;
 
 void main()
 {
@@ -29,5 +31,6 @@ void main()
     var_view_position = mtx_view * position;
     var_normal = normalize(normal.xyz);
     var_color = vec4(color.rgb * color.a, color.a);
+    var_darkcolor = darkcolor * color.a;
 
 }

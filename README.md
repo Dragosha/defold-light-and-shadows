@@ -58,11 +58,8 @@ Open your game.project file and in the dependencies field under project add:
 
 ### Fog of war
 
-An example with the *fog of war shader* and the *a-star* module for finding a character's path is in a [separate branch](https://github.com/Dragosha/defold-light-and-shadows/tree/fog_of_war) of this repository.
-
 ![fog of war](assets/docs/fow.png)
 
-> This example also has its own demo. **[HTML5 demo](https://dragosha.com/defold/fow/)** 
 
 ---
 
@@ -408,3 +405,4 @@ If you're new to Defold, notice how the coin collection example works, how the s
 
 * Textures by Dragosha (https://dragosha.com/adventure-tileset/)
 * `ludobits`, `monarch`, `defold-input` by Björn Ritzl
+* Skybox by Paul (https://sketchfab.com/3d-models/free-skybox-in-the-cloud-b270497defe24f9cb497b9a075eeb28f)

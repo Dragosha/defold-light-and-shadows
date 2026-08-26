@@ -1,0 +1,6 @@
+right: "/assets/skybox/gray_clouds/_px.png"
+left: "/assets/skybox/gray_clouds/_nx.png"
+top: "/assets/skybox/gray_clouds/_py.png"
+bottom: "/assets/skybox/gray_clouds/_ny.png"
+front: "/assets/skybox/gray_clouds/_pz.png"
+back: "/assets/skybox/gray_clouds/_nz.png"

@@ -176,7 +176,7 @@ local constants = require "light_and_shadows.constants"
 
 function init(self)
     self.predicates = create_predicates("tile", "gui", "particle", "model", "debug_text",
-    "model_alpha_blend", "bgtile", "shadow_instanced_billboard", "shadow_instanced_textured", "model2", "model3",
+    "model_alpha_blend", "bgtile", "shadow_instanced_billboard", "shadow_instanced_textured", "model2", "model3", "skybox",
     "atile", "btile", "shadow", "upscale", "shadow_local", "shadow_instanced", "shadow_skinned_instanced", "shadow_skinned") -- L_S Injection
 
     -- default is stretch projection. copy from builtins and change for different projection
@@ -311,6 +311,21 @@ function update(self)
         render.disable_texture("fow")
     end
     --
+
+    -- render the skybox --
+    if light_and_shadows.skybox then
+        render.enable_state(graphics.STATE_DEPTH_TEST)
+        render.set_depth_func(graphics.COMPARE_FUNC_LEQUAL)
+        render.enable_state(graphics.STATE_CULL_FACE)
+        render.set_cull_face(graphics.FACE_TYPE_FRONT)
+        render.set_camera(cam) -- call this again without a 2nd arg to disable frustum culling for the skybox
+        render.draw(predicates.skybox)
+        render.set_depth_func(graphics.COMPARE_FUNC_LESS)
+        render.set_cull_face(graphics.FACE_TYPE_BACK)
+        render.disable_state(graphics.STATE_CULL_FACE)
+        render.disable_state(graphics.STATE_DEPTH_TEST)
+    end
+
 
     render.draw_debug3d()
 

@@ -2,7 +2,7 @@ name: "sprite"
 tags: "tile"
 tags: "shadow"
 vertex_program: "/light_and_shadows/materials/spine/spine.vp"
-fragment_program: "/light_and_shadows/materials/sprite/sprite.fp"
+fragment_program: "/light_and_shadows/materials/spine/spine.fp"
 vertex_constants {
   name: "mtx_view"
   type: CONSTANT_TYPE_VIEW

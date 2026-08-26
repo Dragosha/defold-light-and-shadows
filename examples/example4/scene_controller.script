@@ -2,6 +2,7 @@ local triggers  = require "in.triggers"
 local light     = require 'light_and_shadows.light'
 local common    = require 'helper.common'
 local broadcast = require 'helper.broadcast'
+local light_and_shadows = require 'light_and_shadows.light_and_shadows'
 
 go.property("camera_go_id", msg.url("camera"))
 go.property("camera_id", msg.url("camera#camera"))
@@ -32,9 +33,12 @@ function init(self)
     broadcast.register("WINDOW_RESIZED", resize)
     resize()
 
+    light_and_shadows.skybox = true
+
 end
 
 function final(self)
+    light_and_shadows.skybox = false
     broadcast.unregister_all()
     msg.post(".", "release_input_focus")
 end
@@ -143,7 +147,7 @@ local left     = hash("touch")
 local TOUCH_MULTI = hash("touch_multi")
 local TOUCH = hash("touch")
 local function pinch_on_input(self, action_id, action)
-    local ret = true
+    local ret = false
     -- Multi? (iOS sends it always, Android too?)
     if action_id==TOUCH_MULTI then
         for i, v in ipairs(action.touch) do
@@ -153,9 +157,11 @@ local function pinch_on_input(self, action_id, action)
                 self.p2 = vmath.vector3(v.x, v.y, 0)
             end
         end
+        ret = true
     -- Single touch (or the first of multi touch + mouse left button)
     elseif action_id==TOUCH and not action.touch then
         self.translate = vmath.vector3(action.x, action.y, 0)
+        ret = true
     end
 
     return ret
@@ -168,9 +174,19 @@ function on_input(self, action_id, action)
     -- Multi and single touch handler. Camera movement (mouse + touch) 
     if pinch_on_input(self, action_id, action) then return end
 
-    if action_id == hash"mouse_button_right" and action.pressed then
-        go.set("girl", "position.y", 0)
-        go.animate("girl", "position.y", go.PLAYBACK_ONCE_PINGPONG, 20, go.EASING_OUTSINE, .5)
+    if action_id == hash"mouse_button_right" then
+        -- go.set("girl", "position.y", 0)
+        -- go.animate("girl", "position.y", go.PLAYBACK_ONCE_PINGPONG, 20, go.EASING_OUTSINE, .5)
+         local angle = go.get(self.cam_look_at, "euler")
+        -- go.cancel_animations(self.cam, "euler")
+
+        local dx = action.dx
+        local dy = action.dy
+
+        -- Y-axis
+        -- if (angle.y > camlimits.ey.min and action.dx > 0) or (angle.y < camlimits.ey.max and action.dx < 0) then 
+        go.set(self.cam_look_at, "euler.y", angle.y - action.dx * 0.15)
+        go.set(self.cam_look_at, "euler.x", angle.x - action.dy * 0.15)
     end
 
 end
