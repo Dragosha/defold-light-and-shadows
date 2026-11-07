@@ -11,16 +11,11 @@ in highp vec3 normal;
 
 // When 'mtx_world' and 'mtx_normal' is specified as attributes,
 // instanced rendering is automatically triggered.
-#ifndef EDITOR
 in highp mat4 mtx_world;
 in highp mat4 mtx_normal;
-#endif
 
 uniform vs_uniforms
 {
-    #ifdef EDITOR
-    highp mat4 mtx_world;
-    #endif
     highp mat4 mtx_view;
     highp mat4 mtx_proj;
 };

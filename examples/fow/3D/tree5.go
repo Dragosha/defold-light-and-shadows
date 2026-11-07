@@ -5,11 +5,12 @@ embedded_components {
   "name: \"unnamed\"\n"
   "materials {\n"
   "  name: \"material_0\"\n"
-  "  material: \"/examples/fow/materials/model_instanced_nearest.material\"\n"
+  "  material: \"/examples/fow/materials/fog _of_ war/model_fow.material\"\n"
   "  textures {\n"
   "    sampler: \"tex0\"\n"
   "    texture: \"/examples/fow/models/texture.png\"\n"
   "  }\n"
   "}\n"
+  "create_go_bones: false\n"
   ""
 }

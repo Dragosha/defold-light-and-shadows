@@ -1,6 +1,6 @@
 name: "sprite"
 tags: "bgtile"
-vertex_program: "/light_and_shadows/materials/sprite/sprite.vp"
+vertex_program: "/examples/fow/materials/tilemap.vp"
 fragment_program: "/examples/fow/materials/fog _of_ war/model_fow.fp"
 vertex_constants {
   name: "view_proj"

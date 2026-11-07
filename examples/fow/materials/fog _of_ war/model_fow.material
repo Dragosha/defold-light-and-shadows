@@ -1,7 +1,7 @@
 name: "model_instanced"
 tags: "model"
 tags: "shadow_instanced_textured"
-vertex_program: "/examples/fow/materials/fog _of_ war/model_fow.vp"
+vertex_program: "/light_and_shadows/materials/model/model_instanced.vp"
 fragment_program: "/examples/fow/materials/fog _of_ war/model_fow.fp"
 vertex_space: VERTEX_SPACE_LOCAL
 vertex_constants {
@@ -11,10 +11,6 @@ vertex_constants {
 vertex_constants {
   name: "mtx_proj"
   type: CONSTANT_TYPE_PROJECTION
-}
-vertex_constants {
-  name: "mtx_world"
-  type: CONSTANT_TYPE_WORLD
 }
 fragment_constants {
   name: "tint"
